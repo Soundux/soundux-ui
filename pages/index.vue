@@ -92,11 +92,6 @@
         </v-list>
       </v-tab-item>
     </v-tabs-items>
-
-    <v-card-actions>
-      <v-spacer />
-      <v-btn color="primary" nuxt to="/inspire"> Continue</v-btn>
-    </v-card-actions>
   </div>
 </template>
 
