@@ -1,8 +1,17 @@
 import colors from 'vuetify/es5/util/colors';
+import { NuxtConfig } from '@nuxt/types';
 
-export default {
+// Define your configuration with auto-completion & type checking
+const config: NuxtConfig = {
   // Disable telemetry (https://github.com/nuxt/telemetry#opting-out)
   telemetry: false,
+
+  target: 'static',
+  ssr: false,
+  loading: false,
+  router: {
+    base: '/',
+  },
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
@@ -58,3 +67,5 @@ export default {
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
 };
+
+export default config;
