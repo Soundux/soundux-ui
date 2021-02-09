@@ -31,15 +31,17 @@
   </v-dialog>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
   name: 'SettingsModal',
   data() {
     return {
       settingsModal: false,
     };
   },
-};
+});
 </script>
 
 <style scoped></style>

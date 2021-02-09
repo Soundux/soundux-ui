@@ -26,8 +26,10 @@
   </v-dialog>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
   name: 'SetHotkeyModal',
   data() {
     return {
@@ -40,7 +42,7 @@ export default {
       this.hotkey = '';
     },
   },
-};
+});
 </script>
 
 <style scoped></style>
