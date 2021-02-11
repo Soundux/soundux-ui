@@ -1,7 +1,11 @@
 {
   "name": "soundux-ui",
-  "version": "1.0.0",
-  "private": true,
+  "description": "Web UI for Soundux",
+  "version": "0.1.0",
+  "repository": "github:Soundux/soundux-ui",
+  "bugs": "https://github.com/Soundux/soundux-ui/issues",
+  "homepage": "https://soundux.github.io",
+  "license": "GPL-3.0-only",
   "scripts": {
     "dev": "nuxt-ts",
     "build": "nuxt-ts build",
