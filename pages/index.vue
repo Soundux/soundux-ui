@@ -115,26 +115,11 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import { Tab, App } from '~/types';
 
 import SettingsModal from '~/components/SettingsModal.vue';
 import SetHotkeyModal from '~/components/SetHotkeyModal.vue';
 import SearchDrawer from '~/components/SearchDrawer.vue';
-
-interface Sound {
-  name: string;
-  path: string;
-}
-
-interface Tab {
-  title: string;
-  selectedItem: Sound | null;
-  sounds: Sound[];
-}
-
-interface App {
-  name: string;
-  icon: string;
-}
 
 export default Vue.extend({
   components: { SearchDrawer, SetHotkeyModal, SettingsModal },
