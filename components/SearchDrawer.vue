@@ -8,11 +8,7 @@
     @transitionend="focusSearchField"
   >
     <v-list nav dense>
-      <v-text-field
-        ref="searchField"
-        label="Search..."
-        prepend-icon="mdi-magnify"
-      ></v-text-field>
+      <v-text-field ref="searchField" label="Search..." prepend-icon="mdi-magnify"></v-text-field>
       <v-list-item-group>
         <v-list-item v-for="x in 10" :key="x">
           <v-list-item-title>Search result {{ x }}</v-list-item-title>

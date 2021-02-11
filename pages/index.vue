@@ -84,12 +84,7 @@
         </v-tabs-items>
       </v-col>
       <v-col cols="2">
-        <v-btn
-          color="grey darken-3"
-          block
-          class="mb-2"
-          @click="$store.commit('toggleSearchDrawer')"
-        >
+        <v-btn color="grey darken-3" block class="mb-2" @click="$store.commit('toggleSearchDrawer')">
           <v-icon left dark>mdi-magnify</v-icon>
           Search
         </v-btn>

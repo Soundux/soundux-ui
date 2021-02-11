@@ -17,9 +17,7 @@
       <v-card-actions>
         <v-spacer></v-spacer>
         <v-btn text color="primary" @click="reset">Reset</v-btn>
-        <v-btn text color="primary" @click="setHotkeyModal = false">
-          Cancel
-        </v-btn>
+        <v-btn text color="primary" @click="setHotkeyModal = false">Cancel</v-btn>
         <v-btn text color="primary" @click="setHotkeyModal = false">OK</v-btn>
       </v-card-actions>
     </v-card>

@@ -7,13 +7,12 @@ export const state = () => ({
 export type RootState = ReturnType<typeof state>;
 
 export const getters: GetterTree<RootState, RootState> = {
-  searchDrawer: (state) => state.searchDrawer,
+  searchDrawer: state => state.searchDrawer,
 };
 
 export const mutations: MutationTree<RootState> = {
-  toggleSearchDrawer: (state) => (state.searchDrawer = !state.searchDrawer),
-  setSearchDrawer: (state, newState: boolean) =>
-    (state.searchDrawer = newState),
+  toggleSearchDrawer: state => (state.searchDrawer = !state.searchDrawer),
+  setSearchDrawer: (state, newState: boolean) => (state.searchDrawer = newState),
 };
 
 export const actions: ActionTree<RootState, RootState> = {
