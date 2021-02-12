@@ -224,7 +224,8 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-* {
+// Webkit no input solution: https://stackoverflow.com/questions/20495827/text-field-not-working-in-safari/20495972
+*:not(input, v-text-field, v-input) {
   user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
