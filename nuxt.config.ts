@@ -1,4 +1,3 @@
-import colors from 'vuetify/es5/util/colors';
 import { NuxtConfig } from '@nuxt/types';
 
 // Define your configuration with auto-completion & type checking
@@ -10,7 +9,7 @@ const config: NuxtConfig = {
   ssr: false,
   loading: false,
   router: {
-    base: '/',
+    mode: 'hash',
   },
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
@@ -29,7 +28,7 @@ const config: NuxtConfig = {
   css: [],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [],
+  plugins: [{ src: '~/plugins/vuetify.ts' }],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -48,24 +47,29 @@ const config: NuxtConfig = {
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
+    defaultAssets: {
+      font: undefined,
+      icons: false,
+    },
     theme: {
       dark: true,
       themes: {
+        // @ts-ignore TODO: wait for https://github.com/nuxt-community/vuetify-module/pull/419
         dark: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3,
+          primary: '#52b18c',
+        },
+        // @ts-ignore
+        light: {
+          primary: '#52b18c',
         },
       },
     },
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
-  build: {},
+  build: {
+    publicPath: '',
+  },
 };
 
 export default config;
