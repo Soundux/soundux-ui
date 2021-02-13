@@ -37,7 +37,7 @@ export default Vue.extend({
   methods: {
     focusSearchField() {
       if (this.$store.getters.searchDrawer) {
-        this.$refs.searchField.focus(); // TODO: type this as HTMLElement
+        (this.$refs.searchField as HTMLElement).focus();
       }
     },
   },
