@@ -15,7 +15,11 @@
         <v-checkbox label="Hotkeys only for current tab"></v-checkbox>
         <v-checkbox label="Allow sound overlapping"></v-checkbox>
         <v-checkbox v-model="$vuetify.theme.dark" label="Dark theme"></v-checkbox>
-        <v-text-field label="Stop hotkey" prepend-icon="mdi-keyboard"></v-text-field>
+        <v-text-field
+          v-model="stopHotkey"
+          label="Stop hotkey"
+          prepend-icon="mdi-keyboard"
+        ></v-text-field>
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
@@ -33,7 +37,16 @@ export default Vue.extend({
   data() {
     return {
       settingsModal: false,
+      stopHotkey: '',
     };
+  },
+  methods: {
+    focus() {
+      // TODO: send to backend
+    },
+    blur() {
+      // TODO: send to backend
+    },
   },
 });
 </script>

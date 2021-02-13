@@ -5,7 +5,7 @@ export interface Sound {
 
 export interface Tab {
   title: string;
-  selectedItem: Sound | null;
+  selectedSoundIndex: number;
   sounds: Sound[];
 }
 
