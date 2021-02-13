@@ -19,6 +19,9 @@
           v-model="stopHotkey"
           label="Stop hotkey"
           prepend-icon="mdi-keyboard"
+          readonly
+          @focus="focus"
+          @blur="blur"
         ></v-text-field>
       </v-card-text>
       <v-card-actions>

@@ -15,7 +15,7 @@
         <v-text-field
           v-model="hotkey"
           label="Hotkey"
-          @keydown.prevent=""
+          readonly
           @focus="focus"
           @blur="blur"
         ></v-text-field>
