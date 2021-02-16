@@ -10,7 +10,7 @@
       <v-spacer></v-spacer>
       <v-col cols="auto">
         <v-select
-          v-model="selectedApp"
+          v-model="selectedAppIndex"
           :loading="appsLoading"
           :disabled="appsLoading"
           item-text="name"
@@ -169,7 +169,7 @@ export default Vue.extend({
         { name: 'Discord', icon: 'mdi-discord' },
         { name: 'Teams', icon: 'mdi-microsoft-teams' },
       ] as App[],
-      selectedApp: null as App | null,
+      selectedAppIndex: 0,
       syncVolume: true,
       activeTabIndex: 0,
       localVolume: 50,
