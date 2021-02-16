@@ -130,11 +130,7 @@
           Play
         </v-btn>
         <SettingsModal></SettingsModal>
-        <v-btn color="grey darken-3" block class="mb-2">
-          <v-icon left dark>mdi-help-circle-outline</v-icon>
-          Help
-          <!-- TODO: help modal with key binds CTRL + F, double-click to play etc. -->
-        </v-btn>
+        <HelpModal></HelpModal>
       </v-col>
     </v-row>
   </v-container>
@@ -146,11 +142,12 @@ import draggable from 'vuedraggable';
 import { App, Tab, Sound } from '~/types';
 
 import SettingsModal from '~/components/SettingsModal.vue';
+import HelpModal from '~/components/HelpModal.vue';
 import SetHotkeyModal from '~/components/SetHotkeyModal.vue';
 import SearchDrawer from '~/components/SearchDrawer.vue';
 
 export default Vue.extend({
-  components: { SearchDrawer, SetHotkeyModal, SettingsModal, draggable },
+  components: { SearchDrawer, SetHotkeyModal, SettingsModal, HelpModal, draggable },
   data() {
     return {
       appsLoading: false,
