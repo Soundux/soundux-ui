@@ -1,14 +1,21 @@
 <template>
   <v-dialog v-model="setHotkeyModal" max-width="600px">
     <template #activator="{ on, attrs }">
-      <v-btn color="grey darken-3" block class="mb-2" v-bind="attrs" :disabled="!sound" v-on="on">
-        <v-icon left dark>mdi-keyboard</v-icon>
+      <v-btn
+        :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
+        block
+        class="mb-2"
+        v-bind="attrs"
+        :disabled="!sound"
+        v-on="on"
+      >
+        <v-icon left>mdi-keyboard</v-icon>
         Set hotkey
       </v-btn>
     </template>
     <v-card v-if="sound">
       <v-card-title>
-        <v-icon left dark>mdi-keyboard</v-icon>
+        <v-icon left>mdi-keyboard</v-icon>
         <span class="headline">Set hotkey for {{ sound.name }}</span>
       </v-card-title>
       <v-card-text>

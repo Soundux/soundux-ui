@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container fluid>
     <v-row>
       <v-col>
         <v-avatar color="primary" rounded size="64">
@@ -58,8 +58,7 @@
         <v-checkbox v-model="syncVolume" :label="`Sync`"></v-checkbox>
       </v-col>
     </v-row>
-
-    <v-row>
+    <v-row dense>
       <v-col v-if="tabs.length > 0">
         <v-tabs v-model="activeTabIndex">
           <draggable
@@ -109,23 +108,38 @@
           </v-card-text>
         </v-card>
       </v-col>
-      <v-col cols="2">
-        <v-btn color="grey darken-3" block class="mb-2" @click="$store.commit('toggleSearchDrawer')">
+      <v-col cols="auto" align-self="end">
+        <v-btn
+          :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
+          block
+          class="mb-2"
+          @click="$store.commit('toggleSearchDrawer')"
+        >
           <v-icon left dark>mdi-magnify</v-icon>
           Search
         </v-btn>
         <SearchDrawer></SearchDrawer>
-        <v-btn color="grey darken-3" block class="mb-2">
+        <v-btn :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'" block class="mb-2">
           <v-icon left dark>mdi-folder-plus</v-icon>
           Add tab
         </v-btn>
-        <v-btn color="grey darken-3" block class="mb-2">
+        <v-btn
+          :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
+          block
+          class="mb-2"
+          :disabled="tabs.length === 0"
+        >
           <v-icon left dark>mdi-folder-refresh-outline</v-icon>
           Reload sounds
         </v-btn>
         <v-spacer></v-spacer>
         <SetHotkeyModal :sound="activeSound"></SetHotkeyModal>
-        <v-btn color="grey darken-3" block class="mb-2">
+        <v-btn
+          :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
+          block
+          class="mb-2"
+          :disabled="!activeSound"
+        >
           <v-icon left dark>mdi-play</v-icon>
           Play
         </v-btn>

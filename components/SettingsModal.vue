@@ -1,14 +1,20 @@
 <template>
   <v-dialog v-model="settingsModal" max-width="600px">
     <template #activator="{ on, attrs }">
-      <v-btn color="grey darken-3" block class="mb-2" v-bind="attrs" v-on="on">
-        <v-icon left dark>mdi-cog</v-icon>
+      <v-btn
+        :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
+        block
+        class="mb-2"
+        v-bind="attrs"
+        v-on="on"
+      >
+        <v-icon left>mdi-cog</v-icon>
         Settings
       </v-btn>
     </template>
     <v-card>
       <v-card-title>
-        <v-icon left dark>mdi-cog</v-icon>
+        <v-icon left>mdi-cog</v-icon>
         <span class="headline">Settings</span>
       </v-card-title>
       <v-card-text>
