@@ -5,11 +5,12 @@
     absolute
     right
     temporary
-    @transitionend="focusSearchField"
+    @transitionend="drawerTransitioned"
   >
     <v-list-item class="px-2">
       <v-text-field
         ref="searchField"
+        v-model="searchInput"
         label="Search..."
         hide-details
         prepend-icon="mdi-magnify"
@@ -30,7 +31,12 @@ import Vue from 'vue';
 
 export default Vue.extend({
   name: 'SearchDrawer',
-
+  data() {
+    return {
+      searchInput: '',
+      keyDownHandler: (null as unknown) as (event: KeyboardEvent) => void | null,
+    };
+  },
   computed: {
     searchDrawer: {
       get() {
@@ -41,10 +47,28 @@ export default Vue.extend({
       },
     },
   },
+  mounted() {
+    this.keyDownHandler = (event: KeyboardEvent) => {
+      if (event.ctrlKey && event.code === 'KeyF') {
+        event.preventDefault();
+        this.$store.commit('toggleSearchDrawer');
+      }
+    };
+    document.addEventListener('keydown', this.keyDownHandler);
+  },
+  destroyed() {
+    if (this.keyDownHandler) {
+      document.removeEventListener('keydown', this.keyDownHandler);
+    }
+  },
   methods: {
-    focusSearchField() {
+    drawerTransitioned() {
+      const searchField = this.$refs.searchField as HTMLElement;
       if (this.$store.getters.searchDrawer) {
-        (this.$refs.searchField as HTMLElement).focus();
+        searchField.focus();
+      } else {
+        this.searchInput = '';
+        searchField.blur();
       }
     },
   },
