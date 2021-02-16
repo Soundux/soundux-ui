@@ -18,12 +18,12 @@
     "@mdi/font": "^5.9.55",
     "@nuxt/typescript-runtime": "^2.0.1",
     "core-js": "^3.8.3",
-    "nuxt": "^2.14.12",
+    "nuxt": "^2.15.0",
     "roboto-fontface": "*",
     "vuedraggable": "^2.24.3"
   },
   "devDependencies": {
-    "@nuxt/types": "^2.14.12",
+    "@nuxt/types": "^2.15.0",
     "@nuxt/typescript-build": "^2.0.4",
     "@nuxtjs/eslint-config": "^5.0.0",
     "@nuxtjs/eslint-config-typescript": "^5.0.0",
@@ -34,6 +34,7 @@
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-nuxt": "^2.0.0",
     "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-vuetify": "^1.0.0-beta.8",
     "prettier": "^2.2.1"
   }
 }

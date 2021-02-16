@@ -5,7 +5,7 @@
         <v-avatar color="primary" rounded size="64">
           <img src="icon.png" alt="Logo" />
         </v-avatar>
-        <span class="headline">Soundux</span>
+        <span class="text-h5">Soundux</span>
       </v-col>
       <v-spacer></v-spacer>
       <v-col cols="auto">

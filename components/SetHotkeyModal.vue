@@ -16,7 +16,7 @@
     <v-card v-if="sound">
       <v-card-title>
         <v-icon left>mdi-keyboard</v-icon>
-        <span class="headline">Set hotkey for {{ sound.name }}</span>
+        <span class="text-h5">Set hotkey for {{ sound.name }}</span>
       </v-card-title>
       <v-card-text>
         <v-text-field

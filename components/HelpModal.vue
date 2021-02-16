@@ -15,7 +15,7 @@
     <v-card>
       <v-card-title>
         <v-icon left>mdi-help-circle-outline</v-icon>
-        <span class="headline">Help</span>
+        <span class="text-h5">Help</span>
       </v-card-title>
       <v-card-text>
         <ul>

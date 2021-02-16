@@ -12,7 +12,10 @@
       "plugin:nuxt/recommended"
   ],
   "plugins": [
-      "prettier"
+      "prettier", "vuetify"
   ],
-  "rules": {}
+  "rules": {
+    "vuetify/no-deprecated-classes": "error",
+    "vuetify/no-deprecated-components": "error"
+  }
 }

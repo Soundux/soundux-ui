@@ -15,7 +15,7 @@
     <v-card>
       <v-card-title>
         <v-icon left>mdi-cog</v-icon>
-        <span class="headline">Settings</span>
+        <span class="text-h5">Settings</span>
       </v-card-title>
       <v-card-text>
         <v-checkbox label="Hotkeys only for current tab"></v-checkbox>
