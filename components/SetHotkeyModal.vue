@@ -23,6 +23,7 @@
           v-model="hotkey"
           label="Hotkey"
           readonly
+          hide-details
           @focus="focus"
           @blur="blur"
         ></v-text-field>

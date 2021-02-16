@@ -7,8 +7,15 @@
     temporary
     @transitionend="focusSearchField"
   >
+    <v-list-item class="px-2">
+      <v-text-field
+        ref="searchField"
+        label="Search..."
+        hide-details
+        prepend-icon="mdi-magnify"
+      ></v-text-field>
+    </v-list-item>
     <v-list nav dense>
-      <v-text-field ref="searchField" label="Search..." prepend-icon="mdi-magnify"></v-text-field>
       <v-list-item-group>
         <v-list-item v-for="x in 10" :key="x">
           <v-list-item-title>Search result {{ x }}</v-list-item-title>

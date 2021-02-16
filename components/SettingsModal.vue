@@ -26,6 +26,7 @@
           label="Stop hotkey"
           prepend-icon="mdi-keyboard"
           readonly
+          hide-details
           @focus="focus"
           @blur="blur"
         ></v-text-field>
