@@ -2,8 +2,8 @@
   <v-container fluid>
     <v-row>
       <v-col>
-        <v-avatar color="primary" rounded size="64">
-          <img src="icon.png" alt="Logo" />
+        <v-avatar tile size="64">
+          <img src="icon.svg" alt="Logo" />
         </v-avatar>
         <span class="text-h5">Soundux</span>
       </v-col>
@@ -35,34 +35,49 @@
     </v-row>
     <v-row dense no-gutters>
       <v-col cols="auto">
-        <v-btn color="primary" x-large>
+        <v-btn color="primary" x-large block @click="$store.dispatch('stopSounds')">
           <v-icon left dark>mdi-stop</v-icon>
           Stop
         </v-btn>
       </v-col>
-      <v-col sm="5" md="6" xl="7" class="ml-5">
+      <v-col sm="5" md="6" xl="7" class="ml-5 mr-3">
         <v-slider
           v-model="localVolume"
-          messages="Local volume"
-          :thumb-label="true"
+          dense
+          hide-details
+          label="Local volume"
+          thumb-label
+          :class="{ 'no-animation': dragRemote }"
           prepend-icon="mdi-volume-high"
+          @start="dragLocal = true"
+          @end="dragLocal = false"
         ></v-slider>
         <v-slider
           v-model="remoteVolume"
-          messages="Remote volume"
-          :thumb-label="true"
+          dense
+          hide-details
+          label="Remote volume"
+          thumb-label
+          :class="{ 'no-animation': dragLocal }"
           prepend-icon="mdi-volume-high"
+          @start="dragRemote = true"
+          @end="dragRemote = false"
         ></v-slider>
       </v-col>
-      <v-col cols="1" align-self="center">
-        <v-checkbox v-model="syncVolume" :label="`Sync`"></v-checkbox>
+      <v-col cols="2" align-self="center">
+        <v-checkbox v-model="syncVolume">
+          <template #label>
+            <v-icon left small>mdi-link</v-icon>
+            Sync volumes
+          </template>
+        </v-checkbox>
       </v-col>
     </v-row>
     <v-row dense>
-      <v-col v-if="tabs.length > 0">
-        <v-tabs v-model="activeTabIndex">
+      <v-col v-if="$store.getters.tabs.length > 0">
+        <v-tabs v-model="mutableActiveTabIndex">
           <draggable
-            v-model="tabs"
+            v-model="mutableTabs"
             class="v-slide-group__wrapper"
             v-bind="{
               animation: 200,
@@ -71,17 +86,23 @@
             @start="startDrag"
             @end="stopDrag"
           >
-            <v-tab v-for="(tab, index) in tabs" :key="index">
-              {{ tab.title }}
-              <v-icon right small color="grey" style="cursor: pointer" @click.stop="deleteTab(tab)">
+            <v-tab v-for="(tab, index) in $store.getters.tabs" :key="index">
+              {{ tab.name }}
+              <v-icon
+                right
+                small
+                color="grey"
+                style="cursor: pointer"
+                @click.stop="$store.dispatch('deleteTab', tab)"
+              >
                 mdi-close-circle
               </v-icon>
             </v-tab>
           </draggable>
         </v-tabs>
 
-        <v-tabs-items v-model="activeTabIndex">
-          <v-tab-item v-for="(tab, index) in tabs" :key="index">
+        <v-tabs-items v-model="$store.getters.activeTabIndex">
+          <v-tab-item v-for="(tab, index) in $store.getters.tabs" :key="index">
             <v-list>
               <v-list-item-group v-model="tab.selectedSoundIndex" color="primary">
                 <v-list-item v-for="sound in tab.sounds" :key="sound.path">
@@ -119,7 +140,12 @@
           Search
         </v-btn>
         <SearchDrawer></SearchDrawer>
-        <v-btn :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'" block class="mb-2">
+        <v-btn
+          :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
+          block
+          class="mb-2"
+          @click="$store.dispatch('addTab')"
+        >
           <v-icon left dark>mdi-folder-plus</v-icon>
           Add tab
         </v-btn>
@@ -127,18 +153,19 @@
           :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
           block
           class="mb-2"
-          :disabled="tabs.length === 0"
+          :disabled="$store.getters.tabs.length === 0"
         >
           <v-icon left dark>mdi-folder-refresh-outline</v-icon>
           Reload sounds
         </v-btn>
         <v-spacer></v-spacer>
-        <SetHotkeyModal :sound="activeSound"></SetHotkeyModal>
+        <SetHotkeyModal :sound="$store.getters.activeSound"></SetHotkeyModal>
         <v-btn
           :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
           block
           class="mb-2"
-          :disabled="!activeSound"
+          :disabled="!$store.getters.activeSound"
+          @click="$store.dispatch('playSound')"
         >
           <v-icon left dark>mdi-play</v-icon>
           Play
@@ -153,7 +180,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import draggable from 'vuedraggable';
-import { App, Tab, Sound } from '~/types';
+import { App, Tab } from '~/types';
 
 import SettingsModal from '~/components/SettingsModal.vue';
 import HelpModal from '~/components/HelpModal.vue';
@@ -171,75 +198,33 @@ export default Vue.extend({
       ] as App[],
       selectedAppIndex: 0,
       syncVolume: true,
-      activeTabIndex: 0,
       localVolume: 50,
       remoteVolume: 75,
       volume: 50,
       beforeDragActive: null as Tab | null,
-      tabs: [
-        {
-          title: 'Tab 1',
-          selectedSoundIndex: 0,
-          sounds: [
-            { name: 'Tab 1 Sound 1', path: 'Sound 1 Path' },
-            { name: 'Tab 1 Sound 2', path: 'Sound 2 Path' },
-            { name: 'Tab 1 Sound 3', path: 'Sound 3 Path' },
-          ],
-        },
-        {
-          title: 'Tab 2',
-          selectedSoundIndex: 0,
-          sounds: [
-            { name: 'Tab 2 Sound 1', path: 'Sound 1 Path' },
-            { name: 'Tab 2 Sound 2', path: 'Sound 2 Path' },
-            { name: 'Tab 2 Sound 3', path: 'Sound 3 Path' },
-          ],
-        },
-        {
-          title: 'Tab 3',
-          selectedSoundIndex: 0,
-          sounds: [
-            { name: 'Tab 3 Sound 1', path: 'Sound 1 Path' },
-            { name: 'Tab 3 Sound 2', path: 'Sound 2 Path' },
-            { name: 'Tab 3 Sound 3', path: 'Sound 3 Path' },
-          ],
-        },
-        {
-          title: 'Tab 4',
-          selectedSoundIndex: 0,
-          sounds: [
-            { name: 'Tab 4 Sound 1', path: 'Sound 1 Path' },
-            { name: 'Tab 4 Sound 2', path: 'Sound 2 Path' },
-            { name: 'Tab 4 Sound 3', path: 'Sound 3 Path' },
-          ],
-        },
-        {
-          title: 'Tab 5',
-          selectedSoundIndex: 0,
-          sounds: [
-            { name: 'Tab 5 Sound 1', path: 'Sound 1 Path' },
-            { name: 'Tab 5 Sound 2', path: 'Sound 2 Path' },
-            { name: 'Tab 5 Sound 3', path: 'Sound 3 Path' },
-          ],
-        },
-      ] as Tab[],
+      dragLocal: false,
+      dragRemote: false,
     };
   },
   computed: {
-    activeSound(): Sound | null {
-      const tabs = this.tabs;
-      if (tabs.length > 0) {
-        const activeTabIndex = this.activeTabIndex;
-        const tab = tabs[activeTabIndex];
-        if (tab && tab.sounds.length > 0) {
-          const selectedSoundIndex = tab.selectedSoundIndex;
-          return tab.sounds[selectedSoundIndex];
-        }
-      }
-      return null;
+    mutableTabs: {
+      get() {
+        return this.$store.getters.tabs;
+      },
+      set(tabs: Tab[]) {
+        this.$store.commit('setTabs', tabs);
+      },
+    },
+    mutableActiveTabIndex: {
+      get() {
+        return this.$store.getters.activeTabIndex;
+      },
+      set(newIndex: number) {
+        this.$store.commit('setActiveTabIndex', newIndex);
+      },
     },
   },
-  /* watch: {
+  watch: {
     localVolume(val: number) {
       if (this.syncVolume) {
         this.remoteVolume = val;
@@ -250,7 +235,10 @@ export default Vue.extend({
         this.localVolume = val;
       }
     },
-  }, */
+  },
+  mounted() {
+    this.$store.dispatch('getData');
+  },
   methods: {
     refreshApps(): void {
       this.appsLoading = true;
@@ -258,23 +246,14 @@ export default Vue.extend({
         this.appsLoading = false;
       }, 1000);
     },
-    deleteTab(tab: Tab) {
-      const deleteIndex = this.tabs.indexOf(tab);
-      this.tabs.splice(deleteIndex, 1);
-
-      // when deleting a tab to the left of the active one, the active index must be decreased by one
-      if (this.activeTabIndex > deleteIndex) {
-        this.activeTabIndex--;
-      }
-    },
     startDrag(): void {
       // save for stopDrag
-      this.beforeDragActive = this.tabs[this.activeTabIndex];
+      this.beforeDragActive = this.$store.getters.tabs[this.$store.getters.activeTabIndex];
     },
     stopDrag(): void {
       // after dragging, the active tab index must be updated, as only the order in the tabs array is changed
       if (this.beforeDragActive) {
-        this.activeTabIndex = this.tabs.indexOf(this.beforeDragActive);
+        this.$store.commit('setActiveTabIndex', this.$store.getters.tabs.indexOf(this.beforeDragActive));
       }
     },
   },
@@ -313,5 +292,9 @@ export default Vue.extend({
 // we want our tabs to use the default cursor
 .v-tab {
   cursor: default;
+}
+
+.no-animation * * {
+  transition: none !important;
 }
 </style>

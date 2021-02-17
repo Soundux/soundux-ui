@@ -16,13 +16,20 @@
         prepend-icon="mdi-magnify"
       ></v-text-field>
     </v-list-item>
-    <v-list nav dense>
+    <v-list v-if="searchInput && searchResults.length > 0" nav dense>
       <v-list-item-group>
-        <v-list-item v-for="x in 10" :key="x">
-          <v-list-item-title>Search result {{ x }}</v-list-item-title>
+        <v-list-item v-for="result in searchResults" :key="result.id">
+          <v-list-item-title>{{ result.name }}</v-list-item-title>
         </v-list-item>
       </v-list-item-group>
     </v-list>
+    <v-img
+      v-else-if="!searchInput && searchResults.length === 0"
+      max-width="200"
+      class="mx-auto mt-5"
+      src="undraw_searching_p5ux.svg"
+    ></v-img>
+    <v-img v-else max-width="200" class="mx-auto mt-5" src="undraw_void_3ggu.svg"></v-img>
   </v-navigation-drawer>
 </template>
 
@@ -45,6 +52,14 @@ export default Vue.extend({
       set(newValue: boolean) {
         this.$store.commit('setSearchDrawer', newValue);
       },
+    },
+    searchResults() {
+      if (!this.searchInput) {
+        return [];
+      }
+      return this.$store.getters.allSounds.filter(x =>
+        x.name.toLowerCase().includes(this.searchInput.toLowerCase())
+      );
     },
   },
   mounted() {
