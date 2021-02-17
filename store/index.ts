@@ -22,7 +22,9 @@ export const getters: GetterTree<RootState, RootState> = {
       const tab = tabs[activeTabIndex];
       if (tab && tab.sounds.length > 0) {
         const selectedSoundIndex = tab.selectedSoundIndex;
-        return tab.sounds[selectedSoundIndex];
+        if (selectedSoundIndex) {
+          return tab.sounds[selectedSoundIndex];
+        }
       }
     }
     return null;
@@ -40,6 +42,13 @@ export const mutations: MutationTree<RootState> = {
   setActiveTabIndex: (state, index: number) => (state.activeTabIndex = index),
   addToCurrentlyPlaying: (state, playingSound: PlayingSound) => state.currentPlaying.push(playingSound),
   clearCurrentlyPlaying: state => (state.currentPlaying = []),
+  removeFromCurrentlyPlaying: (state, playingSound: PlayingSound) => {
+    // search by id because object could be different (f.e. when the data comes from the backend)
+    const realSound = state.currentPlaying.find(x => x.id === playingSound.id);
+    if (realSound) {
+      state.currentPlaying.splice(state.currentPlaying.indexOf(realSound), 1);
+    }
+  },
 };
 
 export const actions: ActionTree<RootState, RootState> = {
@@ -76,7 +85,7 @@ export const actions: ActionTree<RootState, RootState> = {
    */
   async deleteTab({ state, commit }, tab: Tab) {
     // @ts-ignore
-    if (!window.addTab) {
+    if (!window.removeTab) {
       return;
     }
     const deleteIndex = state.tabs.indexOf(tab);
@@ -90,6 +99,22 @@ export const actions: ActionTree<RootState, RootState> = {
     }
   },
 
+  async refreshTab({ state }) {
+    // @ts-ignore
+    if (!window.refreshTab) {
+      return;
+    }
+    const tab = state.tabs[state.activeTabIndex];
+    const refreshIndex = state.tabs.indexOf(tab);
+
+    // @ts-ignore
+    const refreshedTab = (await window.refreshTab(refreshIndex)) as Tab | false; // eslint-disable-line no-undef
+
+    if (refreshedTab) {
+      tab.sounds = refreshedTab.sounds;
+    }
+  },
+
   /**
    * Play a sound via the backend
    */
@@ -99,8 +124,10 @@ export const actions: ActionTree<RootState, RootState> = {
       return;
     }
     // @ts-ignore
-    const playingSound = (await window.playSound(getters.activeSound.id)) as PlayingSound; // eslint-disable-line no-undef
-    commit('addToCurrentlyPlaying', playingSound);
+    const playingSound = (await window.playSound(getters.activeSound.id)) as PlayingSound | false; // eslint-disable-line no-undef
+    if (playingSound) {
+      commit('addToCurrentlyPlaying', playingSound);
+    }
   },
 
   /**

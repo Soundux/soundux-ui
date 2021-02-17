@@ -104,8 +104,9 @@
         <v-tabs-items v-model="$store.getters.activeTabIndex">
           <v-tab-item v-for="(tab, index) in $store.getters.tabs" :key="index">
             <v-list>
+              <!-- TODO: mutation for selectedSoundIndex -->
               <v-list-item-group v-model="tab.selectedSoundIndex" color="primary">
-                <v-list-item v-for="sound in tab.sounds" :key="sound.path">
+                <v-list-item v-for="sound in tab.sounds" :key="sound.id">
                   <v-list-item-content>
                     <v-list-item-title>
                       {{ sound.name }}
@@ -129,7 +130,7 @@
           </v-card-text>
         </v-card>
       </v-col>
-      <v-col cols="auto" align-self="end">
+      <v-col cols="auto" align-self="start">
         <v-btn
           :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
           block
@@ -154,6 +155,7 @@
           block
           class="mb-2"
           :disabled="$store.getters.tabs.length === 0"
+          @click="$store.dispatch('refreshTab')"
         >
           <v-icon left dark>mdi-folder-refresh-outline</v-icon>
           Reload sounds
@@ -180,7 +182,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import draggable from 'vuedraggable';
-import { App, Tab } from '~/types';
+import { App, PlayingSound, Tab } from '~/types';
 
 import SettingsModal from '~/components/SettingsModal.vue';
 import HelpModal from '~/components/HelpModal.vue';
@@ -238,6 +240,13 @@ export default Vue.extend({
   },
   mounted() {
     this.$store.dispatch('getData');
+    window.updateSound = (playingSound: PlayingSound) => {
+      const sound = this.$store.getters.currentPlaying.find(x => x.id === playingSound.id);
+      sound.readInMs = playingSound.readInMs;
+    };
+    window.finishSound = (playingSound: PlayingSound) => {
+      this.$store.commit('removeFromCurrentlyPlaying', playingSound);
+    };
   },
   methods: {
     refreshApps(): void {
