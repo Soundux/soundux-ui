@@ -17,7 +17,7 @@ export interface PlayingSound {
 export interface Tab {
   id: number;
   name: string;
-  selectedSoundIndex: number;
+  selectedSoundIndex?: number;
   sounds: Sound[];
 }
 

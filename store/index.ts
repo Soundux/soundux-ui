@@ -22,7 +22,7 @@ export const getters: GetterTree<RootState, RootState> = {
       const tab = tabs[activeTabIndex];
       if (tab && tab.sounds.length > 0) {
         const selectedSoundIndex = tab.selectedSoundIndex;
-        if (selectedSoundIndex) {
+        if (selectedSoundIndex !== undefined) {
           return tab.sounds[selectedSoundIndex];
         }
       }
