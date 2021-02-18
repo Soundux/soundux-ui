@@ -240,10 +240,14 @@ export default Vue.extend({
   },
   mounted() {
     this.$store.dispatch('getData');
+    // @ts-ignore
     window.updateSound = (playingSound: PlayingSound) => {
-      const sound = this.$store.getters.currentPlaying.find(x => x.id === playingSound.id);
+      const sound = this.$store.getters.currentPlaying.find(
+        (x: PlayingSound) => x.id === playingSound.id
+      );
       sound.readInMs = playingSound.readInMs;
     };
+    // @ts-ignore
     window.finishSound = (playingSound: PlayingSound) => {
       this.$store.commit('removeFromCurrentlyPlaying', playingSound);
     };

@@ -35,6 +35,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import { Sound } from '~/types';
 
 export default Vue.extend({
   name: 'SearchDrawer',
@@ -57,8 +58,8 @@ export default Vue.extend({
       if (!this.searchInput) {
         return [];
       }
-      return this.$store.getters.allSounds.filter(x =>
-        x.name.toLowerCase().includes(this.searchInput.toLowerCase())
+      return this.$store.getters.allSounds.filter((sound: Sound) =>
+        sound.name.toLowerCase().includes(this.searchInput.toLowerCase())
       );
     },
   },
