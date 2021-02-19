@@ -58,8 +58,8 @@ export default Vue.extend({
       if (!this.searchInput) {
         return [];
       }
-      return this.$store.getters.allSounds.filter((sound: Sound) =>
-        sound.name.toLowerCase().includes(this.searchInput.toLowerCase())
+      return this.$store.getters.allSounds.filter(({ name }: Sound) =>
+        name.toLowerCase().includes(this.searchInput.toLowerCase())
       );
     },
   },

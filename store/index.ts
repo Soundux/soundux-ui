@@ -30,7 +30,7 @@ export const getters: GetterTree<RootState, RootState> = {
     return null;
   },
   allSounds: state => {
-    return state.tabs.map(x => x.sounds).reduce((acc, e) => acc.concat(e), []);
+    return state.tabs.map(({ sounds }) => sounds).reduce((acc, e) => acc.concat(e), []);
   },
 };
 
