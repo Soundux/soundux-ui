@@ -17,7 +17,7 @@
   "dependencies": {
     "@mdi/font": "^5.9.55",
     "@nuxt/typescript-runtime": "^2.0.1",
-    "core-js": "^3.8.3",
+    "core-js": "^3.9.0",
     "nuxt": "^2.15.0",
     "roboto-fontface": "*",
     "vuedraggable": "^2.24.3"
