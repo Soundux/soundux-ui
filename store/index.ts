@@ -1,4 +1,5 @@
 import { ActionTree, GetterTree, MutationTree } from 'vuex';
+import Vue from 'vue';
 import { Data, PlayingSound, Tab } from '~/types';
 
 export const state = () => ({
@@ -16,12 +17,12 @@ export const getters: GetterTree<RootState, RootState> = {
   activeTabIndex: state => state.activeTabIndex,
   currentPlaying: state => state.currentPlaying,
   activeSound: state => {
-    const tabs = state.tabs;
+    const { tabs } = state;
     if (tabs.length > 0) {
-      const activeTabIndex = state.activeTabIndex;
+      const { activeTabIndex } = state;
       const tab = tabs[activeTabIndex];
       if (tab && tab.sounds.length > 0) {
-        const selectedSoundIndex = tab.selectedSoundIndex;
+        const { selectedSoundIndex } = tab;
         if (selectedSoundIndex !== undefined) {
           return tab.sounds[selectedSoundIndex];
         }
@@ -43,7 +44,8 @@ export const mutations: MutationTree<RootState> = {
   setSelectedSoundIndex: (state, { tabId, index }: { tabId: number; index: number | undefined }) => {
     const stateTab = state.tabs.find(({ id }) => id === tabId);
     if (stateTab) {
-      stateTab.selectedSoundIndex = index;
+      // selectedSoundIndex can be undefined so it may be a new property which is not reactive when using a simple assignment
+      Vue.set(stateTab, 'selectedSoundIndex', index);
     } else {
       console.error(`Could not find tab with id ${tabId}`);
     }
