@@ -40,6 +40,14 @@ export const mutations: MutationTree<RootState> = {
   addTab: (state, tab: Tab) => state.tabs.push(tab),
   setTabs: (state, tabs: Tab[]) => (state.tabs = tabs),
   setActiveTabIndex: (state, index: number) => (state.activeTabIndex = index),
+  setSelectedSoundIndex: (state, { tabId, index }: { tabId: number; index: number | undefined }) => {
+    const stateTab = state.tabs.find(({ id }) => id === tabId);
+    if (stateTab) {
+      stateTab.selectedSoundIndex = index;
+    } else {
+      console.error(`Could not find tab with id ${tabId}`);
+    }
+  },
   addToCurrentlyPlaying: (state, playingSound: PlayingSound) => state.currentPlaying.push(playingSound),
   clearCurrentlyPlaying: state => (state.currentPlaying = []),
   removeFromCurrentlyPlaying: (state, playingSound: PlayingSound) => {

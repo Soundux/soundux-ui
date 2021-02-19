@@ -16,6 +16,7 @@
   ],
   "rules": {
     "vuetify/no-deprecated-classes": "error",
-    "vuetify/no-deprecated-components": "error"
+    "vuetify/no-deprecated-components": "error",
+    "no-console": "off"
   }
 }

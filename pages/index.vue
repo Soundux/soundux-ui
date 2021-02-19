@@ -104,8 +104,11 @@
         <v-tabs-items v-model="$store.getters.activeTabIndex">
           <v-tab-item v-for="(tab, index) in $store.getters.tabs" :key="index">
             <v-list>
-              <!-- TODO: mutation for selectedSoundIndex -->
-              <v-list-item-group v-model="tab.selectedSoundIndex" color="primary">
+              <v-list-item-group
+                :value="tab.selectedSoundIndex"
+                color="primary"
+                @change="$store.commit('setSelectedSoundIndex', { tabId: tab.id, index: $event })"
+              >
                 <v-list-item v-for="sound in tab.sounds" :key="sound.id">
                   <v-list-item-content>
                     <v-list-item-title>
