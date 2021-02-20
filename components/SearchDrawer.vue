@@ -18,7 +18,7 @@
     </v-list-item>
     <v-list v-if="searchInput && searchResults.length > 0" nav dense>
       <v-list-item-group>
-        <v-list-item v-for="result in searchResults" :key="result.id">
+        <v-list-item v-for="result in searchResults" :key="result.id" @click="jumpToSound(result)">
           <v-list-item-title>{{ result.name }}</v-list-item-title>
         </v-list-item>
       </v-list-item-group>
@@ -85,6 +85,29 @@ export default Vue.extend({
       } else {
         this.searchInput = '';
         searchField.blur();
+      }
+    },
+    jumpToSound(result: Sound) {
+      const { tabs } = this.$store.getters;
+      for (const tab of tabs) {
+        const { sounds } = tab;
+        if (sounds.includes(result)) {
+          const tabIndex = tabs.indexOf(tab);
+          // only set when not already set
+          if (this.$store.getters.activeTabIndex !== tabIndex) {
+            this.$store.commit('setActiveTabIndex', tabIndex);
+          }
+
+          const soundIndex = sounds.indexOf(result);
+          // only set when not already set
+          if (tab.selectedSoundIndex !== soundIndex) {
+            this.$store.commit('setSelectedSoundIndex', { tabId: tab.id, index: soundIndex });
+          }
+
+          this.searchDrawer = false;
+          // TODO: scroll sound into view
+          break;
+        }
       }
     },
   },
