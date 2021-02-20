@@ -1,12 +1,19 @@
 import { ActionTree, GetterTree, MutationTree } from 'vuex';
 import Vue from 'vue';
-import { Data, PlayingSound, Tab } from '~/types';
+import { Data, PlayingSound, Settings, Tab } from '~/types';
 
 export const state = () => ({
   searchDrawer: false,
   tabs: [] as Tab[],
   activeTabIndex: 0,
   currentPlaying: [] as PlayingSound[],
+  settings: {
+    allowOverlapping: true,
+    darkTheme: true,
+    stopHotkey: '',
+    tabHotkeysOnly: false,
+    gridView: false,
+  } as Settings,
 });
 
 export type RootState = ReturnType<typeof state>;
@@ -16,6 +23,7 @@ export const getters: GetterTree<RootState, RootState> = {
   tabs: state => state.tabs,
   activeTabIndex: state => state.activeTabIndex,
   currentPlaying: state => state.currentPlaying,
+  settings: state => state.settings,
   activeSound: state => {
     const { tabs } = state;
     if (tabs.length > 0) {
@@ -58,6 +66,17 @@ export const mutations: MutationTree<RootState> = {
     if (realSound) {
       state.currentPlaying.splice(state.currentPlaying.indexOf(realSound), 1);
     }
+  },
+  setSettings: (state, value: Settings) => {
+    state.settings = value;
+    window.$nuxt.$root.$vuetify.theme.dark = value.darkTheme;
+  },
+  setTabHotkeysOnly: (state, value: boolean) => (state.settings.tabHotkeysOnly = value),
+  setAllowOverlapping: (state, value: boolean) => (state.settings.allowOverlapping = value),
+  setGridView: (state, value: boolean) => (state.settings.gridView = value),
+  setDarkTheme: (state, value: boolean) => {
+    state.settings.darkTheme = value;
+    window.$nuxt.$root.$vuetify.theme.dark = value;
   },
 };
 
@@ -151,5 +170,25 @@ export const actions: ActionTree<RootState, RootState> = {
     // @ts-ignore
     await window.stopSounds(); // eslint-disable-line no-undef
     commit('clearCurrentlyPlaying');
+  },
+
+  async getSettings({ commit }) {
+    // @ts-ignore
+    if (!window.getSettings) {
+      return;
+    }
+    // @ts-ignore
+    const settings = (await window.getSettings()) as Settings; // eslint-disable-line no-undef
+    console.log('settings loaded', settings);
+    commit('setSettings', settings);
+  },
+
+  async saveSettings({ state }) {
+    // @ts-ignore
+    if (!window.changeSettings) {
+      return;
+    }
+    // @ts-ignore
+    await window.changeSettings(JSON.stringify(state.settings)); // eslint-disable-line no-undef
   },
 };

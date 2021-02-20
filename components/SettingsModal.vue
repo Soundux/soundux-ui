@@ -18,9 +18,10 @@
         <span class="text-h5">Settings</span>
       </v-card-title>
       <v-card-text>
-        <v-checkbox label="Hotkeys only for current tab"></v-checkbox>
-        <v-checkbox label="Allow sound overlapping"></v-checkbox>
-        <v-checkbox v-model="$vuetify.theme.dark" label="Dark theme"></v-checkbox>
+        <v-checkbox v-model="tabHotkeysOnly" label="Hotkeys only for current tab"></v-checkbox>
+        <v-checkbox v-model="allowOverlapping" label="Allow sound overlapping"></v-checkbox>
+        <v-checkbox v-model="gridView" label="Grid view"></v-checkbox>
+        <v-checkbox v-model="darkTheme" label="Dark theme"></v-checkbox>
         <v-text-field
           v-model="stopHotkey"
           label="Stop hotkey"
@@ -50,12 +51,68 @@ export default Vue.extend({
       stopHotkey: '',
     };
   },
-  methods: {
-    focus() {
-      // TODO: send to backend
+  computed: {
+    tabHotkeysOnly: {
+      get() {
+        return this.$store.getters.settings.tabHotkeysOnly;
+      },
+      set(state: boolean) {
+        this.$store.commit('setTabHotkeysOnly', state);
+        this.$store.dispatch('saveSettings');
+      },
     },
-    blur() {
-      // TODO: send to backend
+    allowOverlapping: {
+      get() {
+        return this.$store.getters.settings.allowOverlapping;
+      },
+      set(state: boolean) {
+        this.$store.commit('setAllowOverlapping', state);
+        this.$store.dispatch('saveSettings');
+      },
+    },
+    gridView: {
+      get() {
+        return this.$store.getters.settings.gridView;
+      },
+      set(state: boolean) {
+        this.$store.commit('setGridView', state);
+        this.$store.dispatch('saveSettings');
+      },
+    },
+    darkTheme: {
+      get() {
+        return this.$store.getters.settings.darkTheme;
+      },
+      set(state: boolean) {
+        this.$store.commit('setDarkTheme', state);
+        this.$store.dispatch('saveSettings');
+      },
+    },
+  },
+  mounted() {
+    this.$store.dispatch('getSettings');
+    // @ts-ignore
+    window.hotkeyReceived = (hotkey: string) => {
+      console.log(hotkey);
+      this.stopHotkey = hotkey;
+    };
+  },
+  methods: {
+    async focus() {
+      // @ts-ignore
+      if (!window.requestHotkey) {
+        return;
+      }
+      // @ts-ignore
+      await window.requestHotkey(true); // eslint-disable-line no-undef
+    },
+    async blur() {
+      // @ts-ignore
+      if (!window.requestHotkey) {
+        return;
+      }
+      // @ts-ignore
+      await window.requestHotkey(false); // eslint-disable-line no-undef
     },
   },
 });

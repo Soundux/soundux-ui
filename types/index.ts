@@ -33,7 +33,7 @@ export interface App {
 
 export interface Settings {
   allowOverlapping: boolean;
-  darkTheme: false;
+  darkTheme: boolean;
   stopHotkey: string;
   tabHotkeysOnly: boolean;
 }
