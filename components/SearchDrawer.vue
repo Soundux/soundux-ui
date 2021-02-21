@@ -1,7 +1,6 @@
 <template>
   <v-navigation-drawer
     v-model="searchDrawer"
-    app
     absolute
     right
     temporary
@@ -19,7 +18,7 @@
     <v-list v-if="searchInput && searchResults.length > 0" nav dense>
       <v-list-item-group>
         <v-list-item v-for="result in searchResults" :key="result.id" @click="jumpToSound(result)">
-          <v-list-item-title>{{ result.name }}</v-list-item-title>
+          <v-list-item-title class="text-wrap">{{ result.name }}</v-list-item-title>
         </v-list-item>
       </v-list-item-group>
     </v-list>
