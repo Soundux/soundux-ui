@@ -307,7 +307,7 @@ export default Vue.extend({
 
 // we want our tabs to use the default cursor
 .v-tab {
-  cursor: default;
+  cursor: default !important;
 }
 
 .no-animation * * {
