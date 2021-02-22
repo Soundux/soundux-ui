@@ -1,5 +1,6 @@
 <template>
   <v-container fluid>
+    <SwitchOnConnectModal></SwitchOnConnectModal>
     <v-row>
       <v-col>
         <v-avatar tile size="64">
@@ -193,7 +194,14 @@ import SetHotkeyModal from '~/components/SetHotkeyModal.vue';
 import SearchDrawer from '~/components/SearchDrawer.vue';
 
 export default Vue.extend({
-  components: { SearchDrawer, SetHotkeyModal, SettingsModal, HelpModal, draggable },
+  components: {
+    SwitchOnConnectModal,
+    SearchDrawer,
+    SetHotkeyModal,
+    SettingsModal,
+    HelpModal,
+    draggable,
+  },
   data() {
     return {
       appsLoading: false,

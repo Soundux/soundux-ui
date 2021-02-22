@@ -7,6 +7,7 @@ export const state = () => ({
   tabs: [] as Tab[],
   activeTabIndex: 0,
   currentPlaying: [] as PlayingSound[],
+  switchOnConnectLoaded: false,
   settings: {
     allowOverlapping: true,
     darkTheme: true,
@@ -24,6 +25,7 @@ export const getters: GetterTree<RootState, RootState> = {
   activeTabIndex: state => state.activeTabIndex,
   currentPlaying: state => state.currentPlaying,
   settings: state => state.settings,
+  switchOnConnectLoaded: state => state.switchOnConnectLoaded,
   activeSound: state => {
     const { tabs } = state;
     if (tabs.length > 0) {
@@ -78,6 +80,7 @@ export const mutations: MutationTree<RootState> = {
     state.settings.darkTheme = value;
     window.$nuxt.$root.$vuetify.theme.dark = value;
   },
+  setSwitchOnConnectLoaded: (state, loaded: boolean) => (state.switchOnConnectLoaded = loaded),
 };
 
 export const actions: ActionTree<RootState, RootState> = {
@@ -190,5 +193,25 @@ export const actions: ActionTree<RootState, RootState> = {
     }
     // @ts-ignore
     await window.changeSettings(JSON.stringify(state.settings)); // eslint-disable-line no-undef
+  },
+
+  async isSwitchOnConnectLoaded({ commit }) {
+    // @ts-ignore
+    if (!window.isSwitchOnConnectLoaded) {
+      return;
+    }
+    // @ts-ignore
+    const result = (await window.isSwitchOnConnectLoaded()) as boolean; // eslint-disable-line no-undef
+    commit('setSwitchOnConnectLoaded', result);
+  },
+
+  async unloadSwitchOnConnect({ commit }) {
+    // @ts-ignore
+    if (!window.unloadSwitchOnConnect) {
+      return;
+    }
+    // @ts-ignore
+    await window.unloadSwitchOnConnect(); // eslint-disable-line no-undef
+    commit('setSwitchOnConnectLoaded', false);
   },
 };
