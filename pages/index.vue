@@ -192,6 +192,7 @@ import SettingsModal from '~/components/SettingsModal.vue';
 import HelpModal from '~/components/HelpModal.vue';
 import SetHotkeyModal from '~/components/SetHotkeyModal.vue';
 import SearchDrawer from '~/components/SearchDrawer.vue';
+import SwitchOnConnectModal from '~/components/SwitchOnConnectModal.vue';
 
 export default Vue.extend({
   components: {
