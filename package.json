@@ -18,7 +18,7 @@
     "@mdi/font": "^5.9.55",
     "@nuxt/typescript-runtime": "^2.0.1",
     "core-js": "^3.8.3",
-    "nuxt": "^2.15.0",
+    "nuxt": "^2.15.1",
     "roboto-fontface": "*",
     "vuedraggable": "^2.24.3"
   },
