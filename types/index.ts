@@ -37,4 +37,5 @@ export interface Settings {
   darkTheme: boolean;
   stopHotkey: number[];
   tabHotkeysOnly: boolean;
+  useAsDefaultDevice: boolean;
 }

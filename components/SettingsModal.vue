@@ -21,6 +21,7 @@
         <v-checkbox v-model="tabHotkeysOnly" label="Hotkeys only for current tab"></v-checkbox>
         <v-checkbox v-model="allowOverlapping" label="Allow sound overlapping"></v-checkbox>
         <v-checkbox v-model="gridView" label="Grid view"></v-checkbox>
+        <v-checkbox v-model="useAsDefaultDevice" label="Use as default device"></v-checkbox>
         <v-checkbox v-model="darkTheme" label="Dark theme"></v-checkbox>
         <v-text-field
           v-model="stopHotkey"
@@ -77,6 +78,14 @@ export default Vue.extend({
       set(state: boolean) {
         this.$store.commit('setGridView', state);
         this.$store.dispatch('saveSettings');
+      },
+    },
+    useAsDefaultDevice: {
+      get() {
+        return this.$store.getters.settings.useAsDefaultDevice;
+      },
+      set(state: boolean) {
+        this.$store.dispatch('setUseAsDefaultDevice', state);
       },
     },
     darkTheme: {
