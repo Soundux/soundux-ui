@@ -26,12 +26,14 @@ export interface Data {
   tabs: Tab[];
 }
 
-export interface App {
+export interface Output {
   name: string;
-  icon: string;
 }
 
+export type Playing = PlayingSound | Output;
+
 export interface Settings {
+  output: string;
   selectedTab: number;
   allowOverlapping: boolean;
   darkTheme: boolean;

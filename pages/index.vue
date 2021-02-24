@@ -1,5 +1,6 @@
 <template>
   <v-container fluid>
+    <AppPassthroughDrawer></AppPassthroughDrawer>
     <SwitchOnConnectModal></SwitchOnConnectModal>
     <v-row>
       <v-col>
@@ -11,32 +12,38 @@
       <v-spacer></v-spacer>
       <v-col cols="auto">
         <v-select
-          v-model="selectedAppIndex"
-          :loading="appsLoading"
-          :disabled="appsLoading"
+          v-model="selectedOutput"
+          return-object
+          :disabled="$store.getters.currentPlaying.length > 0"
           item-text="name"
-          :items="availableApps"
+          :items="this.$store.getters.outputs"
           label="Output application"
           outlined
           messages="The application to play the sound to"
           dense
         >
-          <template #selection="{ item }">
+          <!--<template #selection="{ item }">
             <v-icon>{{ item.icon }}</v-icon> {{ item.name }}
-          </template>
-          <template #item="{ item }">
+          </template>-->
+          <!--<template #item="{ item }">
             <v-icon>{{ item.icon }}</v-icon> {{ item.name }}
-          </template>
+          </template>-->
         </v-select>
-        <v-btn color="primary" block :disabled="appsLoading" @click="refreshApps">
-          <v-icon left dark :class="{ 'spin-infinite': appsLoading }">mdi-reload</v-icon>
+        <v-btn color="primary" block @click="$store.dispatch('getOutputs')">
+          <v-icon left dark>mdi-reload</v-icon>
           Refresh
         </v-btn>
       </v-col>
     </v-row>
     <v-row dense no-gutters>
       <v-col cols="auto">
-        <v-btn color="primary" x-large block @click="$store.dispatch('stopSounds')">
+        <v-btn
+          color="primary"
+          x-large
+          block
+          :disabled="$store.getters.currentPlaying.length === 0"
+          @click="$store.dispatch('stopSounds')"
+        >
           <v-icon left dark>mdi-stop</v-icon>
           Stop
         </v-btn>
@@ -170,7 +177,7 @@
           :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
           block
           class="mb-2"
-          :disabled="!$store.getters.activeSound"
+          :disabled="!$store.getters.activeSound || !$store.getters.selectedOutput"
           @click="$store.dispatch('playSound')"
         >
           <v-icon left dark>mdi-play</v-icon>
@@ -186,17 +193,19 @@
 <script lang="ts">
 import Vue from 'vue';
 import draggable from 'vuedraggable';
-import { App, PlayingSound, Tab } from '~/types';
+import { Output, Playing, PlayingSound, Tab } from '~/types';
 
 import SettingsModal from '~/components/SettingsModal.vue';
 import HelpModal from '~/components/HelpModal.vue';
 import SetHotkeyModal from '~/components/SetHotkeyModal.vue';
 import SearchDrawer from '~/components/SearchDrawer.vue';
+import AppPassthroughDrawer from '~/components/AppPassthroughDrawer.vue';
 import SwitchOnConnectModal from '~/components/SwitchOnConnectModal.vue';
 
 export default Vue.extend({
   components: {
     SwitchOnConnectModal,
+    AppPassthroughDrawer,
     SearchDrawer,
     SetHotkeyModal,
     SettingsModal,
@@ -205,13 +214,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      appsLoading: false,
-      availableApps: [
-        { name: 'Discord', icon: 'mdi-discord' },
-        { name: 'Teams', icon: 'mdi-microsoft-teams' },
-      ] as App[],
-      selectedAppIndex: 0,
-      syncVolume: true,
+      syncVolume: false,
       localVolume: 50,
       remoteVolume: 75,
       volume: 50,
@@ -221,6 +224,14 @@ export default Vue.extend({
     };
   },
   computed: {
+    selectedOutput: {
+      get() {
+        return this.$store.getters.selectedOutput;
+      },
+      set(output: Output) {
+        this.$store.dispatch('setSelectedOutput', output);
+      },
+    },
     mutableTabs: {
       get() {
         return this.$store.getters.tabs;
@@ -252,12 +263,21 @@ export default Vue.extend({
   },
   mounted() {
     this.$store.dispatch('getData');
+    this.$store.dispatch('getOutputs');
+    this.$store.dispatch('isSwitchOnConnectLoaded');
     // @ts-ignore
     window.updateSound = (playingSound: PlayingSound) => {
-      const sound = this.$store.getters.currentPlaying.find(
-        (x: PlayingSound) => x.id === playingSound.id
-      );
-      sound.readInMs = playingSound.readInMs;
+      const sound = this.$store.getters.currentPlaying.find((x: Playing) => {
+        if ('lengthInMs' in x) {
+          return x.id === playingSound.id;
+        }
+        return false;
+      });
+      if (sound) {
+        sound.readInMs = playingSound.readInMs;
+      } else {
+        console.warn('Could not find sound for playingSound with id', playingSound.id);
+      }
     };
     // @ts-ignore
     window.finishSound = (playingSound: PlayingSound) => {
@@ -265,12 +285,6 @@ export default Vue.extend({
     };
   },
   methods: {
-    refreshApps(): void {
-      this.appsLoading = true;
-      window.setTimeout(() => {
-        this.appsLoading = false;
-      }, 1000);
-    },
     startDrag(): void {
       // save for stopDrag
       this.beforeDragActive = this.$store.getters.tabs[this.$store.getters.activeTabIndex];
@@ -294,22 +308,6 @@ export default Vue.extend({
   user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
-}
-
-// spin animation for refresh icon
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-.spin-infinite {
-  animation-name: spin;
-  animation-duration: 1s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
 }
 
 // ghost class for vue draggable

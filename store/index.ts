@@ -1,14 +1,17 @@
 import { ActionTree, GetterTree, MutationTree } from 'vuex';
 import Vue from 'vue';
-import { Data, PlayingSound, Settings, Tab } from '~/types';
+import { Data, Output, Playing, PlayingSound, Settings, Tab } from '~/types';
 
 export const state = () => ({
   searchDrawer: false,
   tabs: [] as Tab[],
-  activeTabIndex: 0,
-  currentPlaying: [] as PlayingSound[],
+  outputs: [] as Output[],
+  selectedOutput: null as Output | null,
+  playbackApps: [] as Output[],
+  currentPlaying: [] as Playing[],
   switchOnConnectLoaded: false,
   settings: {
+    output: '',
     selectedTab: 0,
     allowOverlapping: true,
     darkTheme: true,
@@ -25,6 +28,9 @@ export const getters: GetterTree<RootState, RootState> = {
   searchDrawer: state => state.searchDrawer,
   tabs: state => state.tabs,
   activeTabIndex: state => state.settings.selectedTab,
+  outputs: state => state.outputs,
+  selectedOutput: state => state.selectedOutput,
+  playbackApps: state => state.playbackApps,
   currentPlaying: state => state.currentPlaying,
   settings: state => state.settings,
   switchOnConnectLoaded: state => state.switchOnConnectLoaded,
@@ -53,6 +59,12 @@ export const mutations: MutationTree<RootState> = {
   addTab: (state, tab: Tab) => state.tabs.push(tab),
   setTabs: (state, tabs: Tab[]) => (state.tabs = tabs),
   setActiveTabIndex: (state, index: number) => (state.settings.selectedTab = index),
+  setOutputs: (state, outputs: Output[]) => (state.outputs = outputs),
+  setPlaybackApps: (state, playbackApps: Output[]) => (state.playbackApps = playbackApps),
+  setSelectedOutput: (state, selectedOutput: Output) => {
+    state.selectedOutput = selectedOutput;
+    state.settings.output = selectedOutput.name;
+  },
   setSelectedSoundIndex: (state, { tabId, index }: { tabId: number; index: number | undefined }) => {
     const stateTab = state.tabs.find(({ id }) => id === tabId);
     if (stateTab) {
@@ -62,11 +74,25 @@ export const mutations: MutationTree<RootState> = {
       console.error(`Could not find tab with id ${tabId}`);
     }
   },
-  addToCurrentlyPlaying: (state, playingSound: PlayingSound) => state.currentPlaying.push(playingSound),
+  addToCurrentlyPlaying: (state, playing: Playing) => state.currentPlaying.push(playing),
   clearCurrentlyPlaying: state => (state.currentPlaying = []),
-  removeFromCurrentlyPlaying: (state, playingSound: PlayingSound) => {
+  removePassthroughFromCurrentlyPlaying: state => {
+    state.currentPlaying.forEach((playing: Playing) => {
+      if ('name' in playing) {
+        state.currentPlaying.splice(state.currentPlaying.indexOf(playing), 1);
+      }
+    });
+  },
+  removeFromCurrentlyPlaying: (state, playing: Playing) => {
     // search by id because object could be different (f.e. when the data comes from the backend)
-    const realSound = state.currentPlaying.find(x => x.id === playingSound.id);
+    const realSound = state.currentPlaying.find(x => {
+      if ('lengthInMs' in x && 'lengthInMs' in playing) {
+        return x.id === playing.id;
+      } else if ('name' in x && 'name' in playing) {
+        return x.name === playing.name;
+      }
+      return false;
+    });
     if (realSound) {
       state.currentPlaying.splice(state.currentPlaying.indexOf(realSound), 1);
     }
@@ -98,6 +124,41 @@ export const actions: ActionTree<RootState, RootState> = {
     // @ts-ignore
     const data = (await window.getData()) as Data; // eslint-disable-line no-undef
     commit('setTabs', data.tabs);
+  },
+
+  /**
+   * Fetches the playback applications from the backend
+   */
+  async getPlaybackApps({ commit }) {
+    // @ts-ignore
+    if (!window.getPlayback) {
+      return;
+    }
+    // @ts-ignore
+    const playbackApps = (await window.getPlayback()) as Output[]; // eslint-disable-line no-undef
+    console.log('playbackApps loaded', playbackApps);
+    commit('setPlaybackApps', playbackApps);
+  },
+
+  setOutputs({ state, commit }, outputs: Output[]) {
+    commit('setOutputs', outputs);
+    const { selectedOutput } = state;
+    if (selectedOutput == null) {
+      commit('setSelectedOutput', state.outputs[0]);
+    } else {
+      const current = state.outputs.find(({ name }) => name === selectedOutput.name);
+      if (current) {
+        commit('setSelectedOutput', current);
+      } else {
+        commit('setSelectedOutput', state.outputs[0]);
+      }
+    }
+  },
+
+  setSelectedOutput({ commit, dispatch }, selectedOutput: Output) {
+    commit('setSelectedOutput', selectedOutput);
+    console.log('save settings for selected output');
+    dispatch('saveSettings');
   },
 
   /**
@@ -165,6 +226,10 @@ export const actions: ActionTree<RootState, RootState> = {
    * Play a sound via the backend
    */
   async playSound({ commit, getters }) {
+    // It might be null if there are no outputs available, this should normally not happen since the button is disabled in this case
+    if (!getters.selectedOutput) {
+      return;
+    }
     // @ts-ignore
     if (!window.playSound) {
       return;
@@ -173,6 +238,26 @@ export const actions: ActionTree<RootState, RootState> = {
     const playingSound = (await window.playSound(getters.activeSound.id)) as PlayingSound | false; // eslint-disable-line no-undef
     if (playingSound) {
       commit('addToCurrentlyPlaying', playingSound);
+    }
+  },
+
+  /**
+   * Start an application passthrough via the backend
+   */
+  async startPassthrough({ commit, getters }, app: Output) {
+    // It might be null if there are no outputs available, this should normally not happen since the button is disabled in this case
+    if (!getters.selectedOutput) {
+      return;
+    }
+    // @ts-ignore
+    if (!window.startPassthrough) {
+      return;
+    }
+    // @ts-ignore
+    const recordingStream = (await window.startPassthrough(app.name)) as Output | false; // eslint-disable-line no-undef
+    if (recordingStream) {
+      commit('removePassthroughFromCurrentlyPlaying');
+      commit('addToCurrentlyPlaying', recordingStream);
     }
   },
 
@@ -189,6 +274,22 @@ export const actions: ActionTree<RootState, RootState> = {
     commit('clearCurrentlyPlaying');
   },
 
+  async getOutputs({ dispatch }) {
+    // @ts-ignore
+    if (!window.getOutput) {
+      return;
+    }
+    // @ts-ignore
+    const outputs = (await window.getOutput()) as Settings; // eslint-disable-line no-undef
+    console.log('outputs loaded', outputs);
+    dispatch('setOutputs', outputs);
+    // setOutputs may change the current output that has to be saved
+    dispatch('saveSettings');
+  },
+
+  /**
+   * Get settings from the backend
+   */
   async getSettings({ commit }) {
     // @ts-ignore
     if (!window.getSettings) {
