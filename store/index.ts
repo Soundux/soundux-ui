@@ -70,6 +70,10 @@ export const mutations: MutationTree<RootState> = {
   setSelectedSoundIndex: (state, { tabId, index }: { tabId: number; index: number | undefined }) => {
     const stateTab = state.tabs.find(({ id }) => id === tabId);
     if (stateTab) {
+      // for grid view
+      if (stateTab.selectedSoundIndex === index) {
+        index = undefined;
+      }
       // selectedSoundIndex can be undefined so it may be a new property which is not reactive when using a simple assignment
       Vue.set(stateTab, 'selectedSoundIndex', index);
     } else {

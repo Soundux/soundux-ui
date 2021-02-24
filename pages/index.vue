@@ -109,9 +109,26 @@
           </draggable>
         </v-tabs>
 
-        <v-tabs-items v-model="$store.getters.activeTabIndex">
+        <v-tabs-items v-model="$store.getters.activeTabIndex" style="overflow-y: hidden">
           <v-tab-item v-for="(tab, index) in $store.getters.tabs" :key="index">
-            <v-list>
+            <div v-if="$store.state.settings.gridView" class="overflow-auto" style="height: 70vh">
+              <v-row no-gutters>
+                <template v-for="(sound, sIndex) in tab.sounds">
+                  <v-col :key="sIndex" class="ma-2">
+                    <v-btn
+                      class="pa-2 text-none"
+                      :class="tab.selectedSoundIndex === sIndex ? 'primaryIndicator' : ''"
+                      block
+                      height="50"
+                      @click="$store.commit('setSelectedSoundIndex', { tabId: tab.id, index: sIndex })"
+                    >
+                      {{ sound.name }}
+                    </v-btn>
+                  </v-col>
+                </template>
+              </v-row>
+            </div>
+            <v-list v-else :height="380" class="overflow-auto">
               <v-list-item-group
                 :value="tab.selectedSoundIndex"
                 color="primary"
@@ -334,6 +351,17 @@ export default Vue.extend({
 // we want our tabs to use the default cursor
 .v-tab {
   cursor: default !important;
+}
+
+.primaryIndicator::after {
+  content: '\a0';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  border-top: 5px solid var(--v-primary-base);
+  box-shadow: none !important;
+  border-radius: 4px;
 }
 
 .no-animation * * {

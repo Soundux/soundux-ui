@@ -39,6 +39,7 @@ export interface Settings {
   darkTheme: boolean;
   stopHotkey: number[];
   tabHotkeysOnly: boolean;
+  gridView: boolean;
   localVolume: number;
   remoteVolume: number;
   useAsDefaultDevice: boolean;
