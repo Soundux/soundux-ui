@@ -215,8 +215,6 @@ export default Vue.extend({
   data() {
     return {
       syncVolume: false,
-      localVolume: 50,
-      remoteVolume: 75,
       volume: 50,
       beforeDragActive: null as Tab | null,
       dragLocal: false,
@@ -230,6 +228,24 @@ export default Vue.extend({
       },
       set(output: Output) {
         this.$store.dispatch('setSelectedOutput', output);
+      },
+    },
+    localVolume: {
+      get() {
+        return this.$store.getters.settings.localVolume * 100;
+      },
+      set(volume: number) {
+        console.log('set local volume');
+        this.$store.dispatch('setLocalVolume', volume);
+      },
+    },
+    remoteVolume: {
+      get() {
+        return this.$store.getters.settings.remoteVolume * 100;
+      },
+      set(volume: number) {
+        console.log('set remote volume');
+        this.$store.dispatch('setRemoteVolume', volume);
       },
     },
     mutableTabs: {

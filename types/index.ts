@@ -39,5 +39,7 @@ export interface Settings {
   darkTheme: boolean;
   stopHotkey: number[];
   tabHotkeysOnly: boolean;
+  localVolume: number;
+  remoteVolume: number;
   useAsDefaultDevice: boolean;
 }

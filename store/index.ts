@@ -18,6 +18,8 @@ export const state = () => ({
     stopHotkey: [] as number[],
     tabHotkeysOnly: false,
     gridView: false,
+    localVolume: 0,
+    remoteVolume: 0,
     useAsDefaultDevice: false,
   } as Settings,
 });
@@ -101,6 +103,8 @@ export const mutations: MutationTree<RootState> = {
     state.settings = value;
     window.$nuxt.$root.$vuetify.theme.dark = value.darkTheme;
   },
+  setLocalVolume: (state, volume: number) => (state.settings.localVolume = volume),
+  setRemoteVolume: (state, volume: number) => (state.settings.remoteVolume = volume),
   setTabHotkeysOnly: (state, value: boolean) => (state.settings.tabHotkeysOnly = value),
   setAllowOverlapping: (state, value: boolean) => (state.settings.allowOverlapping = value),
   setGridView: (state, value: boolean) => (state.settings.gridView = value),
@@ -317,7 +321,14 @@ export const actions: ActionTree<RootState, RootState> = {
     // @ts-ignore
     await window.changeSettings(JSON.stringify(state.settings)); // eslint-disable-line no-undef
   },
-
+  setLocalVolume({ commit, dispatch }, volume: number) {
+    commit('setLocalVolume', volume / 100);
+    dispatch('saveSettings');
+  },
+  setRemoteVolume({ commit, dispatch }, volume: number) {
+    commit('setRemoteVolume', volume / 100);
+    dispatch('saveSettings');
+  },
   async isSwitchOnConnectLoaded({ commit }) {
     // @ts-ignore
     if (!window.isSwitchOnConnectLoaded) {
