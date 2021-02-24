@@ -92,9 +92,10 @@ export default Vue.extend({
   mounted() {
     this.$store.dispatch('getSettings');
     // @ts-ignore
-    window.hotkeyReceived = (hotkey: string) => {
+    window.hotkeyReceived = (hotkey: string, hotkeyData: number[]) => {
       console.log(hotkey);
       this.stopHotkey = hotkey;
+      this.$store.state.settings.stopHotkey = hotkeyData;
     };
   },
   methods: {

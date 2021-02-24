@@ -9,9 +9,10 @@ export const state = () => ({
   currentPlaying: [] as PlayingSound[],
   switchOnConnectLoaded: false,
   settings: {
+    selectedTab: 0,
     allowOverlapping: true,
     darkTheme: true,
-    stopHotkey: '',
+    stopHotkey: [] as number[],
     tabHotkeysOnly: false,
     gridView: false,
   } as Settings,
@@ -22,14 +23,14 @@ export type RootState = ReturnType<typeof state>;
 export const getters: GetterTree<RootState, RootState> = {
   searchDrawer: state => state.searchDrawer,
   tabs: state => state.tabs,
-  activeTabIndex: state => state.activeTabIndex,
+  activeTabIndex: state => state.settings.selectedTab,
   currentPlaying: state => state.currentPlaying,
   settings: state => state.settings,
   switchOnConnectLoaded: state => state.switchOnConnectLoaded,
-  activeSound: state => {
+  activeSound: (state, getters) => {
     const { tabs } = state;
     if (tabs.length > 0) {
-      const { activeTabIndex } = state;
+      const { activeTabIndex } = getters;
       const tab = tabs[activeTabIndex];
       if (tab && tab.sounds.length > 0) {
         const { selectedSoundIndex } = tab;
@@ -50,7 +51,7 @@ export const mutations: MutationTree<RootState> = {
   setSearchDrawer: (state, newState: boolean) => (state.searchDrawer = newState),
   addTab: (state, tab: Tab) => state.tabs.push(tab),
   setTabs: (state, tabs: Tab[]) => (state.tabs = tabs),
-  setActiveTabIndex: (state, index: number) => (state.activeTabIndex = index),
+  setActiveTabIndex: (state, index: number) => (state.settings.selectedTab = index),
   setSelectedSoundIndex: (state, { tabId, index }: { tabId: number; index: number | undefined }) => {
     const stateTab = state.tabs.find(({ id }) => id === tabId);
     if (stateTab) {
@@ -115,7 +116,7 @@ export const actions: ActionTree<RootState, RootState> = {
   /**
    * Removes a tab via the backend
    */
-  async deleteTab({ state, commit }, tab: Tab) {
+  async deleteTab({ state, getters, commit, dispatch }, tab: Tab) {
     // @ts-ignore
     if (!window.removeTab) {
       return;
@@ -126,17 +127,28 @@ export const actions: ActionTree<RootState, RootState> = {
     commit('setTabs', (await window.removeTab(deleteIndex)) as Tab[]); // eslint-disable-line no-undef
 
     // when deleting a tab to the left of the active one, the active index must be decreased by one
-    if (state.activeTabIndex > deleteIndex) {
-      commit('setActiveTabIndex', state.activeTabIndex - 1);
+    if (getters.activeTabIndex > deleteIndex) {
+      dispatch('setActiveTabIndex', getters.activeTabIndex - 1);
     }
   },
 
-  async refreshTab({ state }) {
+  /**
+   * Sets and saves the active tab index
+   */
+  setActiveTabIndex({ commit, dispatch }, index: number) {
+    commit('setActiveTabIndex', index);
+    dispatch('saveSettings');
+  },
+
+  /**
+   * Refreshes tabs from the backend
+   */
+  async refreshTab({ state, getters }) {
     // @ts-ignore
     if (!window.refreshTab) {
       return;
     }
-    const tab = state.tabs[state.activeTabIndex];
+    const tab = state.tabs[getters.activeTabIndex];
     const refreshIndex = state.tabs.indexOf(tab);
 
     // @ts-ignore

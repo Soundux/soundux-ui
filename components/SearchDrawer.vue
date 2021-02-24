@@ -94,7 +94,7 @@ export default Vue.extend({
           const tabIndex = tabs.indexOf(tab);
           // only set when not already set
           if (this.$store.getters.activeTabIndex !== tabIndex) {
-            this.$store.commit('setActiveTabIndex', tabIndex);
+            this.$store.dispatch('setActiveTabIndex', tabIndex);
           }
 
           const soundIndex = sounds.indexOf(result);

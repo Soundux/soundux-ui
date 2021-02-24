@@ -234,7 +234,7 @@ export default Vue.extend({
         return this.$store.getters.activeTabIndex;
       },
       set(newIndex: number) {
-        this.$store.commit('setActiveTabIndex', newIndex);
+        this.$store.dispatch('setActiveTabIndex', newIndex);
       },
     },
   },
@@ -278,7 +278,10 @@ export default Vue.extend({
     stopDrag(): void {
       // after dragging, the active tab index must be updated, as only the order in the tabs array is changed
       if (this.beforeDragActive) {
-        this.$store.commit('setActiveTabIndex', this.$store.getters.tabs.indexOf(this.beforeDragActive));
+        this.$store.dispatch(
+          'setActiveTabIndex',
+          this.$store.getters.tabs.indexOf(this.beforeDragActive)
+        );
       }
     },
   },

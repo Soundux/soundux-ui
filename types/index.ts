@@ -32,8 +32,9 @@ export interface App {
 }
 
 export interface Settings {
+  selectedTab: number;
   allowOverlapping: boolean;
   darkTheme: boolean;
-  stopHotkey: string;
+  stopHotkey: number[];
   tabHotkeysOnly: boolean;
 }
