@@ -1,6 +1,7 @@
 <template>
   <v-container fluid>
     <AppPassthroughDrawer></AppPassthroughDrawer>
+    <PlayingSoundsDrawer></PlayingSoundsDrawer>
     <SwitchOnConnectModal></SwitchOnConnectModal>
     <v-row>
       <v-col>
@@ -218,9 +219,11 @@ import SetHotkeyModal from '~/components/SetHotkeyModal.vue';
 import SearchDrawer from '~/components/SearchDrawer.vue';
 import AppPassthroughDrawer from '~/components/AppPassthroughDrawer.vue';
 import SwitchOnConnectModal from '~/components/SwitchOnConnectModal.vue';
+import PlayingSoundsDrawer from '~/components/PlayingSoundsDrawer.vue';
 
 export default Vue.extend({
   components: {
+    PlayingSoundsDrawer,
     SwitchOnConnectModal,
     AppPassthroughDrawer,
     SearchDrawer,
@@ -307,7 +310,7 @@ export default Vue.extend({
         return false;
       });
       if (sound) {
-        sound.readInMs = playingSound.readInMs;
+        this.$store.commit('updateSound', { playing: sound, ms: playingSound.readInMs });
       } else {
         console.warn('Could not find sound for playingSound with id', playingSound.id);
       }

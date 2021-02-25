@@ -80,6 +80,17 @@ export const mutations: MutationTree<RootState> = {
       console.error(`Could not find tab with id ${tabId}`);
     }
   },
+  updateSound: (
+    _state,
+    { playing, ms, paused }: { playing: PlayingSound; ms?: number; paused?: boolean }
+  ) => {
+    if (ms !== undefined) {
+      playing.readInMs = ms;
+    }
+    if (paused !== undefined) {
+      playing.paused = paused;
+    }
+  },
   addToCurrentlyPlaying: (state, playing: Playing) => state.currentPlaying.push(playing),
   clearCurrentlyPlaying: state => (state.currentPlaying = []),
   removePassthroughFromCurrentlyPlaying: state => {

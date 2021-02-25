@@ -42,7 +42,7 @@ const config: NuxtConfig = {
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
-  modules: [],
+  modules: ['@nuxtjs/dayjs'],
 
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
   vuetify: {
@@ -63,6 +63,18 @@ const config: NuxtConfig = {
           primary: '#52b18c',
         },
       },
+    },
+  },
+
+  dayjs: {
+    plugins: [
+      'duration', // import 'dayjs/plugin/duration'
+    ],
+  },
+
+  vue: {
+    config: {
+      productionTip: false,
     },
   },
 
