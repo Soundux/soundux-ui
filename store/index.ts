@@ -1,6 +1,6 @@
 import { ActionTree, GetterTree, MutationTree } from 'vuex';
 import Vue from 'vue';
-import { Data, Output, Playing, PlayingSound, Settings, Tab } from '~/types';
+import { Data, Output, Playing, PlayingSound, Settings, Sound, Tab } from '~/types';
 
 export const state = () => ({
   searchDrawer: false,
@@ -124,11 +124,16 @@ export const mutations: MutationTree<RootState> = {
   setAllowOverlapping: (state, value: boolean) => (state.settings.allowOverlapping = value),
   setGridView: (state, value: boolean) => (state.settings.gridView = value),
   setUseAsDefaultDevice: (state, value: boolean) => (state.settings.useAsDefaultDevice = value),
+  setStopHotkey: (state, value: number[]) => (state.settings.stopHotkey = value),
   setDarkTheme: (state, value: boolean) => {
     state.settings.darkTheme = value;
     window.$nuxt.$root.$vuetify.theme.dark = value;
   },
   setSwitchOnConnectLoaded: (state, loaded: boolean) => (state.switchOnConnectLoaded = loaded),
+  setHotkeys: (_state, { sound, hotkeys }: { sound: Sound; hotkeys: number[] }) =>
+    (sound.hotkeys = hotkeys),
+  setHotkeySequence: (_state, { sound, hotkeySequence }: { sound: Sound; hotkeySequence: string }) =>
+    (sound.hotkeySequence = hotkeySequence),
 };
 
 export const actions: ActionTree<RootState, RootState> = {
@@ -323,6 +328,12 @@ export const actions: ActionTree<RootState, RootState> = {
   setUseAsDefaultDevice({ commit, dispatch }, value: boolean) {
     commit('setUseAsDefaultDevice', value);
     dispatch('saveSettings');
+  },
+
+  async setHotkeys({ commit }, data: { sound: Sound; hotkeys: number[] }) {
+    commit('setHotkeys', data);
+    // @ts-ignore
+    await window.setHotkey(data.sound.id, data.sound.hotkeys); // eslint-disable-line no-undef
   },
 
   /**

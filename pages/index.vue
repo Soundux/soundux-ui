@@ -140,6 +140,9 @@
                     <v-list-item-title>
                       {{ sound.name }}
                     </v-list-item-title>
+                    <v-list-item-action-text>
+                      {{ sound.hotkeySequence }}
+                    </v-list-item-action-text>
                   </v-list-item-content>
                 </v-list-item>
               </v-list-item-group>
@@ -318,6 +321,12 @@ export default Vue.extend({
     // @ts-ignore
     window.finishSound = (playingSound: PlayingSound) => {
       this.$store.commit('removeFromCurrentlyPlaying', playingSound);
+    };
+    // @ts-ignore
+    window.onSoundPlayed = (playingSound: PlayingSound) => {
+      if (playingSound) {
+        this.$store.commit('addToCurrentlyPlaying', playingSound);
+      }
     };
   },
   methods: {

@@ -2,6 +2,8 @@ export interface Sound {
   id: number;
   name: string;
   path: string;
+  hotkeys: number[];
+  hotkeySequence: string;
 }
 
 export interface PlayingSound {

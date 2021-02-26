@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="setHotkeyModal" max-width="600px">
+  <v-dialog v-model="setHotkeyModal" max-width="600px" @input="stateChanged">
     <template #activator="{ on, attrs }">
       <v-btn
         :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
@@ -20,18 +20,18 @@
       </v-card-title>
       <v-card-text>
         <v-text-field
-          v-model="hotkey"
+          :value="sound.hotkeySequence"
           label="Hotkey"
           readonly
+          append-icon="mdi-close"
           hide-details
+          @click:append="reset"
           @focus="focus"
           @blur="blur"
         ></v-text-field>
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn text color="primary" @click="reset">Reset</v-btn>
-        <v-btn text color="primary" @click="setHotkeyModal = false">Cancel</v-btn>
         <v-btn text color="primary" @click="setHotkeyModal = false">OK</v-btn>
       </v-card-actions>
     </v-card>
@@ -54,18 +54,54 @@ export default Vue.extend({
   data() {
     return {
       setHotkeyModal: false,
-      hotkey: '',
     };
   },
   methods: {
     reset() {
-      this.hotkey = '';
+      this.$store.commit('setHotkeySequence', { sound: this.sound, hotkeySequence: '' });
+      this.$store.dispatch('setHotkeys', { sound: this.sound, hotkeys: [] });
     },
-    focus() {
-      // TODO: send to backend
+    // handler function when the modal was opened/closed
+    // open: we register the hotkeyReceived method for the backend here
+    // close: the use of this is overloaded with SettingsModal which is why we unregister it
+    async stateChanged(state: boolean) {
+      // @ts-ignore
+      if (!window.getHotkeySequence) {
+        return;
+      }
+      if (state) {
+        this.$store.commit('setHotkeySequence', {
+          sound: this.sound,
+          // @ts-ignore
+          // eslint-disable-next-line no-undef
+          hotkeySequence: await window.getHotkeySequence(this.sound.hotkeys),
+        });
+
+        // @ts-ignore
+        window.hotkeyReceived = (hotkey: string, hotkeyData: number[]) => {
+          this.$store.commit('setHotkeySequence', { sound: this.sound, hotkeySequence: hotkey });
+          this.$store.dispatch('setHotkeys', { sound: this.sound, hotkeys: hotkeyData });
+        };
+      } else {
+        // @ts-ignore
+        window.hotkeyReceived = undefined;
+      }
     },
-    blur() {
-      // TODO: send to backend
+    async focus() {
+      // @ts-ignore
+      if (!window.requestHotkey) {
+        return;
+      }
+      // @ts-ignore
+      await window.requestHotkey(true); // eslint-disable-line no-undef
+    },
+    async blur() {
+      // @ts-ignore
+      if (!window.requestHotkey) {
+        return;
+      }
+      // @ts-ignore
+      await window.requestHotkey(false); // eslint-disable-line no-undef
     },
   },
 });

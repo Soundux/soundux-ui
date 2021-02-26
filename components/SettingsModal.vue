@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="settingsModal" max-width="600px">
+  <v-dialog v-model="settingsModal" max-width="600px" @input="stateChanged">
     <template #activator="{ on, attrs }">
       <v-btn
         :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
@@ -28,7 +28,9 @@
           label="Stop hotkey"
           prepend-icon="mdi-keyboard"
           readonly
+          append-icon="mdi-close"
           hide-details
+          @click:append="clearHotkey"
           @focus="focus"
           @blur="blur"
         ></v-text-field>
@@ -98,16 +100,41 @@ export default Vue.extend({
       },
     },
   },
-  mounted() {
-    this.$store.dispatch('getSettings');
+  async mounted() {
+    await this.$store.dispatch('getSettings');
     // @ts-ignore
-    window.hotkeyReceived = (hotkey: string, hotkeyData: number[]) => {
-      console.log(hotkey);
-      this.stopHotkey = hotkey;
-      this.$store.state.settings.stopHotkey = hotkeyData;
-    };
+    if (!window.getHotkeySequence) {
+      return;
+    }
+    // @ts-ignore
+    this.stopHotkey = await window.getHotkeySequence(this.$store.getters.settings.stopHotkey); // eslint-disable-line no-undef
   },
   methods: {
+    // handler function when the modal was opened/closed
+    // open: we register the hotkeyReceived method for the backend here
+    // close: the use of this is overloaded with SetHotkeyModal which is why we unregister it
+    stateChanged(state: boolean) {
+      // @ts-ignore
+      if (!window.getHotkeySequence) {
+        return;
+      }
+      if (state) {
+        // @ts-ignore
+        window.hotkeyReceived = (hotkey: string, hotkeyData: number[]) => {
+          this.stopHotkey = hotkey;
+          this.$store.commit('setStopHotkey', hotkeyData);
+          this.$store.dispatch('saveSettings');
+        };
+      } else {
+        // @ts-ignore
+        window.hotkeyReceived = undefined;
+      }
+    },
+    clearHotkey() {
+      this.stopHotkey = '';
+      this.$store.commit('setStopHotkey', []);
+      this.$store.dispatch('saveSettings');
+    },
     async focus() {
       // @ts-ignore
       if (!window.requestHotkey) {
