@@ -20,9 +20,14 @@
       <v-card-text>
         <ul>
           <i18n path="help.search.text" tag="li">
-            <code slot="ctrl">{{ $t('help.search.ctrl') }}</code>
+            <code slot="ctrl">{{ $t('help.ctrl') }}</code>
             <code slot="f">F</code>
             <b slot="search">{{ $t('help.search.search') }}</b>
+          </i18n>
+          <i18n path="help.appPassThrough.text" tag="li">
+            <code slot="ctrl">{{ $t('help.ctrl') }}</code>
+            <code slot="g">G</code>
+            <b slot="show">{{ $t('help.appPassThrough.show') }}</b>
           </i18n>
           <i18n path="help.play.text" tag="li">
             <code slot="doubleClick">{{ $t('help.play.doubleClick') }}</code>

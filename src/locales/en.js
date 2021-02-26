@@ -42,15 +42,19 @@ export default {
   },
   help: {
     title: 'Help',
+    ctrl: 'CTRL',
     search: {
       text: 'Press {ctrl} + {f} to {search}',
-      ctrl: 'CTRL',
       search: 'search',
     },
     play: {
       text: '{doubleClick} to {play}',
       doubleClick: 'Double-click',
       play: 'play',
+    },
+    appPassThrough: {
+      text: 'Press {ctrl} + {g} to {show}',
+      show: 'show app pass through',
     },
   },
   volume: {

@@ -44,15 +44,19 @@ export default {
   },
   help: {
     title: 'Hilfe',
+    ctrl: 'STRG',
     search: {
       text: 'Drücke {ctrl} + {f} um zu {search}',
-      ctrl: 'STRG',
       search: 'suchen',
     },
     play: {
       text: '{doubleClick} um {play}',
       doubleClick: 'Doppelklick',
       play: 'abzuspielen',
+    },
+    appPassThrough: {
+      text: 'Drücke {ctrl} + {g} um {show}',
+      show: 'App durchreichen anzuzeigen',
     },
   },
   volume: {
