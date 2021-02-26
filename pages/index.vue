@@ -258,7 +258,6 @@ export default Vue.extend({
         return this.$store.getters.settings.localVolume * 100;
       },
       set(volume: number) {
-        console.log('set local volume');
         this.$store.dispatch('setLocalVolume', volume);
       },
     },
@@ -267,7 +266,6 @@ export default Vue.extend({
         return this.$store.getters.settings.remoteVolume * 100;
       },
       set(volume: number) {
-        console.log('set remote volume');
         this.$store.dispatch('setRemoteVolume', volume);
       },
     },

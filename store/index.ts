@@ -160,7 +160,6 @@ export const actions: ActionTree<RootState, RootState> = {
     }
     // @ts-ignore
     const playbackApps = (await window.getPlayback()) as Output[]; // eslint-disable-line no-undef
-    console.log('playbackApps loaded', playbackApps);
     commit('setPlaybackApps', playbackApps);
   },
 
@@ -181,7 +180,6 @@ export const actions: ActionTree<RootState, RootState> = {
 
   setSelectedOutput({ commit, dispatch }, selectedOutput: Output) {
     commit('setSelectedOutput', selectedOutput);
-    console.log('save settings for selected output');
     dispatch('saveSettings');
   },
 
@@ -305,7 +303,6 @@ export const actions: ActionTree<RootState, RootState> = {
     }
     // @ts-ignore
     const outputs = (await window.getOutput()) as Settings; // eslint-disable-line no-undef
-    console.log('outputs loaded', outputs);
     dispatch('setOutputs', outputs);
     // setOutputs may change the current output that has to be saved
     dispatch('saveSettings');
@@ -321,7 +318,6 @@ export const actions: ActionTree<RootState, RootState> = {
     }
     // @ts-ignore
     const settings = (await window.getSettings()) as Settings; // eslint-disable-line no-undef
-    console.log('settings loaded', settings);
     commit('setSettings', settings);
   },
 
