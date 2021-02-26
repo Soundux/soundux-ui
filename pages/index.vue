@@ -112,11 +112,12 @@
 
         <v-tabs-items :value="$store.getters.activeTabIndex">
           <v-tab-item v-for="(tab, index) in $store.getters.tabs" :key="index">
-            <div v-if="$store.state.settings.gridView" class="overflow-auto" style="height: 70vh">
-              <v-row no-gutters>
+            <div v-if="$store.getters.settings.gridView" class="overflow-y-auto" style="height: 380px">
+              <v-row id="grid-view" no-gutters>
                 <template v-for="(sound, sIndex) in tab.sounds">
                   <v-col :key="sIndex" class="ma-2">
                     <v-btn
+                      :id="`sound-${sound.id}`"
                       class="pa-2 text-none"
                       :class="tab.selectedSoundIndex === sIndex ? 'primaryIndicator' : ''"
                       block
@@ -129,13 +130,13 @@
                 </template>
               </v-row>
             </div>
-            <v-list v-else :height="380" class="overflow-auto">
+            <v-list v-else id="list-view" :height="380" class="overflow-y-auto">
               <v-list-item-group
                 :value="tab.selectedSoundIndex"
                 color="primary"
                 @change="$store.commit('setSelectedSoundIndex', { tabId: tab.id, index: $event })"
               >
-                <v-list-item v-for="sound in tab.sounds" :key="sound.id">
+                <v-list-item v-for="sound in tab.sounds" :id="`sound-${sound.id}`" :key="sound.id">
                   <v-list-item-content>
                     <v-list-item-title>
                       {{ sound.name }}

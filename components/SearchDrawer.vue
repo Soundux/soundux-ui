@@ -104,7 +104,22 @@ export default Vue.extend({
           }
 
           this.searchDrawer = false;
-          // TODO: scroll sound into view
+          const soundElement = document.getElementById(`sound-${result.id}`);
+          if (soundElement) {
+            window.setTimeout(() => {
+              if (this.$store.getters.settings.gridView) {
+                // grid view
+                this.$vuetify.goTo(soundElement, {
+                  container: document.getElementById('grid-view')!,
+                });
+              } else {
+                // list view
+                this.$vuetify.goTo(soundElement, {
+                  container: document.getElementById('list-view')!,
+                });
+              }
+            }, 0);
+          }
           break;
         }
       }
