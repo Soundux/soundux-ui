@@ -110,7 +110,7 @@
           </draggable>
         </v-tabs>
 
-        <v-tabs-items v-model="$store.getters.activeTabIndex" style="overflow-y: hidden">
+        <v-tabs-items :value="$store.getters.activeTabIndex">
           <v-tab-item v-for="(tab, index) in $store.getters.tabs" :key="index">
             <div v-if="$store.state.settings.gridView" class="overflow-auto" style="height: 70vh">
               <v-row no-gutters>
@@ -214,7 +214,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import draggable from 'vuedraggable';
-import { Output, Playing, PlayingSound, Tab } from '~/types';
+import { Output, PlayingSound, Tab } from '~/types';
 
 import SettingsModal from '~/components/SettingsModal.vue';
 import HelpModal from '~/components/HelpModal.vue';
@@ -299,17 +299,15 @@ export default Vue.extend({
     },
   },
   mounted() {
+    // initial data loading TODO: move this to an extra component?
     this.$store.dispatch('getData');
     this.$store.dispatch('getOutputs');
     this.$store.dispatch('isSwitchOnConnectLoaded');
     // @ts-ignore
     window.updateSound = (playingSound: PlayingSound) => {
-      const sound = this.$store.getters.currentPlaying.find((x: Playing) => {
-        if ('lengthInMs' in x) {
-          return x.id === playingSound.id;
-        }
-        return false;
-      });
+      const sound = this.$store.getters.currentPlayingSounds.find(
+        (x: PlayingSound) => x.id === playingSound.id
+      );
       if (sound) {
         this.$store.commit('updateSound', { playing: sound, ms: playingSound.readInMs });
       } else {

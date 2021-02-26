@@ -34,6 +34,11 @@ export const getters: GetterTree<RootState, RootState> = {
   selectedOutput: state => state.selectedOutput,
   playbackApps: state => state.playbackApps,
   currentPlaying: state => state.currentPlaying,
+  currentPlayingSounds: state => {
+    return state.currentPlaying.filter((x: Playing) => {
+      return 'lengthInMs' in x;
+    });
+  },
   settings: state => state.settings,
   switchOnConnectLoaded: state => state.switchOnConnectLoaded,
   activeSound: (state, getters) => {
