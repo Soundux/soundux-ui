@@ -34,7 +34,7 @@ export default Vue.extend({
   mounted() {
     this.$store.dispatch('getPlaybackApps');
     this.keyDownHandler = (event: KeyboardEvent) => {
-      if (event.ctrlKey && event.code === 'KeyG') {
+      if (event.ctrlKey && !event.shiftKey && !event.altKey && event.code === 'KeyG') {
         event.preventDefault();
         this.drawer = !this.drawer;
       }

@@ -64,7 +64,7 @@ export default Vue.extend({
   },
   mounted() {
     this.keyDownHandler = (event: KeyboardEvent) => {
-      if (event.ctrlKey && event.code === 'KeyF') {
+      if (event.ctrlKey && !event.shiftKey && !event.altKey && event.code === 'KeyF') {
         event.preventDefault();
         this.$store.commit('toggleSearchDrawer');
       }
@@ -118,7 +118,7 @@ export default Vue.extend({
                   container: document.getElementById('list-view') as HTMLElement,
                 });
               }
-            }, 0);
+            }, 20);
           }
           break;
         }
