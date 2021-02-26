@@ -41,7 +41,7 @@ export default {
     setFor: 'Set hotkey for {soundName}',
   },
   help: {
-    title: 'Hilfe',
+    title: 'Help',
     search: {
       text: 'Press {ctrl} + {f} to {search}',
       ctrl: 'CTRL',
