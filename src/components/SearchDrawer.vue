@@ -26,15 +26,15 @@
       v-else-if="!searchInput && searchResults.length === 0"
       max-width="200"
       class="mx-auto mt-5"
-      src="undraw_searching_p5ux.svg"
+      src="../assets/undraw_searching_p5ux.svg"
     ></v-img>
-    <v-img v-else max-width="200" class="mx-auto mt-5" src="undraw_void_3ggu.svg"></v-img>
+    <v-img v-else max-width="200" class="mx-auto mt-5" src="../assets/undraw_void_3ggu.svg"></v-img>
   </v-navigation-drawer>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import { Sound } from '~/types';
+import { Sound } from '@/types';
 
 export default Vue.extend({
   name: 'SearchDrawer',
@@ -110,12 +110,12 @@ export default Vue.extend({
               if (this.$store.getters.settings.gridView) {
                 // grid view
                 this.$vuetify.goTo(soundElement, {
-                  container: document.getElementById('grid-view')!,
+                  container: document.getElementById('grid-view') as HTMLElement,
                 });
               } else {
                 // list view
                 this.$vuetify.goTo(soundElement, {
-                  container: document.getElementById('list-view')!,
+                  container: document.getElementById('list-view') as HTMLElement,
                 });
               }
             }, 0);

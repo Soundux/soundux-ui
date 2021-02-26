@@ -40,7 +40,7 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import { Sound } from '~/types';
+import { Sound } from '@/types';
 
 export default Vue.extend({
   name: 'SetHotkeyModal',

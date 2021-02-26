@@ -23,7 +23,8 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import { PlayingSound } from '~/types';
+import dayjs from 'dayjs';
+import { PlayingSound } from '@/types';
 
 export default Vue.extend({
   name: 'SoundControl',
@@ -91,10 +92,8 @@ export default Vue.extend({
       }
     },
     parseTime(time: number): string {
-      // TODO: how to fix typings for $dayjs.duration?
-      // @ts-ignore
-      const duration = this.$dayjs.duration(time);
-      if (duration.$d.hours === 0) {
+      const duration = dayjs.duration(time);
+      if (duration.hours() === 0) {
         return duration.format('mm:ss');
       }
       return duration.format('HH:mm:ss');

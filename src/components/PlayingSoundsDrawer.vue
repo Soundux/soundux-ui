@@ -22,8 +22,8 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { PlayingSound } from '~/types';
-import PlayingControl from '~/components/PlayingControl.vue';
+import { PlayingSound } from '@/types';
+import PlayingControl from '@/components/PlayingControl.vue';
 
 export default Vue.extend({
   name: 'PlayingSoundsDrawer',

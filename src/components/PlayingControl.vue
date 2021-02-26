@@ -5,9 +5,9 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import { Playing } from '~/types';
-import SoundControl from '~/components/SoundControl.vue';
-import PassthroughControl from '~/components/PassthroughControl.vue';
+import { Playing } from '@/types';
+import SoundControl from '@/components/SoundControl.vue';
+import PassthroughControl from '@/components/PassthroughControl.vue';
 
 export default Vue.extend({
   name: 'PlayingControl',
