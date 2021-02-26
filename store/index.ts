@@ -227,9 +227,11 @@ export const actions: ActionTree<RootState, RootState> = {
   /**
    * Sets and saves the active tab index
    */
-  setActiveTabIndex({ commit, dispatch }, index: number) {
-    commit('setActiveTabIndex', index);
-    dispatch('saveSettings');
+  setActiveTabIndex({ commit, dispatch }, index: number | undefined) {
+    if (index !== undefined) {
+      commit('setActiveTabIndex', index);
+      dispatch('saveSettings');
+    }
   },
 
   /**
