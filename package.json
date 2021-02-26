@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@mdi/font": "^5.9.55",
-    "@nuxt/typescript-runtime": "^2.0.1",
+    "@nuxt/typescript-runtime": "^2.0.2",
     "@nuxtjs/dayjs": "^1.3.0",
     "core-js": "^3.9.0",
     "nuxt": "^2.15.2",
