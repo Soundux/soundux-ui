@@ -3,20 +3,24 @@
     <v-card>
       <v-toolbar color="red lighten-1" dark>
         <v-icon left>mdi-alert-octagon-outline</v-icon>
-        <span class="text-h5">Switch on connect module detected!</span>
+        <span class="text-h5">{{ $t('switchOnConnect.title') }}</span>
       </v-toolbar>
       <v-card-text class="pt-3">
-        The PulseAudio
-        <code>module-switch-on-connect</code>
-        module has been detected.<br />This causes severe problems!<br />To continue using Soundux,
-        please disable it.<br /><br />
-        For more information (e.g. how to disable this permanently) please refer to
-        <a target="#" @click="openWikiPage">our dedicated wiki page</a>
+        <i18n path="switchOnConnect.explanation.line1" tag="span">
+          <code slot="moduleName">module-switch-on-connect</code>
+        </i18n>
+        <br />{{ $t('switchOnConnect.explanation.line2') }}<br />
+        {{ $t('switchOnConnect.explanation.line3') }}<br /><br />
+        <i18n path="switchOnConnect.explanation.line4" tag="span">
+          <a slot="wikiPage" target="#" @click="openWikiPage">{{
+            $t('switchOnConnect.explanation.wikiPage')
+          }}</a>
+        </i18n>
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
         <v-btn text color="primary" @click="$store.dispatch('unloadSwitchOnConnect')">
-          Disable now
+          {{ $t('switchOnConnect.disable') }}
         </v-btn>
       </v-card-actions>
     </v-card>

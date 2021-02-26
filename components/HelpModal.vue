@@ -9,18 +9,25 @@
         v-on="on"
       >
         <v-icon left>mdi-help-circle-outline</v-icon>
-        Help
+        {{ $t('help.title') }}
       </v-btn>
     </template>
     <v-card>
       <v-card-title>
         <v-icon left>mdi-help-circle-outline</v-icon>
-        <span class="text-h5">Help</span>
+        <span class="text-h5">{{ $t('help.title') }}</span>
       </v-card-title>
       <v-card-text>
         <ul>
-          <li><code>CTRL</code> + <code>F</code> to <b>search</b></li>
-          <li><code>Double-click</code> to <b>play</b></li>
+          <i18n path="help.search.text" tag="li">
+            <code slot="ctrl">{{ $t('help.search.ctrl') }}</code>
+            <code slot="f">F</code>
+            <b slot="search">{{ $t('help.search.search') }}</b>
+          </i18n>
+          <i18n path="help.play.text" tag="li">
+            <code slot="doubleClick">{{ $t('help.play.doubleClick') }}</code>
+            <b slot="play">{{ $t('help.play.play') }}</b>
+          </i18n>
         </ul>
       </v-card-text>
       <v-card-actions>

@@ -10,7 +10,7 @@
       <v-text-field
         ref="searchField"
         v-model="searchInput"
-        label="Search..."
+        :label="`${$t('actions.search')}...`"
         hide-details
         prepend-icon="mdi-magnify"
       ></v-text-field>

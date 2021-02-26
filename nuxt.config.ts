@@ -42,7 +42,7 @@ const config: NuxtConfig = {
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
-  modules: ['@nuxtjs/dayjs'],
+  modules: ['@nuxtjs/dayjs', 'nuxt-i18n'],
 
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
   vuetify: {
@@ -70,6 +70,21 @@ const config: NuxtConfig = {
     plugins: [
       'duration', // import 'dayjs/plugin/duration'
     ],
+  },
+
+  i18n: {
+    locales: [
+      { code: 'en', iso: 'en-US', file: 'en.js' },
+      { code: 'de', iso: 'de-DE', file: 'de.js' },
+    ],
+    defaultLocale: 'en',
+    lazy: true,
+    langDir: 'locales/',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      onlyOnRoot: true, // recommended
+    },
   },
 
   vue: {

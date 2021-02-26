@@ -28,6 +28,7 @@
       "@nuxt/types",
       "@nuxtjs/vuetify",
       "@nuxtjs/dayjs",
+      "nuxt-i18n"
     ]
   },
   "exclude": [

@@ -3,7 +3,7 @@
     <v-toolbar color="primary">
       <v-toolbar-title class="text-subtitle-1">
         <v-icon left>mdi-cable-data</v-icon>
-        Application pass through
+        {{ $t('appPassThrough') }}
         <v-icon right @click="$store.dispatch('getPlaybackApps')">mdi-reload</v-icon>
       </v-toolbar-title>
     </v-toolbar>

@@ -10,18 +10,18 @@
         v-on="on"
       >
         <v-icon left>mdi-keyboard</v-icon>
-        Set hotkey
+        {{ $t('hotkeys.title') }}
       </v-btn>
     </template>
     <v-card v-if="sound">
       <v-card-title>
         <v-icon left>mdi-keyboard</v-icon>
-        <span class="text-h5">Set hotkey for {{ sound.name }}</span>
+        <span class="text-h5">{{ $t('hotkeys.setFor', { soundName: sound.name }) }}</span>
       </v-card-title>
       <v-card-text>
         <v-text-field
           :value="sound.hotkeySequence"
-          label="Hotkey"
+          :label="$t('hotkeys.hotkey')"
           readonly
           append-icon="mdi-close"
           hide-details

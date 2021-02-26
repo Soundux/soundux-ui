@@ -18,9 +18,9 @@
           :disabled="$store.getters.currentPlaying.length > 0"
           item-text="name"
           :items="this.$store.getters.outputs"
-          label="Output application"
+          :label="$t('outputApp.title')"
           outlined
-          messages="The application to play the sound to"
+          :messages="$t('outputApp.info')"
           dense
         >
           <!--<template #selection="{ item }">
@@ -32,7 +32,7 @@
         </v-select>
         <v-btn color="primary" block @click="$store.dispatch('getOutputs')">
           <v-icon left dark>mdi-reload</v-icon>
-          Refresh
+          {{ $t('actions.refresh') }}
         </v-btn>
       </v-col>
     </v-row>
@@ -46,7 +46,7 @@
           @click="$store.dispatch('stopSounds')"
         >
           <v-icon left dark>mdi-stop</v-icon>
-          Stop
+          {{ $t('actions.stop') }}
         </v-btn>
       </v-col>
       <v-col sm="5" md="6" xl="7" class="ml-5 mr-3">
@@ -54,7 +54,7 @@
           v-model="localVolume"
           dense
           hide-details
-          label="Local volume"
+          :label="$t('volume.local')"
           thumb-label
           :class="{ 'no-animation': dragRemote }"
           prepend-icon="mdi-volume-high"
@@ -65,7 +65,7 @@
           v-model="remoteVolume"
           dense
           hide-details
-          label="Remote volume"
+          :label="$t('volume.remote')"
           thumb-label
           :class="{ 'no-animation': dragLocal }"
           prepend-icon="mdi-volume-high"
@@ -77,7 +77,7 @@
         <v-checkbox v-model="syncVolume">
           <template #label>
             <v-icon left small>mdi-link</v-icon>
-            Sync volumes
+            {{ $t('volume.sync') }}
           </template>
         </v-checkbox>
       </v-col>
@@ -153,11 +153,11 @@
       </v-col>
       <v-col v-else>
         <v-card>
-          <v-card-title>Welcome to Soundux</v-card-title>
+          <v-card-title>{{ $t('welcome.title', { programName: 'Soundux' }) }}</v-card-title>
           <v-card-text>
-            There are currently no tabs. Add one by pressing
-            <b>Add tab</b>
-            on the right side
+            <i18n path="welcome.noTabs">
+              <b slot="addTab">{{ $t('actions.addTab') }}</b>
+            </i18n>
 
             <v-img src="undraw_empty_xct9.svg" height="150" contain></v-img>
           </v-card-text>
@@ -171,7 +171,7 @@
           @click="$store.commit('toggleSearchDrawer')"
         >
           <v-icon left dark>mdi-magnify</v-icon>
-          Search
+          {{ $t('actions.search') }}
         </v-btn>
         <SearchDrawer></SearchDrawer>
         <v-btn
@@ -181,7 +181,7 @@
           @click="$store.dispatch('addTab')"
         >
           <v-icon left dark>mdi-folder-plus</v-icon>
-          Add tab
+          {{ $t('actions.addTab') }}
         </v-btn>
         <v-btn
           :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
@@ -191,7 +191,7 @@
           @click="$store.dispatch('refreshTab')"
         >
           <v-icon left dark>mdi-folder-refresh-outline</v-icon>
-          Reload sounds
+          {{ $t('actions.reloadSounds') }}
         </v-btn>
         <v-spacer></v-spacer>
         <SetHotkeyModal :sound="$store.getters.activeSound"></SetHotkeyModal>
@@ -203,7 +203,7 @@
           @click="$store.dispatch('playSound')"
         >
           <v-icon left dark>mdi-play</v-icon>
-          Play
+          {{ $t('actions.play') }}
         </v-btn>
         <SettingsModal></SettingsModal>
         <HelpModal></HelpModal>

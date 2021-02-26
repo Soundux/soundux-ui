@@ -9,23 +9,23 @@
         v-on="on"
       >
         <v-icon left>mdi-cog</v-icon>
-        Settings
+        {{ $t('settings.title') }}
       </v-btn>
     </template>
     <v-card>
       <v-card-title>
         <v-icon left>mdi-cog</v-icon>
-        <span class="text-h5">Settings</span>
+        <span class="text-h5">{{ $t('settings.title') }}</span>
       </v-card-title>
       <v-card-text>
-        <v-checkbox v-model="tabHotkeysOnly" label="Hotkeys only for current tab"></v-checkbox>
-        <v-checkbox v-model="allowOverlapping" label="Allow sound overlapping"></v-checkbox>
-        <v-checkbox v-model="gridView" label="Grid view"></v-checkbox>
-        <v-checkbox v-model="useAsDefaultDevice" label="Use as default device"></v-checkbox>
-        <v-checkbox v-model="darkTheme" label="Dark theme"></v-checkbox>
+        <v-checkbox v-model="tabHotkeysOnly" :label="$t('settings.tabHotkeysOnly')"></v-checkbox>
+        <v-checkbox v-model="allowOverlapping" :label="$t('settings.allowOverlapping')"></v-checkbox>
+        <v-checkbox v-model="gridView" :label="$t('settings.gridView')"></v-checkbox>
+        <v-checkbox v-model="useAsDefaultDevice" :label="$t('settings.useAsDefaultDevice')"></v-checkbox>
+        <v-checkbox v-model="darkTheme" :label="$t('settings.darkTheme')"></v-checkbox>
         <v-text-field
           v-model="stopHotkey"
-          label="Stop hotkey"
+          :label="$t('settings.stopHotkey')"
           prepend-icon="mdi-keyboard"
           readonly
           append-icon="mdi-close"
