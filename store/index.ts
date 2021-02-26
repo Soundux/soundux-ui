@@ -171,14 +171,16 @@ export const actions: ActionTree<RootState, RootState> = {
   setOutputs({ state, commit }, outputs: Output[]) {
     commit('setOutputs', outputs);
     const { selectedOutput } = state;
-    if (selectedOutput == null) {
-      commit('setSelectedOutput', state.outputs[0]);
-    } else {
-      const current = state.outputs.find(({ name }) => name === selectedOutput.name);
-      if (current) {
-        commit('setSelectedOutput', current);
-      } else {
+    if (state.outputs.length > 0) {
+      if (selectedOutput == null) {
         commit('setSelectedOutput', state.outputs[0]);
+      } else {
+        const current = state.outputs.find(({ name }) => name === selectedOutput.name);
+        if (current) {
+          commit('setSelectedOutput', current);
+        } else {
+          commit('setSelectedOutput', state.outputs[0]);
+        }
       }
     }
   },
