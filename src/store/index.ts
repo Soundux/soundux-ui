@@ -69,9 +69,9 @@ export default new Vuex.Store({
     setActiveTabIndex: (state, index: number) => (state.settings.selectedTab = index),
     setOutputs: (state, outputs: Output[]) => (state.outputs = outputs),
     setPlaybackApps: (state, playbackApps: Output[]) => (state.playbackApps = playbackApps),
-    setSelectedOutput: (state, selectedOutput: Output) => {
+    setSelectedOutput: (state, selectedOutput: Output | null) => {
       state.selectedOutput = selectedOutput;
-      state.settings.output = selectedOutput.name;
+      state.settings.output = selectedOutput ? selectedOutput.name : '';
     },
     setSelectedSoundIndex: (state, { tabId, index }: { tabId: number; index: number | undefined }) => {
       const stateTab = state.tabs.find(({ id }) => id === tabId);
@@ -170,7 +170,7 @@ export default new Vuex.Store({
       commit('setPlaybackApps', playbackApps);
     },
 
-    setOutputs({ state, commit }, outputs: Output[]) {
+    setOutputs({ state, commit, dispatch }, outputs: Output[]) {
       commit('setOutputs', outputs);
       const { selectedOutput } = state;
       if (state.outputs.length > 0) {
@@ -184,7 +184,10 @@ export default new Vuex.Store({
             commit('setSelectedOutput', state.outputs[0]);
           }
         }
+      } else {
+        commit('setSelectedOutput', null);
       }
+      dispatch('saveSettings');
     },
 
     setSelectedOutput({ commit, dispatch }, selectedOutput: Output) {
@@ -315,8 +318,6 @@ export default new Vuex.Store({
       // @ts-ignore
       const outputs = (await window.getOutput()) as Settings; // eslint-disable-line no-undef
       dispatch('setOutputs', outputs);
-      // setOutputs may change the current output that has to be saved
-      dispatch('saveSettings');
     },
 
     /**
