@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import Vuetify from '../plugins/vuetify';
 import { Data, Output, Playing, PlayingSound, Settings, Sound, Tab } from '@/types';
 
 Vue.use(Vuex);
@@ -122,8 +123,7 @@ export default new Vuex.Store({
     },
     setSettings: (state, value: Settings) => {
       state.settings = value;
-      // TODO:
-      // window.$nuxt.$root.$vuetify.theme.dark = value.darkTheme;
+      Vuetify.framework.theme.dark = value.darkTheme;
     },
     setLocalVolume: (state, volume: number) => (state.settings.localVolume = volume),
     setRemoteVolume: (state, volume: number) => (state.settings.remoteVolume = volume),
@@ -135,7 +135,7 @@ export default new Vuex.Store({
     setIsLinux: (state, value: boolean) => (state.isLinux = value),
     setDarkTheme: (state, value: boolean) => {
       state.settings.darkTheme = value;
-      // window.$nuxt.$root.$vuetify.theme.dark = value;
+      Vuetify.framework.theme.dark = value;
     },
     setSwitchOnConnectLoaded: (state, loaded: boolean) => (state.switchOnConnectLoaded = loaded),
     setHotkeys: (_state, { sound, hotkeys }: { sound: Sound; hotkeys: number[] }) =>
@@ -369,7 +369,6 @@ export default new Vuex.Store({
       if (!window.isLinux) {
         return;
       }
-      console.log('check if is linux');
       // @ts-ignore
       commit('setIsLinux', (await window.isLinux()) as boolean); // eslint-disable-line no-undef
     },
