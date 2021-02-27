@@ -1,6 +1,6 @@
 <template>
   <v-app dark>
-    <AppPassthroughDrawer></AppPassthroughDrawer>
+    <AppPassthroughDrawer v-if="$store.getters.isLinux"></AppPassthroughDrawer>
     <v-main>
       <SwitchOnConnectModal></SwitchOnConnectModal>
       <v-container fluid>
@@ -19,9 +19,9 @@
               :disabled="$store.getters.currentPlaying.length > 0"
               item-text="name"
               :items="this.$store.getters.outputs"
-              :label="$t('outputApp.title')"
+              :label="$t(`${$store.getters.isLinux ? 'outputApp' : 'outputDevice'}.title`)"
               outlined
-              :messages="$t('outputApp.info')"
+              :messages="$t(`${$store.getters.isLinux ? 'outputApp' : 'outputDevice'}.info`)"
               dense
             >
               <!--<template #selection="{ item }">
@@ -314,6 +314,7 @@ export default Vue.extend({
     this.$store.dispatch('getData');
     this.$store.dispatch('getOutputs');
     this.$store.dispatch('isSwitchOnConnectLoaded');
+    this.$store.dispatch('getIsLinux');
 
     // @ts-ignore
     window.updateSound = (playingSound: PlayingSound) => {

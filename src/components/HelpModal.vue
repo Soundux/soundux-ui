@@ -24,7 +24,7 @@
             <code slot="f">F</code>
             <b slot="search">{{ $t('help.search.search') }}</b>
           </i18n>
-          <i18n path="help.appPassThrough.text" tag="li">
+          <i18n v-if="$store.getters.isLinux" path="help.appPassThrough.text" tag="li">
             <code slot="ctrl">{{ $t('help.ctrl') }}</code>
             <code slot="g">G</code>
             <b slot="show">{{ $t('help.appPassThrough.show') }}</b>

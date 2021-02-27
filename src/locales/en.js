@@ -7,6 +7,10 @@ export default {
     title: 'Output application',
     info: 'The application to play the sound to',
   },
+  outputDevice: {
+    title: 'Output device',
+    info: 'The device to play the sound to',
+  },
   actions: {
     refresh: 'Refresh',
     stop: 'Stop',

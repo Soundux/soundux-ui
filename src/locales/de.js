@@ -8,6 +8,10 @@ export default {
     title: 'Ausgabe-Anwendung',
     info: 'Die Anwendung zu der der Sound abgespielt werden soll',
   },
+  outputDevice: {
+    title: 'Ausgabe-Gerät',
+    info: 'Das Gerät zu dem der Sound abgespielt werden soll',
+  },
   actions: {
     refresh: 'Aktualisieren',
     stop: 'Stopp',

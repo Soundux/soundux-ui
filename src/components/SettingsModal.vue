@@ -21,7 +21,11 @@
         <v-checkbox v-model="tabHotkeysOnly" :label="$t('settings.tabHotkeysOnly')"></v-checkbox>
         <v-checkbox v-model="allowOverlapping" :label="$t('settings.allowOverlapping')"></v-checkbox>
         <v-checkbox v-model="gridView" :label="$t('settings.gridView')"></v-checkbox>
-        <v-checkbox v-model="useAsDefaultDevice" :label="$t('settings.useAsDefaultDevice')"></v-checkbox>
+        <v-checkbox
+          v-model="useAsDefaultDevice"
+          :disabled="!$store.getters.isLinux"
+          :label="$t('settings.useAsDefaultDevice')"
+        ></v-checkbox>
         <v-checkbox v-model="darkTheme" :label="$t('settings.darkTheme')"></v-checkbox>
         <v-text-field
           v-model="stopHotkey"

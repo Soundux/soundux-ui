@@ -13,6 +13,7 @@ export default new Vuex.Store({
     playbackApps: [] as Output[],
     currentPlaying: [] as Playing[],
     switchOnConnectLoaded: false,
+    isLinux: false,
     settings: {
       output: '',
       selectedTab: 0,
@@ -58,6 +59,7 @@ export default new Vuex.Store({
     allSounds: state => {
       return state.tabs.map(({ sounds }) => sounds).reduce((acc, e) => acc.concat(e), []);
     },
+    isLinux: state => state.isLinux,
   },
   mutations: {
     toggleSearchDrawer: state => (state.searchDrawer = !state.searchDrawer),
@@ -130,6 +132,7 @@ export default new Vuex.Store({
     setGridView: (state, value: boolean) => (state.settings.gridView = value),
     setUseAsDefaultDevice: (state, value: boolean) => (state.settings.useAsDefaultDevice = value),
     setStopHotkey: (state, value: number[]) => (state.settings.stopHotkey = value),
+    setIsLinux: (state, value: boolean) => (state.isLinux = value),
     setDarkTheme: (state, value: boolean) => {
       state.settings.darkTheme = value;
       // window.$nuxt.$root.$vuetify.theme.dark = value;
@@ -359,6 +362,17 @@ export default new Vuex.Store({
       commit('setRemoteVolume', volume / 100);
       dispatch('saveSettings');
     },
+
+    async getIsLinux({ commit }) {
+      // @ts-ignore
+      if (!window.isLinux) {
+        return;
+      }
+      console.log('check if is linux');
+      // @ts-ignore
+      commit('setIsLinux', (await window.isLinux()) as boolean); // eslint-disable-line no-undef
+    },
+
     async isSwitchOnConnectLoaded({ commit }) {
       // @ts-ignore
       if (!window.isSwitchOnConnectLoaded) {
