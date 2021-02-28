@@ -261,7 +261,7 @@ export default new Vuex.Store({
     /**
      * Play a sound via the backend
      */
-    async playSound({ commit, getters }) {
+    async playSound({ commit, getters }, sound: Sound = getters.activeSound) {
       // It might be null if there are no outputs available, this should normally not happen since the button is disabled in this case
       if (!getters.selectedOutput) {
         return;
@@ -271,7 +271,7 @@ export default new Vuex.Store({
         return;
       }
       // @ts-ignore
-      const playingSound = (await window.playSound(getters.activeSound.id)) as PlayingSound | false; // eslint-disable-line no-undef
+      const playingSound = (await window.playSound(sound.id)) as PlayingSound | false; // eslint-disable-line no-undef
       if (playingSound) {
         commit('addToCurrentlyPlaying', playingSound);
       }

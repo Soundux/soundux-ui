@@ -141,9 +141,15 @@
                   <v-list-item-group
                     :value="tab.selectedSoundIndex"
                     color="primary"
+                    mandatory
                     @change="$store.commit('setSelectedSoundIndex', { tabId: tab.id, index: $event })"
                   >
-                    <v-list-item v-for="sound in tab.sounds" :id="`sound-${sound.id}`" :key="sound.id">
+                    <v-list-item
+                      v-for="sound in tab.sounds"
+                      :id="`sound-${sound.id}`"
+                      :key="sound.id"
+                      @dblclick="$store.dispatch('playSound', sound)"
+                    >
                       <v-list-item-content>
                         <v-list-item-title>
                           {{ sound.name }}
