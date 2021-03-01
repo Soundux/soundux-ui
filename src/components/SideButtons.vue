@@ -42,6 +42,7 @@
       {{ $t('actions.play') }}
     </v-btn>
     <v-btn
+      v-if="$store.getters.isLinux"
       :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
       block
       class="mb-2"
