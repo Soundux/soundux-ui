@@ -32,6 +32,9 @@ import Vue from 'vue';
 
 export default Vue.extend({
   name: 'SwitchOnConnectModal',
+  mounted() {
+    this.$store.dispatch('isSwitchOnConnectLoaded');
+  },
   methods: {
     openWikiPage() {
       // @ts-ignore
