@@ -1,11 +1,5 @@
 <template>
-  <v-navigation-drawer
-    v-model="searchDrawer"
-    absolute
-    right
-    temporary
-    @transitionend="drawerTransitioned"
-  >
+  <v-navigation-drawer v-model="searchDrawer" fixed right temporary @transitionend="drawerTransitioned">
     <v-list-item class="px-2">
       <v-text-field
         ref="searchField"
