@@ -392,6 +392,17 @@ export default new Vuex.Store({
       await window.unloadSwitchOnConnect(); // eslint-disable-line no-undef
       commit('setSwitchOnConnectLoaded', false);
     },
+
+    async moveTabs({ commit, state }) {
+      const tabIds = state.tabs.map(({ id }) => id);
+      // @ts-ignore
+      if (!window.moveTabs) {
+        return;
+      }
+      // @ts-ignore
+      const newTabs = await window.moveTabs(tabIds); // eslint-disable-line no-undef
+      commit('setTabs', newTabs);
+    },
   },
   modules: {},
 });
