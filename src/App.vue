@@ -1,18 +1,18 @@
 <template>
   <v-app dark>
     <AppPassthroughDrawer v-if="$store.getters.isLinux"></AppPassthroughDrawer>
-    <v-main>
+    <v-main style="max-height: 100vh">
       <SwitchOnConnectModal></SwitchOnConnectModal>
-      <v-container fluid>
+      <v-container fluid style="max-height: 100vh; overflow: hidden">
         <v-row>
           <v-col>
             <v-avatar tile size="64">
               <img src="./assets/icon.svg" alt="Logo" />
             </v-avatar>
-            <span class="text-h5">Soundux</span>
+            <span class="text-h5 ml-3">Soundux</span>
           </v-col>
           <v-spacer></v-spacer>
-          <v-col cols="auto">
+          <v-col cols="2">
             <OutputSelection></OutputSelection>
             <v-btn color="primary" block @click="$store.dispatch('getOutputs')">
               <v-icon left dark>mdi-reload</v-icon>
@@ -52,7 +52,7 @@
           <v-col v-else>
             <NoTabsCard></NoTabsCard>
           </v-col>
-          <v-col cols="auto" align-self="start">
+          <v-col cols="auto" align-self="stretch" class="fill-height">
             <SideButtons></SideButtons>
           </v-col>
         </v-row>
