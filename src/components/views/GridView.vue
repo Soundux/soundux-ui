@@ -1,21 +1,19 @@
 <template>
-  <div class="overflow-y-auto" style="height: calc(100vh - 305px)">
-    <v-row id="grid-view" no-gutters>
-      <template v-for="(sound, sIndex) in tab.sounds">
-        <v-col :key="sIndex" class="ma-2">
-          <v-btn
-            :id="`sound-${sound.id}`"
-            class="pa-2 text-none"
-            :class="{ 'selected-indicator': tab.selectedSoundIndex === sIndex }"
-            block
-            height="50"
-            @click="$store.commit('setSelectedSoundIndex', { tabId: tab.id, index: sIndex })"
-            @dblclick="$store.dispatch('playSound', sound)"
-          >
-            {{ sound.name }}
-          </v-btn>
-        </v-col>
-      </template>
+  <div id="grid-view" class="overflow-y-auto" style="height: calc(100vh - 305px)">
+    <v-row no-gutters>
+      <v-col v-for="(sound, sIndex) in tab.sounds" :key="sIndex" class="ma-2">
+        <v-btn
+          :id="`sound-${sound.id}`"
+          class="pa-2 text-none"
+          :class="{ 'selected-indicator': tab.selectedSoundIndex === sIndex }"
+          block
+          height="50"
+          @click="$store.commit('setSelectedSoundIndex', { tabId: tab.id, index: sIndex })"
+          @dblclick="$store.dispatch('playSound', sound)"
+        >
+          {{ sound.name }}
+        </v-btn>
+      </v-col>
     </v-row>
   </div>
 </template>
