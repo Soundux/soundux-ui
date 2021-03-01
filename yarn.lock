@@ -8785,10 +8785,10 @@ vue-cli-plugin-i18n@~1.0.1:
     vue-i18n "^8.17.0"
     vue-i18n-extract "1.0.2"
 
-vue-cli-plugin-vuetify@~2.1.0:
-  version "2.1.0"
-  resolved "https://registry.npm.taobao.org/vue-cli-plugin-vuetify/download/vue-cli-plugin-vuetify-2.1.0.tgz?cache=0&sync_timestamp=1611734228173&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvue-cli-plugin-vuetify%2Fdownload%2Fvue-cli-plugin-vuetify-2.1.0.tgz#1261d5866bca8f5c256f1b13abad2568fbcd6bb2"
-  integrity sha1-EmHVhmvKj1wlbxsTq60laPvNa7I=
+vue-cli-plugin-vuetify@~2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/vue-cli-plugin-vuetify/-/vue-cli-plugin-vuetify-2.2.0.tgz#614405bb3a8224a080a3eb8f984ac4b64fbacaec"
+  integrity sha512-9UBrHm59uK1qTlF2I86WRQndpvDMNcSOfoaR2gev7WiJ8LiaSQokrSb3+ntHd/Pt48bCoYOGbakASchwrSoZ/w==
   dependencies:
     null-loader "^3.0.0"
     semver "^7.1.2"
