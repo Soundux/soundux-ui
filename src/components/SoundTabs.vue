@@ -108,6 +108,7 @@ export default Vue.extend({
           this.$store.getters.tabs.indexOf(this.beforeDragActive)
         );
       }
+      this.$store.dispatch('moveTabs');
     },
   },
 });

@@ -8,6 +8,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     searchDrawer: false,
+    appPassThroughDrawer: false,
     tabs: [] as Tab[],
     outputs: [] as Output[],
     selectedOutput: null as Output | null,
@@ -30,6 +31,7 @@ export default new Vuex.Store({
   },
   getters: {
     searchDrawer: state => state.searchDrawer,
+    appPassThroughDrawer: state => state.appPassThroughDrawer,
     tabs: state => state.tabs,
     activeTabIndex: state => state.settings.selectedTab,
     outputs: state => state.outputs,
@@ -63,10 +65,11 @@ export default new Vuex.Store({
     isLinux: state => state.isLinux,
   },
   mutations: {
-    toggleSearchDrawer: state => (state.searchDrawer = !state.searchDrawer),
     setSearchDrawer: (state, newState: boolean) => (state.searchDrawer = newState),
+    setAppPassThroughDrawer: (state, newState: boolean) => (state.appPassThroughDrawer = newState),
     addTab: (state, tab: Tab) => state.tabs.push(tab),
     setTabs: (state, tabs: Tab[]) => (state.tabs = tabs),
+    setTabSounds: (_state, { tab, sounds }: { tab: Tab; sounds: Sound[] }) => (tab.sounds = sounds),
     setActiveTabIndex: (state, index: number) => (state.settings.selectedTab = index),
     setOutputs: (state, outputs: Output[]) => (state.outputs = outputs),
     setPlaybackApps: (state, playbackApps: Output[]) => (state.playbackApps = playbackApps),
@@ -77,10 +80,6 @@ export default new Vuex.Store({
     setSelectedSoundIndex: (state, { tabId, index }: { tabId: number; index: number | undefined }) => {
       const stateTab = state.tabs.find(({ id }) => id === tabId);
       if (stateTab) {
-        // for grid view
-        if (stateTab.selectedSoundIndex === index) {
-          index = undefined;
-        }
         // selectedSoundIndex can be undefined so it may be a new property which is not reactive when using a simple assignment
         Vue.set(stateTab, 'selectedSoundIndex', index);
       } else {
@@ -242,19 +241,19 @@ export default new Vuex.Store({
     /**
      * Refreshes tabs from the backend
      */
-    async refreshTab({ state, getters }) {
+    async refreshTab({ commit, getters }) {
       // @ts-ignore
       if (!window.refreshTab) {
         return;
       }
-      const tab = state.tabs[getters.activeTabIndex];
-      const refreshIndex = state.tabs.indexOf(tab);
+      const tab = getters.tabs[getters.activeTabIndex];
+      const refreshIndex = getters.tabs.indexOf(tab);
 
       // @ts-ignore
       const refreshedTab = (await window.refreshTab(refreshIndex)) as Tab | false; // eslint-disable-line no-undef
 
       if (refreshedTab) {
-        tab.sounds = refreshedTab.sounds;
+        commit('setTabSounds', { tab, sounds: refreshedTab.sounds });
       }
     },
 
@@ -392,6 +391,18 @@ export default new Vuex.Store({
       await window.unloadSwitchOnConnect(); // eslint-disable-line no-undef
       commit('setSwitchOnConnectLoaded', false);
     },
+
+    async moveTabs({ commit, state }) {
+      const tabIds = state.tabs.map(({ id }) => id);
+      // @ts-ignore
+      if (!window.moveTabs) {
+        return;
+      }
+      // @ts-ignore
+      const newTabs = await window.moveTabs(tabIds); // eslint-disable-line no-undef
+      commit('setTabs', newTabs);
+    },
   },
   modules: {},
+  strict: process.env.NODE_ENV !== 'production',
 });

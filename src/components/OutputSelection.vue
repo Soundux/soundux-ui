@@ -26,7 +26,12 @@ import { Output } from '@/types';
 export default Vue.extend({
   name: 'OutputSelection',
   mounted() {
-    this.$store.dispatch('getOutputs');
+    // getOutputs has be called after setSettings. otherwise the settings promise might resolve slower and overwrites the output value
+    this.$store.subscribe(mutation => {
+      if (mutation.type === 'setSettings') {
+        this.$store.dispatch('getOutputs');
+      }
+    });
   },
   computed: {
     selectedOutput: {

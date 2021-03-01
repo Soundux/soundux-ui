@@ -17,8 +17,9 @@ export default {
     stop: 'Stopp',
     search: 'Suche',
     addTab: 'Tab hinzufügen',
-    reloadSounds: 'Sounds aktualisieren',
+    reloadSounds: 'Neu laden',
     play: 'Abspielen',
+    appPassThrough: 'Durchreichen',
   },
   settings: {
     title: 'Einstellungen',

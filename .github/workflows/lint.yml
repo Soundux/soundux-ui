@@ -1,12 +1,15 @@
-name: ci
+name: lint
 
 on:
   push:
     branches:
       - master
+  pull_request:
+    branches:
+      - master
 
 jobs:
-  ci:
+  lint:
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -39,14 +42,6 @@ jobs:
       - name: Install dependencies 👨🏻‍💻
         run: yarn
 
-      - name: Build for production 👷
-        run: yarn build
-
-      - name: Deploy 🚀
-        uses: s0/git-publish-subdir-action@v2.4.0
-        env:
-          REPO: self
-          BRANCH: build
-          FOLDER: dist
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Run linter 👀
+        run: yarn lint
 

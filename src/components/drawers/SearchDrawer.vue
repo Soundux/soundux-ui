@@ -60,7 +60,7 @@ export default Vue.extend({
     this.keyDownHandler = (event: KeyboardEvent) => {
       if (event.ctrlKey && !event.shiftKey && !event.altKey && event.code === 'KeyF') {
         event.preventDefault();
-        this.$store.commit('toggleSearchDrawer');
+        this.searchDrawer = !this.searchDrawer;
       }
     };
     document.addEventListener('keydown', this.keyDownHandler);

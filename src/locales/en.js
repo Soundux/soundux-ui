@@ -16,8 +16,9 @@ export default {
     stop: 'Stop',
     search: 'Search',
     addTab: 'Add tab',
-    reloadSounds: 'Reload sounds',
+    reloadSounds: 'Reload',
     play: 'Play',
+    appPassThrough: 'Pass through',
   },
   settings: {
     title: 'Settings',

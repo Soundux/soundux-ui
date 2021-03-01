@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer v-model="drawer" fixed left temporary width="auto">
+  <v-navigation-drawer v-model="appPassThroughDrawer" fixed left temporary width="auto">
     <v-toolbar color="primary">
       <v-toolbar-title class="text-subtitle-1">
         <v-icon left>mdi-cable-data</v-icon>
@@ -27,16 +27,25 @@ export default Vue.extend({
   name: 'AppPassthroughDrawer',
   data() {
     return {
-      drawer: false,
       keyDownHandler: (null as unknown) as (event: KeyboardEvent) => void | null,
     };
+  },
+  computed: {
+    appPassThroughDrawer: {
+      get() {
+        return this.$store.getters.appPassThroughDrawer;
+      },
+      set(newValue: boolean) {
+        this.$store.commit('setAppPassThroughDrawer', newValue);
+      },
+    },
   },
   mounted() {
     this.$store.dispatch('getPlaybackApps');
     this.keyDownHandler = (event: KeyboardEvent) => {
       if (event.ctrlKey && !event.shiftKey && !event.altKey && event.code === 'KeyG') {
         event.preventDefault();
-        this.drawer = !this.drawer;
+        this.appPassThroughDrawer = !this.appPassThroughDrawer;
       }
     };
     document.addEventListener('keydown', this.keyDownHandler);
@@ -49,7 +58,7 @@ export default Vue.extend({
   methods: {
     startPassthrough(app: Output) {
       this.$store.dispatch('startPassthrough', app);
-      this.drawer = false;
+      this.appPassThroughDrawer = false;
     },
   },
 });
