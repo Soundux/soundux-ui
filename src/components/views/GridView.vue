@@ -1,5 +1,5 @@
 <template>
-  <div class="overflow-y-auto" style="height: 380px">
+  <div class="overflow-y-auto" style="height: calc(100vh - 305px)">
     <v-row id="grid-view" no-gutters>
       <template v-for="(sound, sIndex) in tab.sounds">
         <v-col :key="sIndex" class="ma-2">
