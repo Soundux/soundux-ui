@@ -4,7 +4,7 @@
       :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
       block
       class="mb-2"
-      @click="$store.commit('toggleSearchDrawer')"
+      @click="$store.commit('setSearchDrawer', true)"
     >
       <v-icon left dark>mdi-magnify</v-icon>
       {{ $t('actions.search') }}
@@ -40,6 +40,15 @@
     >
       <v-icon left dark>mdi-play</v-icon>
       {{ $t('actions.play') }}
+    </v-btn>
+    <v-btn
+      :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
+      block
+      class="mb-2"
+      @click="$store.commit('setAppPassThroughDrawer', true)"
+    >
+      <v-icon left dark>mdi-cable-data</v-icon>
+      {{ $t('actions.appPassThrough') }}
     </v-btn>
     <SettingsModal></SettingsModal>
     <HelpModal></HelpModal>
