@@ -39,22 +39,19 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue';
-import { Sound } from '@/types';
+import Vue from 'vue';
 
 export default Vue.extend({
   name: 'SetHotkeyModal',
-  props: {
-    sound: {
-      type: Object as PropType<Sound>,
-      required: false,
-      default: undefined,
-    },
-  },
   data() {
     return {
       setHotkeyModal: false,
     };
+  },
+  computed: {
+    sound() {
+      return this.$store.getters.activeSound;
+    },
   },
   methods: {
     reset() {

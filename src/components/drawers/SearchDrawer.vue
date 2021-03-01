@@ -26,9 +26,9 @@
       v-else-if="!searchInput && searchResults.length === 0"
       max-width="200"
       class="mx-auto mt-5"
-      src="../assets/undraw_searching_p5ux.svg"
+      src="../../assets/undraw_searching_p5ux.svg"
     ></v-img>
-    <v-img v-else max-width="200" class="mx-auto mt-5" src="../assets/undraw_void_3ggu.svg"></v-img>
+    <v-img v-else max-width="200" class="mx-auto mt-5" src="../../assets/undraw_void_3ggu.svg"></v-img>
   </v-navigation-drawer>
 </template>
 
