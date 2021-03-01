@@ -94,6 +94,12 @@ export default Vue.extend({
     this.$store.dispatch('getIsLinux');
     // data has to be loaded here since SoundTabs is only mounted when there are tabs
     this.$store.dispatch('getData');
+
+    // register functions for the backend to call
+    // @ts-ignore
+    window.onError = error => {
+      this.$toast.error(`${this.$t('errors.error')}: ${this.$t('errors.' + error)}`);
+    };
   },
 });
 </script>
