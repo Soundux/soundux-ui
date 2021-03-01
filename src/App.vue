@@ -111,4 +111,8 @@ export default Vue.extend({
   -moz-user-select: none;
   -webkit-user-select: none;
 }
+// disables dragging images
+img {
+  pointer-events: none;
+}
 </style>
