@@ -10,6 +10,7 @@
             block
             height="50"
             @click="$store.commit('setSelectedSoundIndex', { tabId: tab.id, index: sIndex })"
+            @dblclick="$store.dispatch('playSound', sound)"
           >
             {{ sound.name }}
           </v-btn>
