@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer v-model="appPassThroughDrawer" absolute left temporary width="auto">
+  <v-navigation-drawer v-model="appPassThroughDrawer" fixed left temporary width="auto">
     <v-toolbar color="primary">
       <v-toolbar-title class="text-subtitle-1">
         <v-icon left>mdi-cable-data</v-icon>
