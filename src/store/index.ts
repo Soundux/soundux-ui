@@ -90,13 +90,21 @@ export default new Vuex.Store({
     },
     updateSound: (
       _state,
-      { playing, ms, paused }: { playing: PlayingSound; ms?: number; paused?: boolean }
+      {
+        playing,
+        ms,
+        paused,
+        repeat,
+      }: { playing: PlayingSound; ms?: number; paused?: boolean; repeat?: boolean }
     ) => {
       if (ms !== undefined) {
         playing.readInMs = ms;
       }
       if (paused !== undefined) {
         playing.paused = paused;
+      }
+      if (repeat !== undefined) {
+        playing.repeat = repeat;
       }
     },
     addToCurrentlyPlaying: (state, playing: Playing) => state.currentPlaying.push(playing),

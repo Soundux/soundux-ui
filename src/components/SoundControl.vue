@@ -8,6 +8,8 @@
     <v-col cols="auto">
       <v-btn v-if="playingSound.paused" icon @click="play"><v-icon>mdi-play</v-icon></v-btn>
       <v-btn v-else icon @click="pause"><v-icon>mdi-pause</v-icon></v-btn>
+      <v-btn v-if="playingSound.repeat" icon @click="repeatOff"><v-icon>mdi-repeat</v-icon></v-btn>
+      <v-btn v-else icon @click="repeat"><v-icon>mdi-repeat-off</v-icon></v-btn>
     </v-col>
     <v-col align-self="center">
       <v-slider
@@ -87,6 +89,32 @@ export default Vue.extend({
       // @ts-ignore
       const seekedSound = (await window.seekSound(this.playingSound.id, newValue)) as PlayingSound; // eslint-disable-line no-undef
       this.$store.commit('updateSound', { playing: this.playingSound, ms: seekedSound.readInMs });
+    },
+    async repeat() {
+      // @ts-ignore
+      if (!window.repeatSound) {
+        return;
+      }
+      // @ts-ignore
+      const repeatedSound = (await window.repeatSound(this.playingSound.id, true)) as PlayingSound; // eslint-disable-line no-undef
+      this.$store.commit('updateSound', {
+        playing: this.playingSound,
+        ms: repeatedSound.readInMs,
+        repeat: repeatedSound.repeat,
+      });
+    },
+    async repeatOff() {
+      // @ts-ignore
+      if (!window.repeatSound) {
+        return;
+      }
+      // @ts-ignore
+      const repeatedSound = (await window.repeatSound(this.playingSound.id, false)) as PlayingSound; // eslint-disable-line no-undef
+      this.$store.commit('updateSound', {
+        playing: this.playingSound,
+        ms: repeatedSound.readInMs,
+        repeat: repeatedSound.repeat,
+      });
     },
     async stop() {
       // @ts-ignore
