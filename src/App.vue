@@ -2,7 +2,7 @@
   <v-app dark>
     <AppPassthroughDrawer v-if="$store.getters.isLinux"></AppPassthroughDrawer>
     <v-main style="max-height: 100vh">
-      <SwitchOnConnectModal></SwitchOnConnectModal>
+      <SwitchOnConnectModal v-if="$store.getters.isLinux"></SwitchOnConnectModal>
       <v-container fluid style="max-height: 100vh; overflow: hidden">
         <v-row>
           <v-col>
