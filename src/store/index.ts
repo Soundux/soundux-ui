@@ -16,6 +16,7 @@ export default new Vuex.Store({
     currentPlaying: [] as Playing[],
     switchOnConnectLoaded: false,
     isLinux: false,
+    isDraggingSeekbar: false,
     settings: {
       output: '',
       selectedTab: 0,
@@ -63,6 +64,7 @@ export default new Vuex.Store({
       return state.tabs.map(({ sounds }) => sounds).reduce((acc, e) => acc.concat(e), []);
     },
     isLinux: state => state.isLinux,
+    isDraggingSeekbar: state => state.isDraggingSeekbar,
   },
   mutations: {
     setSearchDrawer: (state, newState: boolean) => (state.searchDrawer = newState),
@@ -132,6 +134,7 @@ export default new Vuex.Store({
     setUseAsDefaultDevice: (state, value: boolean) => (state.settings.useAsDefaultDevice = value),
     setStopHotkey: (state, value: number[]) => (state.settings.stopHotkey = value),
     setIsLinux: (state, value: boolean) => (state.isLinux = value),
+    setSsDraggingSeekbar: (state, value: boolean) => (state.isDraggingSeekbar = value),
     setDarkTheme: (state, value: boolean) => {
       state.settings.darkTheme = value;
       Vuetify.framework.theme.dark = value;

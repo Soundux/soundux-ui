@@ -52,9 +52,14 @@ export default Vue.extend({
   mounted() {
     // @ts-ignore
     window.updateSound = (playingSound: PlayingSound) => {
-      const sound = this.$store.getters.currentPlayingSounds.find(
+      const sound: PlayingSound = this.$store.getters.currentPlayingSounds.find(
         (x: PlayingSound) => x.id === playingSound.id
       );
+
+      if (this.$store.getters.isDraggingSeekbar) {
+        return;
+      }
+
       if (sound) {
         this.$store.commit('updateSound', { playing: sound, ms: playingSound.readInMs });
       } else {
