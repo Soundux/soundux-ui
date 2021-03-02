@@ -61,12 +61,15 @@ export default Vue.extend({
         return;
       }
       // @ts-ignore
-      const pausedSound = (await window.pauseSound(this.playingSound.id)) as PlayingSound; // eslint-disable-line no-undef
-      this.$store.commit('updateSound', {
-        playing: this.playingSound,
-        ms: pausedSound.readInMs,
-        paused: true,
-      });
+      // eslint-disable-next-line no-undef
+      const pausedSound = (await window.pauseSound(this.playingSound.id)) as PlayingSound | false;
+      if (pausedSound) {
+        this.$store.commit('updateSound', {
+          playing: this.playingSound,
+          ms: pausedSound.readInMs,
+          paused: true,
+        });
+      }
     },
     async play() {
       // @ts-ignore
@@ -74,12 +77,15 @@ export default Vue.extend({
         return;
       }
       // @ts-ignore
-      const resumedSound = (await window.resumeSound(this.playingSound.id)) as PlayingSound; // eslint-disable-line no-undef
-      this.$store.commit('updateSound', {
-        playing: this.playingSound,
-        ms: resumedSound.readInMs,
-        paused: false,
-      });
+      // eslint-disable-next-line no-undef
+      const resumedSound = (await window.resumeSound(this.playingSound.id)) as PlayingSound | false;
+      if (resumedSound) {
+        this.$store.commit('updateSound', {
+          playing: this.playingSound,
+          ms: resumedSound.readInMs,
+          paused: false,
+        });
+      }
     },
     async seek(newValue: number) {
       // @ts-ignore
@@ -87,8 +93,13 @@ export default Vue.extend({
         return;
       }
       // @ts-ignore
-      const seekedSound = (await window.seekSound(this.playingSound.id, newValue)) as PlayingSound; // eslint-disable-line no-undef
-      this.$store.commit('updateSound', { playing: this.playingSound, ms: seekedSound.readInMs });
+      // eslint-disable-next-line no-undef
+      const seekedSound = (await window.seekSound(this.playingSound.id, newValue)) as
+        | PlayingSound
+        | false;
+      if (seekedSound) {
+        this.$store.commit('updateSound', { playing: this.playingSound, ms: seekedSound.readInMs });
+      }
     },
     async repeat() {
       // @ts-ignore
@@ -96,12 +107,17 @@ export default Vue.extend({
         return;
       }
       // @ts-ignore
-      const repeatedSound = (await window.repeatSound(this.playingSound.id, true)) as PlayingSound; // eslint-disable-line no-undef
-      this.$store.commit('updateSound', {
-        playing: this.playingSound,
-        ms: repeatedSound.readInMs,
-        repeat: repeatedSound.repeat,
-      });
+      // eslint-disable-next-line no-undef
+      const repeatedSound = (await window.repeatSound(this.playingSound.id, true)) as
+        | PlayingSound
+        | false;
+      if (repeatedSound) {
+        this.$store.commit('updateSound', {
+          playing: this.playingSound,
+          ms: repeatedSound.readInMs,
+          repeat: repeatedSound.repeat,
+        });
+      }
     },
     async repeatOff() {
       // @ts-ignore
@@ -109,12 +125,17 @@ export default Vue.extend({
         return;
       }
       // @ts-ignore
-      const repeatedSound = (await window.repeatSound(this.playingSound.id, false)) as PlayingSound; // eslint-disable-line no-undef
-      this.$store.commit('updateSound', {
-        playing: this.playingSound,
-        ms: repeatedSound.readInMs,
-        repeat: repeatedSound.repeat,
-      });
+      // eslint-disable-next-line no-undef
+      const repeatedSound = (await window.repeatSound(this.playingSound.id, false)) as
+        | PlayingSound
+        | false;
+      if (repeatedSound) {
+        this.$store.commit('updateSound', {
+          playing: this.playingSound,
+          ms: repeatedSound.readInMs,
+          repeat: repeatedSound.repeat,
+        });
+      }
     },
     async stop() {
       // @ts-ignore
