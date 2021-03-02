@@ -27,9 +27,11 @@ export default Vue.extend({
   name: 'OutputSelection',
   mounted() {
     // getOutputs has be called after setSettings. otherwise the settings promise might resolve slower and overwrites the output value
-    this.$store.subscribe(mutation => {
+    // TODO: there might be a better way of enforcing that
+    const unsubscribe = this.$store.subscribe(mutation => {
       if (mutation.type === 'setSettings') {
         this.$store.dispatch('getOutputs');
+        unsubscribe();
       }
     });
   },
