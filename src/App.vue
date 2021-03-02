@@ -105,6 +105,10 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
+// hide scrollbar
+html {
+  overflow: hidden;
+}
 // disallow selection of text (WebKit fix: https://stackoverflow.com/a/20495972)
 *:not(input) {
   user-select: none;
