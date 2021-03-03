@@ -5,7 +5,7 @@
   },
   "outputApp": {
     "title": "Ausgabe-Anwendung",
-    "info": "Die Anwendung zu der der Sound abgespielt werden soll"
+    "info": "Die Anwendung in welcher der Sound abgespielt werden soll"
   },
   "outputDevice": {
     "title": "Ausgabe-Gerät",
