@@ -1,0 +1,89 @@
+{
+  "welcome": {
+    "title": "Welcome to {programName}",
+    "noTabs": "There are currently no tabs. Add one by clicking {addTab} on the right side"
+  },
+  "outputApp": {
+    "title": "Output application",
+    "info": "The application to play the sound to"
+  },
+  "outputDevice": {
+    "title": "Output device",
+    "info": "The device to play the sound to"
+  },
+  "actions": {
+    "refresh": "Refresh",
+    "stop": "Stop",
+    "search": "Search",
+    "addTab": "Add tab",
+    "reloadSounds": "Reload",
+    "play": "Play",
+    "appPassThrough": "Pass through"
+  },
+  "settings": {
+    "title": "Settings",
+    "tabHotkeysOnly": "Hotkeys only for current tab",
+    "allowOverlapping": "Allow sound overlapping",
+    "gridView": "Grid view",
+    "useAsDefaultDevice": "Use as default device",
+    "darkTheme": "Dark theme",
+    "stopHotkey": "Stop hotkey"
+  },
+  "switchOnConnect": {
+    "title": "Switch on connect module detected!",
+    "disable": "Disable now",
+    "explanation": {
+      "line1": "The PulseAudio {moduleName} module has been detected.",
+      "line2": "This causes severe problems!",
+      "line3": "To continue using Soundux, please disable it.",
+      "line4": "For more information (e.g. how to disable this permanently) please refer to {wikiPage}",
+      "wikiPage": "our dedicated wiki page"
+    }
+  },
+  "hotkeys": {
+    "title": "Set hotkey",
+    "hotkey": "Hotkey",
+    "setFor": "Set hotkey for {soundName}"
+  },
+  "help": {
+    "title": "Help",
+    "ctrl": "CTRL",
+    "search": {
+      "text": "Press {ctrl} + {f} to {search}",
+      "search": "search"
+    },
+    "play": {
+      "text": "{doubleClick} to {play}",
+      "doubleClick": "Double-click",
+      "play": "play"
+    },
+    "appPassThrough": {
+      "text": "Press {ctrl} + {g} to {show}",
+      "show": "show app pass through"
+    }
+  },
+  "volume": {
+    "local": "Local volume",
+    "remote": "Remote volume",
+    "sync": "Sync volumes"
+  },
+  "appPassThrough": "App pass through",
+  "errors": {
+    "0": "Failed to play",
+    "1": "Failed to seek",
+    "2": "Failed to pause",
+    "3": "Failed to repeat",
+    "4": "Failed to resume",
+    "5": "Failed to move to sink",
+    "6": "Sound not found",
+    "7": "Folder does not exist",
+    "8": "Tab does not exist",
+    "9": "Failed to set hotkey",
+    "10": "Failed to start passthrough",
+    "11": "Failed to move back",
+    "12": "Failed to move back passthrough",
+    "13": "Failed to revert default source",
+    "14": "Failed to set default source",
+    "error": "Error"
+  }
+}
