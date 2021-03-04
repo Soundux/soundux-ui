@@ -1,4 +1,4 @@
-name: ci
+name: cd
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  ci:
+  cd:
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - name: Checkout 🛎
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
 
       - name: Setup node env 🏗
         uses: actions/setup-node@v2.1.5
