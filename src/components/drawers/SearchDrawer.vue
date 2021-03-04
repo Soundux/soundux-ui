@@ -35,7 +35,6 @@ export default Vue.extend({
   data() {
     return {
       searchInput: '',
-      keyDownHandler: (null as unknown) as (event: KeyboardEvent) => void | null,
     };
   },
   computed: {
@@ -57,12 +56,6 @@ export default Vue.extend({
     },
   },
   mounted() {
-    this.keyDownHandler = (event: KeyboardEvent) => {
-      if (event.ctrlKey && !event.shiftKey && !event.altKey && event.code === 'KeyF') {
-        event.preventDefault();
-        this.searchDrawer = !this.searchDrawer;
-      }
-    };
     document.addEventListener('keydown', this.keyDownHandler);
   },
   destroyed() {
@@ -78,6 +71,12 @@ export default Vue.extend({
       } else {
         this.searchInput = '';
         searchField.blur();
+      }
+    },
+    keyDownHandler(event: KeyboardEvent) {
+      if (event.ctrlKey && !event.shiftKey && !event.altKey && event.code === 'KeyF') {
+        event.preventDefault();
+        this.searchDrawer = !this.searchDrawer;
       }
     },
     jumpToSound(result: Sound) {

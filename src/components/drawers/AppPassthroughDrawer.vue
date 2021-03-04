@@ -25,11 +25,6 @@ import { Output } from '@/types';
 
 export default Vue.extend({
   name: 'AppPassthroughDrawer',
-  data() {
-    return {
-      keyDownHandler: (null as unknown) as (event: KeyboardEvent) => void | null,
-    };
-  },
   computed: {
     appPassThroughDrawer: {
       get() {
@@ -42,12 +37,6 @@ export default Vue.extend({
   },
   mounted() {
     this.$store.dispatch('getPlaybackApps');
-    this.keyDownHandler = (event: KeyboardEvent) => {
-      if (event.ctrlKey && !event.shiftKey && !event.altKey && event.code === 'KeyG') {
-        event.preventDefault();
-        this.appPassThroughDrawer = !this.appPassThroughDrawer;
-      }
-    };
     document.addEventListener('keydown', this.keyDownHandler);
   },
   destroyed() {
@@ -59,6 +48,12 @@ export default Vue.extend({
     startPassthrough(app: Output) {
       this.$store.dispatch('startPassthrough', app);
       this.appPassThroughDrawer = false;
+    },
+    keyDownHandler(event: KeyboardEvent) {
+      if (event.ctrlKey && !event.shiftKey && !event.altKey && event.code === 'KeyG') {
+        event.preventDefault();
+        this.appPassThroughDrawer = !this.appPassThroughDrawer;
+      }
     },
   },
 });
