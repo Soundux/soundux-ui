@@ -363,7 +363,7 @@ export default new Vuex.Store({
         return;
       }
       // @ts-ignore
-      await window.changeSettings(JSON.stringify(state.settings)); // eslint-disable-line no-undef
+      await window.changeSettings(state.settings); // eslint-disable-line no-undef
     },
     setLocalVolume({ commit, dispatch }, volume: number) {
       commit('setLocalVolume', volume / 100);
