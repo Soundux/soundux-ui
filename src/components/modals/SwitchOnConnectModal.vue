@@ -29,6 +29,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import { openUrl } from '@/utils/backend';
 
 export default Vue.extend({
   name: 'SwitchOnConnectModal',
@@ -37,12 +38,7 @@ export default Vue.extend({
   },
   methods: {
     openWikiPage() {
-      // @ts-ignore
-      if (!window.openUrl) {
-        return;
-      }
-      // @ts-ignore
-      window.openUrl('https://github.com/Soundux/Soundux/wiki/Problems-with-switch-on-connect-module'); // eslint-disable-line no-undef
+      openUrl('https://github.com/Soundux/Soundux/wiki/Problems-with-switch-on-connect-module');
     },
   },
 });

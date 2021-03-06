@@ -60,7 +60,10 @@
     "appPassThrough": {
       "text": "Press {ctrl} + {g} to {show}",
       "show": "show app pass through"
-    }
+    },
+    "visitOurWebsite": "Visit our website",
+    "joinOurDiscord": "Join our Discord",
+    "viewSourceCode": "View the source code"
   },
   "volume": {
     "local": "Local volume",

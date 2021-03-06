@@ -60,7 +60,10 @@
     "appPassThrough": {
       "text": "Drücke {ctrl} + {g} um {show}",
       "show": "App durchreichen anzuzeigen"
-    }
+    },
+    "visitOurWebsite": "Besuche unsere Webseite",
+    "joinOurDiscord": "Betrete unseren Discord",
+    "viewSourceCode": "Schaue den Quellcode an"
   },
   "volume": {
     "local": "Lokale Lautstärke",

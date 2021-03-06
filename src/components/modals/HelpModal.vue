@@ -33,6 +33,19 @@
             <code slot="doubleClick">{{ $t('help.play.doubleClick') }}</code>
             <b slot="play">{{ $t('help.play.play') }}</b>
           </i18n>
+          <br />
+          <li>
+            <v-icon left>mdi-web</v-icon>
+            <a href="#" @click="openWebsite">{{ $t('help.visitOurWebsite') }}</a>
+          </li>
+          <li>
+            <v-icon left>mdi-discord</v-icon>
+            <a href="#" @click="openDiscord">{{ $t('help.joinOurDiscord') }}</a>
+          </li>
+          <li>
+            <v-icon left>mdi-github</v-icon>
+            <a href="#" @click="openGitHub">{{ $t('help.viewSourceCode') }}</a>
+          </li>
         </ul>
       </v-card-text>
       <v-card-actions>
@@ -45,6 +58,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import { openUrl } from '@/utils/backend';
 
 export default Vue.extend({
   name: 'HelpModal',
@@ -52,6 +66,17 @@ export default Vue.extend({
     return {
       helpModal: false,
     };
+  },
+  methods: {
+    openWebsite() {
+      openUrl('https://soundux.rocks');
+    },
+    openDiscord() {
+      openUrl('https://discord.gg/4HwSGN4Ec2');
+    },
+    openGitHub() {
+      openUrl('https://github.com/Soundux');
+    },
   },
 });
 </script>
