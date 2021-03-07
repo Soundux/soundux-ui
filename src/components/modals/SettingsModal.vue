@@ -3,7 +3,6 @@
     <template #activator="{ on, attrs }">
       <v-btn
         :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
-        block
         class="mb-2"
         v-bind="attrs"
         v-on="on"

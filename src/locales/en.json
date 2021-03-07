@@ -3,14 +3,8 @@
     "title": "Welcome to {programName}",
     "noTabs": "There are currently no tabs. Add one by clicking {addTab} on the right side"
   },
-  "outputApp": {
-    "title": "Output application",
-    "info": "The application to play the sound to"
-  },
-  "outputDevice": {
-    "title": "Output device",
-    "info": "The device to play the sound to"
-  },
+  "outputApp": "Output application",
+  "outputDevice": "Output device",
   "actions": {
     "refresh": "Refresh",
     "stop": "Stop",

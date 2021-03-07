@@ -3,14 +3,8 @@
     "title": "Willkommen zu {programName}",
     "noTabs": "Zurzeit sind keine Tabs vorhanden. Fügen Sie einen hinzu, indem Sie {addTab} auf der rechten Seite klicken"
   },
-  "outputApp": {
-    "title": "Ausgabe-Anwendung",
-    "info": "Die Anwendung in welcher der Sound abgespielt werden soll"
-  },
-  "outputDevice": {
-    "title": "Ausgabe-Gerät",
-    "info": "Das Gerät zu dem der Sound abgespielt werden soll"
-  },
+  "outputApp": "Ausgabe-Anwendung",
+  "outputDevice": "Ausgabe-Gerät",
   "actions": {
     "refresh": "Aktualisieren",
     "stop": "Stopp",

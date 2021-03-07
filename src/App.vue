@@ -4,7 +4,7 @@
     <v-main style="max-height: 100vh">
       <SwitchOnConnectModal v-if="$store.getters.isLinux"></SwitchOnConnectModal>
       <v-container fluid style="max-height: 100vh; overflow: hidden">
-        <v-row>
+        <v-row class="flex-nowrap">
           <v-col>
             <v-avatar tile size="64">
               <img src="./assets/icon.svg" alt="Logo" />
@@ -14,13 +14,13 @@
           <v-spacer></v-spacer>
           <v-col cols="2">
             <OutputSelection></OutputSelection>
-            <v-btn color="primary" block @click="$store.dispatch('getOutputs')">
+            <v-btn color="primary" block class="mt-2" @click="$store.dispatch('getOutputs')">
               <v-icon left dark>mdi-reload</v-icon>
               {{ $t('actions.refresh') }}
             </v-btn>
           </v-col>
         </v-row>
-        <v-row dense no-gutters>
+        <v-row dense no-gutters class="flex-nowrap">
           <v-col cols="auto">
             <v-btn
               color="primary"
@@ -45,14 +45,18 @@
             </v-checkbox>
           </v-col>
         </v-row>
-        <v-row dense>
-          <v-col v-if="$store.getters.tabs.length > 0">
+        <v-row dense class="flex-nowrap overflow-x-auto" align="stretch">
+          <v-col
+            v-if="$store.getters.tabs.length > 0"
+            class="flex-grow-1 flex-shrink-1"
+            style="max-width: calc(100vw - 197px)"
+          >
             <SoundTabs></SoundTabs>
           </v-col>
           <v-col v-else>
             <NoTabsCard></NoTabsCard>
           </v-col>
-          <v-col cols="auto" align-self="stretch" class="fill-height">
+          <v-col cols="auto" align-self="stretch" style="width: 181px">
             <SideButtons></SideButtons>
           </v-col>
         </v-row>
@@ -118,5 +122,10 @@ html {
 // disables dragging images
 img {
   pointer-events: none;
+}
+
+// fix a bug where the input wraps
+.v-select__selections input {
+  display: none;
 }
 </style>

@@ -5,10 +5,10 @@
     :disabled="$store.getters.currentPlaying.length > 0"
     item-text="name"
     :items="this.$store.getters.outputs"
-    :label="$t(`${$store.getters.isLinux ? 'outputApp' : 'outputDevice'}.title`)"
+    :label="$t(`${$store.getters.isLinux ? 'outputApp' : 'outputDevice'}`)"
+    hide-details
     clearable
     outlined
-    :messages="$t(`${$store.getters.isLinux ? 'outputApp' : 'outputDevice'}.info`)"
     dense
   >
     <!--<template #selection="{ item }">

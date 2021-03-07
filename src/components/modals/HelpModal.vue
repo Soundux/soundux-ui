@@ -1,13 +1,7 @@
 <template>
   <v-dialog v-model="helpModal" max-width="600px">
     <template #activator="{ on, attrs }">
-      <v-btn
-        :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
-        block
-        class="mb-2"
-        v-bind="attrs"
-        v-on="on"
-      >
+      <v-btn :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'" v-bind="attrs" v-on="on">
         <v-icon left>mdi-help-circle-outline</v-icon>
         {{ $t('help.title') }}
       </v-btn>

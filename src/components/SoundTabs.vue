@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-tabs v-model="mutableActiveTabIndex">
+    <v-tabs v-model="mutableActiveTabIndex" show-arrows>
       <draggable
         v-model="mutableTabs"
         class="v-slide-group__wrapper"

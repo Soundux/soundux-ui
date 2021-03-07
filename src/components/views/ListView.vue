@@ -1,5 +1,5 @@
 <template>
-  <v-list id="list-view" class="overflow-y-auto" style="height: calc(100vh - 305px)">
+  <v-list id="list-view" class="overflow-y-auto" style="height: calc(100vh - 274px)">
     <v-list-item-group
       :value="tab.selectedSoundIndex"
       color="primary"

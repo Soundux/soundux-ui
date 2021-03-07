@@ -1,39 +1,7 @@
 <template>
-  <div>
+  <div class="d-flex flex-column flex-nowrap align-stretch fill-height">
     <v-btn
       :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
-      block
-      class="mb-2"
-      @click="$store.commit('setSearchDrawer', true)"
-    >
-      <v-icon left dark>mdi-magnify</v-icon>
-      {{ $t('actions.search') }}
-    </v-btn>
-    <SearchDrawer></SearchDrawer>
-    <v-btn
-      :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
-      block
-      class="mb-2"
-      @click="$store.dispatch('addTab')"
-    >
-      <v-icon left dark>mdi-folder-plus</v-icon>
-      {{ $t('actions.addTab') }}
-    </v-btn>
-    <v-btn
-      :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
-      block
-      class="mb-2"
-      :disabled="$store.getters.tabs.length === 0"
-      @click="$store.dispatch('refreshTab')"
-    >
-      <v-icon left dark>mdi-folder-refresh-outline</v-icon>
-      {{ $t('actions.reloadSounds') }}
-    </v-btn>
-    <v-spacer></v-spacer>
-    <SetHotkeyModal></SetHotkeyModal>
-    <v-btn
-      :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
-      block
       class="mb-2"
       :disabled="!$store.getters.activeSound"
       @click="$store.dispatch('playSound')"
@@ -41,15 +9,42 @@
       <v-icon left dark>mdi-play</v-icon>
       {{ $t('actions.play') }}
     </v-btn>
+    <SetHotkeyModal></SetHotkeyModal>
     <v-btn
       v-if="$store.getters.isLinux"
       :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
-      block
       class="mb-2"
       @click="$store.commit('setAppPassThroughDrawer', true)"
     >
       <v-icon left dark>mdi-cable-data</v-icon>
       {{ $t('actions.appPassThrough') }}
+    </v-btn>
+    <SearchDrawer></SearchDrawer>
+    <v-btn
+      :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
+      class="mb-2"
+      @click="$store.dispatch('addTab')"
+    >
+      <v-icon left dark>mdi-folder-plus</v-icon>
+      {{ $t('actions.addTab') }}
+    </v-btn>
+    <v-spacer></v-spacer>
+    <v-btn
+      :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
+      class="mb-2"
+      :disabled="$store.getters.tabs.length === 0"
+      @click="$store.dispatch('refreshTab')"
+    >
+      <v-icon left dark>mdi-folder-refresh-outline</v-icon>
+      {{ $t('actions.reloadSounds') }}
+    </v-btn>
+    <v-btn
+      :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
+      class="mb-2"
+      @click="$store.commit('setSearchDrawer', true)"
+    >
+      <v-icon left dark>mdi-magnify</v-icon>
+      {{ $t('actions.search') }}
     </v-btn>
     <SettingsModal></SettingsModal>
     <HelpModal></HelpModal>
