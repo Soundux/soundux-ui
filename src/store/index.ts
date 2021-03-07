@@ -272,10 +272,6 @@ export default new Vuex.Store({
      * Play a sound via the backend
      */
     async playSound({ commit, getters }, sound: Sound = getters.activeSound) {
-      // It might be null if there are no outputs available, this can be triggered only by double-clicking since the button is disabled in this case
-      if (!getters.selectedOutput) {
-        return;
-      }
       // @ts-ignore
       if (!window.playSound) {
         return;

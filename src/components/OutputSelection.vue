@@ -6,6 +6,7 @@
     item-text="name"
     :items="this.$store.getters.outputs"
     :label="$t(`${$store.getters.isLinux ? 'outputApp' : 'outputDevice'}.title`)"
+    clearable
     outlined
     :messages="$t(`${$store.getters.isLinux ? 'outputApp' : 'outputDevice'}.info`)"
     dense

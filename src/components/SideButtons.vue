@@ -35,7 +35,7 @@
       :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
       block
       class="mb-2"
-      :disabled="!$store.getters.activeSound || !$store.getters.selectedOutput"
+      :disabled="!$store.getters.activeSound"
       @click="$store.dispatch('playSound')"
     >
       <v-icon left dark>mdi-play</v-icon>
