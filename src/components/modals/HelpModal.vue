@@ -27,20 +27,20 @@
             <code slot="doubleClick">{{ $t('help.play.doubleClick') }}</code>
             <b slot="play">{{ $t('help.play.play') }}</b>
           </i18n>
-          <br />
-          <li>
-            <v-icon left>mdi-web</v-icon>
-            <a href="#" @click="openWebsite">{{ $t('help.visitOurWebsite') }}</a>
-          </li>
-          <li>
-            <v-icon left>mdi-discord</v-icon>
-            <a href="#" @click="openDiscord">{{ $t('help.joinOurDiscord') }}</a>
-          </li>
-          <li>
-            <v-icon left>mdi-github</v-icon>
-            <a href="#" @click="openGitHub">{{ $t('help.viewSourceCode') }}</a>
-          </li>
         </ul>
+        <br />
+        <div>
+          <v-icon left>mdi-web</v-icon>
+          <a href="#" @click="openWebsite">{{ $t('help.visitOurWebsite') }}</a>
+        </div>
+        <div>
+          <v-icon left>mdi-discord</v-icon>
+          <a href="#" @click="openDiscord">{{ $t('help.joinOurDiscord') }}</a>
+        </div>
+        <div>
+          <v-icon left>mdi-github</v-icon>
+          <a href="#" @click="openGitHub">{{ $t('help.viewSourceCode') }}</a>
+        </div>
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
@@ -74,3 +74,10 @@ export default Vue.extend({
   },
 });
 </script>
+
+<style scoped lang="scss">
+ul {
+  padding-left: 0;
+  list-style-position: inside;
+}
+</style>
