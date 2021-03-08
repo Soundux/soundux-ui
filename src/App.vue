@@ -46,15 +46,9 @@
           </v-col>
         </v-row>
         <v-row dense class="flex-nowrap overflow-x-auto" align="stretch">
-          <v-col
-            v-if="$store.getters.tabs.length > 0"
-            class="flex-grow-1 flex-shrink-1"
-            style="max-width: calc(100vw - 197px)"
-          >
-            <SoundTabs></SoundTabs>
-          </v-col>
-          <v-col v-else>
-            <NoTabsCard></NoTabsCard>
+          <v-col class="flex-grow-1 flex-shrink-1" style="max-width: calc(100vw - 197px)">
+            <SoundTabs v-if="$store.getters.tabs.length > 0"></SoundTabs>
+            <NoTabsCard v-else></NoTabsCard>
           </v-col>
           <v-col cols="auto" align-self="stretch" style="width: 181px">
             <SideButtons></SideButtons>

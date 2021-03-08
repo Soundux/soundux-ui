@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card style="height: calc(100vh - 274px)">
     <v-card-title>{{ $t('welcome.title', { programName: 'Soundux' }) }}</v-card-title>
     <v-card-text>
       <i18n path="welcome.noTabs">
