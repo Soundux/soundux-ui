@@ -2,7 +2,7 @@
   <v-select
     v-model="selectedOutput"
     return-object
-    :disabled="$store.getters.currentPlaying.length > 0"
+    :disabled="$store.getters.currentPlaying.length > 0 || $store.getters.settings.useAsDefaultDevice"
     item-text="name"
     :items="this.$store.getters.outputs"
     :label="$t(`${$store.getters.isLinux ? 'outputApp' : 'outputDevice'}`)"
