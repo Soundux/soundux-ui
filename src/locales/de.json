@@ -55,6 +55,10 @@
       "text": "Drücke {ctrl} + {g} um {show}",
       "show": "App durchreichen anzuzeigen"
     },
+    "reloadSounds": {
+      "text": "Drücke {ctrl} + {r} um {reload}",
+      "reload": "den aktuellen Tab neu zu laden"
+    },
     "visitOurWebsite": "Besuche unsere Webseite",
     "joinOurDiscord": "Betrete unseren Discord",
     "viewSourceCode": "Schaue den Quellcode an"

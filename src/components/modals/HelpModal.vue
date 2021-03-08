@@ -23,6 +23,11 @@
             <code slot="g">G</code>
             <b slot="show">{{ $t('help.appPassThrough.show') }}</b>
           </i18n>
+          <i18n path="help.reloadSounds.text" tag="li">
+            <code slot="ctrl">{{ $t('help.ctrl') }}</code>
+            <code slot="r">R</code>
+            <b slot="reload">{{ $t('help.reloadSounds.reload') }}</b>
+          </i18n>
           <i18n path="help.play.text" tag="li">
             <code slot="doubleClick">{{ $t('help.play.doubleClick') }}</code>
             <b slot="play">{{ $t('help.play.play') }}</b>

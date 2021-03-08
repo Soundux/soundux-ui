@@ -55,6 +55,10 @@
       "text": "Press {ctrl} + {g} to {show}",
       "show": "show app pass through"
     },
+    "reloadSounds": {
+      "text": "Press {ctrl} + {r} to {reload}",
+      "reload": "reload the current tab"
+    },
     "visitOurWebsite": "Visit our website",
     "joinOurDiscord": "Join our Discord",
     "viewSourceCode": "View the source code"

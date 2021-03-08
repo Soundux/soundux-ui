@@ -257,11 +257,14 @@ export default new Vuex.Store({
       if (!window.refreshTab) {
         return;
       }
-      const tab = getters.tabs[getters.activeTabIndex];
-      const refreshIndex = getters.tabs.indexOf(tab);
+      if (getters.tabs.length === 0) {
+        return;
+      }
+      const { activeTabIndex } = getters;
+      const tab = getters.tabs[activeTabIndex];
 
       // @ts-ignore
-      const refreshedTab = (await window.refreshTab(refreshIndex)) as Tab | false; // eslint-disable-line no-undef
+      const refreshedTab = (await window.refreshTab(activeTabIndex)) as Tab | false; // eslint-disable-line no-undef
 
       if (refreshedTab) {
         commit('setTabSounds', { tab, sounds: refreshedTab.sounds });

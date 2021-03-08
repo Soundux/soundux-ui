@@ -39,10 +39,8 @@ export default Vue.extend({
     this.$store.dispatch('getPlaybackApps');
     document.addEventListener('keydown', this.keyDownHandler);
   },
-  destroyed() {
-    if (this.keyDownHandler) {
-      document.removeEventListener('keydown', this.keyDownHandler);
-    }
+  beforeDestroy() {
+    document.removeEventListener('keydown', this.keyDownHandler);
   },
   methods: {
     startPassthrough(app: Output) {

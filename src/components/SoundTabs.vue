@@ -76,6 +76,11 @@ export default Vue.extend({
         this.$store.commit('addToCurrentlyPlaying', playingSound);
       }
     };
+
+    document.addEventListener('keydown', this.keyDownHandler);
+  },
+  beforeDestroy() {
+    document.removeEventListener('keydown', this.keyDownHandler);
   },
   components: {
     ListView,
@@ -114,6 +119,12 @@ export default Vue.extend({
         );
       }
       this.$store.dispatch('moveTabs');
+    },
+    keyDownHandler(event: KeyboardEvent): void {
+      if (event.ctrlKey && !event.shiftKey && !event.altKey && event.code === 'KeyR') {
+        event.preventDefault();
+        this.$store.dispatch('refreshTab');
+      }
     },
   },
 });

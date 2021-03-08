@@ -58,10 +58,8 @@ export default Vue.extend({
   mounted() {
     document.addEventListener('keydown', this.keyDownHandler);
   },
-  destroyed() {
-    if (this.keyDownHandler) {
-      document.removeEventListener('keydown', this.keyDownHandler);
-    }
+  beforeDestroy() {
+    document.removeEventListener('keydown', this.keyDownHandler);
   },
   methods: {
     drawerTransitioned() {
