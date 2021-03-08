@@ -214,7 +214,7 @@ export default new Vuex.Store({
         return;
       }
       // @ts-ignore
-      const tab = (await window.addTab()) as Tab | false; // eslint-disable-line no-undef
+      const tab = (await window.addTab()) as Tab | null; // eslint-disable-line no-undef
       if (tab) {
         commit('addTab', tab);
       }
@@ -264,7 +264,7 @@ export default new Vuex.Store({
       const tab = getters.tabs[activeTabIndex];
 
       // @ts-ignore
-      const refreshedTab = (await window.refreshTab(activeTabIndex)) as Tab | false; // eslint-disable-line no-undef
+      const refreshedTab = (await window.refreshTab(activeTabIndex)) as Tab | null; // eslint-disable-line no-undef
 
       if (refreshedTab) {
         commit('setTabSounds', { tab, sounds: refreshedTab.sounds });
@@ -280,7 +280,7 @@ export default new Vuex.Store({
         return;
       }
       // @ts-ignore
-      const playingSound = (await window.playSound(sound.id)) as PlayingSound | false; // eslint-disable-line no-undef
+      const playingSound = (await window.playSound(sound.id)) as PlayingSound | null; // eslint-disable-line no-undef
       if (playingSound) {
         commit('addToCurrentlyPlaying', playingSound);
       }
@@ -299,7 +299,7 @@ export default new Vuex.Store({
         return;
       }
       // @ts-ignore
-      const recordingStream = (await window.startPassthrough(app.name)) as Output | false; // eslint-disable-line no-undef
+      const recordingStream = (await window.startPassthrough(app.name)) as Output | null; // eslint-disable-line no-undef
       if (recordingStream) {
         commit('removePassthroughFromCurrentlyPlaying');
         commit('addToCurrentlyPlaying', recordingStream);

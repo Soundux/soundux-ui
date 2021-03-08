@@ -62,7 +62,7 @@ export default Vue.extend({
       }
       // @ts-ignore
       // eslint-disable-next-line no-undef
-      const pausedSound = (await window.pauseSound(this.playingSound.id)) as PlayingSound | false;
+      const pausedSound = (await window.pauseSound(this.playingSound.id)) as PlayingSound | null;
       if (pausedSound) {
         this.$store.commit('updateSound', {
           playing: this.playingSound,
@@ -78,7 +78,7 @@ export default Vue.extend({
       }
       // @ts-ignore
       // eslint-disable-next-line no-undef
-      const resumedSound = (await window.resumeSound(this.playingSound.id)) as PlayingSound | false;
+      const resumedSound = (await window.resumeSound(this.playingSound.id)) as PlayingSound | null;
       if (resumedSound) {
         this.$store.commit('updateSound', {
           playing: this.playingSound,
@@ -94,9 +94,10 @@ export default Vue.extend({
       }
       // @ts-ignore
       // eslint-disable-next-line no-undef
-      const seekedSound = (await window.seekSound(this.playingSound.id, newValue)) as
-        | PlayingSound
-        | false;
+      const seekedSound = (await window.seekSound(
+        this.playingSound.id,
+        newValue
+      )) as PlayingSound | null;
       if (seekedSound) {
         this.$store.commit('updateSound', { playing: this.playingSound, ms: seekedSound.readInMs });
       }
@@ -108,9 +109,10 @@ export default Vue.extend({
       }
       // @ts-ignore
       // eslint-disable-next-line no-undef
-      const repeatedSound = (await window.repeatSound(this.playingSound.id, true)) as
-        | PlayingSound
-        | false;
+      const repeatedSound = (await window.repeatSound(
+        this.playingSound.id,
+        true
+      )) as PlayingSound | null;
       if (repeatedSound) {
         this.$store.commit('updateSound', {
           playing: this.playingSound,
@@ -126,9 +128,10 @@ export default Vue.extend({
       }
       // @ts-ignore
       // eslint-disable-next-line no-undef
-      const repeatedSound = (await window.repeatSound(this.playingSound.id, false)) as
-        | PlayingSound
-        | false;
+      const repeatedSound = (await window.repeatSound(
+        this.playingSound.id,
+        false
+      )) as PlayingSound | null;
       if (repeatedSound) {
         this.$store.commit('updateSound', {
           playing: this.playingSound,
