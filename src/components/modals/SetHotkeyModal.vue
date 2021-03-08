@@ -53,14 +53,14 @@ export default Vue.extend({
     },
   },
   methods: {
-    reset() {
+    reset(): void {
       this.$store.commit('setHotkeySequence', { sound: this.sound, hotkeySequence: '' });
       this.$store.dispatch('setHotkeys', { sound: this.sound, hotkeys: [] });
     },
     // handler function when the modal was opened/closed
     // open: we register the hotkeyReceived method for the backend here
     // close: the use of this is overloaded with SettingsModal which is why we unregister it
-    async stateChanged(state: boolean) {
+    async stateChanged(state: boolean): Promise<void> {
       // @ts-ignore
       if (!window.getHotkeySequence) {
         return;
@@ -83,7 +83,7 @@ export default Vue.extend({
         window.hotkeyReceived = undefined;
       }
     },
-    async focus() {
+    async focus(): Promise<void> {
       // @ts-ignore
       if (!window.requestHotkey) {
         return;
@@ -91,7 +91,7 @@ export default Vue.extend({
       // @ts-ignore
       await window.requestHotkey(true); // eslint-disable-line no-undef
     },
-    async blur() {
+    async blur(): Promise<void> {
       // @ts-ignore
       if (!window.requestHotkey) {
         return;

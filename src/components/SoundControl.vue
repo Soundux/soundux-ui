@@ -55,7 +55,7 @@ export default Vue.extend({
     },
   },
   methods: {
-    async pause() {
+    async pause(): Promise<void> {
       // @ts-ignore
       if (!window.pauseSound) {
         return;
@@ -71,7 +71,7 @@ export default Vue.extend({
         });
       }
     },
-    async play() {
+    async play(): Promise<void> {
       // @ts-ignore
       if (!window.resumeSound) {
         return;
@@ -87,7 +87,7 @@ export default Vue.extend({
         });
       }
     },
-    async seek(newValue: number) {
+    async seek(newValue: number): Promise<void> {
       // @ts-ignore
       if (!window.seekSound) {
         return;
@@ -102,7 +102,7 @@ export default Vue.extend({
         this.$store.commit('updateSound', { playing: this.playingSound, ms: seekedSound.readInMs });
       }
     },
-    async repeat() {
+    async repeat(): Promise<void> {
       // @ts-ignore
       if (!window.repeatSound) {
         return;
@@ -121,7 +121,7 @@ export default Vue.extend({
         });
       }
     },
-    async repeatOff() {
+    async repeatOff(): Promise<void> {
       // @ts-ignore
       if (!window.repeatSound) {
         return;
@@ -140,7 +140,7 @@ export default Vue.extend({
         });
       }
     },
-    async stop() {
+    async stop(): Promise<void> {
       // @ts-ignore
       if (!window.stopSound) {
         return;

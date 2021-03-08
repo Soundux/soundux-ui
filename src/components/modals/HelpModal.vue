@@ -67,13 +67,13 @@ export default Vue.extend({
     };
   },
   methods: {
-    openWebsite() {
+    openWebsite(): void {
       openUrl('https://soundux.rocks');
     },
-    openDiscord() {
+    openDiscord(): void {
       openUrl('https://discord.gg/4HwSGN4Ec2');
     },
-    openGitHub() {
+    openGitHub(): void {
       openUrl('https://github.com/Soundux');
     },
   },

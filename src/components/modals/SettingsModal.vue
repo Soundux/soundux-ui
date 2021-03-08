@@ -116,7 +116,7 @@ export default Vue.extend({
     // handler function when the modal was opened/closed
     // open: we register the hotkeyReceived method for the backend here
     // close: the use of this is overloaded with SetHotkeyModal which is why we unregister it
-    stateChanged(state: boolean) {
+    stateChanged(state: boolean): void {
       // @ts-ignore
       if (!window.getHotkeySequence) {
         return;
@@ -133,12 +133,12 @@ export default Vue.extend({
         window.hotkeyReceived = undefined;
       }
     },
-    clearHotkey() {
+    clearHotkey(): void {
       this.stopHotkey = '';
       this.$store.commit('setStopHotkey', []);
       this.$store.dispatch('saveSettings');
     },
-    async focus() {
+    async focus(): Promise<void> {
       // @ts-ignore
       if (!window.requestHotkey) {
         return;
@@ -146,7 +146,7 @@ export default Vue.extend({
       // @ts-ignore
       await window.requestHotkey(true); // eslint-disable-line no-undef
     },
-    async blur() {
+    async blur(): Promise<void> {
       // @ts-ignore
       if (!window.requestHotkey) {
         return;

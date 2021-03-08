@@ -30,7 +30,7 @@ export default Vue.extend({
     },
   },
   methods: {
-    async stop() {
+    async stop(): Promise<void> {
       // @ts-ignore
       if (!window.stopPassthrough) {
         return;

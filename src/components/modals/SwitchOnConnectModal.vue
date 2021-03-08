@@ -37,7 +37,7 @@ export default Vue.extend({
     this.$store.dispatch('isSwitchOnConnectLoaded');
   },
   methods: {
-    openWikiPage() {
+    openWikiPage(): void {
       openUrl('https://github.com/Soundux/Soundux/wiki/Problems-with-switch-on-connect-module');
     },
   },

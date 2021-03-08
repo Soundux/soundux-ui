@@ -43,11 +43,11 @@ export default Vue.extend({
     document.removeEventListener('keydown', this.keyDownHandler);
   },
   methods: {
-    startPassthrough(app: Output) {
+    startPassthrough(app: Output): void {
       this.$store.dispatch('startPassthrough', app);
       this.appPassThroughDrawer = false;
     },
-    keyDownHandler(event: KeyboardEvent) {
+    keyDownHandler(event: KeyboardEvent): void {
       if (event.ctrlKey && !event.shiftKey && !event.altKey && event.code === 'KeyG') {
         event.preventDefault();
         this.appPassThroughDrawer = !this.appPassThroughDrawer;

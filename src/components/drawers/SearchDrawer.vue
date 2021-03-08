@@ -62,7 +62,7 @@ export default Vue.extend({
     document.removeEventListener('keydown', this.keyDownHandler);
   },
   methods: {
-    drawerTransitioned() {
+    drawerTransitioned(): void {
       const searchField = this.$refs.searchField as HTMLElement;
       if (this.$store.getters.searchDrawer) {
         searchField.focus();
@@ -71,13 +71,13 @@ export default Vue.extend({
         searchField.blur();
       }
     },
-    keyDownHandler(event: KeyboardEvent) {
+    keyDownHandler(event: KeyboardEvent): void {
       if (event.ctrlKey && !event.shiftKey && !event.altKey && event.code === 'KeyF') {
         event.preventDefault();
         this.searchDrawer = !this.searchDrawer;
       }
     },
-    jumpToSound(result: Sound) {
+    jumpToSound(result: Sound): void {
       const { tabs } = this.$store.getters;
       for (const tab of tabs) {
         const { sounds } = tab;
