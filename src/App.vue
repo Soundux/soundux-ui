@@ -14,7 +14,16 @@
           <v-spacer></v-spacer>
           <v-col cols="2">
             <OutputSelection></OutputSelection>
-            <v-btn color="primary" block class="mt-2" @click="$store.dispatch('getOutputs')">
+            <v-btn
+              color="primary"
+              :disabled="
+                $store.getters.settings.useAsDefaultDevice ||
+                (!$store.getters.isLinux && $store.getters.currentPlaying.length > 0)
+              "
+              block
+              class="mt-2"
+              @click="$store.dispatch('getOutputs')"
+            >
               <v-icon left dark>mdi-reload</v-icon>
               {{ $t('actions.refresh') }}
             </v-btn>

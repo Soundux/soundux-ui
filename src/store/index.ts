@@ -344,6 +344,7 @@ export default new Vuex.Store({
 
     setUseAsDefaultDevice({ commit, dispatch }, value: boolean) {
       commit('setUseAsDefaultDevice', value);
+      commit('setSelectedOutput', null);
       dispatch('saveSettings');
     },
 
