@@ -67,8 +67,16 @@ export default new Vuex.Store({
     isDraggingSeekbar: state => state.isDraggingSeekbar,
   },
   mutations: {
-    setSearchDrawer: (state, newState: boolean) => (state.searchDrawer = newState),
-    setAppPassThroughDrawer: (state, newState: boolean) => (state.appPassThroughDrawer = newState),
+    setSearchDrawer: (state, newState: boolean) => {
+      if (!state.appPassThroughDrawer) {
+        state.searchDrawer = newState;
+      }
+    },
+    setAppPassThroughDrawer: (state, newState: boolean) => {
+      if (!state.searchDrawer) {
+        state.appPassThroughDrawer = newState;
+      }
+    },
     addTab: (state, tab: Tab) => state.tabs.push(tab),
     setTabs: (state, tabs: Tab[]) => (state.tabs = tabs),
     setTabSounds: (_state, { tab, sounds }: { tab: Tab; sounds: Sound[] }) => (tab.sounds = sounds),
