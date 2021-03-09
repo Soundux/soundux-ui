@@ -68,7 +68,14 @@
     "remote": "Remote volume",
     "sync": "Sync volumes"
   },
-  "appPassThrough": "App pass through",
+  "appPassThrough": {
+    "title": "App pass through",
+    "noAppsFound": "No apps found"
+  },
+  "search": {
+    "typeToSearch": "Type to search",
+    "noResultsFound": "No results found"
+  },
   "errors": {
     "0": "Failed to play",
     "1": "Failed to seek",

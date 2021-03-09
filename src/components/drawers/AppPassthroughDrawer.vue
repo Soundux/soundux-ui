@@ -3,11 +3,15 @@
     <v-toolbar dark color="primary">
       <v-toolbar-title class="text-subtitle-1">
         <v-icon left>mdi-cable-data</v-icon>
-        {{ $t('appPassThrough') }}
-        <v-icon right @click="$store.dispatch('getPlaybackApps')">mdi-reload</v-icon>
+        {{ $t('appPassThrough.title') }}
       </v-toolbar-title>
+      <v-toolbar-items class="ml-auto">
+        <v-btn icon block class="ml-3 mr-n4" @click="$store.dispatch('getPlaybackApps')">
+          <v-icon>mdi-reload</v-icon>
+        </v-btn>
+      </v-toolbar-items>
     </v-toolbar>
-    <v-list nav dense>
+    <v-list v-if="$store.getters.playbackApps.length > 0" nav dense>
       <v-list-item
         v-for="(result, index) in $store.getters.playbackApps"
         :key="index"
@@ -16,6 +20,14 @@
         <v-list-item-title class="text-wrap">{{ result.name }}</v-list-item-title>
       </v-list-item>
     </v-list>
+    <template v-else>
+      <v-row class="mx-5 mt-6" justify="center">
+        <v-img src="../../assets/undraw_Taken_re_yn20.svg" width="232" contain></v-img>
+      </v-row>
+      <v-row class="mt-5" justify="center">
+        <span>{{ $t('appPassThrough.noAppsFound') }}</span>
+      </v-row>
+    </template>
   </v-navigation-drawer>
 </template>
 

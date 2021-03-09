@@ -16,13 +16,22 @@
         </v-list-item>
       </v-list-item-group>
     </v-list>
-    <v-img
-      v-else-if="!searchInput && searchResults.length === 0"
-      max-width="200"
-      class="mx-auto mt-5"
-      src="../../assets/undraw_searching_p5ux.svg"
-    ></v-img>
-    <v-img v-else max-width="200" class="mx-auto mt-5" src="../../assets/undraw_void_3ggu.svg"></v-img>
+    <template v-else-if="!searchInput && searchResults.length === 0">
+      <v-row class="mx-5 mt-6" justify="center">
+        <v-img src="../../assets/undraw_searching_p5ux.svg" width="232"></v-img>
+      </v-row>
+      <v-row class="mt-5" justify="center">
+        <span>{{ $t('search.typeToSearch') }}</span>
+      </v-row>
+    </template>
+    <template v-else>
+      <v-row class="mx-5 mt-6" justify="center">
+        <v-img src="../../assets/undraw_void_3ggu.svg" width="232"></v-img>
+      </v-row>
+      <v-row class="mt-5" justify="center">
+        <span>{{ $t('search.noResultsFound') }}</span>
+      </v-row>
+    </template>
   </v-navigation-drawer>
 </template>
 
@@ -39,14 +48,14 @@ export default Vue.extend({
   },
   computed: {
     searchDrawer: {
-      get() {
+      get(): boolean {
         return this.$store.getters.searchDrawer;
       },
       set(newValue: boolean) {
         this.$store.commit('setSearchDrawer', newValue);
       },
     },
-    searchResults() {
+    searchResults(): Sound[] {
       if (!this.searchInput) {
         return [];
       }

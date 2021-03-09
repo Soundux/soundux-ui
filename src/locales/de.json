@@ -68,7 +68,14 @@
     "remote": "Ausgabe Lautstärke",
     "sync": "Lautstärken synchronisieren"
   },
-  "appPassThrough": "App durchreichen",
+  "appPassThrough": {
+    "title": "App durchreichen",
+    "noAppsFound": "Keine Apps gefunden"
+  },
+  "search": {
+    "typeToSearch": "Tippe zum suchen",
+    "noResultsFound": "Keine Ergebnisse gefunden"
+  },
   "errors": {
     "0": "Wiedergabe fehlgeschlagen",
     "1": "Spulen fehlgeschlagen",
