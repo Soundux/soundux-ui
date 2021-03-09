@@ -333,7 +333,7 @@ export default new Vuex.Store({
         return;
       }
       // @ts-ignore
-      const outputs = (await window.getOutput()) as Settings; // eslint-disable-line no-undef
+      const outputs = (await window.getOutput()) as Output[]; // eslint-disable-line no-undef
       dispatch('setOutputs', outputs);
     },
 
