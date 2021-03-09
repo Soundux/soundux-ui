@@ -23,7 +23,6 @@ export interface Tab {
 }
 
 export interface Data {
-  output: string;
   tabs: Tab[];
 }
 
