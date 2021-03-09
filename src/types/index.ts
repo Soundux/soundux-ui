@@ -8,7 +8,6 @@ export interface Sound {
 
 export interface PlayingSound {
   id: number;
-  length: number;
   lengthInMs: number;
   readInMs: number;
   paused: boolean;
