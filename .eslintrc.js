@@ -21,4 +21,12 @@ module.exports = {
     'vuetify/no-deprecated-components': 'error',
     '@typescript-eslint/ban-ts-comment': 'off',
   },
+  overrides: [
+    {
+      files: ['**/__tests__/*.{j,t}s?(x)', '**/tests/unit/**/*.spec.{j,t}s?(x)'],
+      env: {
+        jest: true,
+      },
+    },
+  ],
 };
