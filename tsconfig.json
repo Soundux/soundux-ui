@@ -4,10 +4,11 @@
     "module": "ESNext",
     "strict": true,
     "importHelpers": true,
-    "moduleResolution": "node",
+    "moduleResolution": "Node",
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "noImplicitReturns": true,
     "sourceMap": true,
     "baseUrl": ".",
     "types": [
@@ -22,10 +23,10 @@
       ]
     },
     "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "scripthost"
+      "ESNext",
+      "DOM",
+      "DOM.Iterable",
+      "ScriptHost"
     ]
   },
   "include": [
