@@ -35,6 +35,7 @@
 import Vue, { PropType } from 'vue';
 import dayjs from 'dayjs';
 import { PlayingSound } from '@/types';
+import { BackendFunction, callBackend } from '@/utils/backend';
 
 export default Vue.extend({
   name: 'SoundControl',
@@ -56,13 +57,11 @@ export default Vue.extend({
   },
   methods: {
     async pause(): Promise<void> {
-      // @ts-ignore
-      if (!window.pauseSound) {
-        return;
-      }
-      // @ts-ignore
-      // eslint-disable-next-line no-undef
-      const pausedSound = (await window.pauseSound(this.playingSound.id)) as PlayingSound | null;
+      const pausedSound = await callBackend<PlayingSound>(
+        BackendFunction.PAUSE_SOUND,
+        this.playingSound.id
+      );
+
       if (pausedSound) {
         this.$store.commit('updateSound', {
           playing: this.playingSound,
@@ -72,13 +71,10 @@ export default Vue.extend({
       }
     },
     async play(): Promise<void> {
-      // @ts-ignore
-      if (!window.resumeSound) {
-        return;
-      }
-      // @ts-ignore
-      // eslint-disable-next-line no-undef
-      const resumedSound = (await window.resumeSound(this.playingSound.id)) as PlayingSound | null;
+      const resumedSound = await callBackend<PlayingSound>(
+        BackendFunction.RESUME_SOUND,
+        this.playingSound.id
+      );
       if (resumedSound) {
         this.$store.commit('updateSound', {
           playing: this.playingSound,
@@ -88,31 +84,21 @@ export default Vue.extend({
       }
     },
     async seek(newValue: number): Promise<void> {
-      // @ts-ignore
-      if (!window.seekSound) {
-        return;
-      }
-      // @ts-ignore
-      // eslint-disable-next-line no-undef
-      const seekedSound = (await window.seekSound(
+      const seekedSound = await callBackend<PlayingSound>(
+        BackendFunction.SEEK_SOUND,
         this.playingSound.id,
         newValue
-      )) as PlayingSound | null;
+      );
       if (seekedSound) {
         this.$store.commit('updateSound', { playing: this.playingSound, ms: seekedSound.readInMs });
       }
     },
     async repeat(): Promise<void> {
-      // @ts-ignore
-      if (!window.repeatSound) {
-        return;
-      }
-      // @ts-ignore
-      // eslint-disable-next-line no-undef
-      const repeatedSound = (await window.repeatSound(
+      const repeatedSound = await callBackend<PlayingSound>(
+        BackendFunction.REPEAT_SOUND,
         this.playingSound.id,
         true
-      )) as PlayingSound | null;
+      );
       if (repeatedSound) {
         this.$store.commit('updateSound', {
           playing: this.playingSound,
@@ -122,16 +108,11 @@ export default Vue.extend({
       }
     },
     async repeatOff(): Promise<void> {
-      // @ts-ignore
-      if (!window.repeatSound) {
-        return;
-      }
-      // @ts-ignore
-      // eslint-disable-next-line no-undef
-      const repeatedSound = (await window.repeatSound(
+      const repeatedSound = await callBackend<PlayingSound>(
+        BackendFunction.REPEAT_SOUND,
         this.playingSound.id,
         false
-      )) as PlayingSound | null;
+      );
       if (repeatedSound) {
         this.$store.commit('updateSound', {
           playing: this.playingSound,
@@ -141,12 +122,7 @@ export default Vue.extend({
       }
     },
     async stop(): Promise<void> {
-      // @ts-ignore
-      if (!window.stopSound) {
-        return;
-      }
-      // @ts-ignore
-      const success = (await window.stopSound(this.playingSound.id)) as boolean; // eslint-disable-line no-undef
+      const success = await callBackend<boolean>(BackendFunction.STOP_SOUND, this.playingSound.id);
       if (success) {
         this.$store.commit('removeFromCurrentlyPlaying', this.playingSound);
       }

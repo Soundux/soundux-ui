@@ -39,6 +39,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import { BackendFunction, callBackend } from '@/utils/backend';
 
 export default Vue.extend({
   name: 'SetHotkeyModal',
@@ -61,16 +62,11 @@ export default Vue.extend({
     // open: we register the hotkeyReceived method for the backend here
     // close: the use of this is overloaded with SettingsModal which is why we unregister it
     async stateChanged(state: boolean): Promise<void> {
-      // @ts-ignore
-      if (!window.getHotkeySequence) {
-        return;
-      }
       if (state) {
         this.$store.commit('setHotkeySequence', {
           sound: this.sound,
-          // @ts-ignore
-          // eslint-disable-next-line no-undef
-          hotkeySequence: await window.getHotkeySequence(this.sound.hotkeys),
+          hotkeySequence:
+            (await callBackend<string>(BackendFunction.GET_HOTKEY_SEQUENCE, this.sound.hotkeys)) || '',
         });
 
         // @ts-ignore
@@ -84,20 +80,10 @@ export default Vue.extend({
       }
     },
     async focus(): Promise<void> {
-      // @ts-ignore
-      if (!window.requestHotkey) {
-        return;
-      }
-      // @ts-ignore
-      await window.requestHotkey(true); // eslint-disable-line no-undef
+      await callBackend(BackendFunction.REQUEST_HOTKEY, true);
     },
     async blur(): Promise<void> {
-      // @ts-ignore
-      if (!window.requestHotkey) {
-        return;
-      }
-      // @ts-ignore
-      await window.requestHotkey(false); // eslint-disable-line no-undef
+      await callBackend(BackendFunction.REQUEST_HOTKEY, false);
     },
   },
 });

@@ -20,6 +20,7 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue';
 import { Output } from '@/types';
+import { callBackend, BackendFunction } from '@/utils/backend';
 
 export default Vue.extend({
   name: 'PassthroughControl',
@@ -31,12 +32,7 @@ export default Vue.extend({
   },
   methods: {
     async stop(): Promise<void> {
-      // @ts-ignore
-      if (!window.stopPassthrough) {
-        return;
-      }
-      // @ts-ignore
-      await window.stopPassthrough(); // eslint-disable-line no-undef
+      await callBackend(BackendFunction.STOP_PASS_THROUGH);
       this.$store.commit('removeFromCurrentlyPlaying', this.output);
     },
   },
