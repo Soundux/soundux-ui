@@ -33,7 +33,6 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { Output } from '@/types';
 
 export default Vue.extend({
   name: 'AppPassthroughDrawer',

@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import Vuetify from '../plugins/vuetify';
-import { Data, Output, Playing, PlayingSound, Settings, Sound, Tab } from '@/types';
+import { Output, Playing, PlayingSound, Settings, Sound, Tab } from '@/types';
 import { BackendFunction, callBackend } from '@/utils/backend';
 
 Vue.use(Vuex);
