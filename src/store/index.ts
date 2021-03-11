@@ -167,9 +167,9 @@ export default new Vuex.Store({
      * Fetches the tabs from the backend
      */
     async getData({ commit }) {
-      const data = await callBackend<Data>(BackendFunction.GET_DATA);
-      if (data) {
-        commit('setTabs', data.tabs);
+      const tabs = await callBackend<Tab[]>(BackendFunction.GET_TABS);
+      if (tabs) {
+        commit('setTabs', tabs);
       }
     },
 
@@ -274,14 +274,15 @@ export default new Vuex.Store({
     /**
      * Start an application passthrough via the backend
      */
-    async startPassthrough({ commit, getters }, app: Output) {
+    async startPassthrough({ commit, getters }, app: string) {
       // It might be null if there are no outputs available, this should normally not happen since the button is disabled in this case
       if (!getters.selectedOutput) {
         return;
       }
-      const recordingStream = await callBackend<Output>(BackendFunction.START_PASS_THROUGH, app.name);
-      if (recordingStream) {
+      const success = await callBackend<boolean>(BackendFunction.START_PASS_THROUGH, app);
+      if (success) {
         commit('removePassthroughFromCurrentlyPlaying');
+        const recordingStream: Output = { name: app };
         commit('addToCurrentlyPlaying', recordingStream);
       }
     },

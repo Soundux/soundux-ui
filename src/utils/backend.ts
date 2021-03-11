@@ -3,7 +3,7 @@ export enum BackendFunction {
   OPEN_URL = 'openUrl',
   MOVE_TABS = 'moveTabs',
   GET_SETTINGS = 'getSettings',
-  GET_OUTPUTS = 'getOutput',
+  GET_OUTPUTS = 'getOutputs',
   CHANGE_SETTINGS = 'changeSettings',
   SET_HOTKEY = 'setHotkey',
   IS_SWITCH_ON_CONNECT_LOADED = 'isSwitchOnConnectLoaded',
@@ -23,7 +23,7 @@ export enum BackendFunction {
   GET_PLAYBACK_APPS = 'getPlayback',
   GET_HOTKEY_SEQUENCE = 'getHotkeySequence',
   REQUEST_HOTKEY = 'requestHotkey',
-  GET_DATA = 'getData',
+  GET_TABS = 'getTabs',
 }
 
 export async function callBackend<Type = null>(

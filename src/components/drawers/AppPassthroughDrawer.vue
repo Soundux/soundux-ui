@@ -15,7 +15,7 @@
       <v-list-item
         v-for="(result, index) in $store.getters.playbackApps"
         :key="index"
-        @click="startPassthrough(result)"
+        @click="startPassthrough(result.name)"
       >
         <v-list-item-title class="text-wrap">{{ result.name }}</v-list-item-title>
       </v-list-item>
@@ -55,7 +55,7 @@ export default Vue.extend({
     document.removeEventListener('keydown', this.keyDownHandler);
   },
   methods: {
-    startPassthrough(app: Output): void {
+    startPassthrough(app: string): void {
       this.$store.dispatch('startPassthrough', app);
       this.appPassThroughDrawer = false;
     },
