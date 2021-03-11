@@ -66,7 +66,8 @@ export default Vue.extend({
         this.$store.commit('updateSound', {
           playing: this.playingSound,
           ms: pausedSound.readInMs,
-          paused: true,
+          paused: pausedSound.paused,
+          repeat: pausedSound.repeat,
         });
       }
     },
@@ -79,7 +80,8 @@ export default Vue.extend({
         this.$store.commit('updateSound', {
           playing: this.playingSound,
           ms: resumedSound.readInMs,
-          paused: false,
+          paused: resumedSound.paused,
+          repeat: resumedSound.repeat,
         });
       }
     },
@@ -90,7 +92,12 @@ export default Vue.extend({
         newValue
       );
       if (seekedSound) {
-        this.$store.commit('updateSound', { playing: this.playingSound, ms: seekedSound.readInMs });
+        this.$store.commit('updateSound', {
+          playing: this.playingSound,
+          ms: seekedSound.readInMs,
+          paused: seekedSound.paused,
+          repeat: seekedSound.repeat,
+        });
       }
     },
     async repeat(): Promise<void> {
@@ -102,7 +109,7 @@ export default Vue.extend({
       if (repeatedSound) {
         this.$store.commit('updateSound', {
           playing: this.playingSound,
-          ms: repeatedSound.readInMs,
+          paused: repeatedSound.paused,
           repeat: repeatedSound.repeat,
         });
       }
@@ -116,7 +123,7 @@ export default Vue.extend({
       if (repeatedSound) {
         this.$store.commit('updateSound', {
           playing: this.playingSound,
-          ms: repeatedSound.readInMs,
+          paused: repeatedSound.paused,
           repeat: repeatedSound.repeat,
         });
       }
