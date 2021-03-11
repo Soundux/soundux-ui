@@ -1,3 +1,6 @@
+import Vue from 'vue';
+import i18n from '../i18n';
+
 export enum BackendFunction {
   IS_LINUX = 'isLinux',
   OPEN_URL = 'openUrl',
@@ -32,6 +35,9 @@ export async function callBackend<Type = null>(
 ): Promise<Type | null> {
   // @ts-ignore
   if (!window[functionName]) {
+    Vue.$toast.error(
+      i18n.t('errors.error') + ': ' + i18n.t('errors.backendFunctionMissing', { functionName })
+    );
     return null;
   }
   // @ts-ignore

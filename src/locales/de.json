@@ -92,6 +92,7 @@
     "12": "Zurückstellen des durchreichen fehlgeschlagen",
     "13": "Standardgerät zurücksetzen fehlgeschlagen",
     "14": "Standardgerät setzen fehlgeschlagen",
-    "error": "Fehler"
+    "error": "Fehler",
+    "backendFunctionMissing": "Backend-Funktion fehlt: {functionName}"
   }
 }

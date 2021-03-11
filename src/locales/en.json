@@ -92,6 +92,7 @@
     "12": "Failed to move back passthrough",
     "13": "Failed to revert default source",
     "14": "Failed to set default source",
-    "error": "Error"
+    "error": "Error",
+    "backendFunctionMissing": "Backend function missing: {functionName}"
   }
 }
