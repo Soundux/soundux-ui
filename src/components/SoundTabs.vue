@@ -121,6 +121,42 @@ export default Vue.extend({
       this.$store.dispatch('moveTabs');
     },
     keyDownHandler(event: KeyboardEvent): void {
+      if (
+        this.$store.getters.settings.launchPadMode &&
+        !this.$store.getters.appPassThroughDrawer &&
+        !this.$store.getters.searchDrawer
+      ) {
+        if (!event.ctrlKey && !event.shiftKey && !event.altKey) {
+          const keyboard = `1234567890QWERTYUIOPASDFGHJKL;ZXCVBNM,./`;
+          const keys = [];
+          for (const key of keyboard) {
+            if (!isNaN(parseInt(key))) {
+              keys.push(`Digit${key}`);
+            } else if (key === ';') {
+              keys.push('Semicolon');
+            } else if (key === ',') {
+              keys.push('Comma');
+            } else if (key === '.') {
+              keys.push('Period');
+            } else if (key === '/') {
+              keys.push('Slash');
+            } else {
+              keys.push(`Key${key}`);
+            }
+          }
+
+          keys.forEach((keyCode, index) => {
+            if (event.code === keyCode) {
+              // console.log('play sound', keyCode, index);
+              const sound = this.$store.getters.tabs[this.$store.getters.activeTabIndex].sounds[index];
+              if (sound) {
+                this.$store.dispatch('playSound', sound);
+              }
+            }
+          });
+        }
+      }
+
       if (event.ctrlKey && !event.shiftKey && !event.altKey && event.code === 'KeyR') {
         event.preventDefault();
         this.$store.dispatch('refreshTab');

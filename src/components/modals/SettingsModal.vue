@@ -18,6 +18,7 @@
       </v-card-title>
       <v-card-text>
         <v-checkbox v-model="tabHotkeysOnly" :label="$t('settings.tabHotkeysOnly')"></v-checkbox>
+        <v-checkbox v-model="launchpadMode" :label="$t('settings.launchpadMode')"></v-checkbox>
         <v-checkbox v-model="allowOverlapping" :label="$t('settings.allowOverlapping')"></v-checkbox>
         <v-checkbox v-model="gridView" :label="$t('settings.gridView')"></v-checkbox>
         <v-checkbox
@@ -65,6 +66,15 @@ export default Vue.extend({
       },
       set(state: boolean) {
         this.$store.commit('setTabHotkeysOnly', state);
+        this.$store.dispatch('saveSettings');
+      },
+    },
+    launchpadMode: {
+      get() {
+        return this.$store.getters.settings.launchPadMode;
+      },
+      set(state: boolean) {
+        this.$store.commit('setLaunchpadMode', state);
         this.$store.dispatch('saveSettings');
       },
     },

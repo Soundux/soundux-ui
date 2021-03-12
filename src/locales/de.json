@@ -17,6 +17,7 @@
   "settings": {
     "title": "Einstellungen",
     "tabHotkeysOnly": "Hotkeys nur für aktuellen Tab",
+    "launchpadMode": "Launchpad-Modus",
     "allowOverlapping": "Tonüberlappung zulassen",
     "gridView": "Rasteransicht",
     "useAsDefaultDevice": "Als Standardgerät verwenden",
