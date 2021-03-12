@@ -17,6 +17,12 @@ jest.mock('dayjs', () => ({
   },
 }));
 
+jest.mock('@/i18n', () => ({
+  t(key: string) {
+    return key;
+  },
+}));
+
 describe('PassthroughControl.vue', () => {
   const localVue = createLocalVue();
   let vuetify: Vuetify;
