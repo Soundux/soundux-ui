@@ -21,6 +21,7 @@
     "allowOverlapping": "Allow sound overlapping",
     "gridView": "Grid view",
     "useAsDefaultDevice": "Use as default device",
+    "muteDuringPlayback": "Mute microphone during playback",
     "darkTheme": "Dark theme",
     "stopHotkey": "Stop hotkey"
   },

@@ -26,6 +26,11 @@
           :disabled="!$store.getters.isLinux"
           :label="$t('settings.useAsDefaultDevice')"
         ></v-checkbox>
+        <v-checkbox
+          v-model="muteDuringPlayback"
+          :disabled="!$store.getters.isLinux"
+          :label="$t('settings.muteDuringPlayback')"
+        ></v-checkbox>
         <v-checkbox v-model="darkTheme" :label="$t('settings.darkTheme')"></v-checkbox>
         <v-text-field
           v-model="stopHotkey"
@@ -61,7 +66,7 @@ export default Vue.extend({
   },
   computed: {
     tabHotkeysOnly: {
-      get() {
+      get(): boolean {
         return this.$store.getters.settings.tabHotkeysOnly;
       },
       set(state: boolean) {
@@ -70,7 +75,7 @@ export default Vue.extend({
       },
     },
     launchpadMode: {
-      get() {
+      get(): boolean {
         return this.$store.getters.settings.launchPadMode;
       },
       set(state: boolean) {
@@ -78,8 +83,17 @@ export default Vue.extend({
         this.$store.dispatch('saveSettings');
       },
     },
+    muteDuringPlayback: {
+      get(): boolean {
+        return this.$store.getters.settings.muteDuringPlayback;
+      },
+      set(state: boolean) {
+        this.$store.commit('setMuteDuringPlayback', state);
+        this.$store.dispatch('saveSettings');
+      },
+    },
     allowOverlapping: {
-      get() {
+      get(): boolean {
         return this.$store.getters.settings.allowOverlapping;
       },
       set(state: boolean) {
@@ -88,7 +102,7 @@ export default Vue.extend({
       },
     },
     gridView: {
-      get() {
+      get(): boolean {
         return this.$store.getters.settings.gridView;
       },
       set(state: boolean) {
@@ -97,7 +111,7 @@ export default Vue.extend({
       },
     },
     useAsDefaultDevice: {
-      get() {
+      get(): boolean {
         return this.$store.getters.settings.useAsDefaultDevice;
       },
       set(state: boolean) {
@@ -105,7 +119,7 @@ export default Vue.extend({
       },
     },
     darkTheme: {
-      get() {
+      get(): boolean {
         return this.$store.getters.settings.darkTheme;
       },
       set(state: boolean) {

@@ -21,6 +21,7 @@
     "allowOverlapping": "Tonüberlappung zulassen",
     "gridView": "Rasteransicht",
     "useAsDefaultDevice": "Als Standardgerät verwenden",
+    "muteDuringPlayback": "Mikrofon stumm schalten während dem Abspielen",
     "darkTheme": "Dunkles Design",
     "stopHotkey": "Stopp-Hotkey"
   },

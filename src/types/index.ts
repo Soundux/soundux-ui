@@ -44,4 +44,5 @@ export interface Settings {
   localVolume: number;
   remoteVolume: number;
   useAsDefaultDevice: boolean;
+  muteDuringPlayback: boolean;
 }

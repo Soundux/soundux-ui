@@ -30,6 +30,7 @@ export default new Vuex.Store({
       localVolume: 0,
       remoteVolume: 0,
       useAsDefaultDevice: false,
+      muteDuringPlayback: false,
     } as Settings,
   },
   getters: {
@@ -151,6 +152,7 @@ export default new Vuex.Store({
     setAllowOverlapping: (state, value: boolean) => (state.settings.allowOverlapping = value),
     setGridView: (state, value: boolean) => (state.settings.gridView = value),
     setUseAsDefaultDevice: (state, value: boolean) => (state.settings.useAsDefaultDevice = value),
+    setMuteDuringPlayback: (state, value: boolean) => (state.settings.muteDuringPlayback = value),
     setStopHotkey: (state, value: number[]) => (state.settings.stopHotkey = value),
     setIsLinux: (state, value: boolean) => (state.isLinux = value),
     setSsDraggingSeekbar: (state, value: boolean) => (state.isDraggingSeekbar = value),
