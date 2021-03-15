@@ -30,7 +30,7 @@ import { Output } from '@/types';
 export default Vue.extend({
   name: 'OutputSelection',
   mounted() {
-    // getOutputs has be called after setSettings. otherwise the settings promise might resolve slower and overwrites the output value
+    // getOutputs has to be called after setSettings. otherwise the settings promise might resolve slower and overwrites the output value
     // TODO: there might be a better way of enforcing that
     const unsubscribe = this.$store.subscribe(mutation => {
       if (mutation.type === 'setSettings') {
