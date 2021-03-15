@@ -61,10 +61,10 @@ export default Vue.extend({
         return [];
       }
 
-      const fuse = new Fuse(this.$store.getters.allSounds, {
+      const fuse = new Fuse<Sound>(this.$store.getters.allSounds, {
         keys: ['name'],
       });
-      const result = fuse.search<Sound>(this.searchInput);
+      const result = fuse.search(this.searchInput);
       return result.map(({ item }) => item);
     },
   },
