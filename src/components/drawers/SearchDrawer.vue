@@ -37,6 +37,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import Fuse from 'fuse.js';
 import { Sound } from '@/types';
 
 export default Vue.extend({
@@ -59,9 +60,12 @@ export default Vue.extend({
       if (!this.searchInput) {
         return [];
       }
-      return this.$store.getters.allSounds.filter(({ name }: Sound) =>
-        name.toLowerCase().includes(this.searchInput.toLowerCase())
-      );
+
+      const fuse = new Fuse(this.$store.getters.allSounds, {
+        keys: ['name'],
+      });
+      const result = fuse.search<Sound>(this.searchInput);
+      return result.map(({ item }) => item);
     },
   },
   mounted() {

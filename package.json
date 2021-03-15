@@ -17,6 +17,7 @@
     "@mdi/font": "^5.9.55",
     "core-js": "^3.9.1",
     "dayjs": "^1.10.4",
+    "fuse.js": "^6.4.6",
     "roboto-fontface": "*",
     "vue": "^2.6.12",
     "vue-i18n": "^8.24.1",
