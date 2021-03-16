@@ -20,7 +20,7 @@
           @input="resetSelectedIndex"
         ></v-text-field>
       </v-card-title>
-      <v-card-text>
+      <v-card-text id="cardBody">
         <v-list v-if="searchInput && searchResults.length > 0" nav dense class="fill-height">
           <v-list-item-group :value="selectedResultIndex" id="searchResults">
             <v-list-item
@@ -85,7 +85,7 @@ export default Vue.extend({
       searchInput: '',
       selectedResultIndex: 0,
       fuse: null as Fuse<Sound> | null,
-      unsubscribe: null as () => void | null,
+      unsubscribe: null as (() => void) | null,
     };
   },
   computed: {
@@ -159,10 +159,11 @@ export default Vue.extend({
     scrollSelectedIntoView() {
       const searchResults = document.getElementById('searchResults') as HTMLElement;
       if (searchResults) {
-        const resultItem = searchResults.childNodes[this.selectedResultIndex];
-        if (resultItem) {
+        const resultItem = searchResults.childNodes[this.selectedResultIndex] as HTMLElement;
+        const container = document.getElementById('cardBody') as HTMLElement;
+        if (resultItem && container) {
           this.$vuetify.goTo(resultItem, {
-            container: searchResults.parentElement.parentElement,
+            container,
             duration: 100,
             offset: 176,
           });
