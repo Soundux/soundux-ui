@@ -14,14 +14,24 @@
     "help": {
         "viewSourceCode": "Vis kildekoden",
         "search": {
-            "search": "søk"
+            "search": "søk",
+            "text": "Trykk {ctrl} + {f} for å {search}"
         },
         "ctrl": "Ctrl",
-        "title": "Hjelp"
+        "title": "Hjelp",
+        "play": {
+            "text": "{doubleClick} for å {play}",
+            "play": "spille"
+        },
+        "appPassThrough": {
+            "text": "Trykk {ctrl} + {g} for å {show}"
+        }
     },
     "switchOnConnect": {
         "explanation": {
-            "line1": "PulseAudio {moduleName} modul oppdaget."
+            "line1": "PulseAudio {moduleName} modul oppdaget.",
+            "wikiPage": "vår dedikerte wiki-side",
+            "line2": "Dette forårsaker alvorlige problemer!"
         },
         "disable": "Skru av nå"
     },
@@ -31,19 +41,36 @@
         "useAsDefaultDevice": "Bruk som forvalgt enhet",
         "gridView": "Rutenettvisning",
         "allowOverlapping": "Tillat lydoverlapping",
-        "title": "Innstillinger"
+        "title": "Innstillinger",
+        "launchpadMode": "Launchpad-modus",
+        "stopHotkey": "Stopp-snarvei",
+        "tabHotkeysOnly": "Snarveier kun for nåværende fane"
     },
     "actions": {
         "play": "Spill",
         "addTab": "Legg til fane",
         "search": "Søk",
         "stop": "Stopp",
-        "refresh": "Gjenoppfrisk"
+        "refresh": "Gjenoppfrisk",
+        "reloadSounds": "Last inn igjen",
+        "appPassThrough": "Videresending"
     },
     "welcome": {
         "noTabs": "Legg til en fane ved å trykke {addTab} på høyresiden",
         "title": "Velkommen til {programName}"
     },
     "outputDevice": "Utgangsenhet",
-    "outputApp": "Utdata-program"
+    "outputApp": "Utdata-program",
+    "input": {
+        "ctrl": "Ctrl",
+        "arrowKeys": "Piltaster",
+        "doubleClick": "Dobbeltklikk",
+        "enter": "Enter",
+        "shift": "Shift"
+    },
+    "hotkeys": {
+        "title": "Sett snarvei",
+        "hotkey": "Snarvei",
+        "setFor": "Trykk snarvei for {soundName}"
+    }
 }
