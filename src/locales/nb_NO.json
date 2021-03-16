@@ -1,1 +1,49 @@
-{}
+{
+    "errors": {
+        "14": "Klarte ikke å sette forvalgt kilde",
+        "13": "Klarte ikke å tilbakestille forvalgt kilde",
+        "error": "Feil"
+    },
+    "search": {
+        "typeToSearch": "Skriv for å søke"
+    },
+    "volume": {
+        "sync": "Synkroniser lydstyrker",
+        "local": "Lokal lydstyrke"
+    },
+    "help": {
+        "viewSourceCode": "Vis kildekoden",
+        "search": {
+            "search": "søk"
+        },
+        "ctrl": "Ctrl",
+        "title": "Hjelp"
+    },
+    "switchOnConnect": {
+        "explanation": {
+            "line1": "PulseAudio {moduleName} modul oppdaget."
+        },
+        "disable": "Skru av nå"
+    },
+    "settings": {
+        "darkTheme": "Mørk drakt",
+        "muteDuringPlayback": "Demp mikrofon under avspilling",
+        "useAsDefaultDevice": "Bruk som forvalgt enhet",
+        "gridView": "Rutenettvisning",
+        "allowOverlapping": "Tillat lydoverlapping",
+        "title": "Innstillinger"
+    },
+    "actions": {
+        "play": "Spill",
+        "addTab": "Legg til fane",
+        "search": "Søk",
+        "stop": "Stopp",
+        "refresh": "Gjenoppfrisk"
+    },
+    "welcome": {
+        "noTabs": "Legg til en fane ved å trykke {addTab} på høyresiden",
+        "title": "Velkommen til {programName}"
+    },
+    "outputDevice": "Utgangsenhet",
+    "outputApp": "Utdata-program"
+}
