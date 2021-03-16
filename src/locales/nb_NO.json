@@ -2,19 +2,38 @@
     "errors": {
         "14": "Klarte ikke å sette forvalgt kilde",
         "13": "Klarte ikke å tilbakestille forvalgt kilde",
-        "error": "Feil"
+        "error": "Feil",
+        "backendFunctionMissing": "Bakendefunksjon mangler: {functionName}",
+        "12": "Klarte ikke å flytte tilbake videresending",
+        "11": "Flarte ikke å flytte tilbake",
+        "10": "Klarte ikke å starte videresending",
+        "9": "Klarte ikke å sette snarvei",
+        "8": "Fanen finnes ikke",
+        "7": "Mappen finnes ikke",
+        "6": "Fant ikke lyden",
+        "5": "Klarte ikke å flytte til vask",
+        "4": "Klarte ikke å gjenoppta",
+        "3": "Klarte ikke å gjenta",
+        "2": "Klarte ikke å pause",
+        "1": "Klarte ikke å blafre",
+        "0": "Klarte ikke å spille"
     },
     "search": {
-        "typeToSearch": "Skriv for å søke"
+        "typeToSearch": "Skriv for å søke",
+        "playSelected": "{shift} + {enter} for å spille valgt lyd",
+        "jumpToSelected": "{enter} for å hoppe til valgt lyd",
+        "changeSelection": "{arrowKeys} for å endre oppløsning",
+        "noResultsFound": "Resultatløst"
     },
     "volume": {
         "sync": "Synkroniser lydstyrker",
-        "local": "Lokal lydstyrke"
+        "local": "Lokal lydstyrke",
+        "remote": "Fjern-lydstyrke"
     },
     "help": {
         "viewSourceCode": "Vis kildekoden",
         "search": {
-            "search": "søk",
+            "search": "søke",
             "text": "Trykk {ctrl} + {f} for å {search}"
         },
         "ctrl": "Ctrl",
@@ -24,16 +43,26 @@
             "play": "spille"
         },
         "appPassThrough": {
-            "text": "Trykk {ctrl} + {g} for å {show}"
+            "text": "Trykk {ctrl} + {g} for å {show}",
+            "show": "vis programvideresending"
+        },
+        "joinOurDiscord": "Ta del i vår Discord",
+        "visitOurWebsite": "Besøk nettsiden vår",
+        "reloadSounds": {
+            "reload": "gjeninnlaste nåværende fane",
+            "text": "Trykk {ctrl} + {r} for å {reload}"
         }
     },
     "switchOnConnect": {
         "explanation": {
             "line1": "PulseAudio {moduleName} modul oppdaget.",
             "wikiPage": "vår dedikerte wiki-side",
-            "line2": "Dette forårsaker alvorlige problemer!"
+            "line2": "Dette forårsaker alvorlige problemer!",
+            "line4": "For mer info (for eksempel for å skru dette av for godt), kan du sjekke {wikiPage}",
+            "line3": "For å fortsette å bruke Soundux må du skru det av."
         },
-        "disable": "Skru av nå"
+        "disable": "Skru av nå",
+        "title": "Bytt ved tilkobling-modul oppdaget."
     },
     "settings": {
         "darkTheme": "Mørk drakt",
@@ -72,5 +101,9 @@
         "title": "Sett snarvei",
         "hotkey": "Snarvei",
         "setFor": "Trykk snarvei for {soundName}"
+    },
+    "appPassThrough": {
+        "noAppsFound": "Fant ingen programmer",
+        "title": "Program-videresending"
     }
 }
