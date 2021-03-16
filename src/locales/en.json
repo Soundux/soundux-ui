@@ -1,108 +1,108 @@
 {
-  "welcome": {
-    "title": "Welcome to {programName}",
-    "noTabs": "There are currently no tabs. Add one by clicking {addTab} on the right side"
-  },
-  "outputApp": "Output application",
-  "outputDevice": "Output device",
-  "actions": {
-    "refresh": "Refresh",
-    "stop": "Stop",
-    "search": "Search",
-    "addTab": "Add tab",
-    "reloadSounds": "Reload",
-    "play": "Play",
-    "appPassThrough": "Pass through"
-  },
-  "settings": {
-    "title": "Settings",
-    "tabHotkeysOnly": "Hotkeys only for current tab",
-    "launchpadMode": "Launchpad mode",
-    "allowOverlapping": "Allow sound overlapping",
-    "gridView": "Grid view",
-    "useAsDefaultDevice": "Use as default device",
-    "muteDuringPlayback": "Mute microphone during playback",
-    "darkTheme": "Dark theme",
-    "stopHotkey": "Stop hotkey"
-  },
-  "switchOnConnect": {
-    "title": "Switch on connect module detected!",
-    "disable": "Disable now",
-    "explanation": {
-      "line1": "The PulseAudio {moduleName} module has been detected.",
-      "line2": "This causes severe problems!",
-      "line3": "To continue using Soundux, please disable it.",
-      "line4": "For more information (e.g. how to disable this permanently) please refer to {wikiPage}",
-      "wikiPage": "our dedicated wiki page"
-    }
-  },
-  "hotkeys": {
-    "title": "Set hotkey",
-    "hotkey": "Hotkey",
-    "setFor": "Set hotkey for {soundName}"
-  },
-  "input": {
-    "ctrl": "CTRL",
-    "shift": "Shift",
-    "enter": "Enter",
-    "doubleClick": "Double-click",
-    "arrowKeys": "Arrow keys"
-  },
-  "help": {
-    "title": "Help",
-    "search": {
-      "text": "Press {ctrl} + {f} to {search}",
-      "search": "search"
+    "welcome": {
+        "title": "Welcome to {programName}",
+        "noTabs": "There are currently no tabs. Add one by clicking {addTab} on the right side"
     },
-    "play": {
-      "text": "{doubleClick} to {play}",
-      "play": "play"
+    "outputApp": "Output application",
+    "outputDevice": "Output device",
+    "actions": {
+        "refresh": "Refresh",
+        "stop": "Stop",
+        "search": "Search",
+        "addTab": "Add tab",
+        "reloadSounds": "Reload",
+        "play": "Play",
+        "appPassThrough": "Pass through"
+    },
+    "settings": {
+        "title": "Settings",
+        "tabHotkeysOnly": "Hotkeys only for current tab",
+        "launchpadMode": "Launchpad mode",
+        "allowOverlapping": "Allow sound overlapping",
+        "gridView": "Grid view",
+        "useAsDefaultDevice": "Use as default device",
+        "muteDuringPlayback": "Mute microphone during playback",
+        "darkTheme": "Dark theme",
+        "stopHotkey": "Stop hotkey"
+    },
+    "switchOnConnect": {
+        "title": "Switch on connect module detected!",
+        "disable": "Disable now",
+        "explanation": {
+            "line1": "The PulseAudio {moduleName} module has been detected.",
+            "line2": "This causes severe problems!",
+            "line3": "To continue using Soundux, please disable it.",
+            "line4": "For more information (e.g. how to disable this permanently) please refer to {wikiPage}",
+            "wikiPage": "our dedicated wiki page"
+        }
+    },
+    "hotkeys": {
+        "title": "Set hotkey",
+        "hotkey": "Hotkey",
+        "setFor": "Set hotkey for {soundName}"
+    },
+    "input": {
+        "ctrl": "Ctrl",
+        "shift": "Shift",
+        "enter": "Enter",
+        "doubleClick": "Double-click",
+        "arrowKeys": "Arrow keys"
+    },
+    "help": {
+        "title": "Help",
+        "search": {
+            "text": "Press {ctrl} + {f} to {search}",
+            "search": "search"
+        },
+        "play": {
+            "text": "{doubleClick} to {play}",
+            "play": "play"
+        },
+        "appPassThrough": {
+            "text": "Press {ctrl} + {g} to {show}",
+            "show": "show app pass through"
+        },
+        "reloadSounds": {
+            "text": "Press {ctrl} + {r} to {reload}",
+            "reload": "reload the current tab"
+        },
+        "visitOurWebsite": "Visit our website",
+        "joinOurDiscord": "Join our Discord",
+        "viewSourceCode": "View the source code"
+    },
+    "volume": {
+        "local": "Local volume",
+        "remote": "Remote volume",
+        "sync": "Sync volumes"
     },
     "appPassThrough": {
-      "text": "Press {ctrl} + {g} to {show}",
-      "show": "show app pass through"
+        "title": "App pass through",
+        "noAppsFound": "No apps found"
     },
-    "reloadSounds": {
-      "text": "Press {ctrl} + {r} to {reload}",
-      "reload": "reload the current tab"
+    "search": {
+        "typeToSearch": "Type to search",
+        "noResultsFound": "No results found",
+        "changeSelection": "{arrowKeys} to change selection",
+        "jumpToSelected": "{enter} to jump to the currently selected sound",
+        "playSelected": "{shift} + {enter} to play the currently selected sound"
     },
-    "visitOurWebsite": "Visit our website",
-    "joinOurDiscord": "Join our Discord",
-    "viewSourceCode": "View the source code"
-  },
-  "volume": {
-    "local": "Local volume",
-    "remote": "Remote volume",
-    "sync": "Sync volumes"
-  },
-  "appPassThrough": {
-    "title": "App pass through",
-    "noAppsFound": "No apps found"
-  },
-  "search": {
-    "typeToSearch": "Type to search",
-    "noResultsFound": "No results found",
-    "changeSelection": "{arrowKeys} to change selection",
-    "jumpToSelected": "{enter} to jump to the currently selected sound",
-    "playSelected": "{shift} + {enter} to play the currently selected sound"
-  },
-  "errors": {
-    "0": "Failed to play",
-    "1": "Failed to seek",
-    "2": "Failed to pause",
-    "3": "Failed to repeat",
-    "4": "Failed to resume",
-    "5": "Failed to move to sink",
-    "6": "Sound not found",
-    "7": "Folder does not exist",
-    "8": "Tab does not exist",
-    "9": "Failed to set hotkey",
-    "10": "Failed to start passthrough",
-    "11": "Failed to move back",
-    "12": "Failed to move back passthrough",
-    "13": "Failed to revert default source",
-    "14": "Failed to set default source",
-    "error": "Error",
-    "backendFunctionMissing": "Backend function missing: {functionName}"
-  }
+    "errors": {
+        "0": "Failed to play",
+        "1": "Failed to seek",
+        "2": "Failed to pause",
+        "3": "Failed to repeat",
+        "4": "Failed to resume",
+        "5": "Failed to move to sink",
+        "6": "Sound not found",
+        "7": "Folder does not exist",
+        "8": "Tab does not exist",
+        "9": "Failed to set hotkey",
+        "10": "Failed to start passthrough",
+        "11": "Failed to move back",
+        "12": "Failed to move back passthrough",
+        "13": "Failed to revert default source",
+        "14": "Failed to set default source",
+        "error": "Error",
+        "backendFunctionMissing": "Backend function missing: {functionName}"
+    }
 }
