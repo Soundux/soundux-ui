@@ -8,7 +8,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    searchDrawer: false,
+    searchModal: false,
     appPassThroughDrawer: false,
     tabs: [] as Tab[],
     outputs: [] as Output[],
@@ -34,7 +34,7 @@ export default new Vuex.Store({
     } as Settings,
   },
   getters: {
-    searchDrawer: state => state.searchDrawer,
+    searchModal: state => state.searchModal,
     appPassThroughDrawer: state => state.appPassThroughDrawer,
     tabs: state => state.tabs,
     activeTabIndex: state => state.settings.selectedTab,
@@ -70,13 +70,13 @@ export default new Vuex.Store({
     isDraggingSeekbar: state => state.isDraggingSeekbar,
   },
   mutations: {
-    setSearchDrawer: (state, newState: boolean) => {
+    setSearchModal: (state, newState: boolean) => {
       if (!state.appPassThroughDrawer) {
-        state.searchDrawer = newState;
+        state.searchModal = newState;
       }
     },
     setAppPassThroughDrawer: (state, newState: boolean) => {
-      if (!state.searchDrawer) {
+      if (!state.searchModal) {
         state.appPassThroughDrawer = newState;
       }
     },

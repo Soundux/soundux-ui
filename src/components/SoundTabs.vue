@@ -124,7 +124,7 @@ export default Vue.extend({
       if (
         this.$store.getters.settings.launchPadMode &&
         !this.$store.getters.appPassThroughDrawer &&
-        !this.$store.getters.searchDrawer
+        !this.$store.getters.searchModal
       ) {
         if (!event.ctrlKey && !event.shiftKey && !event.altKey) {
           const keyboard = `1234567890QWERTYUIOPASDFGHJKL;ZXCVBNM,./`;

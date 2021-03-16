@@ -41,16 +41,21 @@
     "hotkey": "Hotkey",
     "setFor": "Setze Hotkey für {soundName}"
   },
+  "input": {
+    "ctrl": "STRG",
+    "shift": "Umschalt",
+    "enter": "Enter",
+    "doubleClick": "Doppelklick",
+    "arrowKeys": "Pfeiltasten"
+  },
   "help": {
     "title": "Hilfe",
-    "ctrl": "STRG",
     "search": {
       "text": "Drücke {ctrl} + {f} um zu {search}",
       "search": "suchen"
     },
     "play": {
       "text": "{doubleClick} um {play}",
-      "doubleClick": "Doppelklick",
       "play": "abzuspielen"
     },
     "appPassThrough": {
@@ -76,7 +81,10 @@
   },
   "search": {
     "typeToSearch": "Tippe zum suchen",
-    "noResultsFound": "Keine Ergebnisse gefunden"
+    "noResultsFound": "Keine Ergebnisse gefunden",
+    "changeSelection": "{arrowKeys} um Auswahl zu ändern",
+    "jumpToSelected": "{enter} um zum ausgewählten Sound zu springen",
+    "playSelected": "{shift} + {enter} um den ausgewählten Sound abzuspielen"
   },
   "errors": {
     "0": "Wiedergabe fehlgeschlagen",

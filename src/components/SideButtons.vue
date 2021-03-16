@@ -19,7 +19,7 @@
       <v-icon left dark>mdi-cable-data</v-icon>
       {{ $t('actions.appPassThrough') }}
     </v-btn>
-    <SearchDrawer></SearchDrawer>
+    <SearchModal></SearchModal>
     <v-btn
       :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
       class="mb-2"
@@ -41,7 +41,7 @@
     <v-btn
       :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
       class="mb-2"
-      @click="$store.commit('setSearchDrawer', true)"
+      @click="$store.commit('setSearchModal', true)"
     >
       <v-icon left dark>mdi-magnify</v-icon>
       {{ $t('actions.search') }}
@@ -55,9 +55,9 @@
 import SettingsModal from '@/components/modals/SettingsModal';
 import HelpModal from '@/components/modals/HelpModal';
 import SetHotkeyModal from '@/components/modals/SetHotkeyModal';
-import SearchDrawer from '@/components/drawers/SearchDrawer';
+import SearchModal from '@/components/modals/SearchModal';
 export default {
   name: 'SideButtons',
-  components: { SearchDrawer, SetHotkeyModal, HelpModal, SettingsModal },
+  components: { SearchModal, SetHotkeyModal, HelpModal, SettingsModal },
 };
 </script>
