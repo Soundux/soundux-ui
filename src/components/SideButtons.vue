@@ -47,6 +47,7 @@
       {{ $t('actions.search') }}
     </v-btn>
     <SettingsModal></SettingsModal>
+    <SystemInfoModal></SystemInfoModal>
     <HelpModal></HelpModal>
   </div>
 </template>
@@ -56,8 +57,15 @@ import SettingsModal from '@/components/modals/SettingsModal';
 import HelpModal from '@/components/modals/HelpModal';
 import SetHotkeyModal from '@/components/modals/SetHotkeyModal';
 import SearchModal from '@/components/modals/SearchModal';
+import SystemInfoModal from '@/components/modals/SystemInfoModal';
 export default {
   name: 'SideButtons',
-  components: { SearchModal, SetHotkeyModal, HelpModal, SettingsModal },
+  components: {
+    SystemInfoModal,
+    SearchModal,
+    SetHotkeyModal,
+    HelpModal,
+    SettingsModal,
+  },
 };
 </script>

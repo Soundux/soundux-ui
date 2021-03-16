@@ -46,6 +46,9 @@
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
+        <v-btn text color="primary" @click="$store.commit('setSystemInfoModal', true)">
+          {{ $t('systemInfo.title') }}
+        </v-btn>
         <v-btn text color="primary" @click="settingsModal = false">OK</v-btn>
       </v-card-actions>
     </v-card>

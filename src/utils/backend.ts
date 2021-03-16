@@ -26,6 +26,7 @@ export enum BackendFunction {
   GET_PLAYBACK_APPS = 'getPlayback',
   GET_HOTKEY_SEQUENCE = 'getHotkeySequence',
   REQUEST_HOTKEY = 'requestHotkey',
+  GET_SYSTEM_INFO = 'getSystemInfo',
   GET_TABS = 'getTabs',
 }
 

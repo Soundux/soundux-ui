@@ -9,6 +9,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     searchModal: false,
+    systemInfoModal: false,
     appPassThroughDrawer: false,
     tabs: [] as Tab[],
     outputs: [] as Output[],
@@ -35,6 +36,7 @@ export default new Vuex.Store({
   },
   getters: {
     searchModal: state => state.searchModal,
+    systemInfoModal: state => state.systemInfoModal,
     appPassThroughDrawer: state => state.appPassThroughDrawer,
     tabs: state => state.tabs,
     activeTabIndex: state => state.settings.selectedTab,
@@ -75,6 +77,7 @@ export default new Vuex.Store({
         state.searchModal = newState;
       }
     },
+    setSystemInfoModal: (state, newState: boolean) => (state.systemInfoModal = newState),
     setAppPassThroughDrawer: (state, newState: boolean) => {
       if (!state.searchModal) {
         state.appPassThroughDrawer = newState;

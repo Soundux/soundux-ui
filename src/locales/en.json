@@ -86,6 +86,11 @@
     "jumpToSelected": "{enter} to jump to the currently selected sound",
     "playSelected": "{shift} + {enter} to play the currently selected sound"
   },
+  "systemInfo": {
+    "title": "System information",
+    "description": "Attach this information when creating a bug report",
+    "copyToClipboard": "Copy to clipboard"
+  },
   "errors": {
     "0": "Failed to play",
     "1": "Failed to seek",

@@ -117,7 +117,7 @@ html {
   overflow: hidden;
 }
 // disallow selection of text (WebKit fix: https://stackoverflow.com/a/20495972)
-*:not(input) {
+*:not(input, textarea) {
   user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;

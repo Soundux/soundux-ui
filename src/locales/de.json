@@ -86,6 +86,11 @@
     "jumpToSelected": "{enter} um zum ausgewählten Sound zu springen",
     "playSelected": "{shift} + {enter} um den ausgewählten Sound abzuspielen"
   },
+  "systemInfo": {
+    "title": "System-Informationen",
+    "description": "Hängen Sie diese Informationen an, wenn Sie einen Bug melden",
+    "copyToClipboard": "In die Zwischenablage kopieren"
+  },
   "errors": {
     "0": "Wiedergabe fehlgeschlagen",
     "1": "Spulen fehlgeschlagen",
