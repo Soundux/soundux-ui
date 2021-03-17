@@ -22,12 +22,10 @@ export interface Tab {
   sounds: Sound[];
 }
 
-export interface Data {
-  tabs: Tab[];
-}
-
 export interface Output {
   name: string;
+  application: string;
+  appIcon?: string; // Base64 image
 }
 
 export type Playing = PlayingSound | Output;

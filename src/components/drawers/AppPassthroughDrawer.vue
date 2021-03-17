@@ -13,11 +13,23 @@
     </v-toolbar>
     <v-list v-if="$store.getters.playbackApps.length > 0" nav dense>
       <v-list-item
-        v-for="(result, index) in $store.getters.playbackApps"
+        v-for="(playbackApp, index) in $store.getters.playbackApps"
         :key="index"
-        @click="startPassthrough(result.name)"
+        @click="startPassthrough(playbackApp)"
       >
-        <v-list-item-title class="text-wrap">{{ result.name }}</v-list-item-title>
+        <v-list-item-icon v-if="playbackApp.appIcon" class="mr-1">
+          <img
+            :src="`data:image/png;base64,${playbackApp.appIcon}`"
+            :alt="`${playbackApp.application} icon`"
+            width="32"
+            style="object-fit: scale-down"
+          />
+        </v-list-item-icon>
+        <v-list-item-content>
+          <v-list-item-title class="text-wrap">
+            {{ getPrettyName(playbackApp) }}
+          </v-list-item-title>
+        </v-list-item-content>
       </v-list-item>
     </v-list>
     <template v-else>
@@ -33,6 +45,8 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import { getPrettyName } from '@/utils';
+import { Output } from '@/types';
 
 export default Vue.extend({
   name: 'AppPassthroughDrawer',
@@ -54,7 +68,7 @@ export default Vue.extend({
     document.removeEventListener('keydown', this.keyDownHandler);
   },
   methods: {
-    startPassthrough(app: string): void {
+    startPassthrough(app: Output): void {
       this.$store.dispatch('startPassthrough', app);
       this.appPassThroughDrawer = false;
     },
@@ -64,6 +78,7 @@ export default Vue.extend({
         this.appPassThroughDrawer = !this.appPassThroughDrawer;
       }
     },
+    getPrettyName,
   },
 });
 </script>

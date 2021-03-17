@@ -281,16 +281,15 @@ export default new Vuex.Store({
     /**
      * Start an application passthrough via the backend
      */
-    async startPassthrough({ commit, getters }, app: string) {
+    async startPassthrough({ commit, getters }, app: Output) {
       // It might be null if there are no outputs available, this should normally not happen since the button is disabled in this case
       if (!getters.selectedOutput) {
         return;
       }
-      const success = await callBackend<boolean>(BackendFunction.START_PASS_THROUGH, app);
+      const success = await callBackend<boolean>(BackendFunction.START_PASS_THROUGH, app.name);
       if (success) {
         commit('removePassthroughFromCurrentlyPlaying');
-        const recordingStream: Output = { name: app };
-        commit('addToCurrentlyPlaying', recordingStream);
+        commit('addToCurrentlyPlaying', app);
       }
     },
 

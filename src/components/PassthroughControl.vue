@@ -1,9 +1,7 @@
 <template>
   <v-row dense no-gutters class="mr-5">
     <v-col cols="1" align-self="center">
-      <span class="sound-name">
-        {{ output.name }}
-      </span>
+      <span class="sound-name">{{ getPrettyName(output) }}</span>
     </v-col>
     <v-col cols="auto">
       <v-btn icon :disabled="true"><v-icon>mdi-pause</v-icon></v-btn>
@@ -21,6 +19,7 @@
 import Vue, { PropType } from 'vue';
 import { Output } from '@/types';
 import { callBackend, BackendFunction } from '@/utils/backend';
+import { getPrettyName } from '@/utils';
 
 export default Vue.extend({
   name: 'PassthroughControl',
@@ -35,6 +34,7 @@ export default Vue.extend({
       await callBackend(BackendFunction.STOP_PASS_THROUGH);
       this.$store.commit('removeFromCurrentlyPlaying', this.output);
     },
+    getPrettyName,
   },
 });
 </script>
