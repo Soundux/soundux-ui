@@ -103,7 +103,7 @@ export default Vue.extend({
       }
 
       const result = this.fuse.search(this.searchInput);
-      return result.map(({ item }) => item).slice(0, Math.min(result.length - 1, 20));
+      return result.map(({ item }) => item).slice(0, Math.min(result.length, 20));
     },
   },
   mounted() {
