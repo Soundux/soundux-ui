@@ -192,20 +192,25 @@ export default new Vuex.Store({
 
     setOutputs({ state, commit, dispatch }, outputs: Output[]) {
       commit('setOutputs', outputs);
-      const { selectedOutput } = state;
-      if (state.outputs.length > 0) {
-        if (selectedOutput == null) {
-          commit('setSelectedOutput', state.outputs[0]);
-        } else {
-          const current = state.outputs.find(({ name }) => name === selectedOutput.name);
-          if (current) {
-            commit('setSelectedOutput', current);
-          } else {
-            commit('setSelectedOutput', state.outputs[0]);
-          }
-        }
-      } else {
+      // if use as default device is enabled there should be no output application
+      if (state.settings.useAsDefaultDevice) {
         commit('setSelectedOutput', null);
+      } else {
+        const { selectedOutput } = state;
+        if (state.outputs.length > 0) {
+          if (selectedOutput == null) {
+            commit('setSelectedOutput', state.outputs[0]);
+          } else {
+            const current = state.outputs.find(({ name }) => name === selectedOutput.name);
+            if (current) {
+              commit('setSelectedOutput', current);
+            } else {
+              commit('setSelectedOutput', state.outputs[0]);
+            }
+          }
+        } else {
+          commit('setSelectedOutput', null);
+        }
       }
       dispatch('saveSettings');
     },
