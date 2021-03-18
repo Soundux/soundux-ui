@@ -35,7 +35,6 @@
 import Vue, { PropType } from 'vue';
 import dayjs from 'dayjs';
 import { PlayingSound } from '@/types';
-import { BackendFunction, callBackend } from '@/utils/backend';
 
 export default Vue.extend({
   name: 'SoundControl',
@@ -57,11 +56,7 @@ export default Vue.extend({
   },
   methods: {
     async pause(): Promise<void> {
-      const pausedSound = await callBackend<PlayingSound>(
-        BackendFunction.PAUSE_SOUND,
-        this.playingSound.id
-      );
-
+      const pausedSound = await window.pauseSound(this.playingSound.id);
       if (pausedSound) {
         this.$store.commit('updateSound', {
           playing: this.playingSound,
@@ -72,10 +67,7 @@ export default Vue.extend({
       }
     },
     async play(): Promise<void> {
-      const resumedSound = await callBackend<PlayingSound>(
-        BackendFunction.RESUME_SOUND,
-        this.playingSound.id
-      );
+      const resumedSound = await window.resumeSound(this.playingSound.id);
       if (resumedSound) {
         this.$store.commit('updateSound', {
           playing: this.playingSound,
@@ -86,11 +78,7 @@ export default Vue.extend({
       }
     },
     async seek(newValue: number): Promise<void> {
-      const seekedSound = await callBackend<PlayingSound>(
-        BackendFunction.SEEK_SOUND,
-        this.playingSound.id,
-        newValue
-      );
+      const seekedSound = await window.seekSound(this.playingSound.id, newValue);
       if (seekedSound) {
         this.$store.commit('updateSound', {
           playing: this.playingSound,
@@ -101,11 +89,7 @@ export default Vue.extend({
       }
     },
     async repeat(): Promise<void> {
-      const repeatedSound = await callBackend<PlayingSound>(
-        BackendFunction.REPEAT_SOUND,
-        this.playingSound.id,
-        true
-      );
+      const repeatedSound = await window.repeatSound(this.playingSound.id, true);
       if (repeatedSound) {
         this.$store.commit('updateSound', {
           playing: this.playingSound,
@@ -115,11 +99,7 @@ export default Vue.extend({
       }
     },
     async repeatOff(): Promise<void> {
-      const repeatedSound = await callBackend<PlayingSound>(
-        BackendFunction.REPEAT_SOUND,
-        this.playingSound.id,
-        false
-      );
+      const repeatedSound = await window.repeatSound(this.playingSound.id, false);
       if (repeatedSound) {
         this.$store.commit('updateSound', {
           playing: this.playingSound,
@@ -129,7 +109,7 @@ export default Vue.extend({
       }
     },
     async stop(): Promise<void> {
-      const success = await callBackend<boolean>(BackendFunction.STOP_SOUND, this.playingSound.id);
+      const success = await window.stopSound(this.playingSound.id);
       if (success) {
         this.$store.commit('removeFromCurrentlyPlaying', this.playingSound);
       }

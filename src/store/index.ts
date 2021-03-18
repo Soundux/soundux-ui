@@ -2,7 +2,6 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import Vuetify from '@/plugins/vuetify';
 import { Output, Playing, PlayingSound, Settings, Sound, Tab } from '@/types';
-import { BackendFunction, callBackend } from '@/utils/backend';
 
 Vue.use(Vuex);
 
@@ -174,7 +173,7 @@ export default new Vuex.Store({
      * Fetches the tabs from the backend
      */
     async getData({ commit }) {
-      const tabs = await callBackend<Tab[]>(BackendFunction.GET_TABS);
+      const tabs = await window.getTabs();
       if (tabs) {
         commit('setTabs', tabs);
       }
@@ -184,7 +183,7 @@ export default new Vuex.Store({
      * Fetches the playback applications from the backend
      */
     async getPlaybackApps({ commit }) {
-      const playbackApps = await callBackend<Output[]>(BackendFunction.GET_PLAYBACK_APPS);
+      const playbackApps = await window.getPlayback();
       if (playbackApps) {
         commit('setPlaybackApps', playbackApps);
       }
@@ -224,7 +223,7 @@ export default new Vuex.Store({
      * Adds a tab via the backend
      */
     async addTab({ commit }) {
-      const tab = await callBackend<Tab>(BackendFunction.ADD_TAB);
+      const tab = await window.addTab();
       if (tab) {
         commit('addTab', tab);
       }
@@ -236,7 +235,7 @@ export default new Vuex.Store({
     async deleteTab({ state, getters, commit, dispatch }, tab: Tab) {
       const deleteIndex = state.tabs.indexOf(tab);
 
-      const tabs = await callBackend<Tab[]>(BackendFunction.REMOVE_TAB, deleteIndex);
+      const tabs = await window.removeTab(deleteIndex);
       if (tabs) {
         commit('setTabs', tabs); // eslint-disable-line no-undef
 
@@ -267,7 +266,7 @@ export default new Vuex.Store({
       const { activeTabIndex } = getters;
       const tab = getters.tabs[activeTabIndex];
 
-      const refreshedTab = await callBackend<Tab>(BackendFunction.REFRESH_TAB, activeTabIndex);
+      const refreshedTab = await window.refreshTab(activeTabIndex);
       if (refreshedTab) {
         commit('setTabSounds', { tab, sounds: refreshedTab.sounds });
       }
@@ -277,7 +276,7 @@ export default new Vuex.Store({
      * Play a sound via the backend
      */
     async playSound({ commit, getters }, sound: Sound = getters.activeSound) {
-      const playingSound = await callBackend<PlayingSound>(BackendFunction.PLAY_SOUND, sound.id);
+      const playingSound = await window.playSound(sound.id);
       if (playingSound) {
         commit('addToCurrentlyPlaying', playingSound);
       }
@@ -291,7 +290,7 @@ export default new Vuex.Store({
       if (!getters.selectedOutput) {
         return;
       }
-      const success = await callBackend<boolean>(BackendFunction.START_PASS_THROUGH, app.name);
+      const success = await window.startPassthrough(app.name);
       if (success) {
         commit('removePassthroughFromCurrentlyPlaying');
         commit('addToCurrentlyPlaying', app);
@@ -302,12 +301,12 @@ export default new Vuex.Store({
      * Stop all sounds via the backend
      */
     async stopSounds({ commit }) {
-      await callBackend(BackendFunction.STOP_SOUNDS);
+      await window.stopSounds();
       commit('clearCurrentlyPlaying');
     },
 
     async getOutputs({ dispatch }) {
-      const outputs = await callBackend<Output[]>(BackendFunction.GET_OUTPUTS);
+      const outputs = await window.getOutputs();
       if (outputs) {
         dispatch('setOutputs', outputs);
       }
@@ -317,7 +316,7 @@ export default new Vuex.Store({
      * Get settings from the backend
      */
     async getSettings({ commit }) {
-      const settings = await callBackend<Settings>(BackendFunction.GET_SETTINGS);
+      const settings = await window.getSettings();
       if (settings) {
         commit('setSettings', settings);
       }
@@ -331,14 +330,14 @@ export default new Vuex.Store({
 
     async setHotkeys({ commit }, data: { sound: Sound; hotkeys: number[] }) {
       commit('setHotkeys', data);
-      await callBackend(BackendFunction.SET_HOTKEY, data.sound.id, data.sound.hotkeys);
+      await window.setHotkey(data.sound.id, data.sound.hotkeys);
     },
 
     /**
      * Save settings via the backend
      */
     async saveSettings({ state }) {
-      await callBackend(BackendFunction.CHANGE_SETTINGS, state.settings);
+      await window.changeSettings(state.settings);
     },
     setLocalVolume({ commit, dispatch }, volume: number) {
       commit('setLocalVolume', volume / 100);
@@ -350,22 +349,22 @@ export default new Vuex.Store({
     },
 
     async getIsLinux({ commit }) {
-      commit('setIsLinux', (await callBackend<boolean>(BackendFunction.IS_LINUX)) || false);
+      commit('setIsLinux', (await window.isLinux()) || false);
     },
 
     async isSwitchOnConnectLoaded({ commit }) {
-      const result = (await callBackend<boolean>(BackendFunction.IS_SWITCH_ON_CONNECT_LOADED)) || false;
+      const result = (await window.isSwitchOnConnectLoaded()) || false;
       commit('setSwitchOnConnectLoaded', result);
     },
 
     async unloadSwitchOnConnect({ commit }) {
-      await callBackend(BackendFunction.UNLOAD_SWITCH_ON_CONNECT);
+      await window.unloadSwitchOnConnect();
       commit('setSwitchOnConnectLoaded', false);
     },
 
     async moveTabs({ commit, state }) {
       const tabIds = state.tabs.map(({ id }) => id);
-      const newTabs = await callBackend<Tab[]>(BackendFunction.MOVE_TABS, tabIds);
+      const newTabs = await window.moveTabs(tabIds);
       if (newTabs) {
         commit('setTabs', newTabs);
       }

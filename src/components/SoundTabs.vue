@@ -50,7 +50,6 @@ export default Vue.extend({
     };
   },
   mounted() {
-    // @ts-ignore
     window.updateSound = (playingSound: PlayingSound) => {
       const sound: PlayingSound = this.$store.getters.currentPlayingSounds.find(
         (x: PlayingSound) => x.id === playingSound.id
@@ -66,11 +65,9 @@ export default Vue.extend({
         console.warn('Could not find sound for playingSound with id', playingSound.id);
       }
     };
-    // @ts-ignore
     window.finishSound = (playingSound: PlayingSound) => {
       this.$store.commit('removeFromCurrentlyPlaying', playingSound);
     };
-    // @ts-ignore
     window.onSoundPlayed = (playingSound: PlayingSound) => {
       if (playingSound) {
         this.$store.commit('addToCurrentlyPlaying', playingSound);

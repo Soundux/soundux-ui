@@ -103,8 +103,7 @@ export default Vue.extend({
     this.$store.dispatch('getData');
 
     // register functions for the backend to call
-    // @ts-ignore
-    window.onError = error => {
+    window.onError = (error: string) => {
       this.$toast.error(`${this.$t('errors.error')}: ${this.$t('errors.' + error)}`);
     };
   },

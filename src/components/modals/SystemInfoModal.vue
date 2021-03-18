@@ -27,7 +27,6 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { BackendFunction, callBackend } from '@/utils/backend';
 
 export default Vue.extend({
   name: 'SystemInfoModal',
@@ -47,9 +46,7 @@ export default Vue.extend({
     },
   },
   async mounted() {
-    this.systemInfo =
-      (await callBackend<string>(BackendFunction.GET_SYSTEM_INFO)) ||
-      'Failed to fetch system information';
+    this.systemInfo = (await window.getSystemInfo()) || 'Failed to fetch system information';
   },
   methods: {
     copyToClipboard() {

@@ -57,7 +57,6 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { BackendFunction, callBackend } from '@/utils/backend';
 
 export default Vue.extend({
   name: 'SettingsModal',
@@ -133,11 +132,7 @@ export default Vue.extend({
   },
   async mounted() {
     await this.$store.dispatch('getSettings');
-    this.stopHotkey =
-      (await callBackend<string>(
-        BackendFunction.GET_HOTKEY_SEQUENCE,
-        this.$store.getters.settings.stopHotkey
-      )) || '';
+    this.stopHotkey = (await window.getHotkeySequence(this.$store.getters.settings.stopHotkey)) || '';
   },
   methods: {
     // handler function when the modal was opened/closed
@@ -145,14 +140,12 @@ export default Vue.extend({
     // close: the use of this is overloaded with SetHotkeyModal which is why we unregister it
     stateChanged(state: boolean): void {
       if (state) {
-        // @ts-ignore
         window.hotkeyReceived = (hotkey: string, hotkeyData: number[]) => {
           this.stopHotkey = hotkey;
           this.$store.commit('setStopHotkey', hotkeyData);
           this.$store.dispatch('saveSettings');
         };
       } else {
-        // @ts-ignore
         window.hotkeyReceived = undefined;
       }
     },
@@ -162,10 +155,10 @@ export default Vue.extend({
       this.$store.dispatch('saveSettings');
     },
     async focus(): Promise<void> {
-      await callBackend(BackendFunction.REQUEST_HOTKEY, true);
+      await window.requestHotkey(true);
     },
     async blur(): Promise<void> {
-      await callBackend(BackendFunction.REQUEST_HOTKEY, false);
+      await window.requestHotkey(false);
     },
   },
 });

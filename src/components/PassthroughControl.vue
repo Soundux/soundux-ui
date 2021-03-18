@@ -18,7 +18,6 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue';
 import { Output } from '@/types';
-import { callBackend, BackendFunction } from '@/utils/backend';
 import { getPrettyName } from '@/utils';
 
 export default Vue.extend({
@@ -31,7 +30,7 @@ export default Vue.extend({
   },
   methods: {
     async stop(): Promise<void> {
-      await callBackend(BackendFunction.STOP_PASS_THROUGH);
+      await window.stopPassthrough();
       this.$store.commit('removeFromCurrentlyPlaying', this.output);
     },
     getPrettyName,

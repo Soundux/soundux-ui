@@ -39,7 +39,6 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { BackendFunction, callBackend } from '@/utils/backend';
 
 export default Vue.extend({
   name: 'SetHotkeyModal',
@@ -65,25 +64,22 @@ export default Vue.extend({
       if (state) {
         this.$store.commit('setHotkeySequence', {
           sound: this.sound,
-          hotkeySequence:
-            (await callBackend<string>(BackendFunction.GET_HOTKEY_SEQUENCE, this.sound.hotkeys)) || '',
+          hotkeySequence: (await window.getHotkeySequence(this.sound.hotkeys)) || '',
         });
 
-        // @ts-ignore
         window.hotkeyReceived = (hotkey: string, hotkeyData: number[]) => {
           this.$store.commit('setHotkeySequence', { sound: this.sound, hotkeySequence: hotkey });
           this.$store.dispatch('setHotkeys', { sound: this.sound, hotkeys: hotkeyData });
         };
       } else {
-        // @ts-ignore
         window.hotkeyReceived = undefined;
       }
     },
     async focus(): Promise<void> {
-      await callBackend(BackendFunction.REQUEST_HOTKEY, true);
+      await window.requestHotkey(true);
     },
     async blur(): Promise<void> {
-      await callBackend(BackendFunction.REQUEST_HOTKEY, false);
+      await window.requestHotkey(false);
     },
   },
 });
