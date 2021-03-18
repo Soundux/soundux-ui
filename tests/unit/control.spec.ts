@@ -17,7 +17,7 @@ jest.mock('dayjs', () => ({
   },
 }));
 
-jest.mock('@/i18n', () => ({
+jest.mock('@/plugins/i18n', () => ({
   t(key: string) {
     return key;
   },
