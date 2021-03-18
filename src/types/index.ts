@@ -6,6 +6,20 @@ export interface Sound {
   hotkeySequence: string;
 }
 
+export interface Thumbnail {
+  height: number;
+  url: string;
+  width: number;
+  resolution: string;
+  id: string;
+}
+
+export interface YoutubeDlInfo {
+  title: string;
+  uploader: string;
+  thumbnails: Thumbnail[];
+}
+
 export interface PlayingSound {
   id: number;
   lengthInMs: number;
