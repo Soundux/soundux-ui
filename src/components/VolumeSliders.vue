@@ -16,6 +16,7 @@
       dense
       hide-details
       :label="$t('volume.remote')"
+      :disabled="!$store.getters.selectedOutput && !$store.getters.settings.useAsDefaultDevice"
       thumb-label
       :class="{ 'no-animation': dragLocal }"
       prepend-icon="mdi-volume-high"
