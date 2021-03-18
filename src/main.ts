@@ -4,7 +4,7 @@ import store from './store';
 import vuetify from './plugins/vuetify';
 import 'roboto-fontface/css/roboto/roboto-fontface.css';
 import '@mdi/font/css/materialdesignicons.css';
-import i18n from './i18n';
+import i18n from './plugins/i18n';
 import Toast from 'vue-toastification';
 import 'vue-toastification/dist/index.css';
 import dayjs from 'dayjs';
