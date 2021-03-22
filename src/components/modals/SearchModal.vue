@@ -112,7 +112,11 @@ export default Vue.extend({
       keys: ['name'],
     });
     this.unsubscribe = this.$store.subscribe(mutation => {
-      if (mutation.type === 'setTabs' || mutation.type === 'addTab') {
+      if (
+        mutation.type === 'setTabs' ||
+        mutation.type === 'addTab' ||
+        mutation.type === 'setTabSounds'
+      ) {
         this.resetSelectedIndex();
         this.fuse = new Fuse<Sound>(this.$store.getters.allSounds, {
           keys: ['name'],
