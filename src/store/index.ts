@@ -285,11 +285,7 @@ export default new Vuex.Store({
     /**
      * Start an application passthrough via the backend
      */
-    async startPassthrough({ commit, getters }, app: Output) {
-      // It might be null if there are no outputs available, this should normally not happen since the button is disabled in this case
-      if (!getters.selectedOutput) {
-        return;
-      }
+    async startPassthrough({ commit }, app: Output) {
       const success = await window.startPassthrough(app.name);
       if (success) {
         commit('removePassthroughFromCurrentlyPlaying');
