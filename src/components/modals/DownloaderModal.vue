@@ -127,9 +127,9 @@ export default Vue.extend({
       this.loading = true;
       try {
         const success = await window.startYoutubeDLDownload(this.inputText);
-        console.log('submitted dl', success);
         if (success) {
           await this.$store.dispatch('refreshTab');
+          this.$toast.success(this.$t('downloader.success', { title: this.info?.title || '' }));
         }
       } catch (e) {
         console.error(e);

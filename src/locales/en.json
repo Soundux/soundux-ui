@@ -94,6 +94,7 @@
     "eta": "ETA",
     "cancelDownload": "Cancel Download",
     "startDownload": "Start download",
+    "success": "Successfully downloaded: {title}",
     "close": "Close"
   },
   "systemInfo": {
