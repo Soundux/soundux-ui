@@ -86,6 +86,16 @@
     "jumpToSelected": "{enter} to jump to the currently selected sound",
     "playSelected": "{shift} + {enter} to play the currently selected sound"
   },
+  "downloader": {
+    "title": "Downloader",
+    "placeholder": "Enter a link",
+    "progress": "Progress",
+    "converting": "Converting...",
+    "eta": "ETA",
+    "cancelDownload": "Cancel Download",
+    "startDownload": "Start download",
+    "close": "Close"
+  },
   "systemInfo": {
     "title": "System information",
     "description": "Attach this information when creating a bug report",
@@ -107,6 +117,11 @@
     "12": "Failed to move back passthrough",
     "13": "Failed to revert default source",
     "14": "Failed to set default source",
+    "15": "youtube-dl not found",
+    "16": "Invalid URL",
+    "17": "Failed to parse youtube-dl JSON",
+    "18": "youtube-dl supplied insufficient output",
+    "19": "Unknown youtube-dl failure",
     "error": "Error",
     "backendFunctionMissing": "Backend function missing: {functionName}"
   }

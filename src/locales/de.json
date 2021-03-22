@@ -86,6 +86,16 @@
     "jumpToSelected": "{enter} um zum ausgewählten Sound zu springen",
     "playSelected": "{shift} + {enter} um den ausgewählten Sound abzuspielen"
   },
+  "downloader": {
+    "title": "Downloader",
+    "placeholder": "Gebe einen Link ein",
+    "progress": "Fortschritt",
+    "converting": "Konvertiere...",
+    "eta": "ETA",
+    "cancelDownload": "Download abbrechen",
+    "startDownload": "Download starten",
+    "close": "Schließen"
+  },
   "systemInfo": {
     "title": "System-Informationen",
     "description": "Hängen Sie diese Informationen an, wenn Sie einen Bug melden",
@@ -107,6 +117,11 @@
     "12": "Zurückstellen des durchreichen fehlgeschlagen",
     "13": "Standardgerät zurücksetzen fehlgeschlagen",
     "14": "Standardgerät setzen fehlgeschlagen",
+    "15": "youtube-dl nicht gefunden",
+    "16": "Ungültige URL",
+    "17": "Fehler beim Verarbeiten der youtube-dl JSON",
+    "18": "youtube-dl Ausgabe war unzureichend",
+    "19": "Unbekanntes youtube-dl Versagen",
     "error": "Fehler",
     "backendFunctionMissing": "Backend-Funktion fehlt: {functionName}"
   }

@@ -29,6 +29,7 @@
       {{ $t('actions.addTab') }}
     </v-btn>
     <v-spacer></v-spacer>
+    <DownloaderModal></DownloaderModal>
     <v-btn
       :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
       class="mb-2"
@@ -57,11 +58,13 @@ import SettingsModal from '@/components/modals/SettingsModal';
 import HelpModal from '@/components/modals/HelpModal';
 import SetHotkeyModal from '@/components/modals/SetHotkeyModal';
 import SearchModal from '@/components/modals/SearchModal';
+import DownloaderModal from '@/components/modals/DownloaderModal';
 import SystemInfoModal from '@/components/modals/SystemInfoModal';
 export default {
   name: 'SideButtons',
   components: {
     SystemInfoModal,
+    DownloaderModal,
     SearchModal,
     SetHotkeyModal,
     HelpModal,
