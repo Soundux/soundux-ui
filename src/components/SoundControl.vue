@@ -17,8 +17,8 @@
         min="0"
         :max="playingSound.lengthInMs"
         hide-details
-        @start="$store.commit('setSsDraggingSeekbar', true)"
-        @end="$store.commit('setSsDraggingSeekbar', false)"
+        @start="$store.commit('setIsDraggingSeekbar', true)"
+        @end="$store.commit('setIsDraggingSeekbar', false)"
         @change="seek"
       >
         <span slot="prepend">{{ parseTime(playingSound.readInMs) }}</span>

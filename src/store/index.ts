@@ -157,7 +157,7 @@ export default new Vuex.Store({
     setMuteDuringPlayback: (state, value: boolean) => (state.settings.muteDuringPlayback = value),
     setStopHotkey: (state, value: number[]) => (state.settings.stopHotkey = value),
     setIsLinux: (state, value: boolean) => (state.isLinux = value),
-    setSsDraggingSeekbar: (state, value: boolean) => (state.isDraggingSeekbar = value),
+    setIsDraggingSeekbar: (state, value: boolean) => (state.isDraggingSeekbar = value),
     setDarkTheme: (state, value: boolean) => {
       state.settings.darkTheme = value;
       Vuetify.framework.theme.dark = value;
