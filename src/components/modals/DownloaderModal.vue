@@ -57,7 +57,7 @@
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn v-if="loading" text color="primary" @click="cancel">
+        <v-btn v-if="loading" text color="primary" :disabled="progress === 100" @click="cancel">
           <v-icon left>mdi-cancel</v-icon>
           {{ $t('downloader.cancelDownload') }}
         </v-btn>
