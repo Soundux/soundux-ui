@@ -37,7 +37,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { PlayingSound, Tab } from '@/types';
+import { Tab } from '@/types';
 import draggable from 'vuedraggable';
 import GridView from '@/components/views/GridView.vue';
 import ListView from '@/components/views/ListView.vue';
@@ -50,30 +50,6 @@ export default Vue.extend({
     };
   },
   mounted() {
-    window.updateSound = (playingSound: PlayingSound) => {
-      const sound: PlayingSound = this.$store.getters.currentPlayingSounds.find(
-        (x: PlayingSound) => x.id === playingSound.id
-      );
-
-      if (this.$store.getters.isDraggingSeekbar) {
-        return;
-      }
-
-      if (sound) {
-        this.$store.commit('updateSound', { playing: sound, ms: playingSound.readInMs });
-      } else {
-        console.warn('Could not find sound for playingSound with id', playingSound.id);
-      }
-    };
-    window.finishSound = (playingSound: PlayingSound) => {
-      this.$store.commit('removeFromCurrentlyPlaying', playingSound);
-    };
-    window.onSoundPlayed = (playingSound: PlayingSound) => {
-      if (playingSound) {
-        this.$store.commit('addToCurrentlyPlaying', playingSound);
-      }
-    };
-
     document.addEventListener('keydown', this.keyDownHandler);
   },
   beforeDestroy() {

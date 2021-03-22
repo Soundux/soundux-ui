@@ -71,6 +71,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import { initialize } from '@/utils/backend';
 import AppPassthroughDrawer from '@/components/drawers/AppPassthroughDrawer.vue';
 import SwitchOnConnectModal from '@/components/modals/SwitchOnConnectModal.vue';
 import PlayingSoundsDrawer from '@/components/drawers/PlayingSoundsDrawer.vue';
@@ -97,15 +98,7 @@ export default Vue.extend({
     };
   },
   mounted() {
-    // initial data loading
-    this.$store.dispatch('getIsLinux');
-    // data has to be loaded here since SoundTabs is only mounted when there are tabs
-    this.$store.dispatch('getData');
-
-    // register functions for the backend to call
-    window.onError = (error: string) => {
-      this.$toast.error(`${this.$t('errors.error')}: ${this.$t('errors.' + error)}`);
-    };
+    initialize();
   },
 });
 </script>

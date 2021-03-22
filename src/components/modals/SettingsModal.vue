@@ -131,7 +131,6 @@ export default Vue.extend({
     },
   },
   async mounted() {
-    await this.$store.dispatch('getSettings');
     this.stopHotkey = (await window.getHotkeySequence(this.$store.getters.settings.stopHotkey)) || '';
   },
   methods: {
