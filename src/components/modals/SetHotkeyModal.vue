@@ -22,6 +22,7 @@
           :value="sound.hotkeySequence"
           :label="$t('hotkeys.hotkey')"
           readonly
+          autofocus
           append-icon="mdi-close"
           hide-details
           @click:append="reset"
