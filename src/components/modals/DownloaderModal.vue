@@ -153,9 +153,12 @@ export default Vue.extend({
         const result = await window.getYoutubeDLInfo(input);
         if (result) {
           this.info = result;
+        } else {
+          this.info = null;
         }
       } catch (e) {
         console.error(e);
+        this.info = null;
       }
       this.fetchingInfo = false;
     },
