@@ -39,6 +39,10 @@
           <a href="#" @click="openWebsite">{{ $t('help.visitOurWebsite') }}</a>
         </div>
         <div>
+          <v-icon left>mdi-coffee-outline</v-icon>
+          <a href="#" @click="openSupportUs">{{ $t('help.supportUs') }}</a>
+        </div>
+        <div>
           <v-icon left>mdi-discord</v-icon>
           <a href="#" @click="openDiscord">{{ $t('help.joinOurDiscord') }}</a>
         </div>
@@ -67,6 +71,9 @@ export default Vue.extend({
     };
   },
   methods: {
+    openSupportUs(): void {
+      openUrl('https://ko-fi.com/soundux');
+    },
     openWebsite(): void {
       openUrl('https://soundux.rocks');
     },

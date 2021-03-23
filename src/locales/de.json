@@ -66,6 +66,7 @@
       "text": "Drücke {ctrl} + {r} um {reload}",
       "reload": "den aktuellen Tab neu zu laden"
     },
+    "supportUs": "Unterstütze uns",
     "visitOurWebsite": "Besuche unsere Webseite",
     "joinOurDiscord": "Betrete unseren Discord",
     "viewSourceCode": "Schaue den Quellcode an"
