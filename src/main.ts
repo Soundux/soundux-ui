@@ -48,6 +48,7 @@ declare global {
     getSystemInfo: () => Promise<string | null>;
     getTabs: () => Promise<Tab[] | null>;
     getFavorites: () => Promise<Sound[] | null>;
+    isYoutubeDLAvailable: () => Promise<boolean | null>;
     getYoutubeDLInfo: (input: string) => Promise<YoutubeDlInfo | null>;
     startYoutubeDLDownload: (input: string) => Promise<boolean | null>;
     stopYoutubeDLDownload: () => Promise<void>;

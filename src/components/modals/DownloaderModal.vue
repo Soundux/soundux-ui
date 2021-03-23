@@ -4,6 +4,7 @@
       <v-btn
         :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
         class="mb-2"
+        :disabled="!isYoutubeDLAvailable"
         v-bind="attrs"
         v-on="on"
       >
@@ -81,6 +82,7 @@ export default Vue.extend({
   name: 'DownloaderModal',
   data() {
     return {
+      isYoutubeDLAvailable: false,
       downloaderModal: false,
       inputText: '',
       fetchingInfo: false,
@@ -90,7 +92,11 @@ export default Vue.extend({
       eta: '',
     };
   },
-  mounted() {
+  async mounted() {
+    const isYoutubeDLAvailable = await window.isYoutubeDLAvailable();
+    if (isYoutubeDLAvailable) {
+      this.isYoutubeDLAvailable = isYoutubeDLAvailable;
+    }
     window.downloadProgressed = (progress: number, eta: string) => {
       this.progress = progress;
       this.eta = eta;
