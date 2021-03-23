@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import Vuetify from '@/plugins/vuetify';
-import { Output, Playing, PlayingSound, Settings, Sound, Tab } from '@/types';
+import { Output, Playing, PlayingSound, Settings, Sound, Tab, UpdateData } from '@/types';
 
 Vue.use(Vuex);
 
@@ -17,6 +17,7 @@ export default new Vuex.Store({
     currentPlaying: [] as Playing[],
     switchOnConnectLoaded: false,
     isLinux: false,
+    updateData: null as UpdateData | null,
     isDraggingSeekbar: false,
     settings: {
       output: '',
@@ -69,6 +70,7 @@ export default new Vuex.Store({
     },
     isLinux: state => state.isLinux,
     isDraggingSeekbar: state => state.isDraggingSeekbar,
+    updateData: state => state.updateData,
   },
   mutations: {
     setSearchModal: (state, newState: boolean) => {
@@ -162,6 +164,7 @@ export default new Vuex.Store({
       state.settings.darkTheme = value;
       Vuetify.framework.theme.dark = value;
     },
+    setUpdateData: (state, value: UpdateData) => (state.updateData = value),
     setSwitchOnConnectLoaded: (state, loaded: boolean) => (state.switchOnConnectLoaded = loaded),
     setHotkeys: (_state, { sound, hotkeys }: { sound: Sound; hotkeys: number[] }) =>
       (sound.hotkeys = hotkeys),
@@ -363,6 +366,13 @@ export default new Vuex.Store({
       const newTabs = await window.moveTabs(tabIds);
       if (newTabs) {
         commit('setTabs', newTabs);
+      }
+    },
+
+    async getUpdateData({ commit }) {
+      const updateData = await window.updateCheck();
+      if (updateData) {
+        commit('setUpdateData', updateData);
       }
     },
   },

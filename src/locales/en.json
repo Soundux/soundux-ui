@@ -99,6 +99,13 @@
     "success": "Successfully downloaded: {title}",
     "close": "Close"
   },
+  "update": {
+    "title": "An update is available!",
+    "yourVersion": "Your version",
+    "latestVersion": "Latest version",
+    "updateNow": "Update now",
+    "ignore": "Ignore"
+  },
   "systemInfo": {
     "title": "System information",
     "description": "Attach this information when creating a bug report",

@@ -50,6 +50,8 @@ export async function initialize(): Promise<void> {
     $store.dispatch('getData'),
     // load settings
     $store.dispatch('getSettings'),
+    // fetch new version
+    $store.dispatch('getUpdateData'),
   ]);
   // getOutputs has to be called after setSettings. otherwise the settings promise might resolve slower and overwrites the output value
   await $store.dispatch('getOutputs');

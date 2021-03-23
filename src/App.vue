@@ -2,6 +2,7 @@
   <v-app dark>
     <AppPassthroughDrawer v-if="$store.getters.isLinux"></AppPassthroughDrawer>
     <v-main style="max-height: 100vh">
+      <UpdateModal></UpdateModal>
       <SwitchOnConnectModal v-if="$store.getters.isLinux"></SwitchOnConnectModal>
       <v-container fluid style="max-height: 100vh; overflow: hidden">
         <v-row class="flex-nowrap">
@@ -78,6 +79,7 @@ import PlayingSoundsDrawer from '@/components/drawers/PlayingSoundsDrawer.vue';
 import OutputSelection from '@/components/OutputSelection.vue';
 import SoundTabs from '@/components/SoundTabs.vue';
 import NoTabsCard from '@/components/NoTabsCard.vue';
+import UpdateModal from '@/components/modals/UpdateModal.vue';
 import VolumeSliders from '@/components/VolumeSliders.vue';
 import SideButtons from '@/components/SideButtons.vue';
 
@@ -87,6 +89,7 @@ export default Vue.extend({
     VolumeSliders,
     NoTabsCard,
     SoundTabs,
+    UpdateModal,
     OutputSelection,
     PlayingSoundsDrawer,
     SwitchOnConnectModal,

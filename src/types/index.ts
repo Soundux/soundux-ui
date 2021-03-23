@@ -36,6 +36,12 @@ export interface Tab {
   sounds: Sound[];
 }
 
+export interface UpdateData {
+  current: string;
+  latest: string;
+  outdated: boolean;
+}
+
 export interface Output {
   name: string;
   application: string;

@@ -99,6 +99,13 @@
     "success": "Erfolgreich heruntergeladen: {title}",
     "close": "Schließen"
   },
+  "update": {
+    "title": "Ein Update ist verfügbar!",
+    "yourVersion": "Ihre Version",
+    "latestVersion": "Neueste Version",
+    "updateNow": "Jetzt aktualisieren",
+    "ignore": "Ignorieren"
+  },
   "systemInfo": {
     "title": "System-Informationen",
     "description": "Hängen Sie diese Informationen an, wenn Sie einen Bug melden",

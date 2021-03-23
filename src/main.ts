@@ -9,7 +9,7 @@ import Toast from 'vue-toastification';
 import 'vue-toastification/dist/index.css';
 import dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
-import { Output, PlayingSound, Settings, Sound, Tab, YoutubeDlInfo } from '@/types';
+import { Output, PlayingSound, Settings, Sound, Tab, UpdateData, YoutubeDlInfo } from '@/types';
 
 declare global {
   interface Window {
@@ -52,6 +52,7 @@ declare global {
     getYoutubeDLInfo: (input: string) => Promise<YoutubeDlInfo | null>;
     startYoutubeDLDownload: (input: string) => Promise<boolean | null>;
     stopYoutubeDLDownload: () => Promise<void>;
+    updateCheck: () => Promise<UpdateData | null>;
   }
 }
 
