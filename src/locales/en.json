@@ -88,6 +88,8 @@
   },
   "downloader": {
     "title": "Downloader",
+    "notAvailable": "{youtube-dl} and/or {ffmpeg} are not installed",
+    "installNow": "Install now",
     "placeholder": "Enter a link",
     "progress": "Progress",
     "converting": "Converting...",

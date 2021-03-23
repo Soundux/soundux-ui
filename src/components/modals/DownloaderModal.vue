@@ -4,7 +4,6 @@
       <v-btn
         :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
         class="mb-2"
-        :disabled="!isYoutubeDLAvailable"
         v-bind="attrs"
         v-on="on"
       >
@@ -17,59 +16,85 @@
         <v-icon left>mdi-download</v-icon>
         <span class="text-h5">{{ $t('downloader.title') }}</span>
       </v-card-title>
-      <v-card-text>
-        <v-text-field
-          v-model="inputText"
-          v-if="!loading"
-          :label="$t('downloader.placeholder')"
-          hide-details
-          filled
-          autofocus
-          prepend-inner-icon="mdi-link"
-          :loading="fetchingInfo"
-          @input="updateInfoCard"
-        ></v-text-field>
+      <template v-if="isYoutubeDLAvailable">
+        <v-card-text>
+          <v-text-field
+            v-model="inputText"
+            v-if="!loading"
+            :label="$t('downloader.placeholder')"
+            hide-details
+            filled
+            autofocus
+            prepend-inner-icon="mdi-link"
+            :loading="fetchingInfo"
+            @input="updateInfoCard"
+          ></v-text-field>
 
-        <v-card v-if="info" outlined class="mt-3">
-          <v-card-title>{{ info.title }}</v-card-title>
-          <v-card-text>
-            <v-row justify="center">
-              <v-img :src="info.thumbnails[info.thumbnails.length - 1].url" height="300" contain></v-img>
-            </v-row>
-            <v-row justify="center" class="text-h5">
-              {{ info.uploader }}
-            </v-row>
-          </v-card-text>
-        </v-card>
+          <v-card v-if="info" outlined class="mt-3">
+            <v-card-title>{{ info.title }}</v-card-title>
+            <v-card-text>
+              <v-row justify="center">
+                <v-img
+                  :src="info.thumbnails[info.thumbnails.length - 1].url"
+                  height="300"
+                  contain
+                ></v-img>
+              </v-row>
+              <v-row justify="center" class="text-h5">
+                {{ info.uploader }}
+              </v-row>
+            </v-card-text>
+          </v-card>
 
-        <v-card v-if="loading" outlined class="mt-3">
-          <v-card-title>{{ $t('downloader.progress') }}: {{ progress.toFixed(2) }}%</v-card-title>
-          <v-card-text>
-            <v-progress-linear
-              :value="progress"
-              :indeterminate="progress === 100"
-              :stream="progress < 100"
-              buffer-value="0"
-            ></v-progress-linear>
-            <div v-if="progress === 100">{{ $t('downloader.converting') }}</div>
-            <div v-else-if="eta">{{ $t('downloader.eta') }}: {{ eta }}</div>
-          </v-card-text>
-        </v-card>
-      </v-card-text>
-      <v-card-actions>
-        <v-spacer></v-spacer>
-        <v-btn v-if="loading" text color="primary" :disabled="progress === 100" @click="cancel">
-          <v-icon left>mdi-cancel</v-icon>
-          {{ $t('downloader.cancelDownload') }}
-        </v-btn>
-        <v-btn v-else text color="primary" @click="downloaderModal = false">
-          {{ $t('downloader.close') }}
-        </v-btn>
-        <v-btn color="primary" :disabled="!inputText || loading || !info" @click="submit">
-          <v-icon left>mdi-download</v-icon>
-          {{ $t('downloader.startDownload') }}
-        </v-btn>
-      </v-card-actions>
+          <v-card v-if="loading" outlined class="mt-3">
+            <v-card-title>{{ $t('downloader.progress') }}: {{ progress.toFixed(2) }}%</v-card-title>
+            <v-card-text>
+              <v-progress-linear
+                :value="progress"
+                :indeterminate="progress === 100"
+                :stream="progress < 100"
+                buffer-value="0"
+              ></v-progress-linear>
+              <div v-if="progress === 100">{{ $t('downloader.converting') }}</div>
+              <div v-else-if="eta">{{ $t('downloader.eta') }}: {{ eta }}</div>
+            </v-card-text>
+          </v-card>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn v-if="loading" text color="primary" :disabled="progress === 100" @click="cancel">
+            <v-icon left>mdi-cancel</v-icon>
+            {{ $t('downloader.cancelDownload') }}
+          </v-btn>
+          <v-btn v-else text color="primary" @click="downloaderModal = false">
+            {{ $t('downloader.close') }}
+          </v-btn>
+          <v-btn color="primary" :disabled="!inputText || loading || !info" @click="submit">
+            <v-icon left>mdi-download</v-icon>
+            {{ $t('downloader.startDownload') }}
+          </v-btn>
+        </v-card-actions>
+      </template>
+      <template v-else>
+        <v-card-text>
+          <v-alert text type="error">
+            <i18n path="downloader.notAvailable" tag="span">
+              <code slot="youtube-dl">youtube-dl</code>
+              <code slot="ffmpeg">ffmpeg</code>
+            </i18n>
+          </v-alert>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn text color="primary" @click="downloaderModal = false">
+            {{ $t('downloader.close') }}
+          </v-btn>
+          <v-btn color="primary" @click="installNow">
+            <v-icon left>mdi-auto-fix</v-icon>
+            {{ $t('downloader.installNow') }}
+          </v-btn>
+        </v-card-actions>
+      </template>
     </v-card>
   </v-dialog>
 </template>
@@ -77,6 +102,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import { YoutubeDlInfo } from '@/types';
+import { openUrl } from '@/utils/backend';
 
 export default Vue.extend({
   name: 'DownloaderModal',
@@ -112,6 +138,10 @@ export default Vue.extend({
       this.eta = '';
       this.inputText = '';
       this.info = null;
+    },
+    async installNow() {
+      await openUrl('https://github.com/Soundux/Soundux/wiki/Downloader-support');
+      this.downloaderModal = false;
     },
     async updateInfoCard(input: string): Promise<void> {
       if (!input) {
