@@ -42,7 +42,7 @@ export default Vue.extend({
   mounted() {
     this.unsubscribe = this.$store.subscribe(mutation => {
       if (mutation.type === 'setUpdateData') {
-        this.updateModal = this.$store.getters.outdated;
+        this.updateModal = this.$store.getters.updateData.outdated;
       }
     });
   },
