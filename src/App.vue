@@ -1,19 +1,19 @@
 <template>
   <v-app dark>
     <AppPassthroughDrawer v-if="$store.getters.isLinux"></AppPassthroughDrawer>
-    <v-main style="max-height: 100vh">
+    <v-main>
       <UpdateModal></UpdateModal>
       <SwitchOnConnectModal v-if="$store.getters.isLinux"></SwitchOnConnectModal>
-      <v-container fluid style="max-height: 100vh; overflow: hidden">
-        <v-row class="flex-nowrap">
-          <v-col>
+      <v-container fluid>
+        <v-row dense no-gutters class="flex-nowrap">
+          <v-col cols="auto">
             <v-avatar tile size="64">
               <img src="./assets/icon.svg" alt="Logo" />
             </v-avatar>
             <span class="text-h5 ml-3">Soundux</span>
           </v-col>
           <v-spacer></v-spacer>
-          <v-col cols="2">
+          <v-col style="max-width: 275px">
             <OutputSelection></OutputSelection>
             <v-btn
               color="primary"
@@ -30,7 +30,7 @@
             </v-btn>
           </v-col>
         </v-row>
-        <v-row dense no-gutters class="flex-nowrap">
+        <v-row dense no-gutters class="flex-nowrap" align="center">
           <v-col cols="auto">
             <v-btn
               color="primary"
@@ -43,14 +43,14 @@
               {{ $t('actions.stop') }}
             </v-btn>
           </v-col>
-          <v-col sm="5" md="6" xl="7" class="ml-5 mr-3">
+          <v-col class="ml-5 mr-3">
             <VolumeSliders :sync-volume="syncVolume"></VolumeSliders>
           </v-col>
-          <v-col cols="2" align-self="center">
+          <v-col cols="2">
             <v-checkbox v-model="syncVolume">
               <template #label>
                 <v-icon left small>mdi-link</v-icon>
-                {{ $t('volume.sync') }}
+                <span class="text-no-wrap">{{ $t('volume.sync') }}</span>
               </template>
             </v-checkbox>
           </v-col>
