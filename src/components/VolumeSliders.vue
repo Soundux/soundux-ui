@@ -8,15 +8,15 @@
       <v-col cols="auto">
         <v-icon left v-text="volumeIcon(localVolume)"></v-icon>
       </v-col>
-      <v-col cols="auto" class="text-truncate text--secondary">
+      <v-col cols="auto" class="text-truncate text--secondary hidden-xs-only" style="flex-basis: 111px">
         {{ $t('volume.local') }}
       </v-col>
-      <v-col cols="9">
+      <v-col>
         <v-slider
           v-model="localVolume"
           dense
           hide-details
-          thumb-label
+          :thumb-label="$vuetify.breakpoint.smAndUp"
           :class="{ 'no-animation': dragRemote }"
           @start="dragLocal = true"
           @end="dragLocal = false"
@@ -44,16 +44,16 @@
       <v-col cols="auto">
         <v-icon left v-text="volumeIcon(remoteVolume)"></v-icon>
       </v-col>
-      <v-col cols="auto" class="text-truncate text--secondary">
+      <v-col cols="auto" class="text-truncate text--secondary hidden-xs-only" style="flex-basis: 111px">
         {{ $t('volume.remote') }}
       </v-col>
-      <v-col cols="9">
+      <v-col>
         <v-slider
           v-model="remoteVolume"
           dense
           hide-details
           :disabled="!$store.getters.selectedOutput && !$store.getters.settings.useAsDefaultDevice"
-          thumb-label
+          :thumb-label="$vuetify.breakpoint.smAndUp"
           :class="{ 'no-animation': dragLocal }"
           @start="dragRemote = true"
           @end="dragRemote = false"

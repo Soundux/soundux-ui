@@ -43,7 +43,7 @@
               {{ $t('actions.stop') }}
             </v-btn>
           </v-col>
-          <v-col class="ml-5">
+          <v-col sm="6" md="7" xl="8" class="ml-3">
             <VolumeSliders></VolumeSliders>
           </v-col>
         </v-row>
