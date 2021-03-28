@@ -43,16 +43,8 @@
               {{ $t('actions.stop') }}
             </v-btn>
           </v-col>
-          <v-col class="ml-5 mr-3">
-            <VolumeSliders :sync-volume="syncVolume"></VolumeSliders>
-          </v-col>
-          <v-col cols="2">
-            <v-checkbox v-model="syncVolume">
-              <template #label>
-                <v-icon left small>mdi-link</v-icon>
-                <span class="text-no-wrap">{{ $t('volume.sync') }}</span>
-              </template>
-            </v-checkbox>
+          <v-col class="ml-5">
+            <VolumeSliders></VolumeSliders>
           </v-col>
         </v-row>
         <v-row dense class="flex-nowrap overflow-x-auto" align="stretch">
@@ -95,11 +87,6 @@ export default Vue.extend({
     SwitchOnConnectModal,
     AppPassthroughDrawer,
   },
-  data() {
-    return {
-      syncVolume: false,
-    };
-  },
   mounted() {
     initialize();
   },
@@ -125,5 +112,10 @@ img {
 // fix a bug where the input wraps
 .v-select__selections input {
   display: none;
+}
+
+// make it a bit lighter
+.v-divider {
+  border-color: rgba(255, 255, 255, 0.3) !important;
 }
 </style>
