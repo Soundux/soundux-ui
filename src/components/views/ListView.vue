@@ -1,16 +1,11 @@
 <template>
   <v-list id="list-view" class="overflow-y-auto" style="height: calc(100vh - 283px)">
-    <v-list-item-group
-      :value="tab.selectedSoundIndex"
-      color="primary"
-      mandatory
-      @change="$store.commit('setSelectedSoundIndex', { tabId: tab.id, index: $event })"
-    >
+    <v-list-item-group active-class="no-active">
       <v-list-item
         v-for="sound in tab.sounds"
-        :id="`sound-${sound.id}`"
         :key="sound.id"
-        @dblclick="$store.dispatch('playSound', sound)"
+        :id="`sound-${sound.id}`"
+        @click="$store.dispatch('playSound', sound)"
       >
         <v-list-item-content>
           <v-list-item-title>
@@ -20,6 +15,14 @@
             {{ sound.hotkeySequence }}
           </v-list-item-action-text>
         </v-list-item-content>
+        <v-tooltip top>
+          <template #activator="{ on, attrs }">
+            <v-btn icon v-bind="attrs" v-on="on" @click.stop="$store.commit('setSetHotkeySound', sound)">
+              <v-icon>mdi-keyboard</v-icon>
+            </v-btn>
+          </template>
+          <span>{{ $t('hotkeys.title') }}</span>
+        </v-tooltip>
       </v-list-item>
     </v-list-item-group>
   </v-list>
@@ -39,3 +42,9 @@ export default Vue.extend({
   },
 });
 </script>
+
+<style lang="scss">
+.v-list-item--active.no-active:not(:focus):not(:hover)::before {
+  opacity: 0 !important;
+}
+</style>

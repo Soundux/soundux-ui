@@ -209,12 +209,6 @@ export default Vue.extend({
             this.$store.dispatch('setActiveTabIndex', tabIndex);
           }
 
-          const soundIndex = sounds.indexOf(result);
-          // only set when not already set
-          if (tab.selectedSoundIndex !== soundIndex) {
-            this.$store.commit('setSelectedSoundIndex', { tabId: tab.id, index: soundIndex });
-          }
-
           this.searchModal = false;
           const soundElement = document.getElementById(`sound-${result.id}`);
           if (soundElement) {

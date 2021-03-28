@@ -1,17 +1,5 @@
 <template>
-  <v-dialog v-model="setHotkeyModal" max-width="600px" @input="stateChanged">
-    <template #activator="{ on, attrs }">
-      <v-btn
-        :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
-        class="mb-2"
-        v-bind="attrs"
-        :disabled="!sound"
-        v-on="on"
-      >
-        <v-icon left>mdi-keyboard</v-icon>
-        {{ $t('hotkeys.title') }}
-      </v-btn>
-    </template>
+  <v-dialog v-model="setHotkeyModal" max-width="600px">
     <v-card v-if="sound">
       <v-card-title>
         <v-icon left>mdi-keyboard</v-icon>
@@ -19,10 +7,10 @@
       </v-card-title>
       <v-card-text>
         <v-text-field
+          id="hotkeyField"
           :value="sound.hotkeySequence"
           :label="$t('hotkeys.hotkey')"
           readonly
-          autofocus
           append-icon="mdi-close"
           hide-details
           @click:append="reset"
@@ -43,26 +31,25 @@ import Vue from 'vue';
 
 export default Vue.extend({
   name: 'SetHotkeyModal',
-  data() {
-    return {
-      setHotkeyModal: false,
-    };
-  },
   computed: {
     sound() {
-      return this.$store.getters.activeSound;
+      return this.$store.getters.setHotkeySound;
+    },
+    setHotkeyModal: {
+      get(): boolean {
+        return this.$store.getters.setHotkeyModal;
+      },
+      set(state: boolean): void {
+        this.$store.commit('setSetHotkeyModal', state);
+      },
     },
   },
-  methods: {
-    reset(): void {
-      this.$store.commit('setHotkeySequence', { sound: this.sound, hotkeySequence: '' });
-      this.$store.dispatch('setHotkeys', { sound: this.sound, hotkeys: [] });
-    },
+  watch: {
     // handler function when the modal was opened/closed
     // open: we register the hotkeyReceived method for the backend here
     // close: the use of this is overloaded with SettingsModal which is why we unregister it
-    async stateChanged(state: boolean): Promise<void> {
-      if (state) {
+    async setHotkeyModal(state: boolean): Promise<void> {
+      if (state && this.sound) {
         this.$store.commit('setHotkeySequence', {
           sound: this.sound,
           hotkeySequence: (await window.getHotkeySequence(this.sound.hotkeys)) || '',
@@ -75,6 +62,20 @@ export default Vue.extend({
       } else {
         window.hotkeyReceived = undefined;
       }
+
+      // focus on open
+      if (this.setHotkeyModal) {
+        requestAnimationFrame(() => {
+          const hotkeyField = document.getElementById('hotkeyField') as HTMLInputElement;
+          hotkeyField.focus();
+        });
+      }
+    },
+  },
+  methods: {
+    reset(): void {
+      this.$store.commit('setHotkeySequence', { sound: this.sound, hotkeySequence: '' });
+      this.$store.dispatch('setHotkeys', { sound: this.sound, hotkeys: [] });
     },
     async focus(): Promise<void> {
       await window.requestHotkey(true);

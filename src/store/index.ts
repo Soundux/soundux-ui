@@ -9,6 +9,8 @@ export default new Vuex.Store({
   state: {
     searchModal: false,
     systemInfoModal: false,
+    setHotkeyModal: false,
+    setHotkeySound: null as Sound | null,
     appPassThroughDrawer: false,
     tabs: [] as Tab[],
     outputs: [] as Output[],
@@ -36,6 +38,8 @@ export default new Vuex.Store({
   },
   getters: {
     searchModal: state => state.searchModal,
+    setHotkeyModal: state => state.setHotkeyModal,
+    setHotkeySound: state => state.setHotkeySound,
     systemInfoModal: state => state.systemInfoModal,
     appPassThroughDrawer: state => state.appPassThroughDrawer,
     tabs: state => state.tabs,
@@ -51,20 +55,6 @@ export default new Vuex.Store({
     },
     settings: state => state.settings,
     switchOnConnectLoaded: state => state.switchOnConnectLoaded,
-    activeSound: (state, getters) => {
-      const { tabs } = state;
-      if (tabs.length > 0) {
-        const { activeTabIndex } = getters;
-        const tab = tabs[activeTabIndex];
-        if (tab && tab.sounds.length > 0) {
-          const { selectedSoundIndex } = tab;
-          if (selectedSoundIndex !== undefined) {
-            return tab.sounds[selectedSoundIndex];
-          }
-        }
-      }
-      return null;
-    },
     allSounds: state => {
       return state.tabs.map(({ sounds }) => sounds).reduce((acc, e) => acc.concat(e), []);
     },
@@ -77,6 +67,17 @@ export default new Vuex.Store({
       if (!state.appPassThroughDrawer) {
         state.searchModal = newState;
       }
+    },
+    setSetHotkeyModal: (state, newState: boolean) => {
+      state.setHotkeyModal = newState;
+      if (!newState) {
+        state.setHotkeySound = null;
+      }
+    },
+    setSetHotkeySound: (state, sound: Sound | null) => {
+      state.setHotkeySound = sound;
+      // show modal when sound is present
+      state.setHotkeyModal = !!sound;
     },
     setSystemInfoModal: (state, newState: boolean) => (state.systemInfoModal = newState),
     setAppPassThroughDrawer: (state, newState: boolean) => {
@@ -93,15 +94,6 @@ export default new Vuex.Store({
     setSelectedOutput: (state, selectedOutput: Output | null) => {
       state.selectedOutput = selectedOutput;
       state.settings.output = selectedOutput ? selectedOutput.name : '';
-    },
-    setSelectedSoundIndex: (state, { tabId, index }: { tabId: number; index: number | undefined }) => {
-      const stateTab = state.tabs.find(({ id }) => id === tabId);
-      if (stateTab) {
-        // selectedSoundIndex can be undefined so it may be a new property which is not reactive when using a simple assignment
-        Vue.set(stateTab, 'selectedSoundIndex', index);
-      } else {
-        console.error(`Could not find tab with id ${tabId}`);
-      }
     },
     updateSound: (
       _state,
@@ -278,7 +270,7 @@ export default new Vuex.Store({
     /**
      * Play a sound via the backend
      */
-    async playSound({ commit, getters }, sound: Sound = getters.activeSound) {
+    async playSound({ commit }, sound: Sound) {
       const playingSound = await window.playSound(sound.id);
       if (playingSound) {
         commit('addToCurrentlyPlaying', playingSound);

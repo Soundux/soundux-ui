@@ -3,6 +3,8 @@
     <AppPassthroughDrawer v-if="$store.getters.isLinux"></AppPassthroughDrawer>
     <v-main>
       <UpdateModal></UpdateModal>
+      <SearchModal></SearchModal>
+      <SetHotkeyModal></SetHotkeyModal>
       <SwitchOnConnectModal v-if="$store.getters.isLinux"></SwitchOnConnectModal>
       <v-container fluid>
         <v-row dense no-gutters class="flex-nowrap">
@@ -74,9 +76,13 @@ import NoTabsCard from '@/components/NoTabsCard.vue';
 import UpdateModal from '@/components/modals/UpdateModal.vue';
 import VolumeSliders from '@/components/VolumeSliders.vue';
 import SideButtons from '@/components/SideButtons.vue';
+import SetHotkeyModal from '@/components/modals/SetHotkeyModal.vue';
+import SearchModal from '@/components/modals/SearchModal.vue';
 
 export default Vue.extend({
   components: {
+    SearchModal,
+    SetHotkeyModal,
     SideButtons,
     VolumeSliders,
     NoTabsCard,
