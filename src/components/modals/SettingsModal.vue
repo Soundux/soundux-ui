@@ -31,6 +31,7 @@
           :disabled="!$store.getters.isLinux"
           :label="$t('settings.muteDuringPlayback')"
         ></v-checkbox>
+        <v-checkbox v-model="minimizeToTray" :label="$t('settings.minimizeToTray')"></v-checkbox>
         <v-checkbox v-model="darkTheme" :label="$t('settings.darkTheme')"></v-checkbox>
         <v-text-field
           v-model="stopHotkey"
@@ -109,6 +110,15 @@ export default Vue.extend({
       },
       set(state: boolean) {
         this.$store.commit('setGridView', state);
+        this.$store.dispatch('saveSettings');
+      },
+    },
+    minimizeToTray: {
+      get(): boolean {
+        return this.$store.getters.settings.minimizeToTray;
+      },
+      set(state: boolean) {
+        this.$store.commit('setMinimizeToTray', state);
         this.$store.dispatch('saveSettings');
       },
     },

@@ -20,10 +20,16 @@
     "launchpadMode": "Launchpad mode",
     "allowOverlapping": "Allow sound overlapping",
     "gridView": "Grid view",
+    "minimizeToTray": "Minimize to system tray",
     "useAsDefaultDevice": "Use as default device",
     "muteDuringPlayback": "Mute microphone during playback",
     "darkTheme": "Dark theme",
     "stopHotkey": "Stop hotkey"
+  },
+  "tray": {
+    "show": "Show window",
+    "hide": "Hide window",
+    "exit": "Exit"
   },
   "switchOnConnect": {
     "title": "Switch on connect module detected!",

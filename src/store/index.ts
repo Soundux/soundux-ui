@@ -32,6 +32,7 @@ export default new Vuex.Store({
       tabHotkeysOnly: false,
       launchPadMode: false,
       gridView: false,
+      minimizeToTray: false,
       localVolume: 0,
       remoteVolume: 0,
       useAsDefaultDevice: false,
@@ -149,6 +150,7 @@ export default new Vuex.Store({
     setLaunchpadMode: (state, value: boolean) => (state.settings.launchPadMode = value),
     setAllowOverlapping: (state, value: boolean) => (state.settings.allowOverlapping = value),
     setGridView: (state, value: boolean) => (state.settings.gridView = value),
+    setMinimizeToTray: (state, value: boolean) => (state.settings.minimizeToTray = value),
     setUseAsDefaultDevice: (state, value: boolean) => (state.settings.useAsDefaultDevice = value),
     setMuteDuringPlayback: (state, value: boolean) => (state.settings.muteDuringPlayback = value),
     setSortMode: (state, sortMode: SortMode) => {

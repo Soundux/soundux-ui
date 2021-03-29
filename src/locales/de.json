@@ -20,10 +20,16 @@
     "launchpadMode": "Launchpad-Modus",
     "allowOverlapping": "Tonüberlappung zulassen",
     "gridView": "Rasteransicht",
+    "minimizeToTray": "In den Systemtray minimieren",
     "useAsDefaultDevice": "Als Standardgerät verwenden",
     "muteDuringPlayback": "Mikrofon stumm schalten während dem Abspielen",
     "darkTheme": "Dunkles Design",
     "stopHotkey": "Stopp-Hotkey"
+  },
+  "tray": {
+    "show": "Fenster anzeigen",
+    "hide": "Fenster verstecken",
+    "exit": "Beenden"
   },
   "switchOnConnect": {
     "title": "Switch on connect Modul gefunden!",

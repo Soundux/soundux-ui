@@ -67,6 +67,7 @@ export interface Settings {
   tabHotkeysOnly: boolean;
   launchPadMode: boolean;
   gridView: boolean;
+  minimizeToTray: boolean;
   localVolume: number;
   remoteVolume: number;
   useAsDefaultDevice: boolean;
