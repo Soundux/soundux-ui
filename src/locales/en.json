@@ -45,7 +45,8 @@
     "ctrl": "CTRL",
     "shift": "Shift",
     "enter": "Enter",
-    "doubleClick": "Double-click",
+    "leftClick": "Left click",
+    "rightClick": "Right click",
     "arrowKeys": "Arrow keys"
   },
   "help": {
@@ -55,8 +56,12 @@
       "search": "search"
     },
     "play": {
-      "text": "{doubleClick} to {play}",
+      "text": "{leftClick} to {play}",
       "play": "play"
+    },
+    "options": {
+      "text": "{rightClick} to {moreOptions}",
+      "moreOptions": "show more options"
     },
     "appPassThrough": {
       "text": "Press {ctrl} + {g} to {show}",

@@ -29,8 +29,12 @@
             <b slot="reload">{{ $t('help.reloadSounds.reload') }}</b>
           </i18n>
           <i18n path="help.play.text" tag="li">
-            <code slot="doubleClick">{{ $t('input.doubleClick') }}</code>
+            <code slot="leftClick">{{ $t('input.leftClick') }}</code>
             <b slot="play">{{ $t('help.play.play') }}</b>
+          </i18n>
+          <i18n path="help.options.text" tag="li">
+            <code slot="rightClick">{{ $t('input.rightClick') }}</code>
+            <b slot="moreOptions">{{ $t('help.options.moreOptions') }}</b>
           </i18n>
         </ul>
         <br />

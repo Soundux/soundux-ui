@@ -45,7 +45,8 @@
     "ctrl": "STRG",
     "shift": "Umschalt",
     "enter": "Enter",
-    "doubleClick": "Doppelklick",
+    "leftClick": "Linksklick",
+    "rightClick": "Rechtsklick",
     "arrowKeys": "Pfeiltasten"
   },
   "help": {
@@ -55,8 +56,12 @@
       "search": "suchen"
     },
     "play": {
-      "text": "{doubleClick} um {play}",
+      "text": "{leftClick} um {play}",
       "play": "abzuspielen"
+    },
+    "options": {
+      "text": "{rightClick} um {moreOptions}",
+      "moreOptions": "mehr Optionen anzuzeigen"
     },
     "appPassThrough": {
       "text": "Drücke {ctrl} + {g} um {show}",
