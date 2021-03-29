@@ -30,6 +30,7 @@ describe('PassthroughControl.vue', () => {
   beforeEach(() => {
     vuetify = new Vuetify();
   });
+
   it('renders name when passed', () => {
     const output: Output = {
       name: 'DiscordCanary',
@@ -58,7 +59,14 @@ describe('SoundControl.vue', () => {
   });
 
   it('renders sound name when passed', () => {
-    const sound: Sound = { id: 1, name: 'Sound', path: '/sound.mp3', hotkeys: [], hotkeySequence: '' };
+    const sound: Sound = {
+      id: 1,
+      name: 'Sound',
+      path: '/sound.mp3',
+      hotkeys: [],
+      modifiedDate: 0,
+      hotkeySequence: '',
+    };
     const playingSound: PlayingSound = {
       id: 1,
       repeat: false,
