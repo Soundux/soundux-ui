@@ -144,6 +144,8 @@ export default Vue.extend({
           this.$store.commit('setStopHotkey', hotkeyData);
           this.$store.dispatch('saveSettings');
         };
+        // the settings may have been changed by the backend (e.g. tray icon)
+        this.$store.dispatch('getSettings');
       } else {
         window.hotkeyReceived = undefined;
       }
