@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import Vuetify from '@/plugins/vuetify';
-import { Output, Playing, PlayingSound, Settings, Sound, Tab, UpdateData } from '@/types';
+import { Output, Playing, PlayingSound, Settings, SortMode, Sound, Tab, UpdateData } from '@/types';
 
 Vue.use(Vuex);
 
@@ -27,6 +27,7 @@ export default new Vuex.Store({
       allowOverlapping: true,
       darkTheme: true,
       stopHotkey: [] as number[],
+      sortMode: SortMode.ModifiedDate_Descending,
       tabHotkeysOnly: false,
       launchPadMode: false,
       gridView: false,
@@ -149,6 +150,7 @@ export default new Vuex.Store({
     setGridView: (state, value: boolean) => (state.settings.gridView = value),
     setUseAsDefaultDevice: (state, value: boolean) => (state.settings.useAsDefaultDevice = value),
     setMuteDuringPlayback: (state, value: boolean) => (state.settings.muteDuringPlayback = value),
+    setSortMode: (state, value: SortMode) => (state.settings.sortMode = value),
     setStopHotkey: (state, value: number[]) => (state.settings.stopHotkey = value),
     setIsLinux: (state, value: boolean) => (state.isLinux = value),
     setIsDraggingSeekbar: (state, value: boolean) => (state.isDraggingSeekbar = value),
@@ -361,6 +363,27 @@ export default new Vuex.Store({
       }
     },
 
+    setSortMode({ commit, getters }, sortMode: SortMode) {
+      commit('setSortMode', sortMode);
+      getters.tabs.forEach((tab: Tab) => {
+        const sounds = [...tab.sounds];
+        sounds.sort((a: Sound, b: Sound) => {
+          switch (sortMode) {
+            case SortMode.ModifiedDate_Descending:
+              return b.modifiedDate - a.modifiedDate;
+            case SortMode.ModifiedDate_Ascending:
+              return a.modifiedDate - b.modifiedDate;
+            case SortMode.Alphabetical_Descending:
+              return b.name.localeCompare(a.name);
+            case SortMode.Alphabetical_Ascending:
+              return a.name.localeCompare(b.name);
+            default:
+              return 0;
+          }
+        });
+        commit('setTabSounds', { tab, sounds });
+      });
+    },
     async getUpdateData({ commit }) {
       const updateData = await window.updateCheck();
       if (updateData) {

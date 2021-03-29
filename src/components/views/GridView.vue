@@ -3,14 +3,14 @@
     <v-row no-gutters>
       <v-col v-for="(sound, sIndex) in tab.sounds" :key="sIndex" class="ma-2">
         <SoundContextMenu :sound="sound">
-          <template #default="slotProps">
+          <template #default="{ context }">
             <v-btn
               :id="`sound-${sound.id}`"
               class="pa-2 text-none"
               block
               height="50"
               @click="$store.dispatch('playSound', sound)"
-              @contextmenu="slotProps.context"
+              @contextmenu="context"
             >
               {{ sound.name }}
             </v-btn>

@@ -26,6 +26,56 @@
       <v-icon left dark>mdi-magnify</v-icon>
       {{ $t('actions.search') }}
     </v-btn>
+    <v-menu offset-y close-on-content-click>
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn
+          :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
+          class="mb-2"
+          v-bind="attrs"
+          v-on="on"
+        >
+          <v-icon v-if="$store.getters.settings.sortMode === 0" left>mdi-sort-calendar-ascending</v-icon>
+          <v-icon v-else-if="$store.getters.settings.sortMode === 1" left>
+            mdi-sort-calendar-descending
+          </v-icon>
+          <v-icon v-else-if="$store.getters.settings.sortMode === 2" left>
+            mdi-sort-alphabetical-ascending
+          </v-icon>
+          <v-icon v-else-if="$store.getters.settings.sortMode === 3" left>
+            mdi-sort-alphabetical-descending
+          </v-icon>
+          Sort
+        </v-btn>
+      </template>
+      <v-list>
+        <v-list-item-group :value="$store.getters.settings.sortMode">
+          <v-list-item @click="$store.dispatch('setSortMode', 0)">
+            <v-list-item-title>
+              <v-icon left>mdi-sort-calendar-ascending</v-icon>
+              Modified ascending
+            </v-list-item-title>
+          </v-list-item>
+          <v-list-item @click="$store.dispatch('setSortMode', 1)">
+            <v-list-item-title>
+              <v-icon left>mdi-sort-calendar-descending</v-icon>
+              Modified descending
+            </v-list-item-title>
+          </v-list-item>
+          <v-list-item @click="$store.dispatch('setSortMode', 2)">
+            <v-list-item-title>
+              <v-icon left>mdi-sort-alphabetical-ascending</v-icon>
+              Alphabetical ascending
+            </v-list-item-title>
+          </v-list-item>
+          <v-list-item @click="$store.dispatch('setSortMode', 3)">
+            <v-list-item-title>
+              <v-icon left>mdi-sort-alphabetical-descending</v-icon>
+              Alphabetical descending
+            </v-list-item-title>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
+    </v-menu>
     <v-spacer></v-spacer>
     <v-btn
       v-if="$store.getters.isLinux"

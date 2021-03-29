@@ -4,7 +4,10 @@
       <slot v-bind="attrs" v-on="on" v-bind:context="show">Default slot content</slot>
     </template>
     <v-list>
-      <v-list-item @click="$store.commit('setSetHotkeySound', sound)">
+      <v-list-item
+        v-if="$store.getters.settings.gridView"
+        @click="$store.commit('setSetHotkeySound', sound)"
+      >
         <v-list-item-title>
           <v-icon left dark>mdi-keyboard</v-icon>
           {{ $t('hotkeys.title') }}

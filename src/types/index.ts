@@ -1,6 +1,7 @@
 export interface Sound {
   id: number;
   name: string;
+  modifiedDate: number;
   path: string;
   hotkeys: number[];
   hotkeySequence: string;
@@ -49,12 +50,20 @@ export interface Output {
 
 export type Playing = PlayingSound | Output;
 
+export enum SortMode {
+  ModifiedDate_Ascending,
+  ModifiedDate_Descending,
+  Alphabetical_Ascending,
+  Alphabetical_Descending,
+}
+
 export interface Settings {
   output: string;
   selectedTab: number;
   allowOverlapping: boolean;
   darkTheme: boolean;
   stopHotkey: number[];
+  sortMode: SortMode;
   tabHotkeysOnly: boolean;
   launchPadMode: boolean;
   gridView: boolean;
