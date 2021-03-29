@@ -175,7 +175,7 @@ export default new Vuex.Store({
     /**
      * Fetches the tabs from the backend
      */
-    async getData({ commit, getters }) {
+    async getTabs({ commit, getters }) {
       const tabs = await window.getTabs();
       if (tabs) {
         tabs.forEach(tab => sortTab(tab, getters.settings.sortMode));
