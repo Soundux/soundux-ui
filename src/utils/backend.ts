@@ -42,14 +42,15 @@ export async function initialize(): Promise<void> {
 
   // initial data loading
 
+  // load settings before, because we need the sortMode for getData
+  await $store.dispatch('getSettings');
+
   // the order of these doesn't matter
   await Promise.all([
     // check for linux
     $store.dispatch('getIsLinux'),
     // data has to be loaded here since SoundTabs is only mounted when there are tabs
     $store.dispatch('getData'),
-    // load settings
-    $store.dispatch('getSettings'),
     // fetch new version
     $store.dispatch('getUpdateData'),
   ]);

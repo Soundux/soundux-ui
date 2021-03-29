@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import Vuetify from '@/plugins/vuetify';
 import { Output, Playing, PlayingSound, Settings, SortMode, Sound, Tab, UpdateData } from '@/types';
+import { sortTab } from '@/utils';
 
 Vue.use(Vuex);
 
@@ -150,7 +151,12 @@ export default new Vuex.Store({
     setGridView: (state, value: boolean) => (state.settings.gridView = value),
     setUseAsDefaultDevice: (state, value: boolean) => (state.settings.useAsDefaultDevice = value),
     setMuteDuringPlayback: (state, value: boolean) => (state.settings.muteDuringPlayback = value),
-    setSortMode: (state, value: SortMode) => (state.settings.sortMode = value),
+    setSortMode: (state, sortMode: SortMode) => {
+      state.settings.sortMode = sortMode;
+      state.tabs.forEach((tab: Tab) => {
+        sortTab(tab, sortMode);
+      });
+    },
     setStopHotkey: (state, value: number[]) => (state.settings.stopHotkey = value),
     setIsLinux: (state, value: boolean) => (state.isLinux = value),
     setIsDraggingSeekbar: (state, value: boolean) => (state.isDraggingSeekbar = value),
@@ -169,9 +175,10 @@ export default new Vuex.Store({
     /**
      * Fetches the tabs from the backend
      */
-    async getData({ commit }) {
+    async getData({ commit, getters }) {
       const tabs = await window.getTabs();
       if (tabs) {
+        tabs.forEach(tab => sortTab(tab, getters.settings.sortMode));
         commit('setTabs', tabs);
       }
     },
@@ -219,9 +226,10 @@ export default new Vuex.Store({
     /**
      * Adds a tab via the backend
      */
-    async addTab({ commit }) {
+    async addTab({ commit, getters }) {
       const tab = await window.addTab();
       if (tab) {
+        sortTab(tab, getters.settings.sortMode);
         commit('addTab', tab);
       }
     },
@@ -265,6 +273,7 @@ export default new Vuex.Store({
 
       const refreshedTab = await window.refreshTab(activeTabIndex);
       if (refreshedTab) {
+        sortTab(refreshedTab, getters.settings.sortMode);
         commit('setTabSounds', { tab, sounds: refreshedTab.sounds });
       }
     },
@@ -363,27 +372,11 @@ export default new Vuex.Store({
       }
     },
 
-    setSortMode({ commit, getters }, sortMode: SortMode) {
+    setSortMode({ commit, dispatch }, sortMode: SortMode) {
       commit('setSortMode', sortMode);
-      getters.tabs.forEach((tab: Tab) => {
-        const sounds = [...tab.sounds];
-        sounds.sort((a: Sound, b: Sound) => {
-          switch (sortMode) {
-            case SortMode.ModifiedDate_Descending:
-              return b.modifiedDate - a.modifiedDate;
-            case SortMode.ModifiedDate_Ascending:
-              return a.modifiedDate - b.modifiedDate;
-            case SortMode.Alphabetical_Descending:
-              return b.name.localeCompare(a.name);
-            case SortMode.Alphabetical_Ascending:
-              return a.name.localeCompare(b.name);
-            default:
-              return 0;
-          }
-        });
-        commit('setTabSounds', { tab, sounds });
-      });
+      dispatch('saveSettings');
     },
+
     async getUpdateData({ commit }) {
       const updateData = await window.updateCheck();
       if (updateData) {
