@@ -15,6 +15,11 @@ export async function initialize(): Promise<void> {
     Vue.$toast.error(`${i18n.t('errors.error')}: ${i18n.t('errors.' + error)}`);
   };
 
+  // function for backend translations
+  window.getTranslation = (path: string) => {
+    return `${i18n.t(path)}`;
+  };
+
   // sound updates
   window.updateSound = (playingSound: PlayingSound) => {
     const sound: PlayingSound = $store.getters.currentPlayingSounds.find(

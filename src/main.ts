@@ -20,6 +20,7 @@ declare global {
     onSoundPlayed: ((playingSound: PlayingSound) => void) | undefined;
     updateSound: ((playingSound: PlayingSound) => void) | undefined;
     onError: ((error: string) => void) | undefined;
+    getTranslation: (path: string) => string;
     // backend functions (here we can register both the arguments and the return types)
     isLinux: () => Promise<boolean | null>;
     openUrl: (url: string) => Promise<void>;
