@@ -8,7 +8,7 @@
       <v-col cols="auto">
         <v-icon left v-text="volumeIcon(localVolume)"></v-icon>
       </v-col>
-      <v-col cols="auto" class="text-truncate text--secondary hidden-xs-only" style="flex-basis: 111px">
+      <v-col cols="auto" class="text-truncate text--secondary hidden-xs-only" style="flex-basis: 115px">
         {{ $t('volume.local') }}
       </v-col>
       <v-col>
@@ -44,7 +44,7 @@
       <v-col cols="auto">
         <v-icon left v-text="volumeIcon(remoteVolume)"></v-icon>
       </v-col>
-      <v-col cols="auto" class="text-truncate text--secondary hidden-xs-only" style="flex-basis: 111px">
+      <v-col cols="auto" class="text-truncate text--secondary hidden-xs-only" style="flex-basis: 115px">
         {{ $t('volume.remote') }}
       </v-col>
       <v-col>
