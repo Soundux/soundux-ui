@@ -63,6 +63,7 @@ export interface Settings {
   allowOverlapping: boolean;
   darkTheme: boolean;
   stopHotkey: number[];
+  pushToTalkKeys: number[];
   sortMode: SortMode;
   tabHotkeysOnly: boolean;
   launchPadMode: boolean;

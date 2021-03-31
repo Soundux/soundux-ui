@@ -24,7 +24,8 @@
     "useAsDefaultDevice": "Use as default device",
     "muteDuringPlayback": "Mute microphone during playback",
     "darkTheme": "Dark theme",
-    "stopHotkey": "Stop hotkey"
+    "stopHotkey": "Stop hotkey",
+    "pushToTalkKeys": "Push-to-talk keys"
   },
   "tray": {
     "show": "Show window",

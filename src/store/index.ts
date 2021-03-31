@@ -28,6 +28,7 @@ export default new Vuex.Store({
       allowOverlapping: true,
       darkTheme: true,
       stopHotkey: [] as number[],
+      pushToTalkKeys: [] as number[],
       sortMode: SortMode.ModifiedDate_Descending,
       tabHotkeysOnly: false,
       launchPadMode: false,
@@ -160,6 +161,7 @@ export default new Vuex.Store({
       });
     },
     setStopHotkey: (state, value: number[]) => (state.settings.stopHotkey = value),
+    setPushToTalkKeys: (state, value: number[]) => (state.settings.pushToTalkKeys = value),
     setIsLinux: (state, value: boolean) => (state.isLinux = value),
     setIsDraggingSeekbar: (state, value: boolean) => (state.isDraggingSeekbar = value),
     setDarkTheme: (state, value: boolean) => {
