@@ -326,10 +326,15 @@ export default new Vuex.Store({
       }
     },
 
-    setUseAsDefaultDevice({ commit, dispatch }, value: boolean) {
+    async setUseAsDefaultDevice({ commit, dispatch }, value: boolean) {
       commit('setUseAsDefaultDevice', value);
-      commit('setSelectedOutput', null);
-      dispatch('saveSettings');
+      if (value) {
+        commit('setSelectedOutput', null);
+      } else {
+        // refresh outputs on disable because the selected output was set to null
+        await dispatch('getOutputs');
+      }
+      await dispatch('saveSettings');
     },
 
     async setHotkeys({ commit }, data: { sound: Sound; hotkeys: number[] }) {
