@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="systemInfoModal" max-width="600px">
+  <v-dialog v-model="systemInfoModal" max-width="600px" @input="stateChanged">
     <v-card>
       <v-card-title>
         <v-icon left>mdi-desktop-mac-dashboard</v-icon>
@@ -45,10 +45,12 @@ export default Vue.extend({
       },
     },
   },
-  async mounted() {
-    this.systemInfo = (await window.getSystemInfo()) || 'Failed to fetch system information';
-  },
   methods: {
+    async stateChanged(state: boolean): Promise<void> {
+      if (state) {
+        this.systemInfo = (await window.getSystemInfo()) || 'Failed to fetch system information';
+      }
+    },
     copyToClipboard() {
       const systemInfoArea = document.getElementById('systemInfoArea') as HTMLInputElement;
       if (systemInfoArea) {
