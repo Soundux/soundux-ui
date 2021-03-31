@@ -140,9 +140,6 @@ export default Vue.extend({
       },
     },
   },
-  async mounted() {
-    this.stopHotkey = (await window.getHotkeySequence(this.$store.getters.settings.stopHotkey)) || '';
-  },
   methods: {
     // handler function when the modal was opened/closed
     // open: we register the hotkeyReceived method for the backend here
@@ -156,9 +153,14 @@ export default Vue.extend({
         };
         // the settings may have been changed by the backend (e.g. tray icon)
         this.$store.dispatch('getSettings');
+        // update stop hotkey
+        this.updateStopHotkey();
       } else {
         window.hotkeyReceived = undefined;
       }
+    },
+    async updateStopHotkey(): Promise<void> {
+      this.stopHotkey = (await window.getHotkeySequence(this.$store.getters.settings.stopHotkey)) || '';
     },
     clearHotkey(): void {
       this.stopHotkey = '';
