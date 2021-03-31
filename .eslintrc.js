@@ -19,7 +19,6 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'vuetify/no-deprecated-classes': 'error',
     'vuetify/no-deprecated-components': 'error',
-    '@typescript-eslint/ban-ts-comment': 'off',
   },
   overrides: [
     {
