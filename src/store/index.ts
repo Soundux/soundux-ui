@@ -175,7 +175,7 @@ export default new Vuex.Store({
   },
   actions: {
     /**
-     * Fetches the tabs from the backend
+     * Fetch the tabs from the backend
      */
     async getTabs({ commit, getters }) {
       const tabs = await window.getTabs();
@@ -186,7 +186,7 @@ export default new Vuex.Store({
     },
 
     /**
-     * Fetches the playback applications from the backend
+     * Fetch the playback applications from the backend
      */
     async getPlaybackApps({ commit }) {
       const playbackApps = await window.getPlayback();
@@ -195,7 +195,10 @@ export default new Vuex.Store({
       }
     },
 
-    setOutputs({ state, commit, dispatch }, outputs: Output[]) {
+    /**
+     * Set the outputs array and select the output accordingly
+     */
+    async setOutputs({ state, commit, dispatch }, outputs: Output[]) {
       commit('setOutputs', outputs);
       // if use as default device is enabled there should be no output application
       if (state.settings.useAsDefaultDevice) {
@@ -217,16 +220,19 @@ export default new Vuex.Store({
           commit('setSelectedOutput', null);
         }
       }
-      dispatch('saveSettings');
-    },
-
-    setSelectedOutput({ commit, dispatch }, selectedOutput: Output) {
-      commit('setSelectedOutput', selectedOutput);
-      dispatch('saveSettings');
+      await dispatch('saveSettings');
     },
 
     /**
-     * Adds a tab via the backend
+     * Set and save the currently selected output
+     */
+    async setSelectedOutput({ commit, dispatch }, selectedOutput: Output) {
+      commit('setSelectedOutput', selectedOutput);
+      await dispatch('saveSettings');
+    },
+
+    /**
+     * Add a tab via the backend
      */
     async addTab({ commit, getters }) {
       const tab = await window.addTab();
@@ -237,14 +243,14 @@ export default new Vuex.Store({
     },
 
     /**
-     * Removes a tab via the backend
+     * Remove a tab via the backend
      */
     async deleteTab({ state, getters, commit, dispatch }, tab: Tab) {
       const deleteIndex = state.tabs.indexOf(tab);
 
       const tabs = await window.removeTab(deleteIndex);
       if (tabs) {
-        commit('setTabs', tabs); // eslint-disable-line no-undef
+        commit('setTabs', tabs);
 
         // when deleting a tab to the left of the active one, the active index must be decreased by one
         if (getters.activeTabIndex > deleteIndex) {
@@ -254,17 +260,17 @@ export default new Vuex.Store({
     },
 
     /**
-     * Sets and saves the active tab index
+     * Set and save the active tab index
      */
-    setActiveTabIndex({ commit, dispatch }, index: number | undefined) {
+    async setActiveTabIndex({ commit, dispatch }, index: number | undefined) {
       if (index !== undefined) {
         commit('setActiveTabIndex', index);
-        dispatch('saveSettings');
+        await dispatch('saveSettings');
       }
     },
 
     /**
-     * Refreshes tabs from the backend
+     * Refresh the current tab from the backend
      */
     async refreshTab({ commit, getters }) {
       if (getters.tabs.length === 0) {
@@ -309,6 +315,9 @@ export default new Vuex.Store({
       commit('clearCurrentlyPlaying');
     },
 
+    /**
+     * Refresh the outputs via the backend
+     */
     async getOutputs({ dispatch }) {
       const outputs = await window.getOutputs();
       if (outputs) {
@@ -326,6 +335,9 @@ export default new Vuex.Store({
       }
     },
 
+    /**
+     * Set the useAsDefaultDevice setting and update the outputs accordingly
+     */
     async setUseAsDefaultDevice({ commit, dispatch }, value: boolean) {
       commit('setUseAsDefaultDevice', value);
       if (value) {
@@ -337,6 +349,9 @@ export default new Vuex.Store({
       await dispatch('saveSettings');
     },
 
+    /**
+     * Set the hotkeys for a sound via the backend
+     */
     async setHotkeys({ commit }, data: { sound: Sound; hotkeys: number[] }) {
       commit('setHotkeys', data);
       await window.setHotkey(data.sound.id, data.sound.hotkeys);
@@ -348,29 +363,49 @@ export default new Vuex.Store({
     async saveSettings({ state }) {
       await window.changeSettings(state.settings);
     },
-    setLocalVolume({ commit, dispatch }, volume: number) {
+
+    /**
+     * Set and save the local volume
+     */
+    async setLocalVolume({ commit, dispatch }, volume: number) {
       commit('setLocalVolume', volume / 100);
-      dispatch('saveSettings');
-    },
-    setRemoteVolume({ commit, dispatch }, volume: number) {
-      commit('setRemoteVolume', volume / 100);
-      dispatch('saveSettings');
+      await dispatch('saveSettings');
     },
 
+    /**
+     * Set and save the remote volume
+     */
+    async setRemoteVolume({ commit, dispatch }, volume: number) {
+      commit('setRemoteVolume', volume / 100);
+      await dispatch('saveSettings');
+    },
+
+    /**
+     * Get the information if running on linux from the backend
+     */
     async getIsLinux({ commit }) {
       commit('setIsLinux', (await window.isLinux()) || false);
     },
 
+    /**
+     * Get the information if the switch on connect module is loaded from the backend
+     */
     async isSwitchOnConnectLoaded({ commit }) {
       const result = (await window.isSwitchOnConnectLoaded()) || false;
       commit('setSwitchOnConnectLoaded', result);
     },
 
+    /**
+     * Unload the switch on connect module via the backend
+     */
     async unloadSwitchOnConnect({ commit }) {
       await window.unloadSwitchOnConnect();
       commit('setSwitchOnConnectLoaded', false);
     },
 
+    /**
+     * Set the tab order in the backend
+     */
     async moveTabs({ commit, state }) {
       const tabIds = state.tabs.map(({ id }) => id);
       const newTabs = await window.moveTabs(tabIds);
@@ -379,11 +414,17 @@ export default new Vuex.Store({
       }
     },
 
-    setSortMode({ commit, dispatch }, sortMode: SortMode) {
+    /**
+     * Set and save the selected sort mode
+     */
+    async setSortMode({ commit, dispatch }, sortMode: SortMode) {
       commit('setSortMode', sortMode);
-      dispatch('saveSettings');
+      await dispatch('saveSettings');
     },
 
+    /**
+     * Get the update data from the backend
+     */
     async getUpdateData({ commit }) {
       const updateData = await window.updateCheck();
       if (updateData) {
