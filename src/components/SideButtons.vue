@@ -44,7 +44,7 @@
           <v-icon v-else-if="$store.getters.settings.sortMode === 3" left>
             mdi-sort-alphabetical-descending
           </v-icon>
-          Sort
+          {{ $t('sort.title') }}
         </v-btn>
       </template>
       <v-list>
@@ -52,25 +52,25 @@
           <v-list-item @click="$store.dispatch('setSortMode', 0)">
             <v-list-item-title>
               <v-icon left>mdi-sort-calendar-ascending</v-icon>
-              Modified ascending
+              {{ $t('sort.modifiedAscending') }}
             </v-list-item-title>
           </v-list-item>
           <v-list-item @click="$store.dispatch('setSortMode', 1)">
             <v-list-item-title>
               <v-icon left>mdi-sort-calendar-descending</v-icon>
-              Modified descending
+              {{ $t('sort.modifiedDescending') }}
             </v-list-item-title>
           </v-list-item>
           <v-list-item @click="$store.dispatch('setSortMode', 2)">
             <v-list-item-title>
               <v-icon left>mdi-sort-alphabetical-ascending</v-icon>
-              Alphabetical ascending
+              {{ $t('sort.alphabeticalAscending') }}
             </v-list-item-title>
           </v-list-item>
           <v-list-item @click="$store.dispatch('setSortMode', 3)">
             <v-list-item-title>
               <v-icon left>mdi-sort-alphabetical-descending</v-icon>
-              Alphabetical descending
+              {{ $t('sort.alphabeticalDescending') }}
             </v-list-item-title>
           </v-list-item>
         </v-list-item-group>

@@ -98,6 +98,13 @@
     "jumpToSelected": "{enter} to jump to the currently selected sound",
     "playSelected": "{shift} + {enter} to play the currently selected sound"
   },
+  "sort": {
+    "title": "Sort",
+    "modifiedAscending": "Modified ascending",
+    "modifiedDescending": "Modified descending",
+    "alphabeticalAscending": "Alphabetical ascending",
+    "alphabeticalDescending": "Alphabetical descending"
+  },
   "downloader": {
     "title": "Downloader",
     "notAvailable": "{youtube-dl} and/or {ffmpeg} are not installed",
