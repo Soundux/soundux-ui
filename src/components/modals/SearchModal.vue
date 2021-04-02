@@ -198,33 +198,41 @@ export default Vue.extend({
         }
       }
     },
-    jumpToSound(result: Sound): void {
+    async jumpToSound(sound: Sound): Promise<void> {
       const { tabs } = this.$store.getters;
       for (const tab of tabs) {
         const { sounds } = tab;
-        if (sounds.includes(result)) {
+        if (sounds.includes(sound)) {
           const tabIndex = tabs.indexOf(tab);
           // only set when not already set
           if (this.$store.getters.activeTabIndex !== tabIndex) {
-            this.$store.dispatch('setActiveTabIndex', tabIndex);
+            await this.$store.dispatch('setActiveTabIndex', tabIndex);
           }
 
           this.searchModal = false;
-          const soundElement = document.getElementById(`sound-${result.id}`);
+          const soundElement = document.getElementById(`sound-${sound.id}`);
           if (soundElement) {
-            window.setTimeout(() => {
-              if (this.$store.getters.settings.gridView) {
-                // grid view
-                this.$vuetify.goTo(soundElement, {
-                  container: document.getElementById('grid-view') as HTMLElement,
-                });
-              } else {
-                // list view
-                this.$vuetify.goTo(soundElement, {
-                  container: document.getElementById('list-view') as HTMLElement,
-                });
-              }
-            }, 20);
+            if (this.$store.getters.settings.gridView) {
+              // grid view
+              await this.$vuetify.goTo(soundElement, {
+                container: document.getElementById('grid-view') as HTMLElement,
+              });
+            } else {
+              // list view
+              await this.$vuetify.goTo(soundElement, {
+                container: document.getElementById('list-view') as HTMLElement,
+              });
+            }
+
+            soundElement.classList.add('highlight');
+            if (!sound.animationEvent) {
+              const callback = () => {
+                soundElement.classList.remove('highlight');
+              };
+              soundElement.addEventListener('animationend', callback);
+              sound.animationEvent = callback;
+            }
+            // TODO: remove event listener on element destroyed?
           }
           break;
         }

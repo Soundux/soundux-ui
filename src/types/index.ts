@@ -4,6 +4,7 @@ export interface Sound {
   modifiedDate: number;
   path: string;
   hotkeys: number[];
+  animationEvent?: (event: AnimationEvent) => void;
   hotkeySequence: string;
 }
 

@@ -59,4 +59,23 @@ export default Vue.extend({
 .v-list-item--active.no-active:not(:focus):not(:hover)::before {
   opacity: 0 !important;
 }
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.v-list-item.highlight:before {
+  background-color: var(--v-primary-base) !important;
+  opacity: 0 !important;
+  animation: blink 500ms linear;
+  animation-iteration-count: 3;
+}
 </style>

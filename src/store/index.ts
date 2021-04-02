@@ -264,8 +264,8 @@ export default new Vuex.Store({
     /**
      * Set and save the active tab index
      */
-    async setActiveTabIndex({ commit, dispatch }, index: number | undefined) {
-      if (index !== undefined) {
+    async setActiveTabIndex({ commit, getters, dispatch }, index: number | undefined) {
+      if (index !== undefined && index !== getters.activeTabIndex) {
         commit('setActiveTabIndex', index);
         await dispatch('saveSettings');
       }
