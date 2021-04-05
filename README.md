@@ -13,7 +13,7 @@ Frontend for [Soundux](https://github.com/Soundux/Soundux)
 [![Material Design Icons](https://img.shields.io/badge/Material%20Design%20Icons-2196F3?style=for-the-badge&logo=material-design-icons&logoColor=fff)](https://materialdesignicons.com/)
 [![Jest](https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=fff)](https://jestjs.io/)
 
-![Screenshot](https://raw.githubusercontent.com/Soundux/Soundux/master/assets/screenshots/1.png)
+![Screenshot]( https://raw.githubusercontent.com/Soundux/screenshots/screenshots/playing-dark.png)
 
 ## Issues
 Please report issues in our main repository. [Create an issue](https://github.com/Soundux/Soundux/issues/new/choose)
