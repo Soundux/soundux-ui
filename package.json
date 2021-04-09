@@ -5,7 +5,7 @@
   "repository": "github:Soundux/soundux-ui",
   "bugs": "https://github.com/Soundux/Soundux/issues",
   "homepage": "https://soundux.rocks",
-  "license": "GPL-3.0-only",
+  "license": "GPL-3.0-or-later",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
