@@ -17,7 +17,7 @@
   "settings": {
     "title": "Einstellungen",
     "tabHotkeysOnly": "Hotkeys nur für aktuellen Tab",
-    "launchpadMode": "Launchpad-Modus",
+    "launchpadMode": "Emuliertes Launchpad",
     "allowOverlapping": "Tonüberlappung zulassen",
     "gridView": "Rasteransicht",
     "minimizeToTray": "In den Systemtray minimieren",

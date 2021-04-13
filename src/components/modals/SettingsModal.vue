@@ -42,6 +42,7 @@
               :label="$t('settings.gridView')"
               hide-details
               prepend-icon="mdi-grid"
+              :disabled="launchpadMode"
             ></v-checkbox>
             <v-checkbox
               v-model="useAsDefaultDevice"

@@ -212,7 +212,12 @@ export default Vue.extend({
           this.searchModal = false;
           const soundElement = document.getElementById(`sound-${sound.id}`);
           if (soundElement) {
-            if (this.$store.getters.settings.gridView) {
+            if (this.$store.getters.settings.launchPadMode) {
+              // launchpad view
+              await this.$vuetify.goTo(soundElement, {
+                container: document.getElementById('launchpad-view') as HTMLElement,
+              });
+            } else if (this.$store.getters.settings.gridView) {
               // grid view
               await this.$vuetify.goTo(soundElement, {
                 container: document.getElementById('grid-view') as HTMLElement,

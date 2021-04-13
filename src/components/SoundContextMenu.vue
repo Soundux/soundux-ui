@@ -5,11 +5,11 @@
     </template>
     <v-list>
       <v-list-item
-        v-if="$store.getters.settings.gridView"
+        v-if="$store.getters.settings.gridView || $store.getters.settings.launchPadMode"
         @click="$store.commit('setSetHotkeySound', sound)"
       >
         <v-list-item-title>
-          <v-icon left dark>mdi-keyboard</v-icon>
+          <v-icon left>mdi-keyboard</v-icon>
           {{ $t('hotkeys.title') }}
         </v-list-item-title>
       </v-list-item>

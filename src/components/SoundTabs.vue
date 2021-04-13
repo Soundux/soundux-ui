@@ -28,7 +28,8 @@
 
     <v-tabs-items :value="$store.getters.activeTabIndex">
       <v-tab-item v-for="(tab, index) in $store.getters.tabs" :key="index">
-        <GridView v-if="$store.getters.settings.gridView" :tab="tab"></GridView>
+        <LaunchpadView v-if="$store.getters.settings.launchPadMode" :tab="tab"></LaunchpadView>
+        <GridView v-else-if="$store.getters.settings.gridView" :tab="tab"></GridView>
         <ListView v-else :tab="tab"></ListView>
       </v-tab-item>
     </v-tabs-items>
@@ -41,6 +42,7 @@ import { Tab } from '@/types';
 import draggable from 'vuedraggable';
 import GridView from '@/components/views/GridView.vue';
 import ListView from '@/components/views/ListView.vue';
+import LaunchpadView from '@/components/views/LaunchpadView.vue';
 
 export default Vue.extend({
   name: 'SoundTabs',
@@ -56,13 +58,14 @@ export default Vue.extend({
     document.removeEventListener('keydown', this.keyDownHandler);
   },
   components: {
+    LaunchpadView,
     ListView,
     GridView,
     draggable,
   },
   computed: {
     mutableTabs: {
-      get() {
+      get(): Tab[] {
         return this.$store.getters.tabs;
       },
       set(tabs: Tab[]) {
@@ -70,7 +73,7 @@ export default Vue.extend({
       },
     },
     mutableActiveTabIndex: {
-      get() {
+      get(): number {
         return this.$store.getters.activeTabIndex;
       },
       set(newIndex: number) {
@@ -94,42 +97,6 @@ export default Vue.extend({
       this.$store.dispatch('moveTabs');
     },
     keyDownHandler(event: KeyboardEvent): void {
-      if (
-        this.$store.getters.settings.launchPadMode &&
-        !this.$store.getters.appPassThroughDrawer &&
-        !this.$store.getters.searchModal
-      ) {
-        if (!event.ctrlKey && !event.shiftKey && !event.altKey) {
-          const keyboard = `1234567890QWERTYUIOPASDFGHJKL;ZXCVBNM,./`;
-          const keys = [];
-          for (const key of keyboard) {
-            if (!isNaN(parseInt(key))) {
-              keys.push(`Digit${key}`);
-            } else if (key === ';') {
-              keys.push('Semicolon');
-            } else if (key === ',') {
-              keys.push('Comma');
-            } else if (key === '.') {
-              keys.push('Period');
-            } else if (key === '/') {
-              keys.push('Slash');
-            } else {
-              keys.push(`Key${key}`);
-            }
-          }
-
-          keys.forEach((keyCode, index) => {
-            if (event.code === keyCode) {
-              // console.log('play sound', keyCode, index);
-              const sound = this.$store.getters.tabs[this.$store.getters.activeTabIndex].sounds[index];
-              if (sound) {
-                this.$store.dispatch('playSound', sound);
-              }
-            }
-          });
-        }
-      }
-
       if (event.ctrlKey && !event.shiftKey && !event.altKey && event.code === 'KeyR') {
         event.preventDefault();
         this.$store.dispatch('refreshTab');

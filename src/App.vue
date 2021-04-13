@@ -124,4 +124,32 @@ img {
 .v-divider {
   border-color: rgba(255, 255, 255, 0.3) !important;
 }
+
+// animation for search button highlight
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+// class for search button highlight
+button.highlight::after {
+  content: '\a0';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  border-top: 5px solid var(--v-primary-base);
+  box-shadow: none !important;
+  border-radius: 4px;
+  opacity: 0;
+  animation: blink 500ms linear;
+  animation-iteration-count: 3;
+}
 </style>
