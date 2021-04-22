@@ -149,9 +149,14 @@ export default Vue.extend({
 
 <style lang="scss">
 .launchpad-items {
+  --repeat: auto-fit;
+  @media (min-width: calc(180px * 10)) {
+    --repeat: 10;
+  }
+
   display: grid;
   // has to match the button width
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(var(--repeat, auto-fill), minmax(150px, 1fr));
   // 4 keyboard rows
   grid-template-rows: repeat(4, 1fr);
   grid-gap: 8px;
@@ -177,7 +182,7 @@ export default Vue.extend({
       .text {
         width: 100%;
         padding: 0 13px;
-        white-space: nowrap;
+        white-space: pre-wrap;
         overflow: hidden;
         text-overflow: ellipsis;
       }
