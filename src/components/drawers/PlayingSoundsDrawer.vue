@@ -22,8 +22,8 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { PlayingSound } from '@/types';
 import PlayingControl from '@/components/PlayingControl.vue';
+import { mapGetters } from 'vuex';
 
 export default Vue.extend({
   name: 'PlayingSoundsDrawer',
@@ -33,11 +33,7 @@ export default Vue.extend({
       sheet: false,
     };
   },
-  computed: {
-    currentPlaying(): PlayingSound[] {
-      return this.$store.getters.currentPlaying;
-    },
-  },
+  computed: mapGetters(['currentPlaying']),
   watch: {
     currentPlaying() {
       // the sheet needs to be disabled when the there are less than 2 sounds playing

@@ -94,8 +94,12 @@ export default Vue.extend({
       if (this.tab.id !== this.$store.getters.activeTabIndex) {
         return;
       }
-      // TODO: !settingsModal && !helpModal && !hotkeyModal
-      if (!this.$store.getters.appPassThroughDrawer && !this.$store.getters.searchModal) {
+      // TODO: !settingsModal && !helpModal
+      if (
+        !this.$store.getters.appPassThroughDrawer &&
+        !this.$store.getters.searchModal &&
+        !this.$store.getters.setHotkeyModal
+      ) {
         if (!event.ctrlKey && !event.shiftKey && !event.altKey) {
           if (event.code === 'ArrowLeft') {
             if (this.page > 1) {

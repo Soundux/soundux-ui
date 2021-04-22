@@ -28,13 +28,14 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import { mapGetters } from 'vuex';
 
 export default Vue.extend({
   name: 'SetHotkeyModal',
   computed: {
-    sound() {
-      return this.$store.getters.setHotkeySound;
-    },
+    ...mapGetters({
+      sound: 'setHotkeySound',
+    }),
     setHotkeyModal: {
       get(): boolean {
         return this.$store.getters.setHotkeyModal;
