@@ -90,7 +90,8 @@
   },
   "appPassThrough": {
     "title": "App pass through",
-    "noAppsFound": "No apps found"
+    "noAppsFound": "No apps found",
+    "noOutputSelected": "You must have selected an output application"
   },
   "search": {
     "typeToSearch": "Type to search",

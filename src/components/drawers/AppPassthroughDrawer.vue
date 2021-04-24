@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer v-model="appPassThroughDrawer" fixed left temporary width="auto">
+  <v-navigation-drawer v-model="appPassThroughDrawer" fixed left temporary width="300px">
     <v-toolbar dark color="primary">
       <v-toolbar-title class="text-subtitle-1">
         <v-icon left>mdi-cable-data</v-icon>
@@ -11,7 +11,15 @@
         </v-btn>
       </v-toolbar-items>
     </v-toolbar>
-    <v-list v-if="$store.getters.playbackApps.length > 0" nav dense>
+    <template v-if="!$store.getters.selectedOutput && !$store.getters.settings.useAsDefaultDevice">
+      <v-row class="mx-5 mt-6" justify="center">
+        <v-img src="../../assets/undraw_dropdown_menu_vv9j.svg" width="232" contain></v-img>
+      </v-row>
+      <div class="mx-3 mt-5 text-wrap text-center">
+        <span>{{ $t('appPassThrough.noOutputSelected') }}</span>
+      </div>
+    </template>
+    <v-list v-else-if="$store.getters.playbackApps.length > 0" nav dense>
       <v-list-item
         v-for="(playbackApp, index) in $store.getters.playbackApps"
         :key="index"

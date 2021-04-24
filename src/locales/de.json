@@ -90,7 +90,8 @@
   },
   "appPassThrough": {
     "title": "App durchreichen",
-    "noAppsFound": "Keine Apps gefunden"
+    "noAppsFound": "Keine Apps gefunden",
+    "noOutputSelected": "Sie müssen eine Ausgabe-Anwendung gewählt haben"
   },
   "search": {
     "typeToSearch": "Tippe zum suchen",
