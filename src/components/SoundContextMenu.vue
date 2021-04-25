@@ -13,6 +13,15 @@
           {{ $t('hotkeys.title') }}
         </v-list-item-title>
       </v-list-item>
+      <v-list-item
+        v-if="$store.getters.settings.gridView || $store.getters.settings.launchPadMode"
+        @click="$store.dispatch('toggleFavorite', sound)"
+      >
+        <v-list-item-title>
+          <v-icon left :color="sound.isFavorite ? 'red' : ''">mdi-heart</v-icon>
+          {{ $t('favorites.favorite') }}
+        </v-list-item-title>
+      </v-list-item>
     </v-list>
   </v-menu>
 </template>

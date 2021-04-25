@@ -11,7 +11,7 @@
         @start="startDrag"
         @end="stopDrag"
       >
-        <v-tab v-for="(tab, index) in $store.getters.tabs" :key="index">
+        <v-tab v-for="(tab, index) in $store.getters.tabs" :key="index" :disabled="showFavorites">
           {{ tab.name }}
           <v-icon
             right
@@ -26,13 +26,32 @@
       </draggable>
     </v-tabs>
 
-    <v-tabs-items :value="$store.getters.activeTabIndex">
-      <v-tab-item v-for="(tab, index) in $store.getters.tabs" :key="index">
-        <LaunchpadView v-if="$store.getters.settings.launchPadMode" :tab="tab"></LaunchpadView>
-        <GridView v-else-if="$store.getters.settings.gridView" :tab="tab"></GridView>
-        <ListView v-else :tab="tab"></ListView>
-      </v-tab-item>
-    </v-tabs-items>
+    <div :class="{ 'd-none': showFavorites }">
+      <v-tabs-items :value="$store.getters.activeTabIndex">
+        <v-tab-item v-for="(tab, index) in $store.getters.tabs" :key="index">
+          <LaunchpadView v-if="$store.getters.settings.launchPadMode" :tab="tab"></LaunchpadView>
+          <GridView v-else-if="$store.getters.settings.gridView" :tab="tab"></GridView>
+          <ListView v-else :tab="tab"></ListView>
+        </v-tab-item>
+      </v-tabs-items>
+    </div>
+
+    <div :class="[{ 'd-none': !showFavorites }, 'theme--dark', 'v-tabs-items']">
+      <template v-if="favorites.sounds.length > 0">
+        <LaunchpadView v-if="$store.getters.settings.launchPadMode" :tab="favorites"></LaunchpadView>
+        <GridView v-else-if="$store.getters.settings.gridView" :tab="favorites"></GridView>
+        <ListView v-else :tab="favorites"></ListView>
+      </template>
+      <template v-else>
+        <v-card style="height: calc(100vh - 283px)">
+          <v-card-title>{{ $t('favorites.nothingToShow') }}</v-card-title>
+          <v-card-text>
+            {{ $t('favorites.noFavorites') }}
+            <v-img src="../assets/undraw_Loving_it_re_jfh4.svg" height="150" contain></v-img>
+          </v-card-text>
+        </v-card>
+      </template>
+    </div>
   </div>
 </template>
 
@@ -43,6 +62,7 @@ import draggable from 'vuedraggable';
 import GridView from '@/components/views/GridView.vue';
 import ListView from '@/components/views/ListView.vue';
 import LaunchpadView from '@/components/views/LaunchpadView.vue';
+import { mapGetters } from 'vuex';
 
 export default Vue.extend({
   name: 'SoundTabs',
@@ -78,6 +98,17 @@ export default Vue.extend({
       },
       set(newIndex: number) {
         this.$store.dispatch('setActiveTabIndex', newIndex);
+      },
+    },
+    ...mapGetters({
+      favorites: 'favoritesTab',
+    }),
+    showFavorites: {
+      get(): boolean {
+        return this.$store.getters.showFavorites;
+      },
+      set(newValue: boolean) {
+        this.$store.dispatch('setShowFavorites', newValue);
       },
     },
   },

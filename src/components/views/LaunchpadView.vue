@@ -129,7 +129,6 @@ export default Vue.extend({
               keys.push(`Key${key}`);
             }
           }
-          console.log('code', event.code);
 
           keys.forEach((keyCode, index) => {
             if (event.code === keyCode) {

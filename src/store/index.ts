@@ -14,6 +14,8 @@ export default new Vuex.Store({
     setHotkeySound: null as Sound | null,
     appPassThroughDrawer: false,
     tabs: [] as Tab[],
+    favorites: [] as number[],
+    showFavorites: false,
     outputs: [] as Output[],
     selectedOutput: null as Output | null,
     playbackApps: [] as Output[],
@@ -47,6 +49,16 @@ export default new Vuex.Store({
     systemInfoModal: state => state.systemInfoModal,
     appPassThroughDrawer: state => state.appPassThroughDrawer,
     tabs: state => state.tabs,
+    favoritesTab: state => {
+      const sounds = state.tabs
+        .map(({ sounds }) => sounds)
+        .reduce((acc, e) => acc.concat(e), [])
+        .filter(({ id }) => state.favorites.includes(id));
+      const tab: Tab = { id: -1, name: 'Favorites', sounds };
+      sortTab(tab, state.settings.sortMode);
+      return tab;
+    },
+    showFavorites: state => state.showFavorites,
     activeTabIndex: state => state.settings.selectedTab,
     outputs: state => state.outputs,
     selectedOutput: state => state.selectedOutput,
@@ -91,6 +103,7 @@ export default new Vuex.Store({
     },
     addTab: (state, tab: Tab) => state.tabs.push(tab),
     setTabs: (state, tabs: Tab[]) => (state.tabs = tabs),
+    setShowFavorites: (state, newState: boolean) => (state.showFavorites = newState),
     setTabSounds: (_state, { tab, sounds }: { tab: Tab; sounds: Sound[] }) => (tab.sounds = sounds),
     setActiveTabIndex: (state, index: number) => (state.settings.selectedTab = index),
     setOutputs: (state, outputs: Output[]) => (state.outputs = outputs),
@@ -117,6 +130,18 @@ export default new Vuex.Store({
       if (repeat !== undefined) {
         playing.repeat = repeat;
       }
+    },
+    toggleFavorite: (state, sound: Sound) => {
+      const inTabs = state.tabs
+        .map(({ sounds }) => sounds)
+        .reduce((acc, e) => acc.concat(e), [])
+        .find(({ id }) => id === sound.id);
+      if (inTabs) {
+        inTabs.isFavorite = !inTabs.isFavorite;
+      }
+    },
+    setFavorites: (state, favorites: number[]) => {
+      state.favorites = favorites;
     },
     addToCurrentlyPlaying: (state, playing: Playing) => state.currentPlaying.push(playing),
     clearCurrentlyPlaying: state => (state.currentPlaying = []),
@@ -285,6 +310,41 @@ export default new Vuex.Store({
       if (refreshedTab) {
         sortTab(refreshedTab, getters.settings.sortMode);
         commit('setTabSounds', { tab, sounds: refreshedTab.sounds });
+      }
+    },
+
+    /**
+     * Update favorites from the backend
+     */
+    async getFavorites({ commit }): Promise<void> {
+      const favorites = (await window.getFavorites()) || [];
+      commit(
+        'setFavorites',
+        // TODO: remove when backend sends ids
+        favorites.map(({ id }) => id)
+      );
+    },
+
+    /**
+     * Toggle favorites view
+     */
+    async setShowFavorites({ commit }, state: boolean) {
+      commit('setShowFavorites', state);
+      await window.isOnFavorites(state);
+    },
+
+    /**
+     * Mark a sound as favorite via the backend
+     */
+    async toggleFavorite({ commit }, sound: Sound) {
+      commit('toggleFavorite', sound);
+      const favorites = await window.markFavorite(sound.id, sound.isFavorite);
+      if (favorites) {
+        commit(
+          'setFavorites',
+          // TODO: remove when backend sends ids
+          favorites.map(({ id }) => id)
+        );
       }
     },
 

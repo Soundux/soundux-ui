@@ -23,6 +23,19 @@
                     icon
                     v-bind="attrs"
                     v-on="on"
+                    @click.stop="$store.dispatch('toggleFavorite', sound)"
+                  >
+                    <v-icon :color="sound.isFavorite ? 'red' : ''">mdi-heart</v-icon>
+                  </v-btn>
+                </template>
+                <span>{{ $t('favorites.favorite') }}</span>
+              </v-tooltip>
+              <v-tooltip top>
+                <template #activator="{ on, attrs }">
+                  <v-btn
+                    icon
+                    v-bind="attrs"
+                    v-on="on"
                     @click.stop="$store.commit('setSetHotkeySound', sound)"
                   >
                     <v-icon>mdi-keyboard</v-icon>

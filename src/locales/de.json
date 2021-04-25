@@ -14,6 +14,12 @@
     "play": "Abspielen",
     "appPassThrough": "Durchreichen"
   },
+  "favorites": {
+    "title": "Favoriten",
+    "favorite": "Favorit",
+    "nothingToShow": "Nichts gefunden",
+    "noFavorites": "Sie haben derzeit keine Favoriten. Favorisieren Sie ein paar Sounds, um sie hier anzuzeigen"
+  },
   "settings": {
     "title": "Einstellungen",
     "tabHotkeysOnly": "Hotkeys nur für aktuellen Tab",

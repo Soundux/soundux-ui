@@ -49,6 +49,8 @@ declare global {
     getSystemInfo: () => Promise<string | null>;
     getTabs: () => Promise<Tab[] | null>;
     getFavorites: () => Promise<Sound[] | null>;
+    markFavorite: (id: number, favorite: boolean) => Promise<Sound[] | null>;
+    isOnFavorites: (state: boolean) => Promise<void>;
     isYoutubeDLAvailable: () => Promise<boolean | null>;
     getYoutubeDLInfo: (input: string) => Promise<YoutubeDlInfo | null>;
     startYoutubeDLDownload: (input: string) => Promise<boolean | null>;

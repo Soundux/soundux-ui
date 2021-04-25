@@ -76,6 +76,20 @@
         </v-list-item-group>
       </v-list>
     </v-menu>
+    <v-btn
+      :color="
+        $store.getters.showFavorites
+          ? 'primary'
+          : $vuetify.theme.dark
+          ? 'grey darken-3'
+          : 'grey lighten-1'
+      "
+      class="mb-2"
+      @click="$store.commit('setShowFavorites', !$store.getters.showFavorites)"
+    >
+      <v-icon left>mdi-heart</v-icon>
+      {{ $t('favorites.title') }}
+    </v-btn>
     <v-spacer></v-spacer>
     <v-btn
       v-if="$store.getters.isLinux"

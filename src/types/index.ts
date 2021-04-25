@@ -6,6 +6,7 @@ export interface Sound {
   hotkeys: number[];
   animationEvent?: (event: AnimationEvent) => void;
   hotkeySequence: string;
+  isFavorite: boolean;
 }
 
 export interface Thumbnail {
