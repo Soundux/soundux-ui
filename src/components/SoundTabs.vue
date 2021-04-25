@@ -26,17 +26,7 @@
       </draggable>
     </v-tabs>
 
-    <div :class="{ 'd-none': showFavorites }">
-      <v-tabs-items :value="$store.getters.activeTabIndex">
-        <v-tab-item v-for="(tab, index) in $store.getters.tabs" :key="index">
-          <LaunchpadView v-if="$store.getters.settings.launchPadMode" :tab="tab"></LaunchpadView>
-          <GridView v-else-if="$store.getters.settings.gridView" :tab="tab"></GridView>
-          <ListView v-else :tab="tab"></ListView>
-        </v-tab-item>
-      </v-tabs-items>
-    </div>
-
-    <div :class="[{ 'd-none': !showFavorites }, 'theme--dark', 'v-tabs-items']">
+    <div v-if="showFavorites" class="theme--dark v-tabs-items">
       <template v-if="favorites.sounds.length > 0">
         <LaunchpadView v-if="$store.getters.settings.launchPadMode" :tab="favorites"></LaunchpadView>
         <GridView v-else-if="$store.getters.settings.gridView" :tab="favorites"></GridView>
@@ -51,6 +41,16 @@
           </v-card-text>
         </v-card>
       </template>
+    </div>
+
+    <div v-else>
+      <v-tabs-items :value="$store.getters.activeTabIndex">
+        <v-tab-item v-for="(tab, index) in $store.getters.tabs" :key="index">
+          <LaunchpadView v-if="$store.getters.settings.launchPadMode" :tab="tab"></LaunchpadView>
+          <GridView v-else-if="$store.getters.settings.gridView" :tab="tab"></GridView>
+          <ListView v-else :tab="tab"></ListView>
+        </v-tab-item>
+      </v-tabs-items>
     </div>
   </div>
 </template>
@@ -147,4 +147,8 @@ export default Vue.extend({
 .v-tab {
   cursor: default !important;
 }
+
+/*.v-tabs-slider {
+  display: none !important;
+}*/
 </style>

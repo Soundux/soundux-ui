@@ -91,7 +91,11 @@ export default Vue.extend({
     },
     keyDownHandler(event: KeyboardEvent): void {
       // only when the tab is active
-      if (this.tab.id !== this.$store.getters.activeTabIndex) {
+      if (this.$store.getters.showFavorites) {
+        if (this.tab.id !== -1) {
+          return;
+        }
+      } else if (this.tab.id !== this.$store.getters.activeTabIndex) {
         return;
       }
       // TODO: !settingsModal && !helpModal
