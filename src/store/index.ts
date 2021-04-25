@@ -318,11 +318,7 @@ export default new Vuex.Store({
      */
     async getFavorites({ commit }): Promise<void> {
       const favorites = (await window.getFavorites()) || [];
-      commit(
-        'setFavorites',
-        // TODO: remove when backend sends ids
-        favorites.map(({ id }) => id)
-      );
+      commit('setFavorites', favorites);
     },
 
     /**
@@ -340,11 +336,7 @@ export default new Vuex.Store({
       commit('toggleFavorite', sound);
       const favorites = await window.markFavorite(sound.id, sound.isFavorite);
       if (favorites) {
-        commit(
-          'setFavorites',
-          // TODO: remove when backend sends ids
-          favorites.map(({ id }) => id)
-        );
+        commit('setFavorites', favorites);
       }
     },
 
