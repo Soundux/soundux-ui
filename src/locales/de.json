@@ -20,11 +20,14 @@
     "confirmation": "Bestätigung",
     "question": "Möchten Sie den Tab {tabName} entfernen?"
   },
+  "empty": {
+    "nothingToShow": "Nichts gefunden",
+    "noSounds": "Keine kompatiblen Sounds im Ordner {path} gefunden. Unterstützte Dateiformate sind mp3, wav, flac",
+    "noFavorites": "Sie haben derzeit keine Favoriten. Favorisieren Sie ein paar Sounds, um sie hier anzuzeigen"
+  },
   "favorites": {
     "title": "Favoriten",
-    "favorite": "Favorit",
-    "nothingToShow": "Nichts gefunden",
-    "noFavorites": "Sie haben derzeit keine Favoriten. Favorisieren Sie ein paar Sounds, um sie hier anzuzeigen"
+    "favorite": "Favorit"
   },
   "settings": {
     "title": "Einstellungen",

@@ -53,6 +53,7 @@ export default new Vuex.Store({
     tabToRemove: state => state.tabToRemove,
     appPassThroughDrawer: state => state.appPassThroughDrawer,
     tabs: state => state.tabs,
+    currentTab: state => state.tabs[state.settings.selectedTab],
     favoritesTab: state => {
       const sounds = state.tabs
         .map(({ sounds }) => sounds)

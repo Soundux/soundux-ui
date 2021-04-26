@@ -20,11 +20,14 @@
     "confirmation": "Confirmation",
     "question": "Would you like to remove the tab {tabName}?"
   },
+  "empty": {
+    "nothingToShow": "Nothing to show",
+    "noSounds": "No compatible sounds found in the folder {path}. Supported file formats are mp3, wav, flac",
+    "noFavorites": "You currently have no favorites. Favor some sounds to display them here"
+  },
   "favorites": {
     "title": "Favorites",
-    "favorite": "Favorite",
-    "nothingToShow": "Nothing to show",
-    "noFavorites": "You currently have no favorites. Favor some sounds to display them here"
+    "favorite": "Favorite"
   },
   "settings": {
     "title": "Settings",

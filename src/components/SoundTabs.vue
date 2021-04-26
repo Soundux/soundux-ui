@@ -27,26 +27,17 @@
     </v-tabs>
 
     <div v-if="showFavorites" class="theme--dark v-tabs-items">
-      <template v-if="favorites.sounds.length > 0">
-        <LaunchpadView v-if="$store.getters.settings.launchPadMode" :tab="favorites"></LaunchpadView>
-        <GridView v-else-if="$store.getters.settings.gridView" :tab="favorites"></GridView>
-        <ListView v-else :tab="favorites"></ListView>
-      </template>
-      <template v-else>
-        <v-card style="height: calc(100vh - 283px)">
-          <v-card-title>{{ $t('favorites.nothingToShow') }}</v-card-title>
-          <v-card-text>
-            {{ $t('favorites.noFavorites') }}
-            <v-img src="../assets/undraw_Loving_it_re_jfh4.svg" height="150" contain></v-img>
-          </v-card-text>
-        </v-card>
-      </template>
+      <NoFavoritesCard v-if="favorites.sounds.length === 0"></NoFavoritesCard>
+      <LaunchpadView v-else-if="$store.getters.settings.launchPadMode" :tab="favorites"></LaunchpadView>
+      <GridView v-else-if="$store.getters.settings.gridView" :tab="favorites"></GridView>
+      <ListView v-else :tab="favorites"></ListView>
     </div>
 
     <div v-else>
       <v-tabs-items :value="$store.getters.activeTabIndex">
         <v-tab-item v-for="(tab, index) in $store.getters.tabs" :key="index">
-          <LaunchpadView v-if="$store.getters.settings.launchPadMode" :tab="tab"></LaunchpadView>
+          <NoSoundsCard v-if="tab.sounds.length === 0"></NoSoundsCard>
+          <LaunchpadView v-else-if="$store.getters.settings.launchPadMode" :tab="tab"></LaunchpadView>
           <GridView v-else-if="$store.getters.settings.gridView" :tab="tab"></GridView>
           <ListView v-else :tab="tab"></ListView>
         </v-tab-item>
@@ -63,6 +54,8 @@ import GridView from '@/components/views/GridView.vue';
 import ListView from '@/components/views/ListView.vue';
 import LaunchpadView from '@/components/views/LaunchpadView.vue';
 import { mapGetters } from 'vuex';
+import NoSoundsCard from '@/components/NoSoundsCard.vue';
+import NoFavoritesCard from '@/components/NoFavoritesCard.vue';
 
 export default Vue.extend({
   name: 'SoundTabs',
@@ -78,6 +71,8 @@ export default Vue.extend({
     document.removeEventListener('keydown', this.keyDownHandler);
   },
   components: {
+    NoFavoritesCard,
+    NoSoundsCard,
     LaunchpadView,
     ListView,
     GridView,
@@ -115,7 +110,7 @@ export default Vue.extend({
   methods: {
     startDrag(): void {
       // save for stopDrag
-      this.beforeDragActive = this.$store.getters.tabs[this.$store.getters.activeTabIndex];
+      this.beforeDragActive = this.$store.getters.currentTab;
     },
     stopDrag(): void {
       // after dragging, the active tab index must be updated, as only the order in the tabs array is changed
