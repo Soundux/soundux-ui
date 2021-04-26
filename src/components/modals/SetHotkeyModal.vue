@@ -40,7 +40,7 @@ export default Vue.extend({
       get(): boolean {
         return this.$store.getters.setHotkeyModal;
       },
-      set(state: boolean): void {
+      set(state: boolean) {
         this.$store.commit('setSetHotkeyModal', state);
       },
     },
@@ -74,7 +74,7 @@ export default Vue.extend({
     },
   },
   methods: {
-    reset(): void {
+    reset() {
       this.$store.commit('setHotkeySequence', { sound: this.sound, hotkeySequence: '' });
       this.$store.dispatch('setHotkeys', { sound: this.sound, hotkeys: [] });
     },
