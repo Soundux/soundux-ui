@@ -67,6 +67,7 @@
             {{ $t('downloader.cancelDownload') }}
           </v-btn>
           <v-btn v-else text color="primary" @click="downloaderModal = false">
+            <v-icon left>mdi-close</v-icon>
             {{ $t('downloader.close') }}
           </v-btn>
           <v-btn color="primary" :disabled="!inputText || loading || !info" @click="submit">
