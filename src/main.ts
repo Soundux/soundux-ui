@@ -9,7 +9,7 @@ import Toast from 'vue-toastification';
 import 'vue-toastification/dist/index.css';
 import dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
-import { Output, PlayingSound, Settings, Sound, Tab, UpdateData, YoutubeDlInfo } from '@/types';
+import { Output, PlayingSound, Settings, Tab, UpdateData, YoutubeDlInfo } from '@/types';
 
 declare global {
   interface Window {
@@ -48,8 +48,8 @@ declare global {
     requestHotkey: (state: boolean) => Promise<void>;
     getSystemInfo: () => Promise<string | null>;
     getTabs: () => Promise<Tab[] | null>;
-    getFavorites: () => Promise<Sound[] | null>;
-    markFavorite: (id: number, favorite: boolean) => Promise<Sound[] | null>;
+    getFavorites: () => Promise<number[] | null>;
+    markFavorite: (id: number, favorite: boolean) => Promise<number[] | null>;
     isOnFavorites: (state: boolean) => Promise<void>;
     isYoutubeDLAvailable: () => Promise<boolean | null>;
     getYoutubeDLInfo: (input: string) => Promise<YoutubeDlInfo | null>;
