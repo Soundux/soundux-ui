@@ -106,12 +106,13 @@
   </div>
 </template>
 
-<script>
-import SettingsModal from '@/components/modals/SettingsModal';
-import HelpModal from '@/components/modals/HelpModal';
-import DownloaderModal from '@/components/modals/DownloaderModal';
-import SystemInfoModal from '@/components/modals/SystemInfoModal';
-export default {
+<script lang="ts">
+import Vue from 'vue';
+import SettingsModal from '@/components/modals/SettingsModal.vue';
+import HelpModal from '@/components/modals/HelpModal.vue';
+import DownloaderModal from '@/components/modals/DownloaderModal.vue';
+import SystemInfoModal from '@/components/modals/SystemInfoModal.vue';
+export default Vue.extend({
   name: 'SideButtons',
   components: {
     SystemInfoModal,
@@ -119,5 +120,5 @@ export default {
     HelpModal,
     SettingsModal,
   },
-};
+});
 </script>
