@@ -38,6 +38,12 @@
               prepend-icon="mdi-surround-sound"
             ></v-checkbox>
             <v-checkbox
+              v-model="deleteToTrash"
+              :label="$t('settings.deleteToTrash')"
+              hide-details
+              prepend-icon="mdi-delete-outline"
+            ></v-checkbox>
+            <v-checkbox
               v-model="gridView"
               :label="$t('settings.gridView')"
               hide-details
@@ -70,6 +76,7 @@
               hide-details
               prepend-icon="mdi-brightness-4"
             ></v-checkbox>
+            <div></div>
             <v-text-field
               v-model="stopHotkey"
               id="stopHotkeyField"
@@ -155,6 +162,15 @@ export default Vue.extend({
       },
       set(state: boolean) {
         this.$store.commit('setAllowOverlapping', state);
+        this.$store.dispatch('saveSettings');
+      },
+    },
+    deleteToTrash: {
+      get(): boolean {
+        return this.$store.getters.settings.deleteToTrash;
+      },
+      set(state: boolean) {
+        this.$store.commit('setDeleteToTrash', state);
         this.$store.dispatch('saveSettings');
       },
     },

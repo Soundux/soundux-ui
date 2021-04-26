@@ -14,11 +14,15 @@
     "play": "Abspielen",
     "appPassThrough": "Durchreichen",
     "yes": "Ja",
-    "no": "Nein"
+    "no": "Nein",
+    "confirmation": "Bestätigung"
   },
   "removeTab": {
-    "confirmation": "Bestätigung",
     "question": "Möchten Sie den Tab {tabName} entfernen?"
+  },
+  "deleteSound": {
+    "delete": "Löschen",
+    "question": "Möchten Sie den Sound {soundName} löschen?"
   },
   "empty": {
     "nothingToShow": "Nichts gefunden",
@@ -34,6 +38,7 @@
     "tabHotkeysOnly": "Hotkeys nur für aktuellen Tab",
     "launchpadMode": "Emuliertes Launchpad",
     "allowOverlapping": "Tonüberlappung zulassen",
+    "deleteToTrash": "In den Papierkorb löschen",
     "gridView": "Rasteransicht",
     "minimizeToTray": "In den Systemtray minimieren",
     "useAsDefaultDevice": "Als Standardgerät verwenden",

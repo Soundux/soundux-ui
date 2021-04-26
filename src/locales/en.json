@@ -14,11 +14,15 @@
     "play": "Play",
     "appPassThrough": "Pass through",
     "yes": "Yes",
-    "no": "No"
+    "no": "No",
+    "confirmation": "Confirmation"
   },
   "removeTab": {
-    "confirmation": "Confirmation",
     "question": "Would you like to remove the tab {tabName}?"
+  },
+  "deleteSound": {
+    "delete": "Delete",
+    "question": "Would you like to delete the sound {soundName}?"
   },
   "empty": {
     "nothingToShow": "Nothing to show",
@@ -34,6 +38,7 @@
     "tabHotkeysOnly": "Hotkeys only for current tab",
     "launchpadMode": "Emulated Launchpad",
     "allowOverlapping": "Allow sound overlapping",
+    "deleteToTrash": "Delete to trash",
     "gridView": "Grid view",
     "minimizeToTray": "Minimize to system tray",
     "useAsDefaultDevice": "Use as default device",

@@ -63,6 +63,7 @@ export interface Settings {
   output: string;
   selectedTab: number;
   allowOverlapping: boolean;
+  deleteToTrash: boolean;
   darkTheme: boolean;
   stopHotkey: number[];
   pushToTalkKeys: number[];

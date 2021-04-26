@@ -6,6 +6,7 @@
       <SearchModal></SearchModal>
       <SetHotkeyModal></SetHotkeyModal>
       <RemoveTabModal></RemoveTabModal>
+      <DeleteSoundModal></DeleteSoundModal>
       <SwitchOnConnectModal v-if="$store.getters.isLinux"></SwitchOnConnectModal>
       <v-container fluid>
         <v-row dense no-gutters class="flex-nowrap">
@@ -80,9 +81,11 @@ import SideButtons from '@/components/SideButtons.vue';
 import SetHotkeyModal from '@/components/modals/SetHotkeyModal.vue';
 import SearchModal from '@/components/modals/SearchModal.vue';
 import RemoveTabModal from '@/components/modals/RemoveTabModal.vue';
+import DeleteSoundModal from '@/components/modals/DeleteSoundModal.vue';
 
 export default Vue.extend({
   components: {
+    DeleteSoundModal,
     RemoveTabModal,
     SearchModal,
     SetHotkeyModal,

@@ -1,15 +1,15 @@
 <template>
   <v-dialog v-model="modal" max-width="600px">
-    <v-card v-if="tab">
+    <v-card v-if="sound">
       <v-card-title>{{ $t('actions.confirmation') }}</v-card-title>
       <v-card-text>
-        <i18n path="removeTab.question">
-          <code slot="tabName">{{ tab.name }}</code>
+        <i18n path="deleteSound.question">
+          <code slot="soundName">{{ sound.name }}</code>
         </i18n>
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn color="red" @click="$store.dispatch('removeTab', tab)">
+        <v-btn color="red" @click="$store.dispatch('deleteSound', sound)">
           <v-icon left>mdi-delete-alert</v-icon>
           {{ $t('actions.yes') }}
         </v-btn>
@@ -24,25 +24,25 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { Tab } from '@/types';
+import { Sound } from '@/types';
 
 export default Vue.extend({
-  name: 'RemoveTabModal',
+  name: 'DeleteSoundModal',
   computed: {
-    tab: {
-      get(): Tab | null {
-        return this.$store.getters.tabToRemove;
+    sound: {
+      get(): Sound | null {
+        return this.$store.getters.soundToDelete;
       },
-      set(tab: Tab | null) {
-        this.$store.commit('setTabToRemove', tab);
+      set(sound: Sound | null) {
+        this.$store.commit('setSoundToDelete', sound);
       },
     },
     modal: {
       get(): boolean {
-        return this.$store.getters.removeTabModal;
+        return this.$store.getters.deleteSoundModal;
       },
       set(state: boolean) {
-        this.$store.commit('setRemoveTabModal', state);
+        this.$store.commit('setDeleteSoundModal', state);
       },
     },
   },

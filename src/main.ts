@@ -40,6 +40,7 @@ declare global {
     seekSound: (id: number, newValue: number) => Promise<PlayingSound | null>;
     repeatSound: (id: number, state: boolean) => Promise<PlayingSound | null>;
     stopSound: (id: number) => Promise<boolean | null>;
+    deleteSound: (id: number) => Promise<boolean | null>;
     refreshTab: (activeTabIndex: number) => Promise<Tab | null>;
     removeTab: (deleteIndex: number) => Promise<Tab[] | null>;
     addTab: () => Promise<Tab | null>;

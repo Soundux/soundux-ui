@@ -13,6 +13,8 @@ export default new Vuex.Store({
     setHotkeyModal: false,
     removeTabModal: false,
     tabToRemove: null as Tab | null,
+    deleteSoundModal: false,
+    soundToDelete: null as Sound | null,
     setHotkeySound: null as Sound | null,
     appPassThroughDrawer: false,
     tabs: [] as Tab[],
@@ -30,6 +32,7 @@ export default new Vuex.Store({
       output: '',
       selectedTab: 0,
       allowOverlapping: true,
+      deleteToTrash: true,
       darkTheme: true,
       stopHotkey: [] as number[],
       pushToTalkKeys: [] as number[],
@@ -51,6 +54,8 @@ export default new Vuex.Store({
     systemInfoModal: state => state.systemInfoModal,
     removeTabModal: state => state.removeTabModal,
     tabToRemove: state => state.tabToRemove,
+    deleteSoundModal: state => state.deleteSoundModal,
+    soundToDelete: state => state.soundToDelete,
     appPassThroughDrawer: state => state.appPassThroughDrawer,
     tabs: state => state.tabs,
     currentTab: state => state.tabs[state.settings.selectedTab],
@@ -106,6 +111,12 @@ export default new Vuex.Store({
       state.tabToRemove = tab;
       // show modal when tab is present
       state.removeTabModal = !!tab;
+    },
+    setDeleteSoundModal: (state, newState: boolean) => (state.deleteSoundModal = newState),
+    setSoundToDelete: (state, sound: Sound | null) => {
+      state.soundToDelete = sound;
+      // show modal when sound is present
+      state.deleteSoundModal = !!sound;
     },
     setAppPassThroughDrawer: (state, newState: boolean) => {
       if (!state.searchModal) {
@@ -177,6 +188,9 @@ export default new Vuex.Store({
         state.currentPlaying.splice(state.currentPlaying.indexOf(realSound), 1);
       }
     },
+    deleteSound: (state, sound: Sound) => {
+      state.tabs.forEach(tab => tab.sounds.splice(tab.sounds.indexOf(sound), 1));
+    },
     setSettings: (state, value: Settings) => {
       state.settings = value;
       Vuetify.framework.theme.dark = value.darkTheme;
@@ -186,6 +200,7 @@ export default new Vuex.Store({
     setTabHotkeysOnly: (state, value: boolean) => (state.settings.tabHotkeysOnly = value),
     setLaunchpadMode: (state, value: boolean) => (state.settings.launchPadMode = value),
     setAllowOverlapping: (state, value: boolean) => (state.settings.allowOverlapping = value),
+    setDeleteToTrash: (state, value: boolean) => (state.settings.deleteToTrash = value),
     setGridView: (state, value: boolean) => (state.settings.gridView = value),
     setMinimizeToTray: (state, value: boolean) => (state.settings.minimizeToTray = value),
     setUseAsDefaultDevice: (state, value: boolean) => (state.settings.useAsDefaultDevice = value),
@@ -361,6 +376,18 @@ export default new Vuex.Store({
       const playingSound = await window.playSound(sound.id);
       if (playingSound) {
         commit('addToCurrentlyPlaying', playingSound);
+      }
+    },
+
+    /**
+     * Delete a sound via the backend
+     */
+    async deleteSound({ commit }, sound: Sound) {
+      const deleted = await window.deleteSound(sound.id);
+      if (deleted) {
+        commit('deleteSound', sound);
+        // hide the confirmation modal
+        commit('setDeleteSoundModal', false);
       }
     },
 

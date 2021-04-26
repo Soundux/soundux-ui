@@ -22,6 +22,12 @@
           {{ $t('favorites.favorite') }}
         </v-list-item-title>
       </v-list-item>
+      <v-list-item @click="$store.commit('setSoundToDelete', sound)">
+        <v-list-item-title>
+          <v-icon left dark>mdi-delete-circle-outline</v-icon>
+          {{ $t('deleteSound.delete') }}…
+        </v-list-item-title>
+      </v-list-item>
     </v-list>
   </v-menu>
 </template>
