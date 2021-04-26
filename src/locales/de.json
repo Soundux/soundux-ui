@@ -126,7 +126,7 @@
     "title": "Downloader",
     "notAvailable": "{youtube-dl} und/oder {ffmpeg} sind nicht installiert",
     "installNow": "Jetzt installieren",
-    "placeholder": "Gebe einen Link ein",
+    "placeholder": "Geben Sie einen Link ein",
     "progress": "Fortschritt",
     "converting": "Konvertiere...",
     "eta": "ETA",
