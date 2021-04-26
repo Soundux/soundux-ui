@@ -12,7 +12,13 @@
     "addTab": "Add tab",
     "reloadSounds": "Reload",
     "play": "Play",
-    "appPassThrough": "Pass through"
+    "appPassThrough": "Pass through",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "removeTab": {
+    "confirmation": "Confirmation",
+    "question": "Would you like to remove the tab {tabName}?"
   },
   "favorites": {
     "title": "Favorites",
@@ -159,6 +165,7 @@
     "17": "Failed to parse youtube-dl JSON",
     "18": "youtube-dl supplied insufficient output",
     "19": "Unknown youtube-dl failure",
+    "20": "Failed to delete the file",
     "error": "Error",
     "backendFunctionMissing": "Backend function missing: {functionName}"
   }

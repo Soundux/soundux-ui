@@ -11,6 +11,8 @@ export default new Vuex.Store({
     searchModal: false,
     systemInfoModal: false,
     setHotkeyModal: false,
+    removeTabModal: false,
+    tabToRemove: null as Tab | null,
     setHotkeySound: null as Sound | null,
     appPassThroughDrawer: false,
     tabs: [] as Tab[],
@@ -47,6 +49,8 @@ export default new Vuex.Store({
     setHotkeyModal: state => state.setHotkeyModal,
     setHotkeySound: state => state.setHotkeySound,
     systemInfoModal: state => state.systemInfoModal,
+    removeTabModal: state => state.removeTabModal,
+    tabToRemove: state => state.tabToRemove,
     appPassThroughDrawer: state => state.appPassThroughDrawer,
     tabs: state => state.tabs,
     favoritesTab: state => {
@@ -96,6 +100,12 @@ export default new Vuex.Store({
       state.setHotkeyModal = !!sound;
     },
     setSystemInfoModal: (state, newState: boolean) => (state.systemInfoModal = newState),
+    setRemoveTabModal: (state, newState: boolean) => (state.removeTabModal = newState),
+    setTabToRemove: (state, tab: Tab | null) => {
+      state.tabToRemove = tab;
+      // show modal when tab is present
+      state.removeTabModal = !!tab;
+    },
     setAppPassThroughDrawer: (state, newState: boolean) => {
       if (!state.searchModal) {
         state.appPassThroughDrawer = newState;
@@ -272,17 +282,20 @@ export default new Vuex.Store({
     /**
      * Remove a tab via the backend
      */
-    async deleteTab({ state, getters, commit, dispatch }, tab: Tab) {
-      const deleteIndex = state.tabs.indexOf(tab);
+    async removeTab({ state, getters, commit, dispatch }, tab: Tab) {
+      const removeIndex = state.tabs.indexOf(tab);
 
-      const tabs = await window.removeTab(deleteIndex);
+      const tabs = await window.removeTab(removeIndex);
       if (tabs) {
         commit('setTabs', tabs);
 
-        // when deleting a tab to the left of the active one, the active index must be decreased by one
-        if (getters.activeTabIndex > deleteIndex) {
-          dispatch('setActiveTabIndex', getters.activeTabIndex - 1);
+        // when removing a tab to the left of the active one, the active index must be decreased by one
+        if (getters.activeTabIndex > removeIndex) {
+          await dispatch('setActiveTabIndex', getters.activeTabIndex - 1);
         }
+
+        // hide the confirmation modal
+        commit('setRemoveTabModal', false);
       }
     },
 

@@ -18,7 +18,7 @@
             small
             color="grey"
             style="cursor: pointer"
-            @click.stop="$store.dispatch('deleteTab', tab)"
+            @click.stop="$store.commit('setTabToRemove', tab)"
           >
             mdi-close-circle
           </v-icon>

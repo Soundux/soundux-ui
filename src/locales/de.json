@@ -12,7 +12,13 @@
     "addTab": "Tab hinzufügen",
     "reloadSounds": "Neu laden",
     "play": "Abspielen",
-    "appPassThrough": "Durchreichen"
+    "appPassThrough": "Durchreichen",
+    "yes": "Ja",
+    "no": "Nein"
+  },
+  "removeTab": {
+    "confirmation": "Bestätigung",
+    "question": "Möchten Sie den Tab {tabName} entfernen?"
   },
   "favorites": {
     "title": "Favoriten",
@@ -147,7 +153,7 @@
     "5": "Verschieben auf den Sink fehlgeschlagen",
     "6": "Sound nicht gefunden",
     "7": "Ordner existiert nicht",
-    "8": "Tab ist nicht vorhanden",
+    "8": "Tab existiert nicht",
     "9": "Hotkey konnte nicht gesetzt werden",
     "10": "Starten des durchreichen fehlgeschlagen",
     "11": "Zurückstellen fehlgeschlagen",
@@ -159,6 +165,7 @@
     "17": "Fehler beim Verarbeiten der youtube-dl JSON",
     "18": "youtube-dl Ausgabe war unzureichend",
     "19": "Unbekanntes youtube-dl Versagen",
+    "20": "Fehler beim Löschen der Datei",
     "error": "Fehler",
     "backendFunctionMissing": "Backend-Funktion fehlt: {functionName}"
   }
