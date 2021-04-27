@@ -36,14 +36,23 @@
   "settings": {
     "title": "Settings",
     "tabHotkeysOnly": "Hotkeys only for current tab",
-    "launchpadMode": "Emulated Launchpad",
+    "viewMode": {
+      "title": "View mode",
+      "listView": "List view",
+      "gridView": "Grid view",
+      "launchpadMode": "Emulated Launchpad"
+    },
     "allowOverlapping": "Allow sound overlapping",
     "deleteToTrash": "Delete to trash",
-    "gridView": "Grid view",
     "minimizeToTray": "Minimize to system tray",
     "useAsDefaultDevice": "Use as default device",
     "muteDuringPlayback": "Mute microphone during playback",
-    "darkTheme": "Dark theme",
+    "theme": {
+      "title": "Theme",
+      "system": "System",
+      "dark": "Dunkel",
+      "light": "Hell"
+    },
     "stopHotkey": "Stop hotkey",
     "pushToTalkKeys": "Push-to-talk keys"
   },

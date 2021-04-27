@@ -59,18 +59,29 @@ export enum SortMode {
   Alphabetical_Descending,
 }
 
+export enum Theme {
+  System,
+  Dark,
+  Light,
+}
+
+export enum ViewMode {
+  List,
+  Grid,
+  EmulatedLaunchpad,
+}
+
 export interface Settings {
   output: string;
   selectedTab: number;
   allowOverlapping: boolean;
   deleteToTrash: boolean;
-  darkTheme: boolean;
+  theme: Theme;
+  viewMode: ViewMode;
   stopHotkey: number[];
   pushToTalkKeys: number[];
   sortMode: SortMode;
   tabHotkeysOnly: boolean;
-  launchPadMode: boolean;
-  gridView: boolean;
   minimizeToTray: boolean;
   localVolume: number;
   remoteVolume: number;

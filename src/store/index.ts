@@ -1,7 +1,18 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import Vuetify from '@/plugins/vuetify';
-import { Output, Playing, PlayingSound, Settings, SortMode, Sound, Tab, UpdateData } from '@/types';
+import {
+  Output,
+  Playing,
+  PlayingSound,
+  Settings,
+  SortMode,
+  Sound,
+  Tab,
+  Theme,
+  UpdateData,
+  ViewMode,
+} from '@/types';
 import { sortTab } from '@/utils';
 
 Vue.use(Vuex);
@@ -33,13 +44,12 @@ export default new Vuex.Store({
       selectedTab: 0,
       allowOverlapping: true,
       deleteToTrash: true,
-      darkTheme: true,
+      theme: Theme.System,
+      viewMode: ViewMode.List,
       stopHotkey: [] as number[],
       pushToTalkKeys: [] as number[],
       sortMode: SortMode.ModifiedDate_Descending,
       tabHotkeysOnly: false,
-      launchPadMode: false,
-      gridView: false,
       minimizeToTray: false,
       localVolume: 0,
       remoteVolume: 0,
@@ -193,15 +203,24 @@ export default new Vuex.Store({
     },
     setSettings: (state, value: Settings) => {
       state.settings = value;
-      Vuetify.framework.theme.dark = value.darkTheme;
+      switch (value.theme) {
+        case Theme.System:
+          Vuetify.framework.theme.dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          break;
+        case Theme.Dark:
+          Vuetify.framework.theme.dark = true;
+          break;
+        case Theme.Light:
+          Vuetify.framework.theme.dark = false;
+          break;
+      }
     },
     setLocalVolume: (state, volume: number) => (state.settings.localVolume = volume),
     setRemoteVolume: (state, volume: number) => (state.settings.remoteVolume = volume),
     setTabHotkeysOnly: (state, value: boolean) => (state.settings.tabHotkeysOnly = value),
-    setLaunchpadMode: (state, value: boolean) => (state.settings.launchPadMode = value),
+    setViewMode: (state, value: ViewMode) => (state.settings.viewMode = value),
     setAllowOverlapping: (state, value: boolean) => (state.settings.allowOverlapping = value),
     setDeleteToTrash: (state, value: boolean) => (state.settings.deleteToTrash = value),
-    setGridView: (state, value: boolean) => (state.settings.gridView = value),
     setMinimizeToTray: (state, value: boolean) => (state.settings.minimizeToTray = value),
     setUseAsDefaultDevice: (state, value: boolean) => (state.settings.useAsDefaultDevice = value),
     setMuteDuringPlayback: (state, value: boolean) => (state.settings.muteDuringPlayback = value),
@@ -215,9 +234,19 @@ export default new Vuex.Store({
     setPushToTalkKeys: (state, value: number[]) => (state.settings.pushToTalkKeys = value),
     setIsLinux: (state, value: boolean) => (state.isLinux = value),
     setIsDraggingSeekbar: (state, value: boolean) => (state.isDraggingSeekbar = value),
-    setDarkTheme: (state, value: boolean) => {
-      state.settings.darkTheme = value;
-      Vuetify.framework.theme.dark = value;
+    setTheme: (state, value: Theme) => {
+      state.settings.theme = value;
+      switch (value) {
+        case Theme.System:
+          Vuetify.framework.theme.dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          break;
+        case Theme.Dark:
+          Vuetify.framework.theme.dark = true;
+          break;
+        case Theme.Light:
+          Vuetify.framework.theme.dark = false;
+          break;
+      }
     },
     setUpdateData: (state, value: UpdateData) => (state.updateData = value),
     setSwitchOnConnectLoaded: (state, loaded: boolean) => (state.switchOnConnectLoaded = loaded),

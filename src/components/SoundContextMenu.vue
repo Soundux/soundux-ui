@@ -5,7 +5,7 @@
     </template>
     <v-list>
       <v-list-item
-        v-if="$store.getters.settings.gridView || $store.getters.settings.launchPadMode"
+        v-if="$store.getters.settings.viewMode !== 0"
         @click="$store.commit('setSetHotkeySound', sound)"
       >
         <v-list-item-title>
@@ -14,7 +14,7 @@
         </v-list-item-title>
       </v-list-item>
       <v-list-item
-        v-if="$store.getters.settings.gridView || $store.getters.settings.launchPadMode"
+        v-if="$store.getters.settings.viewMode !== 0"
         @click="$store.dispatch('toggleFavorite', sound)"
       >
         <v-list-item-title>

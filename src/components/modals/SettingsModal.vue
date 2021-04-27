@@ -19,17 +19,29 @@
       <v-card-text>
         <v-row justify="center">
           <div class="settings-grid my-5 mx-3">
+            <v-select
+              :items="themes"
+              v-model="theme"
+              item-text="name"
+              item-value="id"
+              :label="$t('settings.theme.title')"
+              hide-details
+              prepend-icon="mdi-brightness-4"
+            ></v-select>
+            <v-select
+              :items="viewModes"
+              item-text="name"
+              item-value="id"
+              v-model="viewMode"
+              :label="$t('settings.viewMode.title')"
+              hide-details
+              prepend-icon="mdi-eye"
+            ></v-select>
             <v-checkbox
               v-model="tabHotkeysOnly"
               :label="$t('settings.tabHotkeysOnly')"
               hide-details
               prepend-icon="mdi-tab-unselected"
-            ></v-checkbox>
-            <v-checkbox
-              v-model="launchpadMode"
-              :label="$t('settings.launchpadMode')"
-              hide-details
-              prepend-icon="mdi-gamepad-square-outline"
             ></v-checkbox>
             <v-checkbox
               v-model="allowOverlapping"
@@ -42,13 +54,6 @@
               :label="$t('settings.deleteToTrash')"
               hide-details
               prepend-icon="mdi-delete-outline"
-            ></v-checkbox>
-            <v-checkbox
-              v-model="gridView"
-              :label="$t('settings.gridView')"
-              hide-details
-              prepend-icon="mdi-grid"
-              :disabled="launchpadMode"
             ></v-checkbox>
             <v-checkbox
               v-model="useAsDefaultDevice"
@@ -70,13 +75,6 @@
               hide-details
               prepend-icon="mdi-window-minimize"
             ></v-checkbox>
-            <v-checkbox
-              v-model="darkTheme"
-              :label="$t('settings.darkTheme')"
-              hide-details
-              prepend-icon="mdi-brightness-4"
-            ></v-checkbox>
-            <div></div>
             <v-text-field
               v-model="stopHotkey"
               id="stopHotkeyField"
@@ -118,6 +116,12 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import { Theme, ViewMode } from '@/types';
+
+interface Option {
+  id: number;
+  name: string;
+}
 
 export default Vue.extend({
   name: 'SettingsModal',
@@ -129,6 +133,20 @@ export default Vue.extend({
     };
   },
   computed: {
+    viewModes(): Option[] {
+      return [
+        { id: 0, name: this.$t('settings.viewMode.listView').toString() },
+        { id: 1, name: this.$t('settings.viewMode.gridView').toString() },
+        { id: 2, name: this.$t('settings.viewMode.launchpadMode').toString() },
+      ];
+    },
+    themes(): Option[] {
+      return [
+        { id: 0, name: this.$t('settings.theme.system').toString() },
+        { id: 1, name: this.$t('settings.theme.dark').toString() },
+        { id: 2, name: this.$t('settings.theme.light').toString() },
+      ];
+    },
     tabHotkeysOnly: {
       get(): boolean {
         return this.$store.getters.settings.tabHotkeysOnly;
@@ -138,12 +156,12 @@ export default Vue.extend({
         this.$store.dispatch('saveSettings');
       },
     },
-    launchpadMode: {
-      get(): boolean {
-        return this.$store.getters.settings.launchPadMode;
+    viewMode: {
+      get(): ViewMode {
+        return this.$store.getters.settings.viewMode;
       },
-      set(state: boolean) {
-        this.$store.commit('setLaunchpadMode', state);
+      set(state: ViewMode) {
+        this.$store.commit('setViewMode', state);
         this.$store.dispatch('saveSettings');
       },
     },
@@ -174,15 +192,6 @@ export default Vue.extend({
         this.$store.dispatch('saveSettings');
       },
     },
-    gridView: {
-      get(): boolean {
-        return this.$store.getters.settings.gridView;
-      },
-      set(state: boolean) {
-        this.$store.commit('setGridView', state);
-        this.$store.dispatch('saveSettings');
-      },
-    },
     minimizeToTray: {
       get(): boolean {
         return this.$store.getters.settings.minimizeToTray;
@@ -201,12 +210,12 @@ export default Vue.extend({
         // this automatically saves the settings as it also updates the selected output and we don't want to save them twice
       },
     },
-    darkTheme: {
-      get(): boolean {
-        return this.$store.getters.settings.darkTheme;
+    theme: {
+      get(): Theme {
+        return this.$store.getters.settings.theme;
       },
-      set(state: boolean) {
-        this.$store.commit('setDarkTheme', state);
+      set(state: Theme) {
+        this.$store.commit('setTheme', state);
         this.$store.dispatch('saveSettings');
       },
     },

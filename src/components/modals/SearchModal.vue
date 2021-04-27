@@ -76,7 +76,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import Fuse from 'fuse.js';
-import { Sound } from '@/types';
+import { Sound, ViewMode } from '@/types';
 
 export default Vue.extend({
   name: 'SearchModal',
@@ -212,12 +212,12 @@ export default Vue.extend({
           this.searchModal = false;
           const soundElement = document.getElementById(`sound-${sound.id}`);
           if (soundElement) {
-            if (this.$store.getters.settings.launchPadMode) {
+            if (this.$store.getters.settings.viewMode === ViewMode.EmulatedLaunchpad) {
               // launchpad view
               await this.$vuetify.goTo(soundElement, {
                 container: document.getElementById('launchpad-view') as HTMLElement,
               });
-            } else if (this.$store.getters.settings.gridView) {
+            } else if (this.$store.getters.settings.viewMode === ViewMode.Grid) {
               // grid view
               await this.$vuetify.goTo(soundElement, {
                 container: document.getElementById('grid-view') as HTMLElement,
