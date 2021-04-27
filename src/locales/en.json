@@ -50,8 +50,8 @@
     "theme": {
       "title": "Theme",
       "system": "System",
-      "dark": "Dunkel",
-      "light": "Hell"
+      "dark": "Dark",
+      "light": "Light"
     },
     "stopHotkey": "Stop hotkey",
     "pushToTalkKeys": "Push-to-talk keys"
