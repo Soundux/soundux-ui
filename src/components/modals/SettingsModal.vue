@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="settingsModal" max-width="700px">
+  <v-dialog v-model="settingsModal" max-width="750px">
     <template #activator="{ on, attrs }">
       <v-btn
         :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
@@ -27,6 +27,7 @@
               :label="$t('settings.theme.title')"
               hide-details
               prepend-icon="mdi-brightness-4"
+              class="ma-0"
             ></v-select>
             <v-select
               :items="viewModes"
@@ -36,24 +37,28 @@
               :label="$t('settings.viewMode.title')"
               hide-details
               prepend-icon="mdi-eye"
+              class="ma-0"
             ></v-select>
             <v-checkbox
               v-model="tabHotkeysOnly"
               :label="$t('settings.tabHotkeysOnly')"
               hide-details
               prepend-icon="mdi-tab-unselected"
+              class="ma-0"
             ></v-checkbox>
             <v-checkbox
               v-model="allowOverlapping"
               :label="$t('settings.allowOverlapping')"
               hide-details
               prepend-icon="mdi-surround-sound"
+              class="ma-0"
             ></v-checkbox>
             <v-checkbox
               v-model="deleteToTrash"
               :label="$t('settings.deleteToTrash')"
               hide-details
               prepend-icon="mdi-delete-outline"
+              class="ma-0"
             ></v-checkbox>
             <v-checkbox
               v-model="useAsDefaultDevice"
@@ -61,6 +66,7 @@
               :label="$t('settings.useAsDefaultDevice')"
               hide-details
               prepend-icon="mdi-speaker"
+              class="ma-0"
             ></v-checkbox>
             <v-checkbox
               v-model="muteDuringPlayback"
@@ -68,12 +74,14 @@
               :label="$t('settings.muteDuringPlayback')"
               hide-details
               prepend-icon="mdi-volume-mute"
+              class="ma-0"
             ></v-checkbox>
             <v-checkbox
               v-model="minimizeToTray"
               :label="$t('settings.minimizeToTray')"
               hide-details
               prepend-icon="mdi-window-minimize"
+              class="ma-0"
             ></v-checkbox>
             <v-text-field
               v-model="stopHotkey"
@@ -83,6 +91,7 @@
               readonly
               append-icon="mdi-close"
               hide-details
+              class="ma-0"
               @click:append="clearStopHotkey"
               @focus="focus"
               @blur="blur"
@@ -95,6 +104,7 @@
               readonly
               append-icon="mdi-close"
               hide-details
+              class="ma-0"
               @click:append="clearPushToTalkKeys"
               @focus="focus"
               @blur="blur"
@@ -278,7 +288,6 @@ export default Vue.extend({
   display: grid;
   width: 100%;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  row-gap: 0;
-  grid-gap: 10px;
+  grid-gap: 20px 10px;
 }
 </style>
