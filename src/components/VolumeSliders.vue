@@ -27,10 +27,10 @@
     <v-tooltip top>
       <template #activator="{ on, attrs }">
         <v-icon
-          v-text="syncVolume ? 'mdi-link' : 'mdi-link-off'"
+          v-text="syncVolumes ? 'mdi-link' : 'mdi-link-off'"
           v-bind="attrs"
           v-on="on"
-          @click="syncVolume = !syncVolume"
+          @click="syncVolumes = !syncVolumes"
         ></v-icon>
       </template>
       <span>{{ $t('volume.sync') }}</span>
@@ -71,13 +71,12 @@ export default Vue.extend({
     return {
       dragLocal: false,
       dragRemote: false,
-      syncVolume: false,
       wasRemoteLastUpdated: false,
     };
   },
   computed: {
     localVolume: {
-      get() {
+      get(): number {
         return this.$store.getters.settings.localVolume * 100;
       },
       set(volume: number) {
@@ -86,7 +85,7 @@ export default Vue.extend({
       },
     },
     remoteVolume: {
-      get() {
+      get(): number {
         return this.$store.getters.settings.remoteVolume * 100;
       },
       set(volume: number) {
@@ -94,25 +93,32 @@ export default Vue.extend({
         this.wasRemoteLastUpdated = true;
       },
     },
+    syncVolumes: {
+      get(): boolean {
+        return this.$store.getters.settings.syncVolumes;
+      },
+      set(value: boolean) {
+        this.$store.commit('setSyncVolumes', value);
+        this.$store.dispatch('saveSettings');
+        if (value) {
+          if (this.wasRemoteLastUpdated) {
+            this.localVolume = this.remoteVolume;
+          } else {
+            this.remoteVolume = this.localVolume;
+          }
+        }
+      },
+    },
   },
   watch: {
     localVolume(val: number) {
-      if (this.syncVolume) {
+      if (this.syncVolumes) {
         this.remoteVolume = val;
       }
     },
     remoteVolume(val: number) {
-      if (this.syncVolume) {
+      if (this.syncVolumes) {
         this.localVolume = val;
-      }
-    },
-    syncVolume(val: boolean) {
-      if (val) {
-        if (this.wasRemoteLastUpdated) {
-          this.localVolume = this.remoteVolume;
-        } else {
-          this.remoteVolume = this.localVolume;
-        }
       }
     },
   },
