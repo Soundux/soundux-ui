@@ -19,96 +19,187 @@
       <v-card-text>
         <v-row justify="center">
           <div class="settings-grid my-5 mx-3">
-            <v-select
-              :items="themes"
-              v-model="theme"
-              item-text="name"
-              item-value="id"
-              :label="$t('settings.theme.title')"
-              hide-details
-              prepend-icon="mdi-brightness-4"
-              class="ma-0"
-            ></v-select>
-            <v-select
-              :items="viewModes"
-              item-text="name"
-              item-value="id"
-              v-model="viewMode"
-              :label="$t('settings.viewMode.title')"
-              hide-details
-              prepend-icon="mdi-eye"
-              class="ma-0"
-            ></v-select>
-            <v-checkbox
-              v-model="tabHotkeysOnly"
-              :label="$t('settings.tabHotkeysOnly')"
-              hide-details
-              prepend-icon="mdi-tab-unselected"
-              class="ma-0"
-            ></v-checkbox>
-            <v-checkbox
-              v-model="allowOverlapping"
-              :label="$t('settings.allowOverlapping')"
-              hide-details
-              prepend-icon="mdi-surround-sound"
-              class="ma-0"
-            ></v-checkbox>
-            <v-checkbox
-              v-model="deleteToTrash"
-              :label="$t('settings.deleteToTrash')"
-              hide-details
-              prepend-icon="mdi-delete-outline"
-              class="ma-0"
-            ></v-checkbox>
-            <v-checkbox
-              v-model="useAsDefaultDevice"
-              :disabled="!$store.getters.isLinux"
-              :label="$t('settings.useAsDefaultDevice')"
-              hide-details
-              prepend-icon="mdi-speaker"
-              class="ma-0"
-            ></v-checkbox>
-            <v-checkbox
-              v-model="muteDuringPlayback"
-              :disabled="!$store.getters.isLinux"
-              :label="$t('settings.muteDuringPlayback')"
-              hide-details
-              prepend-icon="mdi-volume-mute"
-              class="ma-0"
-            ></v-checkbox>
-            <v-checkbox
-              v-model="minimizeToTray"
-              :label="$t('settings.minimizeToTray')"
-              hide-details
-              prepend-icon="mdi-window-minimize"
-              class="ma-0"
-            ></v-checkbox>
-            <v-text-field
-              v-model="stopHotkey"
-              id="stopHotkeyField"
-              :label="$t('settings.stopHotkey')"
-              prepend-icon="mdi-keyboard"
-              readonly
-              append-icon="mdi-close"
-              hide-details
-              class="ma-0"
-              @click:append="clearStopHotkey"
-              @focus="focus"
-              @blur="blur"
-            ></v-text-field>
-            <v-text-field
-              v-model="pushToTalkKeys"
-              id="pushToTalkKeysField"
-              :label="$t('settings.pushToTalkKeys')"
-              prepend-icon="mdi-keyboard-variant"
-              readonly
-              append-icon="mdi-close"
-              hide-details
-              class="ma-0"
-              @click:append="clearPushToTalkKeys"
-              @focus="focus"
-              @blur="blur"
-            ></v-text-field>
+            <v-tooltip top>
+              <template #activator="{ on, attrs }">
+                <div v-on="on" class="d-inline-block">
+                  <v-select
+                    :items="themes"
+                    v-model="theme"
+                    item-text="name"
+                    item-value="id"
+                    :label="$t('settings.theme.title')"
+                    hide-details
+                    prepend-icon="mdi-brightness-4"
+                    class="ma-0"
+                    v-bind="attrs"
+                    v-on="on"
+                  ></v-select>
+                </div>
+              </template>
+              <span>Select the theme Soundux should use</span>
+            </v-tooltip>
+            <v-tooltip top>
+              <template #activator="{ on, attrs }">
+                <div v-on="on" class="d-inline-block">
+                  <v-select
+                    :items="viewModes"
+                    item-text="name"
+                    item-value="id"
+                    v-model="viewMode"
+                    :label="$t('settings.viewMode.title')"
+                    hide-details
+                    prepend-icon="mdi-eye"
+                    class="ma-0"
+                    v-bind="attrs"
+                    v-on="on"
+                  ></v-select>
+                </div>
+              </template>
+              <span>Select your preferred view</span>
+            </v-tooltip>
+            <v-tooltip top>
+              <template #activator="{ on, attrs }">
+                <div v-on="on" class="d-inline-block">
+                  <v-checkbox
+                    v-model="tabHotkeysOnly"
+                    :label="$t('settings.tabHotkeysOnly')"
+                    hide-details
+                    prepend-icon="mdi-tab-unselected"
+                    class="ma-0"
+                    v-bind="attrs"
+                    v-on="on"
+                  ></v-checkbox>
+                </div>
+              </template>
+              <span>
+                Only trigger sound hotkeys if they are in the current tab / favorites (can be used to map
+                2 sounds from different tabs to the same key)
+              </span>
+            </v-tooltip>
+            <v-tooltip top>
+              <template #activator="{ on, attrs }">
+                <div v-on="on" class="d-inline-block">
+                  <v-checkbox
+                    v-model="allowOverlapping"
+                    :label="$t('settings.allowOverlapping')"
+                    hide-details
+                    prepend-icon="mdi-surround-sound"
+                    class="ma-0"
+                    v-bind="attrs"
+                    v-on="on"
+                  ></v-checkbox>
+                </div>
+              </template>
+              <span>Allows multiple sounds to be played at the same time</span>
+            </v-tooltip>
+            <v-tooltip top>
+              <template #activator="{ on, attrs }">
+                <div v-on="on" class="d-inline-block">
+                  <v-checkbox
+                    v-model="deleteToTrash"
+                    :label="$t('settings.deleteToTrash')"
+                    hide-details
+                    prepend-icon="mdi-delete-outline"
+                    class="ma-0"
+                    v-bind="attrs"
+                    v-on="on"
+                  ></v-checkbox>
+                </div>
+              </template>
+              <span>
+                When deleting sounds move them to the trash instead of deleting them permanently
+              </span>
+            </v-tooltip>
+            <v-tooltip top>
+              <template #activator="{ on, attrs }">
+                <div v-on="on" class="d-inline-block">
+                  <v-checkbox
+                    v-model="useAsDefaultDevice"
+                    :disabled="!$store.getters.isLinux"
+                    :label="$t('settings.useAsDefaultDevice')"
+                    hide-details
+                    prepend-icon="mdi-speaker"
+                    class="ma-0"
+                    v-bind="attrs"
+                    v-on="on"
+                  ></v-checkbox>
+                </div>
+              </template>
+              <span>Use Soundux as default input device (useful for games)</span>
+            </v-tooltip>
+            <v-tooltip top>
+              <template #activator="{ on, attrs }">
+                <div v-on="on" class="d-inline-block">
+                  <v-checkbox
+                    v-model="muteDuringPlayback"
+                    :disabled="!$store.getters.isLinux"
+                    :label="$t('settings.muteDuringPlayback')"
+                    hide-details
+                    prepend-icon="mdi-volume-mute"
+                    class="ma-0"
+                    v-bind="attrs"
+                    v-on="on"
+                  ></v-checkbox>
+                </div>
+              </template>
+              <span>Mute your microphone during playback of sounds</span>
+            </v-tooltip>
+            <v-tooltip top>
+              <template #activator="{ on, attrs }">
+                <div v-on="on" class="d-inline-block">
+                  <v-checkbox
+                    v-model="minimizeToTray"
+                    :label="$t('settings.minimizeToTray')"
+                    hide-details
+                    prepend-icon="mdi-window-minimize"
+                    class="ma-0"
+                    v-bind="attrs"
+                    v-on="on"
+                  ></v-checkbox>
+                </div>
+              </template>
+              <span>When closing the window, minimize to the system tray instead</span>
+            </v-tooltip>
+            <v-tooltip top>
+              <template #activator="{ on, attrs }">
+                <v-text-field
+                  v-model="stopHotkey"
+                  id="stopHotkeyField"
+                  :label="$t('settings.stopHotkey')"
+                  prepend-icon="mdi-keyboard"
+                  readonly
+                  append-icon="mdi-close"
+                  hide-details
+                  class="ma-0"
+                  v-bind="attrs"
+                  v-on="on"
+                  @click:append="clearStopHotkey"
+                  @focus="focus"
+                  @blur="blur"
+                ></v-text-field>
+              </template>
+              <span>Set a hotkey to stop all sounds</span>
+            </v-tooltip>
+            <v-tooltip top>
+              <template #activator="{ on, attrs }">
+                <v-text-field
+                  v-model="pushToTalkKeys"
+                  id="pushToTalkKeysField"
+                  :label="$t('settings.pushToTalkKeys')"
+                  prepend-icon="mdi-keyboard-variant"
+                  readonly
+                  append-icon="mdi-close"
+                  hide-details
+                  class="ma-0"
+                  v-bind="attrs"
+                  v-on="on"
+                  @click:append="clearPushToTalkKeys"
+                  @focus="focus"
+                  @blur="blur"
+                ></v-text-field>
+              </template>
+              <span>A set of keys to press while playing a sound (useful for games)</span>
+            </v-tooltip>
           </div>
         </v-row>
       </v-card-text>
