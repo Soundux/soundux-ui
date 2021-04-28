@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="settingsModal" max-width="700px" @input="stateChanged">
+  <v-dialog v-model="settingsModal" max-width="700px">
     <template #activator="{ on, attrs }">
       <v-btn
         :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
@@ -220,11 +220,11 @@ export default Vue.extend({
       },
     },
   },
-  methods: {
+  watch: {
     // handler function when the modal was opened/closed
     // open: we register the hotkeyReceived method for the backend here
     // close: the use of this is overloaded with SetHotkeyModal which is why we unregister it
-    stateChanged(state: boolean): void {
+    settingsModal(state: boolean) {
       if (state) {
         window.hotkeyReceived = (hotkey: string, hotkeyData: number[]) => {
           const stopHotkeyField = document.getElementById('stopHotkeyField');
@@ -246,6 +246,8 @@ export default Vue.extend({
         window.hotkeyReceived = undefined;
       }
     },
+  },
+  methods: {
     async updateHotkeySequences(): Promise<void> {
       this.stopHotkey = (await window.getHotkeySequence(this.$store.getters.settings.stopHotkey)) || '';
       this.pushToTalkKeys =
