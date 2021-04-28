@@ -53,3 +53,9 @@ jobs:
           MESSAGE: "{msg}\n{long-sha}"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Update screenshots 👀
+        uses: benc-uk/workflow-dispatch@v1
+        with:
+          workflow: cd
+          repo: Soundux/screenshots
+          token: ${{ secrets.PERSONAL_TOKEN }}
