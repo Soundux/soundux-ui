@@ -112,6 +112,7 @@ import SettingsModal from '@/components/modals/SettingsModal.vue';
 import HelpModal from '@/components/modals/HelpModal.vue';
 import DownloaderModal from '@/components/modals/DownloaderModal.vue';
 import SystemInfoModal from '@/components/modals/SystemInfoModal.vue';
+
 export default Vue.extend({
   name: 'SideButtons',
   components: {
