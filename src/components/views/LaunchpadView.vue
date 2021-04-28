@@ -98,6 +98,11 @@ export default Vue.extend({
       } else if (this.tab.id !== this.$store.getters.activeTabIndex) {
         return;
       }
+      // when we are not currently listening for a hotkey input
+      if (window.hotkeyReceived !== undefined) {
+        return;
+      }
+
       // TODO: !settingsModal && !helpModal
       if (
         !this.$store.getters.appPassThroughDrawer &&
