@@ -76,6 +76,7 @@ export interface Settings {
   selectedTab: number;
   allowOverlapping: boolean;
   deleteToTrash: boolean;
+  syncVolumes: boolean;
   theme: Theme;
   viewMode: ViewMode;
   stopHotkey: number[];
