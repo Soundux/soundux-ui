@@ -1,7 +1,7 @@
 import $store from '@/store';
 import i18n from '@/plugins/i18n';
 import Vue from 'vue';
-import { PlayingSound } from '@/types';
+import { PlayingSound, Tab } from '@/types';
 
 export async function openUrl(url: string): Promise<void> {
   await window.openUrl(url);
@@ -36,8 +36,34 @@ export async function initialize(): Promise<void> {
       console.warn('Could not find sound for playingSound with id', playingSound.id);
     }
   };
-  window.finishSound = (playingSound: PlayingSound) => {
+  window.finishSound = (playingSound: PlayingSound, forced: boolean) => {
     $store.commit('removeFromCurrentlyPlaying', playingSound);
+    // if the playlist mode is enabled, the playback was not force stopped (e.g. via hotkey) and there are no sounds playing continue with the next sound
+    if ($store.getters.playlistMode && !forced && $store.getters.currentPlayingSounds.length === 0) {
+      const soundId = playingSound.sound.id;
+
+      const tabs: Tab[] = $store.getters.tabs;
+      const favoritesTab: Tab = $store.getters.favoritesTab;
+
+      const tabFromSound = $store.getters.showFavorites
+        ? favoritesTab
+        : tabs.find(({ sounds }) => sounds.map(({ id }) => id).includes(soundId));
+      if (tabFromSound) {
+        const sounds = tabFromSound.sounds;
+        const soundInTab = sounds.find(({ id }) => id === soundId);
+        if (soundInTab) {
+          const currentIndex = sounds.indexOf(soundInTab);
+          const nextSound = sounds[currentIndex + 1];
+          if (nextSound) {
+            $store.dispatch('playSound', nextSound);
+          }
+        } else {
+          console.warn(`Sound ${playingSound.sound.name} not found`);
+        }
+      } else {
+        console.warn(`Tab from playing sound ${playingSound.sound.name} not found`);
+      }
+    }
   };
   window.onSoundPlayed = (playingSound: PlayingSound) => {
     if (playingSound) {

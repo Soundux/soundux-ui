@@ -92,6 +92,14 @@
     </v-btn>
     <v-spacer></v-spacer>
     <v-btn
+      :color="playlistMode ? 'primary' : $vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
+      class="mb-2"
+      @click="playlistMode = !playlistMode"
+    >
+      <v-icon left>mdi-playlist-music</v-icon>
+      Playlist mode
+    </v-btn>
+    <v-btn
       v-if="$store.getters.isLinux"
       :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
       class="mb-2"
@@ -120,6 +128,16 @@ export default Vue.extend({
     DownloaderModal,
     HelpModal,
     SettingsModal,
+  },
+  computed: {
+    playlistMode: {
+      get(): boolean {
+        return this.$store.getters.playlistMode;
+      },
+      set(newState: boolean) {
+        this.$store.commit('setPlaylistMode', newState);
+      },
+    },
   },
 });
 </script>

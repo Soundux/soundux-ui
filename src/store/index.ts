@@ -31,6 +31,7 @@ export default new Vuex.Store({
     tabs: [] as Tab[],
     favorites: [] as number[],
     showFavorites: false,
+    playlistMode: false,
     outputs: [] as Output[],
     selectedOutput: null as Output | null,
     playbackApps: [] as Output[],
@@ -80,6 +81,7 @@ export default new Vuex.Store({
       return tab;
     },
     showFavorites: state => state.showFavorites,
+    playlistMode: state => state.playlistMode,
     activeTabIndex: state => state.settings.selectedTab,
     outputs: state => state.outputs,
     selectedOutput: state => state.selectedOutput,
@@ -137,6 +139,7 @@ export default new Vuex.Store({
     addTab: (state, tab: Tab) => state.tabs.push(tab),
     setTabs: (state, tabs: Tab[]) => (state.tabs = tabs),
     setShowFavorites: (state, newState: boolean) => (state.showFavorites = newState),
+    setPlaylistMode: (state, newState: boolean) => (state.playlistMode = newState),
     setTabSounds: (_state, { tab, sounds }: { tab: Tab; sounds: Sound[] }) => (tab.sounds = sounds),
     setActiveTabIndex: (state, index: number) => (state.settings.selectedTab = index),
     setOutputs: (state, outputs: Output[]) => (state.outputs = outputs),
