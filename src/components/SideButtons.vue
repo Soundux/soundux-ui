@@ -97,7 +97,7 @@
       @click="playlistMode = !playlistMode"
     >
       <v-icon left>mdi-playlist-music</v-icon>
-      Playlist mode
+      {{ $t('actions.playlistMode') }}
     </v-btn>
     <v-btn
       v-if="$store.getters.isLinux"
