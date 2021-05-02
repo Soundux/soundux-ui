@@ -26,7 +26,10 @@
       </draggable>
     </v-tabs>
 
-    <div v-if="showFavorites" class="theme--dark v-tabs-items">
+    <div
+      v-if="showFavorites"
+      :class="['v-tabs-items', $vuetify.theme.dark ? 'theme--dark' : 'theme--light']"
+    >
       <NoFavoritesCard v-if="favorites.sounds.length === 0"></NoFavoritesCard>
       <LaunchpadView v-else-if="$store.getters.settings.viewMode === 2" :tab="favorites"></LaunchpadView>
       <GridView v-else-if="$store.getters.settings.viewMode === 1" :tab="favorites"></GridView>
