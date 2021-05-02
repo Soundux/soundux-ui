@@ -15,29 +15,31 @@
     dense
   >
     <template #selection="{ item }">
-      <v-row dense no-gutters class="text-truncate">
+      <v-row dense no-gutters align="center" class="text-truncate">
         <v-col v-if="item.appIcon" cols="auto">
-          <img
+          <v-img
             :src="`data:image/png;base64,${item.appIcon}`"
             :alt="`${item.application} icon`"
-            width="32"
+            width="25"
+            class="mr-1"
           />
         </v-col>
-        <v-col align-self="center" class="text-truncate">
+        <v-col class="text-truncate">
           {{ item.name }}
         </v-col>
       </v-row>
     </template>
     <template #item="{ item }">
-      <v-row dense no-gutters class="text-truncate">
+      <v-row dense no-gutters align="center" class="text-truncate">
         <v-col v-if="item.appIcon" cols="auto">
-          <img
+          <v-img
             :src="`data:image/png;base64,${item.appIcon}`"
             :alt="`${item.application} icon`"
-            width="32"
+            width="25"
+            class="mr-1"
           />
         </v-col>
-        <v-col align-self="center" class="text-truncate">
+        <v-col class="text-truncate">
           {{ getPrettyName(item) }}
         </v-col>
       </v-row>
