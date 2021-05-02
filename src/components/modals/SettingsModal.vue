@@ -26,9 +26,30 @@
               item-value="id"
               :label="$t('settings.theme.title')"
               hide-details
-              prepend-icon="mdi-brightness-4"
+              prepend-icon="mdi-theme-light-dark"
               class="ma-0"
-            ></v-select>
+            >
+              <template #selection="{ item }">
+                <v-row dense no-gutters align="center">
+                  <v-col v-if="item.icon" cols="auto">
+                    <v-icon left v-text="item.icon"></v-icon>
+                  </v-col>
+                  <v-col>
+                    {{ item.name }}
+                  </v-col>
+                </v-row>
+              </template>
+              <template #item="{ item }">
+                <v-row dense no-gutters align="center">
+                  <v-col v-if="item.icon" cols="auto">
+                    <v-icon left v-text="item.icon"></v-icon>
+                  </v-col>
+                  <v-col>
+                    {{ item.name }}
+                  </v-col>
+                </v-row>
+              </template>
+            </v-select>
             <v-select
               :items="viewModes"
               item-text="name"
@@ -38,7 +59,28 @@
               hide-details
               prepend-icon="mdi-eye"
               class="ma-0"
-            ></v-select>
+            >
+              <template #selection="{ item }">
+                <v-row dense no-gutters align="center">
+                  <v-col v-if="item.icon" cols="auto">
+                    <v-icon left v-text="item.icon"></v-icon>
+                  </v-col>
+                  <v-col>
+                    {{ item.name }}
+                  </v-col>
+                </v-row>
+              </template>
+              <template #item="{ item }">
+                <v-row dense no-gutters align="center">
+                  <v-col v-if="item.icon" cols="auto">
+                    <v-icon left v-text="item.icon"></v-icon>
+                  </v-col>
+                  <v-col>
+                    {{ item.name }}
+                  </v-col>
+                </v-row>
+              </template>
+            </v-select>
             <v-checkbox
               v-model="tabHotkeysOnly"
               :label="$t('settings.tabHotkeysOnly')"
@@ -131,6 +173,7 @@ import { Theme, ViewMode } from '@/types';
 interface Option {
   id: number;
   name: string;
+  icon: string;
 }
 
 export default Vue.extend({
@@ -145,16 +188,16 @@ export default Vue.extend({
   computed: {
     viewModes(): Option[] {
       return [
-        { id: 0, name: this.$t('settings.viewMode.listView').toString() },
-        { id: 1, name: this.$t('settings.viewMode.gridView').toString() },
-        { id: 2, name: this.$t('settings.viewMode.launchpadMode').toString() },
+        { id: 0, name: this.$t('settings.viewMode.listView').toString(), icon: 'mdi-view-list' },
+        { id: 1, name: this.$t('settings.viewMode.gridView').toString(), icon: 'mdi-grid' },
+        { id: 2, name: this.$t('settings.viewMode.launchpadMode').toString(), icon: 'mdi-gamepad' },
       ];
     },
     themes(): Option[] {
       return [
-        { id: 0, name: this.$t('settings.theme.system').toString() },
-        { id: 1, name: this.$t('settings.theme.dark').toString() },
-        { id: 2, name: this.$t('settings.theme.light').toString() },
+        { id: 0, name: this.$t('settings.theme.system').toString(), icon: 'mdi-brightness-auto' },
+        { id: 1, name: this.$t('settings.theme.dark').toString(), icon: 'mdi-brightness-4' },
+        { id: 2, name: this.$t('settings.theme.light').toString(), icon: 'mdi-brightness-6' },
       ];
     },
     tabHotkeysOnly: {
