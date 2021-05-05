@@ -36,10 +36,10 @@ export async function initialize(): Promise<void> {
       console.warn('Could not find sound for playingSound with id', playingSound.id);
     }
   };
-  window.finishSound = (playingSound: PlayingSound, forced: boolean) => {
+  window.finishSound = (playingSound: PlayingSound) => {
     $store.commit('removeFromCurrentlyPlaying', playingSound);
     // if the playlist mode is enabled, the playback was not force stopped (e.g. via hotkey) and there are no sounds playing continue with the next sound
-    if ($store.getters.playlistMode && !forced && $store.getters.currentPlayingSounds.length === 0) {
+    if ($store.getters.playlistMode && $store.getters.currentPlayingSounds.length === 0) {
       const soundId = playingSound.sound.id;
 
       const tabs: Tab[] = $store.getters.tabs;

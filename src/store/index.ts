@@ -209,6 +209,8 @@ export default new Vuex.Store({
       });
       if (realSound) {
         state.currentPlaying.splice(state.currentPlaying.indexOf(realSound), 1);
+      } else {
+        console.warn('removeFromCurrentlyPlaying called but playing not found', JSON.stringify(playing));
       }
     },
     deleteSound: (state, sound: Sound) => {
@@ -446,8 +448,10 @@ export default new Vuex.Store({
      * Stop all sounds via the backend
      */
     async stopSounds({ commit }) {
-      await window.stopSounds();
-      commit('clearCurrentlyPlaying');
+      const success = await window.stopSounds();
+      if (success) {
+        commit('clearCurrentlyPlaying');
+      }
     },
 
     /**
