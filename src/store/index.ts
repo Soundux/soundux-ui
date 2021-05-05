@@ -136,11 +136,20 @@ export default new Vuex.Store({
         state.appPassThroughDrawer = newState;
       }
     },
-    addTab: (state, tab: Tab) => state.tabs.push(tab),
-    setTabs: (state, tabs: Tab[]) => (state.tabs = tabs),
+    addTab: (state, tab: Tab) => {
+      sortTab(tab, state.settings.sortMode);
+      state.tabs.push(tab);
+    },
+    setTabs: (state, tabs: Tab[]) => {
+      tabs.forEach(tab => sortTab(tab, state.settings.sortMode));
+      state.tabs = tabs;
+    },
     setShowFavorites: (state, newState: boolean) => (state.showFavorites = newState),
     setPlaylistMode: (state, newState: boolean) => (state.playlistMode = newState),
-    setTabSounds: (_state, { tab, sounds }: { tab: Tab; sounds: Sound[] }) => (tab.sounds = sounds),
+    setTabSounds: (state, { tab, sounds }: { tab: Tab; sounds: Sound[] }) => {
+      tab.sounds = sounds;
+      sortTab(tab, state.settings.sortMode);
+    },
     setActiveTabIndex: (state, index: number) => (state.settings.selectedTab = index),
     setOutputs: (state, outputs: Output[]) => (state.outputs = outputs),
     setPlaybackApps: (state, playbackApps: Output[]) => (state.playbackApps = playbackApps),
@@ -264,10 +273,9 @@ export default new Vuex.Store({
     /**
      * Fetch the tabs from the backend
      */
-    async getTabs({ commit, getters }) {
+    async getTabs({ commit }) {
       const tabs = await window.getTabs();
       if (tabs) {
-        tabs.forEach(tab => sortTab(tab, getters.settings.sortMode));
         commit('setTabs', tabs);
       }
     },
@@ -324,7 +332,6 @@ export default new Vuex.Store({
     async addTab({ commit, getters }) {
       const tab = await window.addTab();
       if (tab) {
-        sortTab(tab, getters.settings.sortMode);
         commit('addTab', tab);
       }
     },
@@ -371,7 +378,6 @@ export default new Vuex.Store({
 
       const refreshedTab = await window.refreshTab(activeTabIndex);
       if (refreshedTab) {
-        sortTab(refreshedTab, getters.settings.sortMode);
         commit('setTabSounds', { tab, sounds: refreshedTab.sounds });
       }
     },
