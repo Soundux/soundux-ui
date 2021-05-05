@@ -329,7 +329,7 @@ export default new Vuex.Store({
     /**
      * Add a tab via the backend
      */
-    async addTab({ commit, getters }) {
+    async addTab({ commit }) {
       const tab = await window.addTab();
       if (tab) {
         commit('addTab', tab);
