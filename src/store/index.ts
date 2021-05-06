@@ -209,6 +209,8 @@ export default new Vuex.Store({
       });
       if (realSound) {
         state.currentPlaying.splice(state.currentPlaying.indexOf(realSound), 1);
+      } else {
+        console.warn('removeFromCurrentlyPlaying called but playing not found', JSON.stringify(playing));
       }
     },
     deleteSound: (state, sound: Sound) => {

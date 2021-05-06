@@ -16,7 +16,8 @@ declare global {
     // frontend callback functions
     downloadProgressed: ((progress: number, eta: string) => void) | undefined;
     hotkeyReceived: ((hotkey: string, hotkeyData: number[]) => void) | undefined;
-    finishSound: ((playingSound: PlayingSound, forced: boolean) => void) | undefined;
+    finishSound: ((playingSound: PlayingSound) => void) | undefined;
+    onStopHotkey: (() => void) | undefined;
     onSoundPlayed: ((playingSound: PlayingSound) => void) | undefined;
     updateSound: ((playingSound: PlayingSound) => void) | undefined;
     onError: ((error: string) => void) | undefined;
