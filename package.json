@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@mdi/font": "^5.9.55",
-    "core-js": "^3.11.2",
+    "core-js": "^3.11.3",
     "dayjs": "^1.10.4",
     "fuse.js": "^6.4.6",
     "roboto-fontface": "*",
