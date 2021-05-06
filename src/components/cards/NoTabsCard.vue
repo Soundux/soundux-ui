@@ -6,7 +6,7 @@
         <b slot="addTab">{{ $t('actions.addTab') }}</b>
       </i18n>
 
-      <v-img src="../assets/undraw_empty_xct9.svg" height="150" contain></v-img>
+      <v-img src="@/assets/undraw_empty_xct9.svg" height="150" contain></v-img>
     </v-card-text>
   </v-card>
 </template>

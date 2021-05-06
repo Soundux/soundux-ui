@@ -13,7 +13,7 @@
     </v-toolbar>
     <template v-if="!$store.getters.selectedOutput && !$store.getters.settings.useAsDefaultDevice">
       <v-row class="mx-5 mt-6" justify="center">
-        <v-img src="../../assets/undraw_dropdown_menu_vv9j.svg" width="232" contain></v-img>
+        <v-img src="@/assets/undraw_dropdown_menu_vv9j.svg" width="232" contain></v-img>
       </v-row>
       <div class="mx-3 mt-5 text-wrap text-center">
         <span>{{ $t('appPassThrough.noOutputSelected') }}</span>
@@ -42,7 +42,7 @@
     </v-list>
     <template v-else>
       <v-row class="mx-5 mt-6" justify="center">
-        <v-img src="../../assets/undraw_Taken_re_yn20.svg" width="232" contain></v-img>
+        <v-img src="@/assets/undraw_Taken_re_yn20.svg" width="232" contain></v-img>
       </v-row>
       <v-row class="mt-5" justify="center">
         <span>{{ $t('appPassThrough.noAppsFound') }}</span>

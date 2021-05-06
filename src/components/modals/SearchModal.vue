@@ -38,7 +38,7 @@
         </v-list>
         <template v-else-if="!searchInput && searchResults.length === 0">
           <v-row class="mx-5 mt-6" justify="center">
-            <v-img src="../../assets/undraw_searching_p5ux.svg" height="220" contain></v-img>
+            <v-img src="@/assets/undraw_searching_p5ux.svg" height="220" contain></v-img>
           </v-row>
           <v-row class="mt-7" justify="center">
             <span>{{ $t('search.typeToSearch') }}</span>
@@ -62,7 +62,7 @@
         </template>
         <template v-else>
           <v-row class="mx-5 mt-6" justify="center">
-            <v-img src="../../assets/undraw_void_3ggu.svg" height="220" contain></v-img>
+            <v-img src="@/assets/undraw_void_3ggu.svg" height="220" contain></v-img>
           </v-row>
           <v-row class="mt-7" justify="center">
             <span>{{ $t('search.noResultsFound') }}</span>

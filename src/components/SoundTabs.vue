@@ -57,8 +57,8 @@ import GridView from '@/components/views/GridView.vue';
 import ListView from '@/components/views/ListView.vue';
 import LaunchpadView from '@/components/views/LaunchpadView.vue';
 import { mapGetters } from 'vuex';
-import NoSoundsCard from '@/components/NoSoundsCard.vue';
-import NoFavoritesCard from '@/components/NoFavoritesCard.vue';
+import NoSoundsCard from '@/components/cards/NoSoundsCard.vue';
+import NoFavoritesCard from '@/components/cards/NoFavoritesCard.vue';
 
 export default Vue.extend({
   name: 'SoundTabs',

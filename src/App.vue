@@ -12,7 +12,7 @@
         <v-row dense no-gutters class="flex-nowrap">
           <v-col cols="auto">
             <v-avatar tile size="64">
-              <img src="./assets/icon.svg" alt="Logo" />
+              <img src="@/assets/icon.svg" alt="Logo" />
             </v-avatar>
             <span class="text-h5 ml-3">Soundux</span>
           </v-col>
@@ -74,7 +74,7 @@ import SwitchOnConnectModal from '@/components/modals/SwitchOnConnectModal.vue';
 import PlayingSoundsDrawer from '@/components/drawers/PlayingSoundsDrawer.vue';
 import OutputSelection from '@/components/OutputSelection.vue';
 import SoundTabs from '@/components/SoundTabs.vue';
-import NoTabsCard from '@/components/NoTabsCard.vue';
+import NoTabsCard from '@/components/cards/NoTabsCard.vue';
 import UpdateModal from '@/components/modals/UpdateModal.vue';
 import VolumeSliders from '@/components/VolumeSliders.vue';
 import SideButtons from '@/components/SideButtons.vue';

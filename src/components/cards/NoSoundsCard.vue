@@ -5,7 +5,7 @@
       <i18n path="empty.noSounds">
         <code slot="path">{{ $store.getters.currentTab.path }}</code>
       </i18n>
-      <v-img src="../assets/undraw_compose_music_ovo2.svg" height="150" contain></v-img>
+      <v-img src="@/assets/undraw_compose_music_ovo2.svg" height="150" contain></v-img>
     </v-card-text>
   </v-card>
 </template>
