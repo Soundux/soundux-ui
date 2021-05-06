@@ -17,6 +17,7 @@ declare global {
     downloadProgressed: ((progress: number, eta: string) => void) | undefined;
     hotkeyReceived: ((hotkey: string, hotkeyData: number[]) => void) | undefined;
     finishSound: ((playingSound: PlayingSound) => void) | undefined;
+    onStopHotkey: (() => void) | undefined;
     onSoundPlayed: ((playingSound: PlayingSound) => void) | undefined;
     updateSound: ((playingSound: PlayingSound) => void) | undefined;
     onError: ((error: string) => void) | undefined;
@@ -31,7 +32,7 @@ declare global {
     setHotkey: (id: number, hotkeys: number[]) => Promise<void>;
     isSwitchOnConnectLoaded: () => Promise<boolean | null>;
     unloadSwitchOnConnect: () => Promise<void>;
-    stopSounds: () => Promise<boolean | null>;
+    stopSounds: () => Promise<void>;
     startPassthrough: (name: string) => Promise<boolean | null>;
     stopPassthrough: () => Promise<void>;
     playSound: (id: number) => Promise<PlayingSound | null>;

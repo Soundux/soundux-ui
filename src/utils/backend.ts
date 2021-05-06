@@ -36,6 +36,8 @@ export async function initialize(): Promise<void> {
       console.warn('Could not find sound for playingSound with id', playingSound.id);
     }
   };
+
+  // when a sound finishes playing
   window.finishSound = (playingSound: PlayingSound) => {
     $store.commit('removeFromCurrentlyPlaying', playingSound);
     // if the playlist mode is enabled, the playback was not force stopped (e.g. via hotkey) and there are no sounds playing continue with the next sound
@@ -65,6 +67,13 @@ export async function initialize(): Promise<void> {
       }
     }
   };
+
+  // when the stop hotkey was pressed
+  window.onStopHotkey = () => {
+    $store.commit('clearCurrentlyPlaying');
+  };
+
+  // when a sound started playing via hotkey
   window.onSoundPlayed = (playingSound: PlayingSound) => {
     if (playingSound) {
       $store.commit('addToCurrentlyPlaying', playingSound);

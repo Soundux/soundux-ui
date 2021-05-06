@@ -447,11 +447,8 @@ export default new Vuex.Store({
     /**
      * Stop all sounds via the backend
      */
-    async stopSounds({ commit }) {
-      const success = await window.stopSounds();
-      if (success) {
-        commit('clearCurrentlyPlaying');
-      }
+    async stopSounds() {
+      await window.stopSounds();
     },
 
     /**
