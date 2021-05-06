@@ -73,18 +73,6 @@ export default Vue.extend({
   opacity: 0 !important;
 }
 
-@keyframes blink {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.7;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
 .v-list-item.highlight:before {
   background-color: var(--v-primary-base) !important;
   opacity: 0 !important;
