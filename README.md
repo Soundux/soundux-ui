@@ -6,6 +6,7 @@ Frontend for [Soundux](https://github.com/Soundux/Soundux)
 
 [![License](https://img.shields.io/github/license/Soundux/soundux-ui?style=for-the-badge)](https://github.com/Soundux/soundux-ui/blob/master/LICENSE)
 [![Build](https://img.shields.io/github/workflow/status/Soundux/soundux-ui/ci?&style=for-the-badge)](https://github.com/Soundux/soundux-ui/actions?query=workflow%3A%22ci%22)
+[![Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=for-the-badge)](https://github.com/prettier/prettier)
 
 ### Tech stack
 [![Vue.js](https://img.shields.io/badge/Vue.js-4FC08D?style=for-the-badge&logo=vue.js&logoColor=fff)](https://vuejs.org/)
