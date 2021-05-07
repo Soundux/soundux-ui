@@ -35,6 +35,7 @@
             <v-card-text>
               <v-row justify="center">
                 <v-img
+                  v-if="info.thumbnails"
                   :src="info.thumbnails[info.thumbnails.length - 1].url"
                   height="300"
                   contain
