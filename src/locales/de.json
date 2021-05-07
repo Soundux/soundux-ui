@@ -181,9 +181,8 @@
     "15": "youtube-dl nicht gefunden",
     "16": "Ungültige URL",
     "17": "Fehler beim Verarbeiten der youtube-dl JSON",
-    "18": "youtube-dl Ausgabe war unzureichend",
-    "19": "Unbekanntes youtube-dl Versagen",
-    "20": "Fehler beim Löschen der Datei",
+    "18": "Unbekanntes youtube-dl Versagen",
+    "19": "Fehler beim Löschen der Datei",
     "error": "Fehler",
     "backendFunctionMissing": "Backend-Funktion fehlt: {functionName}"
   }
