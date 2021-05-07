@@ -41,7 +41,7 @@
                   contain
                 ></v-img>
               </v-row>
-              <v-row justify="center" class="text-h5">
+              <v-row v-if="info.uploader" justify="center" class="text-h5">
                 {{ info.uploader }}
               </v-row>
             </v-card-text>

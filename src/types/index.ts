@@ -19,7 +19,7 @@ export interface Thumbnail {
 
 export interface YoutubeDlInfo {
   title: string;
-  uploader: string;
+  uploader?: string;
   thumbnails?: Thumbnail[];
 }
 
