@@ -13,7 +13,7 @@
     "reloadSounds": "Tekrar yükle",
     "play": "Oynat",
     "appPassThrough": "Geç",
-    "playlistMode": "Oynatma Listesi Modu",
+    "playlistMode": "Oynatma Lis",
     "yes": "Evet",
     "no": "Hayır",
     "confirmation": "Onayla"
@@ -89,23 +89,23 @@
   "help": {
     "title": "Yardım",
     "search": {
-      "text": "Press {ctrl} + {f} to {search}",
+      "text": "{search} için {ctrl} + {f} basın ",
       "search": "ara"
     },
     "play": {
-      "text": "{leftClick} um {play}",
+      "text": "{play} için {leftClick}",
       "play": "oynat"
     },
     "options": {
-      "text": "{rightClick} um {moreOptions}",
+      "text": "{moreOptions} için {rightClick}",
       "moreOptions": "daha fazla seçenek göster"
     },
     "appPassThrough": {
-      "text": "Press {ctrl} + {g} to {show}",
+      "text": "{show} için {ctrl} + {g} basın ",
       "show": "uygulama geçişini göster"
     },
     "reloadSounds": {
-      "text": "Press {ctrl} + {r} to {reload}",
+      "text": "{reload} için {ctrl} + {r} basın ",
       "reload": "mevcut sekmeyi yeniden yükle"
     },
     "supportUs": "Bizi destekleyin",
@@ -128,7 +128,7 @@
     "noResultsFound": "Sonuç bulunamadı",
     "changeSelection": "Seçimi değiştirmek için {arrowKeys}",
     "jumpToSelected": "Seçili sese atlamak için {enter}",
-    "playSelected": "{shift} + {enter} şu anda seçili sesi çalmak için"
+    "playSelected": "Şu anda seçili sesi çalmak için {shift} + {enter}"
   },
   "sort": {
     "title": "Sırala",
