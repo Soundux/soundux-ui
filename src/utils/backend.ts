@@ -16,12 +16,12 @@ export async function initialize(): Promise<void> {
   };
 
   // function for backend translations
-  window.getTranslation = (path: string) => {
+  window.getTranslation = path => {
     return `${i18n.t(path)}`;
   };
 
   // sound updates
-  window.updateSound = (playingSound: PlayingSound) => {
+  window.updateSound = playingSound => {
     const sound: PlayingSound = $store.getters.currentPlayingSounds.find(
       (x: PlayingSound) => x.id === playingSound.id
     );
@@ -38,7 +38,7 @@ export async function initialize(): Promise<void> {
   };
 
   // when a sound finishes playing
-  window.finishSound = (playingSound: PlayingSound) => {
+  window.finishSound = playingSound => {
     $store.commit('removeFromCurrentlyPlaying', playingSound);
     // if the playlist mode is enabled, the playback was not force stopped (e.g. via hotkey) and there are no sounds playing continue with the next sound
     if ($store.getters.playlistMode && $store.getters.currentPlayingSounds.length === 0) {
@@ -74,7 +74,7 @@ export async function initialize(): Promise<void> {
   };
 
   // when a sound started playing via hotkey
-  window.onSoundPlayed = (playingSound: PlayingSound) => {
+  window.onSoundPlayed = playingSound => {
     if (playingSound) {
       $store.commit('addToCurrentlyPlaying', playingSound);
     }
