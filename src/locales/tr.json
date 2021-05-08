@@ -1,0 +1,190 @@
+{
+  "welcome": {
+    "title": "{programName}`a Hoşgeldiniz",
+    "noTabs": "Şu anda sekme yok. Sağ taraftaki {addTab} öğesini tıklayarak bir tane ekleyin"
+  },
+  "outputApp": "Çıkış uygulaması",
+  "outputDevice": "Çıkış aygıtı",
+  "actions": {
+    "refresh": "Yenile",
+    "stop": "Durdur",
+    "search": "Ara",
+    "addTab": "Sekme ekle",
+    "reloadSounds": "Tekrar yükle",
+    "play": "Oynat",
+    "appPassThrough": "Geç",
+    "playlistMode": "Oynatma Listesi Modu",
+    "yes": "Evet",
+    "no": "Hayır",
+    "confirmation": "Onayla"
+  },
+  "removeTab": {
+    "question": "{tabName} sekmesini kaldırmak istiyor musunuz?"
+  },
+  "deleteSound": {
+    "delete": "Sil",
+    "question": "{soundName} sesini silmek istiyor musunuz?"
+  },
+  "empty": {
+    "nothingToShow": "Hiçbirşey Bulunamadı",
+    "noSounds": "{path} klasöründe uyumlu ses bulunamadı. Desteklenen dosya formatları mp3, wav, flac'tır",
+    "noFavorites": "Şu anda hiç favoriniz yok. Burada görüntülemek için birkaç sesi favorilere ekleyin"
+  },
+  "favorites": {
+    "title": "Favoriler",
+    "favorite": "Favori"
+  },
+  "settings": {
+    "title": "Ayarlar",
+    "tabHotkeysOnly": "Yalnızca geçerli sekme için kısayol tuşları",
+    "viewMode": {
+      "title": "Ekran modu",
+      "listView": "Liste görünümü",
+      "gridView": "Izgara görünümü",
+      "launchpadMode": "Öykünülmüş Başlatma Çubuğu"
+    },
+    "allowOverlapping": "Ses örtüşmesine izin ver",
+    "deleteToTrash": "Çöp kutusuna taşı",
+    "minimizeToTray": "Sistem tepsisine küçültün",
+    "useAsDefaultDevice": "Standart cihaz olarak kullanın",
+    "muteDuringPlayback": "Oynatma sırasında mikrofonun sesini kapatın",
+    "theme": {
+      "title": "Dizayn",
+      "system": "Sistem",
+      "dark": "Karanlık",
+      "light": "Aydınlık"
+    },
+    "stopHotkey": "Kısayol Tuşunu Durdur",
+    "pushToTalkKeys": "Bas-konuş tuşları"
+  },
+  "tray": {
+    "show": "Pencereyi göster",
+    "hide": "Pencereyi gizle",
+    "exit": "Çık"
+  },
+  "switchOnConnect": {
+    "title": "Açma bağlantı modülü algılandı!",
+    "disable": "Şimdi devre dışı bırak",
+    "explanation": {
+      "line1": "PulseAudio {moduleName} modülü bulundu.",
+      "line2": "Bu ciddi sorunlara neden olur!",
+      "line3": "Soundux'u kullanmaya devam etmek için lütfen devre dışı bırakın.",
+      "line4": "Daha fazla bilgi (ör. Kalıcı olarak nasıl devre dışı bırakılacağı) {wikiPage} adresinde bulunabilir.",
+      "wikiPage": "özel wiki sayfamız (Englisch)"
+    }
+  },
+  "hotkeys": {
+    "title": "Kısayol tuşu ayarla",
+    "hotkey": "Kısayol tuşu",
+    "setFor": "{soundName} için kısayol tuşu ayarlayın"
+  },
+  "input": {
+    "ctrl": "Ctrl",
+    "shift": "Shift",
+    "enter": "Enter",
+    "leftClick": "Sol tık",
+    "rightClick": "Sağ tık",
+    "arrowKeys": "Ok tuşları"
+  },
+  "help": {
+    "title": "Yardım",
+    "search": {
+      "text": "Press {ctrl} + {f} to {search}",
+      "search": "ara"
+    },
+    "play": {
+      "text": "{leftClick} um {play}",
+      "play": "oynat"
+    },
+    "options": {
+      "text": "{rightClick} um {moreOptions}",
+      "moreOptions": "daha fazla seçenek göster"
+    },
+    "appPassThrough": {
+      "text": "Press {ctrl} + {g} to {show}",
+      "show": "uygulama geçişini göster"
+    },
+    "reloadSounds": {
+      "text": "Press {ctrl} + {r} to {reload}",
+      "reload": "mevcut sekmeyi yeniden yükle"
+    },
+    "supportUs": "Bizi destekleyin",
+    "visitOurWebsite": "İnternet sitemizi ziyaret edin",
+    "joinOurDiscord": "Discord'umuza katılın",
+    "viewSourceCode": "Kaynak koda bakın"
+  },
+  "volume": {
+    "local": "Yerel Ses",
+    "remote": "Uzak ses",
+    "sync": "Ses düzeylerini eşitle"
+  },
+  "appPassThrough": {
+    "title": "Uygulama geçişi",
+    "noAppsFound": "Uygulama bulunamadı",
+    "noOutputSelected": "Bir çıkış uygulaması seçmiş olmalısınız"
+  },
+  "search": {
+    "typeToSearch": "Aramak için yazın",
+    "noResultsFound": "Sonuç bulunamadı",
+    "changeSelection": "Seçimi değiştirmek için {arrowKeys}",
+    "jumpToSelected": "Seçili sese atlamak için {enter}",
+    "playSelected": "{shift} + {enter} şu anda seçili sesi çalmak için"
+  },
+  "sort": {
+    "title": "Sırala",
+    "modifiedAscending": "Artan",
+    "modifiedDescending": "Azalan",
+    "alphabeticalAscending": "Alfabetik artan",
+    "alphabeticalDescending": "Alfabetik azalan"
+  },
+  "downloader": {
+    "title": "İndirici",
+    "notAvailable": "{youtube-dl} ve/veya {ffmpeg} kurulu değil",
+    "installNow": "Şimdi kur",
+    "placeholder": "Bir bağlantı girin",
+    "progress": "İlerleme",
+    "converting": "Dönüştürülüyor...",
+    "eta": "ETA",
+    "cancelDownload": "İndirmeyi iptal et",
+    "startDownload": "İndirmeyi başlat",
+    "success": "İndirme tamamlandı: {title}",
+    "close": "Kapat"
+  },
+  "update": {
+    "title": "Bir güncelleme mevcut!",
+    "yourVersion": "Kullanılan sürüm",
+    "latestVersion": "Yeni sürüm",
+    "updateNow": "Şimdi güncelle",
+    "ignore": "Yoksay"
+  },
+  "systemInfo": {
+    "title": "Sistem bilgileri",
+    "description": "Bir hata bildirirken bu bilgileri ekleyin",
+    "copyToClipboard": "Panoya kopyala"
+  },
+  "errors": {
+    "0": "Oynatma başarısız oldu",
+    "1": "Aranamadı",
+    "2": "Duraklatılamadı",
+    "3": "Tekrarlanamadı",
+    "4": "Devam edilemedi",
+    "5": "Lavaboya taşınamadı",
+    "6": "Ses bulunamadı",
+    "7": "Klasör mevcut değil",
+    "8": "Sekme mevcut değil",
+    "9": "Kısayol tuşu ayarlanamadı",
+    "10": "Doğrudan geçiş başlatılamadı",
+    "11": "Geri taşınamadı",
+    "12": "Geçişe geri taşınamadı",
+    "13": "Varsayılan kaynak geri döndürülemedi",
+    "14": "Varsayılan kaynak ayarlanamadı",
+    "15": "youtube-dl bulunamadı",
+    "16": "Yanlış URL",
+    "17": "Youtube-dl JSON dosyası işlenirken hata oluştu",
+    "18": "youtube-dl çıkışı yetersizdi",
+    "19": "Bilinmeyen youtube-dl hatası ",
+    "20": "Dosya silinemedi",
+    "error": "Hata",
+    "backendFunctionMissing": "Arka uç işlevi eksik: {functionName}"
+  }
+}
