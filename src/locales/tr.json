@@ -132,8 +132,8 @@
   },
   "sort": {
     "title": "Sırala",
-    "modifiedAscending": "Artan",
-    "modifiedDescending": "Azalan",
+    "modifiedAscending": "Tarihe göre artan",
+    "modifiedDescending": "Tarihe göre azalan",
     "alphabeticalAscending": "Alfabetik artan",
     "alphabeticalDescending": "Alfabetik azalan"
   },
