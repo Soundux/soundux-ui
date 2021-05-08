@@ -73,8 +73,8 @@ export async function initialize(): Promise<void> {
     }
   };
 
-  // when the stop hotkey was pressed
-  window.onStopHotkey = () => {
+  // when the backend stops playback of every sound
+  window.onAllStopped = () => {
     $store.commit('clearCurrentlyPlaying');
   };
 

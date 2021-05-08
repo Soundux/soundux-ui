@@ -17,7 +17,7 @@ declare global {
     downloadProgressed: ((progress: number, eta: string) => void) | undefined;
     hotkeyReceived: ((hotkey: string, hotkeyData: number[]) => void) | undefined;
     finishSound: ((playingSound: PlayingSound) => void) | undefined;
-    onStopHotkey: (() => void) | undefined;
+    onAllStopped: (() => void) | undefined;
     onSoundPlayed: ((playingSound: PlayingSound) => void) | undefined;
     updateSound: ((playingSound: PlayingSound) => void) | undefined;
     onError: ((error: string) => void) | undefined;
