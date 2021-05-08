@@ -20,6 +20,11 @@ export async function initialize(): Promise<void> {
     return `${i18n.t(path)}`;
   };
 
+  // backend settings updates (e.g. via system tray)
+  window.updateSettings = settings => {
+    $store.commit('setSettings', settings);
+  };
+
   // sound updates
   window.updateSound = playingSound => {
     const sound: PlayingSound = $store.getters.currentPlayingSounds.find(
