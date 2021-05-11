@@ -1,7 +1,7 @@
 import $store from '@/store';
 import i18n from '@/plugins/i18n';
 import Vue from 'vue';
-import { PlayingSound, Tab } from '@/types';
+import { PlayingSound, PlaylistMode, Tab } from '@/types';
 
 export async function openUrl(url: string): Promise<void> {
   await window.openUrl(url);
@@ -45,8 +45,9 @@ export async function initialize(): Promise<void> {
   // when a sound finishes playing
   window.finishSound = playingSound => {
     $store.commit('removeFromCurrentlyPlaying', playingSound);
+    const { playlistMode } = $store.getters;
     // if the playlist mode is enabled, the playback was not force stopped (e.g. via hotkey) and there are no sounds playing continue with the next sound
-    if ($store.getters.playlistMode && $store.getters.currentPlayingSounds.length === 0) {
+    if (playlistMode !== PlaylistMode.Off && $store.getters.currentPlayingSounds.length === 0) {
       const soundId = playingSound.sound.id;
 
       const tabs: Tab[] = $store.getters.tabs;
@@ -60,7 +61,11 @@ export async function initialize(): Promise<void> {
         const soundInTab = sounds.find(({ id }) => id === soundId);
         if (soundInTab) {
           const currentIndex = sounds.indexOf(soundInTab);
-          const nextSound = sounds[currentIndex + 1];
+          // find next sound to play
+          const nextSound =
+            playlistMode === PlaylistMode.Shuffle
+              ? sounds[Math.floor(Math.random() * sounds.length)]
+              : sounds[currentIndex + 1];
           if (nextSound) {
             $store.dispatch('playSound', nextSound);
           }

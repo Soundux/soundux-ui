@@ -16,6 +16,9 @@
     "playlistMode": "Playlist-Modus",
     "yes": "Ja",
     "no": "Nein",
+    "on": "An",
+    "off": "Aus",
+    "shuffle": "Zufall",
     "confirmation": "Bestätigung"
   },
   "removeTab": {
@@ -132,8 +135,8 @@
   },
   "sort": {
     "title": "Sortieren",
-    "modifiedAscending": "Modifiziert aufsteigend",
-    "modifiedDescending": "Modifiziert absteigend",
+    "modifiedAscending": "Geändert aufsteigend",
+    "modifiedDescending": "Geändert absteigend",
     "alphabeticalAscending": "Alphabetisch aufsteigend",
     "alphabeticalDescending": "Alphabetisch absteigend"
   },

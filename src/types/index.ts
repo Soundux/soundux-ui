@@ -52,6 +52,12 @@ export interface Output {
 
 export type Playing = PlayingSound | Output;
 
+export enum PlaylistMode {
+  Off,
+  On,
+  Shuffle,
+}
+
 export enum SortMode {
   ModifiedDate_Ascending,
   ModifiedDate_Descending,

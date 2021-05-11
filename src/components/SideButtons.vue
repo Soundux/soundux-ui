@@ -91,14 +91,49 @@
       {{ $t('favorites.title') }}
     </v-btn>
     <v-spacer></v-spacer>
-    <v-btn
-      :color="playlistMode ? 'primary' : $vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
-      class="mb-2"
-      @click="playlistMode = !playlistMode"
-    >
-      <v-icon left>mdi-playlist-music</v-icon>
-      {{ $t('actions.playlistMode') }}
-    </v-btn>
+    <v-menu offset-y close-on-content-click>
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn
+          :color="
+            $store.getters.playlistMode
+              ? 'primary'
+              : $vuetify.theme.dark
+              ? 'grey darken-3'
+              : 'grey lighten-1'
+          "
+          class="mb-2"
+          v-bind="attrs"
+          v-on="on"
+        >
+          <v-icon v-if="$store.getters.playlistMode === 0" left>mdi-playlist-remove</v-icon>
+          <v-icon v-else-if="$store.getters.playlistMode === 1" left>mdi-playlist-music</v-icon>
+          <v-icon v-else-if="$store.getters.playlistMode === 2" left>mdi-shuffle</v-icon>
+          {{ $t('actions.playlistMode') }}
+        </v-btn>
+      </template>
+      <v-list>
+        <v-list-item-group :value="$store.getters.playlistMode">
+          <v-list-item @click="$store.commit('setPlaylistMode', 0)">
+            <v-list-item-title>
+              <v-icon left>mdi-playlist-remove</v-icon>
+              {{ $t('actions.off') }}
+            </v-list-item-title>
+          </v-list-item>
+          <v-list-item @click="$store.commit('setPlaylistMode', 1)">
+            <v-list-item-title>
+              <v-icon left>mdi-playlist-music</v-icon>
+              {{ $t('actions.on') }}
+            </v-list-item-title>
+          </v-list-item>
+          <v-list-item @click="$store.commit('setPlaylistMode', 2)">
+            <v-list-item-title>
+              <v-icon left>mdi-shuffle</v-icon>
+              {{ $t('actions.shuffle') }}
+            </v-list-item-title>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
+    </v-menu>
     <v-btn
       v-if="$store.getters.isLinux"
       :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
@@ -128,16 +163,6 @@ export default Vue.extend({
     DownloaderModal,
     HelpModal,
     SettingsModal,
-  },
-  computed: {
-    playlistMode: {
-      get(): boolean {
-        return this.$store.getters.playlistMode;
-      },
-      set(newState: boolean) {
-        this.$store.commit('setPlaylistMode', newState);
-      },
-    },
   },
 });
 </script>
