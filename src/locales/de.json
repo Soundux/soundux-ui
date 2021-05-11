@@ -16,6 +16,9 @@
     "playlistMode": "Playlist-Modus",
     "yes": "Ja",
     "no": "Nein",
+    "on": "An",
+    "off": "Aus",
+    "shuffle": "Zufall",
     "confirmation": "Bestätigung"
   },
   "removeTab": {

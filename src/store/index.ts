@@ -5,6 +5,7 @@ import {
   Output,
   Playing,
   PlayingSound,
+  PlaylistMode,
   Settings,
   SortMode,
   Sound,
@@ -31,7 +32,7 @@ export default new Vuex.Store({
     tabs: [] as Tab[],
     favorites: [] as number[],
     showFavorites: false,
-    playlistMode: false,
+    playlistMode: PlaylistMode.Off,
     outputs: [] as Output[],
     selectedOutput: null as Output | null,
     playbackApps: [] as Output[],
@@ -145,7 +146,7 @@ export default new Vuex.Store({
       state.tabs = tabs;
     },
     setShowFavorites: (state, newState: boolean) => (state.showFavorites = newState),
-    setPlaylistMode: (state, newState: boolean) => (state.playlistMode = newState),
+    setPlaylistMode: (state, playlistMode: PlaylistMode) => (state.playlistMode = playlistMode),
     setTabSounds: (state, { tab, sounds }: { tab: Tab; sounds: Sound[] }) => {
       tab.sounds = sounds;
       sortTab(tab, state.settings.sortMode);
