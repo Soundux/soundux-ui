@@ -16,6 +16,8 @@
     "playlistMode": "Oynatma Lis",
     "yes": "Evet",
     "no": "Hayır",
+    "off": "kapalı",
+    "shuffle": "Karıştır",
     "confirmation": "Onayla"
   },
   "removeTab": {
@@ -38,7 +40,7 @@
     "title": "Ayarlar",
     "tabHotkeysOnly": "Yalnızca geçerli sekme için kısayol tuşları",
     "viewMode": {
-      "title": "Ekran modu",
+      "title": "Görüntüleme modu",
       "listView": "Liste görünümü",
       "gridView": "Izgara görünümü",
       "launchpadMode": "Öykünülmüş Başlatma Çubuğu"
@@ -70,7 +72,7 @@
       "line2": "Bu ciddi sorunlara neden olur!",
       "line3": "Soundux'u kullanmaya devam etmek için lütfen devre dışı bırakın.",
       "line4": "Daha fazla bilgi (ör. Kalıcı olarak nasıl devre dışı bırakılacağı) {wikiPage} adresinde bulunabilir.",
-      "wikiPage": "özel wiki sayfamız (Englisch)"
+      "wikiPage": "özel wiki sayfamız"
     }
   },
   "hotkeys": {
@@ -181,9 +183,8 @@
     "15": "youtube-dl bulunamadı",
     "16": "Yanlış URL",
     "17": "Youtube-dl JSON dosyası işlenirken hata oluştu",
-    "18": "youtube-dl çıkışı yetersizdi",
-    "19": "Bilinmeyen youtube-dl hatası ",
-    "20": "Dosya silinemedi",
+    "18": "Bilinmeyen youtube-dl hatası",
+    "19": "Dosya silinemedi",
     "error": "Hata",
     "backendFunctionMissing": "Arka uç işlevi eksik: {functionName}"
   }
