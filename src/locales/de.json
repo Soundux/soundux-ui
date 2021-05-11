@@ -132,8 +132,8 @@
   },
   "sort": {
     "title": "Sortieren",
-    "modifiedAscending": "Modifiziert aufsteigend",
-    "modifiedDescending": "Modifiziert absteigend",
+    "modifiedAscending": "Geändert aufsteigend",
+    "modifiedDescending": "Geändert absteigend",
     "alphabeticalAscending": "Alphabetisch aufsteigend",
     "alphabeticalDescending": "Alphabetisch absteigend"
   },
