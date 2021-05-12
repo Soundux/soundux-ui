@@ -16,7 +16,7 @@
     "playlistMode": "Oynatma Lis",
     "yes": "Evet",
     "no": "Hayır",
-    "on": "Açık"
+    "on": "Açık",
     "off": "Kapalı",
     "shuffle": "Karıştır",
     "confirmation": "Onayla"
@@ -41,7 +41,7 @@
     "title": "Ayarlar",
     "tabHotkeysOnly": "Yalnızca geçerli sekme için kısayol tuşları",
     "viewMode": {
-      "title": "Görüntüleme modu",
+      "title": "Ekran modu",
       "listView": "Liste görünümü",
       "gridView": "Izgara görünümü",
       "launchpadMode": "Öykünülmüş Başlatma Çubuğu"
@@ -73,7 +73,7 @@
       "line2": "Bu ciddi sorunlara neden olur!",
       "line3": "Soundux'u kullanmaya devam etmek için lütfen devre dışı bırakın.",
       "line4": "Daha fazla bilgi (ör. Kalıcı olarak nasıl devre dışı bırakılacağı) {wikiPage} adresinde bulunabilir.",
-      "wikiPage": "özel wiki sayfamız"
+      "wikiPage": "özel wiki sayfamız (Englisch)"
     }
   },
   "hotkeys": {
