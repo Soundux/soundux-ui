@@ -189,7 +189,7 @@ import { AudioBackend, Theme, ViewMode } from '@/types';
 interface Option {
   id: number;
   name: string;
-  icon: string;
+  icon?: string;
 }
 
 export default Vue.extend({
