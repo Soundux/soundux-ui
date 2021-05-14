@@ -27,7 +27,7 @@
             autofocus
             prepend-inner-icon="mdi-link"
             :loading="fetchingInfo"
-            @input="updateInfoCard"
+            v-debounce:300="updateInfoCard"
           ></v-text-field>
 
           <v-card v-if="info" outlined class="mt-3">
