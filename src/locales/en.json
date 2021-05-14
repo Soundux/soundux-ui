@@ -1,7 +1,13 @@
 {
   "welcome": {
     "title": "Welcome to {programName}",
-    "noTabs": "There are currently no tabs. Add one by clicking {addTab} on the right side"
+    "noTabs": "There are currently no tabs. Add one by clicking {addTab} on the right side",
+    "linuxDetected": "We have detected that you are on Linux.",
+    "linuxGuide1": "To play sounds you just have to select the output application in the top right.",
+    "linuxGuide2": "You don't have to change your input or output device anywhere.",
+    "windowsDetected": "We have detected that you are on Windows.",
+    "windowsGuide1": "Make sure to follow the installation steps {seenOnWebsite}",
+    "windowsGuide2": "as seen on our website"
   },
   "outputApp": "Output application",
   "outputDevice": "Output device",
@@ -9,7 +15,7 @@
     "refresh": "Refresh",
     "stop": "Stop",
     "search": "Search",
-    "addTab": "Add tab",
+    "addTab": "Add Tab",
     "reloadSounds": "Reload",
     "play": "Play",
     "appPassThrough": "Pass through",
