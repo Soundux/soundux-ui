@@ -103,16 +103,16 @@
               class="ma-0"
             ></v-checkbox>
             <v-checkbox
+              v-if="$store.getters.isLinux"
               v-model="useAsDefaultDevice"
-              :disabled="!$store.getters.isLinux"
               :label="$t('settings.useAsDefaultDevice')"
               hide-details
               prepend-icon="mdi-speaker"
               class="ma-0"
             ></v-checkbox>
             <v-checkbox
+              v-if="$store.getters.isLinux"
               v-model="muteDuringPlayback"
-              :disabled="!$store.getters.isLinux"
               :label="$t('settings.muteDuringPlayback')"
               hide-details
               prepend-icon="mdi-volume-mute"
