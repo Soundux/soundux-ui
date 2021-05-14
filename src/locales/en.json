@@ -25,7 +25,8 @@
     "on": "On",
     "off": "Off",
     "shuffle": "Shuffle",
-    "confirmation": "Confirmation"
+    "confirmation": "Confirmation",
+    "openFolder": "Open folder"
   },
   "removeTab": {
     "question": "Would you like to remove the tab {tabName}?"

@@ -25,7 +25,8 @@
     "on": "An",
     "off": "Aus",
     "shuffle": "Zufall",
-    "confirmation": "Bestätigung"
+    "confirmation": "Bestätigung",
+    "openFolder": "Ordner öffnen"
   },
   "removeTab": {
     "question": "Möchten Sie den Tab {tabName} entfernen?"

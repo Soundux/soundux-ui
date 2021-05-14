@@ -60,6 +60,7 @@ declare global {
     startYoutubeDLDownload: (input: string) => Promise<boolean | null>;
     stopYoutubeDLDownload: () => Promise<void>;
     updateCheck: () => Promise<UpdateData | null>;
+    openFolder: (tabId: number) => Promise<void>;
   }
 }
 
