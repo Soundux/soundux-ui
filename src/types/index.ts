@@ -58,6 +58,11 @@ export enum PlaylistMode {
   Shuffle,
 }
 
+export enum AudioBackend {
+  PulseAudio,
+  PipeWire,
+}
+
 export enum SortMode {
   ModifiedDate_Ascending,
   ModifiedDate_Descending,
@@ -84,6 +89,7 @@ export interface Settings {
   deleteToTrash: boolean;
   syncVolumes: boolean;
   theme: Theme;
+  audioBackend: AudioBackend;
   viewMode: ViewMode;
   stopHotkey: number[];
   pushToTalkKeys: number[];

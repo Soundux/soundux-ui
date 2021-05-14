@@ -64,6 +64,7 @@
       "dark": "Dunkel",
       "light": "Hell"
     },
+    "audioBackend": "Audio-Backend",
     "stopHotkey": "Stopp-Hotkey",
     "pushToTalkKeys": "Push-to-talk Tasten"
   },
