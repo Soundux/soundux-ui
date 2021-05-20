@@ -1,7 +1,13 @@
 {
   "welcome": {
     "title": "{programName}`a Hoşgeldiniz",
-    "noTabs": "Şu anda sekme yok. Sağ taraftaki {addTab} öğesini tıklayarak bir tane ekleyin"
+    "noTabs": "Şu anda sekme yok. Sağ taraftaki {addTab} öğesini tıklayarak bir tane ekleyin",
+    "linuxDetected": "Linux'ta olduğunuzu tespit ettik.",
+    "linuxGuide1": "Sesleri çalmak için sağ üstteki çıktı uygulamasını seçmeniz yeterlidir.",
+    "linuxGuide2": "Giriş veya çıkış cihazınızı hiçbir yerde değiştirmeniz gerekmez.",
+    "windowsDetected": "Windows'ta olduğunuzu tespit ettik.",
+    "windowsGuide1": "{SeenOnWebsite} kurulum adımlarını uyguladığınızdan emin olun",
+    "windowsGuide2": "web sitemizde görüldüğü gibi"
   },
   "outputApp": "Çıkış uygulaması",
   "outputDevice": "Çıkış aygıtı",
@@ -19,7 +25,8 @@
     "on": "Açık",
     "off": "Kapalı",
     "shuffle": "Karıştır",
-    "confirmation": "Onayla"
+    "confirmation": "Onayla",
+    "openFolder": "Klasör aç"
   },
   "removeTab": {
     "question": "{tabName} sekmesini kaldırmak istiyor musunuz?"
@@ -57,6 +64,7 @@
       "dark": "Karanlık",
       "light": "Aydınlık"
     },
+    "audioBackend":"Ses arka ucu",
     "stopHotkey": "Kısayol Tuşunu Durdur",
     "pushToTalkKeys": "Bas-konuş tuşları"
   },
@@ -73,7 +81,7 @@
       "line2": "Bu ciddi sorunlara neden olur!",
       "line3": "Soundux'u kullanmaya devam etmek için lütfen devre dışı bırakın.",
       "line4": "Daha fazla bilgi (ör. Kalıcı olarak nasıl devre dışı bırakılacağı) {wikiPage} adresinde bulunabilir.",
-      "wikiPage": "özel wiki sayfamız (Englisch)"
+      "wikiPage": "özel wiki sayfamız (İngilizce)"
     }
   },
   "hotkeys": {
