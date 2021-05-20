@@ -6,7 +6,7 @@
     "linuxGuide1": "Sesleri çalmak için sağ üstteki çıktı uygulamasını seçmeniz yeterlidir.",
     "linuxGuide2": "Giriş veya çıkış cihazınızı hiçbir yerde değiştirmeniz gerekmez.",
     "windowsDetected": "Windows'ta olduğunuzu tespit ettik.",
-    "windowsGuide1": "{SeenOnWebsite} kurulum adımlarını uyguladığınızdan emin olun",
+    "windowsGuide1": "{seenOnWebsite} kurulum adımlarını uyguladığınızdan emin olun",
     "windowsGuide2": "web sitemizde görüldüğü gibi"
   },
   "outputApp": "Çıkış uygulaması",
