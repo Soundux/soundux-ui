@@ -11,18 +11,22 @@
         @start="startDrag"
         @end="stopDrag"
       >
-        <v-tab v-for="(tab, index) in $store.getters.tabs" :key="index" :disabled="showFavorites">
-          {{ tab.name }}
-          <v-icon
-            right
-            small
-            color="grey"
-            style="cursor: pointer"
-            @click.stop="$store.commit('setTabToRemove', tab)"
-          >
-            mdi-close-circle
-          </v-icon>
-        </v-tab>
+        <TabContextMenu v-for="(tab, index) in $store.getters.tabs" :key="index" :tab="tab">
+          <template #default="{ context }">
+            <v-tab :disabled="showFavorites" @contextmenu="context">
+              {{ tab.name }}
+              <v-icon
+                right
+                small
+                color="grey"
+                style="cursor: pointer"
+                @click.stop="$store.commit('setTabToRemove', tab)"
+              >
+                mdi-close-circle
+              </v-icon>
+            </v-tab>
+          </template>
+        </TabContextMenu>
       </draggable>
     </v-tabs>
 
@@ -59,6 +63,7 @@ import LaunchpadView from '@/components/views/LaunchpadView.vue';
 import { mapGetters } from 'vuex';
 import NoSoundsCard from '@/components/cards/NoSoundsCard.vue';
 import NoFavoritesCard from '@/components/cards/NoFavoritesCard.vue';
+import TabContextMenu from '@/components/TabContextMenu.vue';
 
 export default Vue.extend({
   name: 'SoundTabs',
@@ -74,6 +79,7 @@ export default Vue.extend({
     document.removeEventListener('keydown', this.keyDownHandler);
   },
   components: {
+    TabContextMenu,
     NoFavoritesCard,
     NoSoundsCard,
     LaunchpadView,

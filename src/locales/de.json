@@ -1,7 +1,13 @@
 {
   "welcome": {
     "title": "Willkommen zu {programName}",
-    "noTabs": "Zurzeit sind keine Tabs vorhanden. Fügen Sie einen hinzu, indem Sie {addTab} auf der rechten Seite klicken"
+    "noTabs": "Zurzeit sind keine Tabs vorhanden. Fügen Sie einen hinzu, indem Sie {addTab} auf der rechten Seite klicken",
+    "linuxDetected": "Wir haben festgestellt, dass Sie Linux benutzen.",
+    "linuxGuide1": "Um Sounds abzuspielen, müssen Sie nur die Ausgabe-Anwendung oben rechts auswählen.",
+    "linuxGuide2": "Sie müssen Ihr Ein- oder Ausgabegerät nirgends ändern.",
+    "windowsDetected": "Wir haben festgestellt, dass Sie Windows benutzen.",
+    "windowsGuide1": "Beachten Sie unbedingt die Installationsschritte, {seenOnWebsite}",
+    "windowsGuide2": "die auf unserer Website angegeben sind"
   },
   "outputApp": "Ausgabe-Anwendung",
   "outputDevice": "Ausgabe-Gerät",
@@ -19,7 +25,8 @@
     "on": "An",
     "off": "Aus",
     "shuffle": "Zufall",
-    "confirmation": "Bestätigung"
+    "confirmation": "Bestätigung",
+    "openFolder": "Ordner öffnen"
   },
   "removeTab": {
     "question": "Möchten Sie den Tab {tabName} entfernen?"
@@ -57,6 +64,7 @@
       "dark": "Dunkel",
       "light": "Hell"
     },
+    "audioBackend": "Audio-Backend",
     "stopHotkey": "Stopp-Hotkey",
     "pushToTalkKeys": "Push-to-talk Tasten"
   },

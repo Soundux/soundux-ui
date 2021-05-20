@@ -10,6 +10,7 @@ import 'vue-toastification/dist/index.css';
 import dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
 import { Output, PlayingSound, Settings, Tab, UpdateData, YoutubeDlInfo } from '@/types';
+import vueDebounce from 'vue-debounce';
 
 declare global {
   interface Window {
@@ -59,8 +60,11 @@ declare global {
     startYoutubeDLDownload: (input: string) => Promise<boolean | null>;
     stopYoutubeDLDownload: () => Promise<void>;
     updateCheck: () => Promise<UpdateData | null>;
+    openFolder: (tabId: number) => Promise<void>;
   }
 }
+
+Vue.use(vueDebounce);
 
 Vue.use(Toast, {
   // toast options

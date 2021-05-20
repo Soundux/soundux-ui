@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import Vuetify from '@/plugins/vuetify';
 import {
+  AudioBackend,
   Output,
   Playing,
   PlayingSound,
@@ -48,6 +49,7 @@ export default new Vuex.Store({
       deleteToTrash: true,
       syncVolumes: false,
       theme: Theme.System,
+      audioBackend: AudioBackend.PulseAudio,
       viewMode: ViewMode.List,
       stopHotkey: [] as number[],
       pushToTalkKeys: [] as number[],
@@ -235,6 +237,7 @@ export default new Vuex.Store({
     setRemoteVolume: (state, volume: number) => (state.settings.remoteVolume = volume),
     setTabHotkeysOnly: (state, value: boolean) => (state.settings.tabHotkeysOnly = value),
     setViewMode: (state, value: ViewMode) => (state.settings.viewMode = value),
+    setAudioBackend: (state, value: AudioBackend) => (state.settings.audioBackend = value),
     setAllowOverlapping: (state, value: boolean) => (state.settings.allowOverlapping = value),
     setDeleteToTrash: (state, value: boolean) => (state.settings.deleteToTrash = value),
     setSyncVolumes: (state, value: boolean) => (state.settings.syncVolumes = value),

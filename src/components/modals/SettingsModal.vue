@@ -81,6 +81,20 @@
                 </v-row>
               </template>
             </v-select>
+            <template v-if="$store.getters.isLinux">
+              <v-select
+                :items="audioBackends"
+                v-model="audioBackend"
+                item-text="name"
+                item-value="id"
+                :label="$t('settings.audioBackend')"
+                hide-details
+                prepend-icon="mdi-cast-audio"
+                class="ma-0"
+              >
+              </v-select>
+              <div></div>
+            </template>
             <v-checkbox
               v-model="tabHotkeysOnly"
               :label="$t('settings.tabHotkeysOnly')"
@@ -103,16 +117,18 @@
               class="ma-0"
             ></v-checkbox>
             <v-checkbox
+              v-if="$store.getters.isLinux"
               v-model="useAsDefaultDevice"
-              :disabled="!$store.getters.isLinux"
+              :disabled="$store.getters.settings.audioBackend === 1"
               :label="$t('settings.useAsDefaultDevice')"
               hide-details
               prepend-icon="mdi-speaker"
               class="ma-0"
             ></v-checkbox>
             <v-checkbox
+              v-if="$store.getters.isLinux"
               v-model="muteDuringPlayback"
-              :disabled="!$store.getters.isLinux"
+              :disabled="$store.getters.settings.audioBackend === 1"
               :label="$t('settings.muteDuringPlayback')"
               hide-details
               prepend-icon="mdi-volume-mute"
@@ -168,12 +184,12 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { Theme, ViewMode } from '@/types';
+import { AudioBackend, Theme, ViewMode } from '@/types';
 
 interface Option {
   id: number;
   name: string;
-  icon: string;
+  icon?: string;
 }
 
 export default Vue.extend({
@@ -200,6 +216,12 @@ export default Vue.extend({
         { id: 2, name: this.$t('settings.theme.light').toString(), icon: 'mdi-brightness-6' },
       ];
     },
+    audioBackends(): Option[] {
+      return [
+        { id: 0, name: 'PulseAudio' },
+        { id: 1, name: 'PipeWire' },
+      ];
+    },
     tabHotkeysOnly: {
       get(): boolean {
         return this.$store.getters.settings.tabHotkeysOnly;
@@ -215,6 +237,15 @@ export default Vue.extend({
       },
       set(state: ViewMode) {
         this.$store.commit('setViewMode', state);
+        this.$store.dispatch('saveSettings');
+      },
+    },
+    audioBackend: {
+      get(): AudioBackend {
+        return this.$store.getters.settings.audioBackend;
+      },
+      set(state: AudioBackend) {
+        this.$store.commit('setAudioBackend', state);
         this.$store.dispatch('saveSettings');
       },
     },
