@@ -25,6 +25,9 @@ export async function initialize(): Promise<void> {
     $store.commit('setSettings', settings);
   };
 
+  // switch tab (e.g for hotkeys, CLI)
+  window.switchTab = tabIndex => $store.commit('setActiveTabIndex', tabIndex);
+
   // sound updates
   window.updateSound = playingSound => {
     const sound: PlayingSound = $store.getters.currentPlayingSounds.find(

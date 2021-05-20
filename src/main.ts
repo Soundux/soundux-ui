@@ -24,6 +24,7 @@ declare global {
     onError: ((error: string) => void) | undefined;
     getTranslation: ((path: string) => string) | undefined;
     updateSettings: ((settings: Settings) => void) | undefined;
+    switchTab: ((tabIndex: number) => void) | undefined;
     // backend functions (here we can register both the arguments and the return types)
     isLinux: () => Promise<boolean | null>;
     openUrl: (url: string) => Promise<void>;
