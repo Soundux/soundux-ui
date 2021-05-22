@@ -59,8 +59,9 @@ export enum PlaylistMode {
 }
 
 export enum AudioBackend {
-  PulseAudio,
+  None,
   PipeWire,
+  PulseAudio,
 }
 
 export enum SortMode {

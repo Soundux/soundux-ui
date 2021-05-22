@@ -237,7 +237,13 @@ export default new Vuex.Store({
     setRemoteVolume: (state, volume: number) => (state.settings.remoteVolume = volume),
     setTabHotkeysOnly: (state, value: boolean) => (state.settings.tabHotkeysOnly = value),
     setViewMode: (state, value: ViewMode) => (state.settings.viewMode = value),
-    setAudioBackend: (state, value: AudioBackend) => (state.settings.audioBackend = value),
+    setAudioBackend: (state, value: AudioBackend) => {
+      state.settings.audioBackend = value;
+      if (value == AudioBackend.PipeWire) {
+        state.settings.muteDuringPlayback = false;
+        state.settings.useAsDefaultDevice = false;
+      }
+    },
     setAllowOverlapping: (state, value: boolean) => (state.settings.allowOverlapping = value),
     setDeleteToTrash: (state, value: boolean) => (state.settings.deleteToTrash = value),
     setSyncVolumes: (state, value: boolean) => (state.settings.syncVolumes = value),
@@ -501,8 +507,14 @@ export default new Vuex.Store({
     /**
      * Save settings via the backend
      */
-    async saveSettings({ state }) {
-      await window.changeSettings(state.settings);
+    async saveSettings({ getters, commit }) {
+      const newSettings = await window.changeSettings(getters.settings);
+      if (newSettings) {
+        // reset volumes because of a conflict with backend value and vuetify slider rounding
+        newSettings.localVolume = getters.settings.localVolume;
+        newSettings.remoteVolume = getters.settings.remoteVolume;
+        commit('setSettings', newSettings);
+      }
     },
 
     /**

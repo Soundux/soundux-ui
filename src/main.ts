@@ -31,7 +31,7 @@ declare global {
     moveTabs: (tabIds: number[]) => Promise<Tab[]>;
     getSettings: () => Promise<Settings>;
     getOutputs: () => Promise<Output[]>;
-    changeSettings: (settings: Settings) => Promise<void>;
+    changeSettings: (settings: Settings) => Promise<Settings>;
     setHotkey: (id: number, hotkeys: number[]) => Promise<void>;
     isSwitchOnConnectLoaded: () => Promise<boolean | null>;
     unloadSwitchOnConnect: () => Promise<void>;

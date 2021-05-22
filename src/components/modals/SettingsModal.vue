@@ -218,8 +218,8 @@ export default Vue.extend({
     },
     audioBackends(): Option[] {
       return [
-        { id: 0, name: 'PulseAudio' },
         { id: 1, name: 'PipeWire' },
+        { id: 2, name: 'PulseAudio' },
       ];
     },
     tabHotkeysOnly: {

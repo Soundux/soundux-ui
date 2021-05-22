@@ -84,6 +84,11 @@
       "wikiPage": "our dedicated wiki page"
     }
   },
+  "noAudioBackend": {
+    "title": "No audio backend found",
+    "notDetected": "We could not detect a supported audio backend for your system.",
+    "choose": "Please choose one below"
+  },
   "hotkeys": {
     "title": "Set hotkey",
     "hotkey": "Hotkey",

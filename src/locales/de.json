@@ -84,6 +84,11 @@
       "wikiPage": "unserer dafür vorgesehenen Wiki-Seite (Englisch)"
     }
   },
+  "noAudioBackend": {
+    "title": "Kein Audio-Backend gefunden",
+    "notDetected": "Wir konnten kein unterstütztes Audio-Backend für Ihr System finden.",
+    "choose": "Bitte wählen Sie unten eines aus"
+  },
   "hotkeys": {
     "title": "Hotkey setzen",
     "hotkey": "Hotkey",
