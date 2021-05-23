@@ -309,35 +309,6 @@ export default new Vuex.Store({
     },
 
     /**
-     * Set the outputs array and select the output accordingly
-     */
-    async setOutputs({ state, commit, dispatch }, outputs: Output[]) {
-      commit('setOutputs', outputs);
-      // if use as default device is enabled there should be no output application
-      if (state.settings.useAsDefaultDevice) {
-        commit('setSelectedOutputs', []);
-      } else {
-        const { selectedOutputs } = state;
-        if (outputs.length > 0) {
-          if (selectedOutputs.length === 0) {
-            commit('setSelectedOutputs', [outputs[0]]);
-          } else {
-            const selectedOutputNames = selectedOutputs.map(({ name }) => name);
-            const current = outputs.filter(({ name }) => selectedOutputNames.includes(name));
-            if (current.length > 0) {
-              commit('setSelectedOutputs', current);
-            } else {
-              commit('setSelectedOutputs', [outputs[0]]);
-            }
-          }
-        } else {
-          commit('setSelectedOutputs', []);
-        }
-      }
-      await dispatch('saveSettings');
-    },
-
-    /**
      * Set and save the currently selected output
      */
     async setSelectedOutputs({ commit, dispatch }, selectedOutputs: Output[]) {
@@ -470,11 +441,43 @@ export default new Vuex.Store({
 
     /**
      * Refresh the outputs via the backend
+     * and select the outputs accordingly
      */
-    async getOutputs({ dispatch }) {
+    async getOutputs({ state, commit, dispatch }, settingsOutputs?: string[]) {
       const outputs = await window.getOutputs();
       if (outputs) {
-        dispatch('setOutputs', outputs);
+        commit('setOutputs', outputs);
+
+        // restore outputs when settingsOutputs are given (on startup)
+        if (settingsOutputs) {
+          const validOutputs = state.outputs.filter(({ name }) => settingsOutputs.includes(name));
+          if (validOutputs && validOutputs.length > 0) {
+            commit('setSelectedOutputs', validOutputs);
+          }
+        } else {
+          // if use as default device is enabled there should be no output application
+          if (state.settings.useAsDefaultDevice) {
+            commit('setSelectedOutputs', []);
+          } else {
+            const { selectedOutputs } = state;
+            if (outputs.length > 0) {
+              if (selectedOutputs.length === 0) {
+                commit('setSelectedOutputs', [outputs[0]]);
+              } else {
+                const selectedOutputNames = selectedOutputs.map(({ name }) => name);
+                const current = outputs.filter(({ name }) => selectedOutputNames.includes(name));
+                if (current.length > 0) {
+                  commit('setSelectedOutputs', current);
+                } else {
+                  commit('setSelectedOutputs', [outputs[0]]);
+                }
+              }
+            } else {
+              commit('setSelectedOutputs', []);
+            }
+          }
+          await dispatch('saveSettings');
+        }
       }
     },
 

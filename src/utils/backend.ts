@@ -109,15 +109,7 @@ export async function initialize(): Promise<void> {
     // fetch favorites
     $store.dispatch('getFavorites'),
   ]);
-  // save outputs from settings because it will be overwritten by getOutputs
-  const settingsOutputs = $store.state.settings.output;
 
-  // getOutputs has to be called after setSettings. otherwise the settings promise might resolve slower and overwrites the output value
-  await $store.dispatch('getOutputs');
-
-  // restore outputs
-  const validOutputs = $store.state.outputs.filter(({ name }) => settingsOutputs.includes(name));
-  if (validOutputs && validOutputs.length > 0) {
-    $store.commit('setSelectedOutputs', validOutputs);
-  }
+  // getOutputs relies on settings, we supply the outputs from the settings to restore them
+  await $store.dispatch('getOutputs', $store.state.settings.output);
 }
