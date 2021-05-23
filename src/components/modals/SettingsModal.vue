@@ -322,8 +322,6 @@ export default Vue.extend({
           }
           this.$store.dispatch('saveSettings');
         };
-        // the settings may have been changed by the backend (e.g. tray icon)
-        this.$store.dispatch('getSettings');
         // update hotkey sequences
         this.updateHotkeySequences();
       } else {
