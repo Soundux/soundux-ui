@@ -519,9 +519,6 @@ export default new Vuex.Store({
     async saveSettings({ getters, commit }) {
       const newSettings = await window.changeSettings(getters.settings);
       if (newSettings) {
-        // reset volumes because of a conflict with backend value and vuetify slider rounding
-        newSettings.localVolume = getters.settings.localVolume;
-        newSettings.remoteVolume = getters.settings.remoteVolume;
         commit('setSettings', newSettings);
       }
     },
@@ -530,7 +527,7 @@ export default new Vuex.Store({
      * Set and save the local volume
      */
     async setLocalVolume({ commit, dispatch }, volume: number) {
-      commit('setLocalVolume', volume / 100);
+      commit('setLocalVolume', volume);
       await dispatch('saveSettings');
     },
 
@@ -538,7 +535,7 @@ export default new Vuex.Store({
      * Set and save the remote volume
      */
     async setRemoteVolume({ commit, dispatch }, volume: number) {
-      commit('setRemoteVolume', volume / 100);
+      commit('setRemoteVolume', volume);
       await dispatch('saveSettings');
     },
 
