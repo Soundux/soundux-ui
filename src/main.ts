@@ -37,7 +37,7 @@ declare global {
     unloadSwitchOnConnect: () => Promise<void>;
     stopSounds: () => Promise<void>;
     startPassthrough: (name: string) => Promise<boolean | null>;
-    stopPassthrough: () => Promise<void>;
+    stopPassthrough: (name: string) => Promise<void>;
     playSound: (id: number) => Promise<PlayingSound | null>;
     pauseSound: (id: number) => Promise<PlayingSound | null>;
     resumeSound: (id: number) => Promise<PlayingSound | null>;

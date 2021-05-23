@@ -193,13 +193,6 @@ export default new Vuex.Store({
     },
     addToCurrentlyPlaying: (state, playing: Playing) => state.currentPlaying.push(playing),
     clearCurrentlyPlaying: state => (state.currentPlaying = []),
-    removePassthroughFromCurrentlyPlaying: state => {
-      state.currentPlaying.forEach((playing: Playing) => {
-        if ('name' in playing) {
-          state.currentPlaying.splice(state.currentPlaying.indexOf(playing), 1);
-        }
-      });
-    },
     removeFromCurrentlyPlaying: (state, playing: Playing) => {
       // search by id because object could be different (f.e. when the data comes from the backend)
       const realSound = state.currentPlaying.find(x => {
@@ -449,7 +442,6 @@ export default new Vuex.Store({
     async startPassthrough({ commit }, app: Output) {
       const success = await window.startPassthrough(app.name);
       if (success) {
-        commit('removePassthroughFromCurrentlyPlaying');
         commit('addToCurrentlyPlaying', app);
       }
     },
