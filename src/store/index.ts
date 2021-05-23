@@ -43,7 +43,7 @@ export default new Vuex.Store({
     updateData: null as UpdateData | null,
     isDraggingSeekbar: false,
     settings: {
-      output: [],
+      outputs: [],
       selectedTab: 0,
       allowOverlapping: true,
       deleteToTrash: true,
@@ -159,7 +159,7 @@ export default new Vuex.Store({
     setPlaybackApps: (state, playbackApps: Output[]) => (state.playbackApps = playbackApps),
     setSelectedOutputs: (state, selectedOutputs: Output[]) => {
       state.selectedOutputs = selectedOutputs;
-      state.settings.output = selectedOutputs.map(({ name }) => name);
+      state.settings.outputs = selectedOutputs.map(({ name }) => name);
     },
     updateSound: (
       _state,
@@ -249,8 +249,8 @@ export default new Vuex.Store({
         if (state.selectedOutputs.length > 1) {
           state.selectedOutputs = [state.selectedOutputs[0]];
         }
-        if (state.settings.output.length > 1) {
-          state.settings.output = [state.settings.output[0]];
+        if (state.settings.outputs.length > 1) {
+          state.settings.outputs = [state.settings.outputs[0]];
         }
       }
     },

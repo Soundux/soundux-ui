@@ -111,5 +111,5 @@ export async function initialize(): Promise<void> {
   ]);
 
   // getOutputs relies on settings, we supply the outputs from the settings to restore them
-  await $store.dispatch('getOutputs', $store.state.settings.output);
+  await $store.dispatch('getOutputs', $store.state.settings.outputs);
 }

@@ -84,7 +84,7 @@ export enum ViewMode {
 }
 
 export interface Settings {
-  output: string[];
+  outputs: string[];
   selectedTab: number;
   allowOverlapping: boolean;
   deleteToTrash: boolean;
