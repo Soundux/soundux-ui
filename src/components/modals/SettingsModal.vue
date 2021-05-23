@@ -93,7 +93,13 @@
                 class="ma-0"
               >
               </v-select>
-              <div></div>
+              <v-checkbox
+                v-model="allowMultipleOutputs"
+                :label="$t('settings.allowMultipleOutputs')"
+                hide-details
+                prepend-icon="mdi-speaker-multiple"
+                class="ma-0 align-self-center"
+              ></v-checkbox>
             </template>
             <v-checkbox
               v-model="tabHotkeysOnly"
@@ -292,6 +298,15 @@ export default Vue.extend({
       set(state: boolean) {
         this.$store.dispatch('setUseAsDefaultDevice', state);
         // this automatically saves the settings as it also updates the selected output and we don't want to save them twice
+      },
+    },
+    allowMultipleOutputs: {
+      get(): boolean {
+        return this.$store.getters.settings.allowMultipleOutputs;
+      },
+      set(state: boolean) {
+        this.$store.commit('setAllowMultipleOutputs', state);
+        this.$store.dispatch('saveSettings');
       },
     },
     theme: {

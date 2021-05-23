@@ -18,7 +18,7 @@
             <span class="text-h5 ml-3">Soundux</span>
           </v-col>
           <v-spacer></v-spacer>
-          <v-col cols="auto" style="min-width: 200px; max-width: 250px">
+          <v-col cols="auto" style="min-width: 200px; max-width: 950px">
             <OutputSelection></OutputSelection>
             <v-btn
               color="primary"

@@ -65,6 +65,7 @@
       "light": "Light"
     },
     "audioBackend": "Audio backend",
+    "allowMultipleOutputs": "Allow multiple output apps",
     "stopHotkey": "Stop hotkey",
     "pushToTalkKeys": "Push-to-talk keys"
   },

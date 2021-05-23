@@ -52,7 +52,9 @@
           v-model="remoteVolume"
           dense
           hide-details
-          :disabled="!$store.getters.selectedOutput && !$store.getters.settings.useAsDefaultDevice"
+          :disabled="
+            $store.getters.selectedOutputs.length === 0 && !$store.getters.settings.useAsDefaultDevice
+          "
           :thumb-label="$vuetify.breakpoint.smAndUp"
           :class="{ 'no-animation': dragLocal }"
           @start="dragRemote = true"

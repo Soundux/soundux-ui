@@ -35,7 +35,7 @@ export default new Vuex.Store({
     showFavorites: false,
     playlistMode: PlaylistMode.Off,
     outputs: [] as Output[],
-    selectedOutput: null as Output | null,
+    selectedOutputs: [] as Output[],
     playbackApps: [] as Output[],
     currentPlaying: [] as Playing[],
     switchOnConnectLoaded: false,
@@ -43,7 +43,7 @@ export default new Vuex.Store({
     updateData: null as UpdateData | null,
     isDraggingSeekbar: false,
     settings: {
-      output: '',
+      output: [],
       selectedTab: 0,
       allowOverlapping: true,
       deleteToTrash: true,
@@ -58,6 +58,7 @@ export default new Vuex.Store({
       minimizeToTray: false,
       localVolume: 0,
       remoteVolume: 0,
+      allowMultipleOutputs: false,
       useAsDefaultDevice: false,
       muteDuringPlayback: false,
     } as Settings,
@@ -87,7 +88,7 @@ export default new Vuex.Store({
     playlistMode: state => state.playlistMode,
     activeTabIndex: state => state.settings.selectedTab,
     outputs: state => state.outputs,
-    selectedOutput: state => state.selectedOutput,
+    selectedOutputs: state => state.selectedOutputs,
     playbackApps: state => state.playbackApps,
     currentPlaying: state => state.currentPlaying,
     currentPlayingSounds: state => {
@@ -156,9 +157,9 @@ export default new Vuex.Store({
     setActiveTabIndex: (state, index: number) => (state.settings.selectedTab = index),
     setOutputs: (state, outputs: Output[]) => (state.outputs = outputs),
     setPlaybackApps: (state, playbackApps: Output[]) => (state.playbackApps = playbackApps),
-    setSelectedOutput: (state, selectedOutput: Output | null) => {
-      state.selectedOutput = selectedOutput;
-      state.settings.output = selectedOutput ? selectedOutput.name : '';
+    setSelectedOutputs: (state, selectedOutputs: Output[]) => {
+      state.selectedOutputs = selectedOutputs;
+      state.settings.output = selectedOutputs.map(({ name }) => name);
     },
     updateSound: (
       _state,
@@ -241,6 +242,18 @@ export default new Vuex.Store({
     setDeleteToTrash: (state, value: boolean) => (state.settings.deleteToTrash = value),
     setSyncVolumes: (state, value: boolean) => (state.settings.syncVolumes = value),
     setMinimizeToTray: (state, value: boolean) => (state.settings.minimizeToTray = value),
+    setAllowMultipleOutputs: (state, value: boolean) => {
+      state.settings.allowMultipleOutputs = value;
+      // if it was disabled and there is more than one output selected, select the first one
+      if (!value) {
+        if (state.selectedOutputs.length > 1) {
+          state.selectedOutputs = [state.selectedOutputs[0]];
+        }
+        if (state.settings.output.length > 1) {
+          state.settings.output = [state.settings.output[0]];
+        }
+      }
+    },
     setUseAsDefaultDevice: (state, value: boolean) => (state.settings.useAsDefaultDevice = value),
     setMuteDuringPlayback: (state, value: boolean) => (state.settings.muteDuringPlayback = value),
     setSortMode: (state, sortMode: SortMode) => {
@@ -302,22 +315,23 @@ export default new Vuex.Store({
       commit('setOutputs', outputs);
       // if use as default device is enabled there should be no output application
       if (state.settings.useAsDefaultDevice) {
-        commit('setSelectedOutput', null);
+        commit('setSelectedOutputs', []);
       } else {
-        const { selectedOutput } = state;
-        if (state.outputs.length > 0) {
-          if (selectedOutput == null) {
-            commit('setSelectedOutput', state.outputs[0]);
+        const { selectedOutputs } = state;
+        if (outputs.length > 0) {
+          if (selectedOutputs.length === 0) {
+            commit('setSelectedOutputs', [outputs[0]]);
           } else {
-            const current = state.outputs.find(({ name }) => name === selectedOutput.name);
-            if (current) {
-              commit('setSelectedOutput', current);
+            const selectedOutputNames = selectedOutputs.map(({ name }) => name);
+            const current = outputs.filter(({ name }) => selectedOutputNames.includes(name));
+            if (current.length > 0) {
+              commit('setSelectedOutputs', current);
             } else {
-              commit('setSelectedOutput', state.outputs[0]);
+              commit('setSelectedOutputs', [outputs[0]]);
             }
           }
         } else {
-          commit('setSelectedOutput', null);
+          commit('setSelectedOutputs', []);
         }
       }
       await dispatch('saveSettings');
@@ -326,8 +340,8 @@ export default new Vuex.Store({
     /**
      * Set and save the currently selected output
      */
-    async setSelectedOutput({ commit, dispatch }, selectedOutput: Output) {
-      commit('setSelectedOutput', selectedOutput);
+    async setSelectedOutputs({ commit, dispatch }, selectedOutputs: Output[]) {
+      commit('setSelectedOutputs', selectedOutputs);
       await dispatch('saveSettings');
     },
 
@@ -480,7 +494,7 @@ export default new Vuex.Store({
     async setUseAsDefaultDevice({ commit, dispatch }, value: boolean) {
       commit('setUseAsDefaultDevice', value);
       if (value) {
-        commit('setSelectedOutput', null);
+        commit('setSelectedOutputs', []);
       } else {
         // refresh outputs on disable because the selected output was set to null
         await dispatch('getOutputs');

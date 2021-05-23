@@ -1,6 +1,6 @@
 <template>
   <v-select
-    v-model="selectedOutput"
+    v-model="selectedOutputs"
     return-object
     :disabled="
       $store.getters.settings.useAsDefaultDevice ||
@@ -11,26 +11,50 @@
     :label="$t(`${$store.getters.isLinux ? 'outputApp' : 'outputDevice'}`)"
     hide-details
     clearable
+    :multiple="$store.getters.settings.allowMultipleOutputs"
     outlined
     dense
   >
     <template #selection="{ item }">
       <v-row dense no-gutters align="center" class="text-truncate">
-        <v-col v-if="item.appIcon" cols="auto">
-          <v-img
-            :src="`data:image/png;base64,${item.appIcon}`"
-            :alt="`${item.application} icon`"
-            width="25"
-            class="mr-1"
-          />
-        </v-col>
-        <v-col class="text-truncate">
-          {{ item.name }}
-        </v-col>
+        <template v-if="$store.getters.settings.allowMultipleOutputs && selectedOutputs.length > 1">
+          <v-chip outlined pill small>
+            <v-img
+              v-if="item.appIcon"
+              :src="`data:image/png;base64,${item.appIcon}`"
+              :alt="`${item.application} icon`"
+              width="15"
+              class="mr-1"
+            />
+            <span class="text-truncate">
+              {{ item.name }}
+            </span>
+          </v-chip>
+        </template>
+        <template v-else>
+          <v-col v-if="item.appIcon" cols="auto">
+            <v-img
+              :src="`data:image/png;base64,${item.appIcon}`"
+              :alt="`${item.application} icon`"
+              width="25"
+              class="mr-1"
+            />
+          </v-col>
+          <v-col class="text-truncate">
+            {{ item.name }}
+          </v-col>
+        </template>
       </v-row>
     </template>
-    <template #item="{ item }">
+    <template #item="{ item, on, attrs }">
       <v-row dense no-gutters align="center" class="text-truncate">
+        <v-col v-if="$store.getters.settings.allowMultipleOutputs" cols="auto">
+          <v-simple-checkbox
+            :value="selectedOutputs.includes(item)"
+            v-on="on"
+            v-bind="attrs"
+          ></v-simple-checkbox>
+        </v-col>
         <v-col v-if="item.appIcon" cols="auto">
           <v-img
             :src="`data:image/png;base64,${item.appIcon}`"
@@ -55,12 +79,24 @@ import { getPrettyName } from '@/utils';
 export default Vue.extend({
   name: 'OutputSelection',
   computed: {
-    selectedOutput: {
-      get() {
-        return this.$store.getters.selectedOutput;
+    // this is dependant on the state of multiple because v-select expects different things,
+    // however selectedOutputs is always an array
+    // multiple -> Output[]
+    // !multiple -> Output | null
+    selectedOutputs: {
+      get(): (Output | null) | Output[] {
+        const { selectedOutputs } = this.$store.getters;
+        if (this.$store.getters.settings.allowMultipleOutputs) {
+          return selectedOutputs;
+        }
+        return selectedOutputs.length === 0 ? null : selectedOutputs[0];
       },
-      set(output: Output) {
-        this.$store.dispatch('setSelectedOutput', output);
+      set(outputs: (Output | null) | Output[]) {
+        if (Array.isArray(outputs)) {
+          this.$store.dispatch('setSelectedOutputs', outputs);
+        } else {
+          this.$store.dispatch('setSelectedOutputs', outputs ? [outputs] : []);
+        }
       },
     },
   },
