@@ -526,6 +526,36 @@ export default new Vuex.Store({
     },
 
     /**
+     * Pause a playing sound via the backend
+     */
+    async pauseSound({ commit }, playingSound: PlayingSound) {
+      const pausedSound = await window.pauseSound(playingSound.id);
+      if (pausedSound) {
+        commit('updateSound', {
+          playing: playingSound,
+          ms: pausedSound.readInMs,
+          paused: pausedSound.paused,
+          repeat: pausedSound.repeat,
+        });
+      }
+    },
+
+    /**
+     * Resume a playing sound via the backend
+     */
+    async resumeSound({ commit }, playingSound: PlayingSound) {
+      const resumedSound = await window.resumeSound(playingSound.id);
+      if (resumedSound) {
+        commit('updateSound', {
+          playing: playingSound,
+          ms: resumedSound.readInMs,
+          paused: resumedSound.paused,
+          repeat: resumedSound.repeat,
+        });
+      }
+    },
+
+    /**
      * Get the information if running on linux from the backend
      */
     async getIsLinux({ commit }) {

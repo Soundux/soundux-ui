@@ -56,26 +56,10 @@ export default Vue.extend({
   },
   methods: {
     async pause(): Promise<void> {
-      const pausedSound = await window.pauseSound(this.playingSound.id);
-      if (pausedSound) {
-        this.$store.commit('updateSound', {
-          playing: this.playingSound,
-          ms: pausedSound.readInMs,
-          paused: pausedSound.paused,
-          repeat: pausedSound.repeat,
-        });
-      }
+      await this.$store.dispatch('pauseSound', this.playingSound);
     },
     async play(): Promise<void> {
-      const resumedSound = await window.resumeSound(this.playingSound.id);
-      if (resumedSound) {
-        this.$store.commit('updateSound', {
-          playing: this.playingSound,
-          ms: resumedSound.readInMs,
-          paused: resumedSound.paused,
-          repeat: resumedSound.repeat,
-        });
-      }
+      await this.$store.dispatch('resumeSound', this.playingSound);
     },
     async seek(newValue: number): Promise<void> {
       const seekedSound = await window.seekSound(this.playingSound.id, newValue);

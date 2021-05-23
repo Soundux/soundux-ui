@@ -55,7 +55,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { Tab } from '@/types';
+import { PlayingSound, Tab } from '@/types';
 import draggable from 'vuedraggable';
 import GridView from '@/components/views/GridView.vue';
 import ListView from '@/components/views/ListView.vue';
@@ -135,6 +135,14 @@ export default Vue.extend({
       if (event.ctrlKey && !event.shiftKey && !event.altKey && event.code === 'KeyR') {
         event.preventDefault();
         this.$store.dispatch('refreshTab');
+      }
+      if (!event.ctrlKey && !event.shiftKey && !event.altKey && event.code === 'Space') {
+        event.preventDefault();
+        const currentPlayingSounds: PlayingSound[] = this.$store.getters.currentPlayingSounds;
+        if (currentPlayingSounds.length > 0) {
+          const sound = currentPlayingSounds[currentPlayingSounds.length - 1];
+          this.$store.dispatch(sound.paused ? 'resumeSound' : 'pauseSound', sound);
+        }
       }
     },
   },
