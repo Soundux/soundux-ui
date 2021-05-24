@@ -19,6 +19,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import { AudioBackend } from '@/types';
 
 export default Vue.extend({
   name: 'NoAudioBackendModal',
@@ -29,11 +30,12 @@ export default Vue.extend({
   },
   methods: {
     selectPipeWire() {
-      this.$store.commit('setAudioBackend', 1);
+      this.$store.commit('setAudioBackend', AudioBackend.PipeWire);
       this.$store.dispatch('saveSettings');
     },
     selectPulseAudio() {
-      this.$store.commit('setAudioBackend', 2);
+      this.$store.commit('setAudioBackend', AudioBackend.PulseAudio);
+      this.$store.dispatch('isSwitchOnConnectLoaded');
       this.$store.dispatch('saveSettings');
     },
   },

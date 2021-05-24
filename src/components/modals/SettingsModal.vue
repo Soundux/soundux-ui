@@ -253,6 +253,9 @@ export default Vue.extend({
       set(state: AudioBackend) {
         this.$store.commit('setAudioBackend', state);
         this.$store.dispatch('saveSettings');
+        if (state === AudioBackend.PulseAudio) {
+          this.$store.dispatch('isSwitchOnConnectLoaded');
+        }
       },
     },
     muteDuringPlayback: {
