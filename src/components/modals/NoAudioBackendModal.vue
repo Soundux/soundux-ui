@@ -35,7 +35,6 @@ export default Vue.extend({
     },
     selectPulseAudio() {
       this.$store.commit('setAudioBackend', AudioBackend.PulseAudio);
-      this.$store.dispatch('isSwitchOnConnectLoaded');
       this.$store.dispatch('saveSettings');
     },
   },

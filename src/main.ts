@@ -8,6 +8,7 @@ import i18n from './plugins/i18n';
 import Toast from 'vue-toastification';
 import 'vue-toastification/dist/index.css';
 import dayjs from 'dayjs';
+import $store from '@/store';
 import duration from 'dayjs/plugin/duration';
 import { Output, PlayingSound, Settings, Tab, UpdateData, YoutubeDlInfo } from '@/types';
 import vueDebounce from 'vue-debounce';
@@ -18,13 +19,11 @@ declare global {
     downloadProgressed: ((progress: number, eta: string) => void) | undefined;
     hotkeyReceived: ((hotkey: string, hotkeyData: number[]) => void) | undefined;
     finishSound: ((playingSound: PlayingSound) => void) | undefined;
-    onAllStopped: (() => void) | undefined;
     onSoundPlayed: ((playingSound: PlayingSound) => void) | undefined;
     updateSound: ((playingSound: PlayingSound) => void) | undefined;
     onError: ((error: string) => void) | undefined;
     getTranslation: ((path: string) => string) | undefined;
-    updateSettings: ((settings: Settings) => void) | undefined;
-    switchTab: ((tabIndex: number) => void) | undefined;
+    getStore: (() => typeof $store) | undefined;
     // backend functions (here we can register both the arguments and the return types)
     isLinux: () => Promise<boolean | null>;
     openUrl: (url: string) => Promise<void>;
@@ -33,7 +32,6 @@ declare global {
     getOutputs: () => Promise<Output[]>;
     changeSettings: (settings: Settings) => Promise<Settings>;
     setHotkey: (id: number, hotkeys: number[]) => Promise<void>;
-    isSwitchOnConnectLoaded: () => Promise<boolean | null>;
     unloadSwitchOnConnect: () => Promise<void>;
     stopSounds: () => Promise<void>;
     startPassthrough: (name: string) => Promise<boolean | null>;

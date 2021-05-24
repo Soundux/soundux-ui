@@ -580,14 +580,6 @@ export default new Vuex.Store({
     },
 
     /**
-     * Get the information if the switch on connect module is loaded from the backend
-     */
-    async isSwitchOnConnectLoaded({ commit }) {
-      const result = (await window.isSwitchOnConnectLoaded()) || false;
-      commit('setSwitchOnConnectLoaded', result);
-    },
-
-    /**
      * Unload the switch on connect module via the backend
      */
     async unloadSwitchOnConnect({ commit }) {

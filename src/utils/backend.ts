@@ -20,13 +20,13 @@ export async function initialize(): Promise<void> {
     return `${i18n.t(path)}`;
   };
 
-  // backend settings updates (e.g. via system tray)
-  window.updateSettings = settings => {
-    $store.commit('setSettings', settings);
+  // expose store to backend for
+  // - switch tab (e.g for hotkeys, CLI)
+  // - settings updates (e.g. via system tray)
+  // - when the backend stops playback of every sound
+  window.getStore = () => {
+    return $store;
   };
-
-  // switch tab (e.g for hotkeys, CLI)
-  window.switchTab = tabIndex => $store.commit('setActiveTabIndex', tabIndex);
 
   // sound updates
   window.updateSound = playingSound => {
@@ -79,11 +79,6 @@ export async function initialize(): Promise<void> {
         console.warn(`Tab from playing sound ${playingSound.sound.name} not found`);
       }
     }
-  };
-
-  // when the backend stops playback of every sound
-  window.onAllStopped = () => {
-    $store.commit('clearCurrentlyPlaying');
   };
 
   // when a sound started playing via hotkey
