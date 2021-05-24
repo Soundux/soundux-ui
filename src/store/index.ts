@@ -526,17 +526,17 @@ export default new Vuex.Store({
     /**
      * Set and save the local volume
      */
-    async setLocalVolume({ commit, dispatch }, volume: number) {
+    async setLocalVolume({ commit, getters }, volume: number) {
       commit('setLocalVolume', volume);
-      await dispatch('saveSettings');
+      await window.changeSettings(getters.settings);
     },
 
     /**
      * Set and save the remote volume
      */
-    async setRemoteVolume({ commit, dispatch }, volume: number) {
+    async setRemoteVolume({ commit, getters }, volume: number) {
       commit('setRemoteVolume', volume);
-      await dispatch('saveSettings');
+      await window.changeSettings(getters.settings);
     },
 
     /**
