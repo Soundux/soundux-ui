@@ -582,9 +582,8 @@ export default new Vuex.Store({
     /**
      * Unload the switch on connect module via the backend
      */
-    async unloadSwitchOnConnect({ commit }) {
+    async unloadSwitchOnConnect() {
       await window.unloadSwitchOnConnect();
-      commit('setSwitchOnConnectLoaded', false);
     },
 
     /**
