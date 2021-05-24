@@ -449,35 +449,36 @@ export default new Vuex.Store({
         commit('setOutputs', outputs);
 
         // restore outputs when settingsOutputs are given (on startup)
-        if (settingsOutputs) {
+        if (settingsOutputs && settingsOutputs.length > 0) {
           const validOutputs = state.outputs.filter(({ name }) => settingsOutputs.includes(name));
           if (validOutputs && validOutputs.length > 0) {
             commit('setSelectedOutputs', validOutputs);
+            return;
           }
-        } else {
-          // if use as default device is enabled there should be no output application
-          if (state.settings.useAsDefaultDevice) {
-            commit('setSelectedOutputs', []);
-          } else {
-            const { selectedOutputs } = state;
-            if (outputs.length > 0) {
-              if (selectedOutputs.length === 0) {
-                commit('setSelectedOutputs', [outputs[0]]);
-              } else {
-                const selectedOutputNames = selectedOutputs.map(({ name }) => name);
-                const current = outputs.filter(({ name }) => selectedOutputNames.includes(name));
-                if (current.length > 0) {
-                  commit('setSelectedOutputs', current);
-                } else {
-                  commit('setSelectedOutputs', [outputs[0]]);
-                }
-              }
-            } else {
-              commit('setSelectedOutputs', []);
-            }
-          }
-          await dispatch('saveSettings');
         }
+
+        // if use as default device is enabled there should be no output application
+        if (state.settings.useAsDefaultDevice) {
+          commit('setSelectedOutputs', []);
+        } else {
+          const { selectedOutputs } = state;
+          if (outputs.length > 0) {
+            if (selectedOutputs.length === 0) {
+              commit('setSelectedOutputs', [outputs[0]]);
+            } else {
+              const selectedOutputNames = selectedOutputs.map(({ name }) => name);
+              const current = outputs.filter(({ name }) => selectedOutputNames.includes(name));
+              if (current.length > 0) {
+                commit('setSelectedOutputs', current);
+              } else {
+                commit('setSelectedOutputs', [outputs[0]]);
+              }
+            }
+          } else {
+            commit('setSelectedOutputs', []);
+          }
+        }
+        await dispatch('saveSettings');
       }
     },
 
