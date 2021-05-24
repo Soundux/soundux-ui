@@ -47,7 +47,7 @@ declare global {
     deleteSound: (id: number) => Promise<boolean | null>;
     refreshTab: (activeTabIndex: number) => Promise<Tab | null>;
     removeTab: (deleteIndex: number) => Promise<Tab[] | null>;
-    addTab: () => Promise<Tab | null>;
+    addTab: () => Promise<Tab[] | null>;
     getPlayback: () => Promise<Output[] | null>;
     getHotkeySequence: (hotkeys: number[]) => Promise<string | null>;
     requestHotkey: (state: boolean) => Promise<void>;
