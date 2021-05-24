@@ -1412,12 +1412,12 @@
   dependencies:
     source-map "^0.6.1"
 
-"@types/vuedraggable@^2.23.2":
-  version "2.23.2"
-  resolved "https://registry.yarnpkg.com/@types/vuedraggable/-/vuedraggable-2.23.2.tgz#643a10bc07a06760cbf5994aeb2f6b66f64af7da"
-  integrity sha512-rtH0eCzetZf2wL+/Gm1vjpx29Z5R+AJaBVeqz2mpZqUVE1JFgGxj4THWZTMMAcNY4e/0jATKhfHh68dCLczFUA==
+"@types/vuedraggable@^2.24.0":
+  version "2.24.0"
+  resolved "https://registry.yarnpkg.com/@types/vuedraggable/-/vuedraggable-2.24.0.tgz#f09e8d772c6021b87bc13898fd1183fb81674a61"
+  integrity sha512-QdR7Vi36ga+cjlILUWVxUBERCRWDoNbjvnWJ6SzoxPlPJUQaY1XjBprF4aH4CI/xSch8TJg5x3rjgTLlt85rew==
   dependencies:
-    vue "^2.0.0"
+    vuedraggable "*"
 
 "@types/webpack-dev-server@^3.11.0":
   version "3.11.1"
@@ -10543,12 +10543,12 @@ vue-toastification@^1.7.11:
   resolved "https://registry.yarnpkg.com/vue-toastification/-/vue-toastification-1.7.11.tgz#3e46157b7361f5005b1a60112bc91f5bd00c66d7"
   integrity sha512-CT/DYttb/VtWDNdhJG0BskLVfveZq5rGOgO/u3qTX+RPQQzX0WSai8VVxxUuvR8UpxfSGPS+JQleR33bo3Vadg==
 
-vue@^2.0.0, vue@^2.6.11, vue@^2.6.12:
+vue@^2.6.11, vue@^2.6.12:
   version "2.6.12"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.12.tgz#f5ebd4fa6bd2869403e29a896aed4904456c9123"
   integrity sha512-uhmLFETqPPNyuLLbsKz6ioJ4q7AZHzD8ZVFNATNyICSZouqP2Sz0rotWQC8UNBF6VGSCs5abnKJoStA6JbCbfg==
 
-vuedraggable@^2.24.3:
+vuedraggable@*, vuedraggable@^2.24.3:
   version "2.24.3"
   resolved "https://registry.yarnpkg.com/vuedraggable/-/vuedraggable-2.24.3.tgz#43c93849b746a24ce503e123d5b259c701ba0d19"
   integrity sha512-6/HDXi92GzB+Hcs9fC6PAAozK1RLt1ewPTLjK0anTYguXLAeySDmcnqE8IC0xa7shvSzRjQXq3/+dsZ7ETGF3g==
