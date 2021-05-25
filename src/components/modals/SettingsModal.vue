@@ -98,7 +98,7 @@
                 :label="$t('settings.allowMultipleOutputs')"
                 hide-details
                 prepend-icon="mdi-speaker-multiple"
-                class="ma-0 align-self-center"
+                class="ma-0"
               ></v-checkbox>
             </template>
             <v-checkbox
@@ -376,5 +376,6 @@ export default Vue.extend({
   width: 100%;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-gap: 20px 10px;
+  align-items: center;
 }
 </style>
