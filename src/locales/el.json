@@ -21,7 +21,6 @@
     "refresh": "Ανανέωση"
   },
   "settings": {
-    "darkTheme": "Σκούρο θέμα",
     "gridView": "Προβολή σε πλέγμα",
     "stopHotkey": "Συντόμευση διακοπής",
     "title": "Ρυθμίσεις"
@@ -33,7 +32,6 @@
     },
     "title": "Βοήθεια",
     "play": {
-      "doubleClick": "Διπλό-κλικ",
       "play": "αναπαραγωγή",
       "text": "{doubleClick} για {play}"
     },

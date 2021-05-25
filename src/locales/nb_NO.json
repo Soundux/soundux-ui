@@ -36,7 +36,6 @@
       "search": "søke",
       "text": "Trykk {ctrl} + {f} for å {search}"
     },
-    "ctrl": "Ctrl",
     "title": "Hjelp",
     "play": {
       "text": "{doubleClick} for å {play}",
@@ -65,13 +64,10 @@
     "title": "Bytt ved tilkobling-modul oppdaget."
   },
   "settings": {
-    "darkTheme": "Mørk drakt",
     "muteDuringPlayback": "Demp mikrofon under avspilling",
     "useAsDefaultDevice": "Bruk som forvalgt enhet",
-    "gridView": "Rutenettvisning",
     "allowOverlapping": "Tillat lydoverlapping",
     "title": "Innstillinger",
-    "launchpadMode": "Launchpad-modus",
     "stopHotkey": "Stopp-snarvei",
     "tabHotkeysOnly": "Snarveier kun for nåværende fane"
   },
@@ -93,7 +89,6 @@
   "input": {
     "ctrl": "Ctrl",
     "arrowKeys": "Piltaster",
-    "doubleClick": "Dobbeltklikk",
     "enter": "Enter",
     "shift": "Shift"
   },
