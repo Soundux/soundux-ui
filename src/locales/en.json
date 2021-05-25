@@ -1,13 +1,7 @@
 {
   "welcome": {
     "title": "Welcome to {programName}",
-    "noTabs": "There are currently no tabs. Add one by clicking {addTab} on the right side",
-    "linuxDetected": "We have detected that you are on Linux.",
-    "linuxGuide1": "To play sounds you just have to select the output application in the top right.",
-    "linuxGuide2": "You don't have to change your input or output device anywhere.",
-    "windowsDetected": "We have detected that you are on Windows.",
-    "windowsGuide1": "Make sure to follow the installation steps {seenOnWebsite}",
-    "windowsGuide2": "as seen on our website"
+    "noTabs": "There are currently no tabs. Add one by clicking {addTab} on the right side"
   },
   "outputApp": "Output application",
   "outputDevice": "Output device",
@@ -15,64 +9,21 @@
     "refresh": "Refresh",
     "stop": "Stop",
     "search": "Search",
-    "addTab": "Add Tab",
+    "addTab": "Add tab",
     "reloadSounds": "Reload",
     "play": "Play",
-    "appPassThrough": "Pass through",
-    "playlistMode": "Playlist mode",
-    "yes": "Yes",
-    "no": "No",
-    "on": "On",
-    "off": "Off",
-    "shuffle": "Shuffle",
-    "confirmation": "Confirmation",
-    "openFolder": "Open folder"
-  },
-  "removeTab": {
-    "question": "Would you like to remove the tab {tabName}?"
-  },
-  "deleteSound": {
-    "delete": "Delete",
-    "question": "Would you like to delete the sound {soundName}?"
-  },
-  "empty": {
-    "nothingToShow": "Nothing to show",
-    "noSounds": "No compatible sounds found in the folder {path}. Supported file formats are mp3, wav, flac",
-    "noFavorites": "You currently have no favorites. Favor some sounds to display them here"
-  },
-  "favorites": {
-    "title": "Favorites",
-    "favorite": "Favorite"
+    "appPassThrough": "Pass through"
   },
   "settings": {
     "title": "Settings",
     "tabHotkeysOnly": "Hotkeys only for current tab",
-    "viewMode": {
-      "title": "View mode",
-      "listView": "List view",
-      "gridView": "Grid view",
-      "launchpadMode": "Emulated Launchpad"
-    },
+    "launchpadMode": "Launchpad mode",
     "allowOverlapping": "Allow sound overlapping",
-    "deleteToTrash": "Delete to trash",
-    "minimizeToTray": "Minimize to system tray",
+    "gridView": "Grid view",
     "useAsDefaultDevice": "Use as default device",
     "muteDuringPlayback": "Mute microphone during playback",
-    "theme": {
-      "title": "Theme",
-      "system": "System",
-      "dark": "Dark",
-      "light": "Light"
-    },
-    "audioBackend": "Audio backend",
-    "allowMultipleOutputs": "Allow multiple output apps",
-    "stopHotkey": "Stop hotkey",
-    "pushToTalkKeys": "Push-to-talk keys"
-  },
-  "tray": {
-    "show": "Show window",
-    "hide": "Hide window",
-    "exit": "Exit"
+    "darkTheme": "Dark theme",
+    "stopHotkey": "Stop hotkey"
   },
   "switchOnConnect": {
     "title": "Switch on connect module detected!",
@@ -85,11 +36,6 @@
       "wikiPage": "our dedicated wiki page"
     }
   },
-  "noAudioBackend": {
-    "title": "No audio backend found",
-    "notDetected": "We could not detect a supported audio backend for your system.",
-    "choose": "Please choose one below"
-  },
   "hotkeys": {
     "title": "Set hotkey",
     "hotkey": "Hotkey",
@@ -99,8 +45,7 @@
     "ctrl": "CTRL",
     "shift": "Shift",
     "enter": "Enter",
-    "leftClick": "Left click",
-    "rightClick": "Right click",
+    "doubleClick": "Double-click",
     "arrowKeys": "Arrow keys"
   },
   "help": {
@@ -110,12 +55,8 @@
       "search": "search"
     },
     "play": {
-      "text": "{leftClick} to {play}",
+      "text": "{doubleClick} to {play}",
       "play": "play"
-    },
-    "options": {
-      "text": "{rightClick} to {moreOptions}",
-      "moreOptions": "show more options"
     },
     "appPassThrough": {
       "text": "Press {ctrl} + {g} to {show}",
@@ -125,7 +66,6 @@
       "text": "Press {ctrl} + {r} to {reload}",
       "reload": "reload the current tab"
     },
-    "supportUs": "Support us",
     "visitOurWebsite": "Visit our website",
     "joinOurDiscord": "Join our Discord",
     "viewSourceCode": "View the source code"
@@ -137,8 +77,7 @@
   },
   "appPassThrough": {
     "title": "App pass through",
-    "noAppsFound": "No apps found",
-    "noOutputSelected": "You must have selected an output application"
+    "noAppsFound": "No apps found"
   },
   "search": {
     "typeToSearch": "Type to search",
@@ -146,38 +85,6 @@
     "changeSelection": "{arrowKeys} to change selection",
     "jumpToSelected": "{enter} to jump to the currently selected sound",
     "playSelected": "{shift} + {enter} to play the currently selected sound"
-  },
-  "sort": {
-    "title": "Sort",
-    "modifiedAscending": "Modified ascending",
-    "modifiedDescending": "Modified descending",
-    "alphabeticalAscending": "Alphabetical ascending",
-    "alphabeticalDescending": "Alphabetical descending"
-  },
-  "downloader": {
-    "title": "Downloader",
-    "notAvailable": "{youtube-dl} and/or {ffmpeg} are not installed",
-    "installNow": "Install now",
-    "placeholder": "Enter a link",
-    "progress": "Progress",
-    "converting": "Converting...",
-    "eta": "ETA",
-    "cancelDownload": "Cancel Download",
-    "startDownload": "Start download",
-    "success": "Successfully downloaded: {title}",
-    "close": "Close"
-  },
-  "update": {
-    "title": "An update is available!",
-    "yourVersion": "Your version",
-    "latestVersion": "Latest version",
-    "updateNow": "Update now",
-    "ignore": "Ignore"
-  },
-  "systemInfo": {
-    "title": "System information",
-    "description": "Attach this information when creating a bug report",
-    "copyToClipboard": "Copy to clipboard"
   },
   "errors": {
     "0": "Failed to play",
@@ -195,11 +102,6 @@
     "12": "Failed to move back passthrough",
     "13": "Failed to revert default source",
     "14": "Failed to set default source",
-    "15": "youtube-dl not found",
-    "16": "Invalid URL",
-    "17": "Failed to parse youtube-dl JSON",
-    "18": "Unknown youtube-dl failure",
-    "19": "Failed to delete the file",
     "error": "Error",
     "backendFunctionMissing": "Backend function missing: {functionName}"
   }
