@@ -1,1 +1,206 @@
-{}
+{
+  "errors": {
+    "backendFunctionMissing": "Backend functie niet gevonden: {functionName}",
+    "error": "Error",
+    "19": "Bestand verwijderen mislukt",
+    "18": "Onbekende youtube-dl fout",
+    "17": "Verwerken van youtube-dl JSON mislukt",
+    "16": "Ongeldige URL",
+    "15": "youtube-dl niet gevonden",
+    "14": "Standaard bron instellen mislukt",
+    "13": "Terugzetten standaard bron mislukt",
+    "12": "Terug verplaatsen doorverbinding mislukt",
+    "11": "Terug verplaatsen mislukt",
+    "10": "Doorverbinden mislukt",
+    "9": "Sneltoets instellen mislukt",
+    "8": "Tabblad bestaat niet",
+    "7": "Map bestaat niet",
+    "6": "Geluid niet gevonden",
+    "5": "Verplaatsen naar sink mislukt",
+    "4": "Hervatten mislukt",
+    "3": "Herhalen mislukt",
+    "2": "Pauzeren mislukt",
+    "1": "Zoeken mislukt",
+    "0": "Afspelen mislukt"
+  },
+  "systemInfo": {
+    "copyToClipboard": "Kopieer naar klembord",
+    "description": "Voeg deze informatie toe bij het maken van een bug report",
+    "title": "Systeem informatie"
+  },
+  "update": {
+    "ignore": "Negeer",
+    "updateNow": "Update nu",
+    "latestVersion": "Nieuwste versie",
+    "yourVersion": "Jouw versie",
+    "title": "Er is een update beschikbaar!"
+  },
+  "downloader": {
+    "close": "Sluiten",
+    "success": "Succesvol gedownload: {title}",
+    "startDownload": "Start download",
+    "cancelDownload": "Annuleer Download",
+    "eta": "Resterend",
+    "converting": "Aan het converteren...",
+    "progress": "Voortgang",
+    "placeholder": "Vul een link in",
+    "installNow": "Installeer nu",
+    "notAvailable": "{youtube-dl} en/of {ffmpeg} zijn niet geïnstalleerd",
+    "title": "Downloader"
+  },
+  "sort": {
+    "alphabeticalDescending": "Alfabetisch aflopend",
+    "alphabeticalAscending": "Alfabetisch oplopend",
+    "modifiedDescending": "Laatst gewijzigd aflopend",
+    "modifiedAscending": "Laatst gewijzigd oplopend",
+    "title": "Sorteren"
+  },
+  "search": {
+    "playSelected": "{shift} + {enter} om het momenteel geselecteerde geluid af te spelen",
+    "jumpToSelected": "{enter} om naar het momenteel geselecteerde geluid te gaan",
+    "changeSelection": "{arrowKeys} om de selectie te veranderen",
+    "noResultsFound": "Geen resultaten gevonden",
+    "typeToSearch": "Typ om te zoeken"
+  },
+  "appPassThrough": {
+    "noOutputSelected": "Je moet een uitvoer applicatie geselecteerd hebben",
+    "noAppsFound": "Geen applicaties gevonden",
+    "title": "Applicatie audio doorverbinden"
+  },
+  "volume": {
+    "sync": "Koppel volumes",
+    "remote": "Extern volume",
+    "local": "Lokaal volume"
+  },
+  "help": {
+    "viewSourceCode": "Bekijk de source code",
+    "joinOurDiscord": "Join onze Discord",
+    "visitOurWebsite": "Bezoek onze website",
+    "supportUs": "Ondersteun ons",
+    "reloadSounds": {
+      "reload": "het huidige tabblad te verversen",
+      "text": "Druk op {ctrl} + {r} om {reload}"
+    },
+    "appPassThrough": {
+      "show": "doorverbind instellingen te laten zien",
+      "text": "Druk op {ctrl} + {g} om {show}"
+    },
+    "options": {
+      "moreOptions": "meer opties te laten zien",
+      "text": "{richtClick} om {moreOptions}"
+    },
+    "play": {
+      "play": "af te spelen",
+      "text": "{leftClick} om {play}"
+    },
+    "search": {
+      "search": "zoeken",
+      "text": "Druk op {ctrl} + {f} om te {search}"
+    },
+    "title": "Help"
+  },
+  "input": {
+    "arrowKeys": "Pijltjestoetsen",
+    "rightClick": "Rechter muisknop",
+    "leftClick": "Linker muisknop",
+    "enter": "Enter",
+    "shift": "Shift",
+    "ctrl": "CTRL"
+  },
+  "hotkeys": {
+    "setFor": "Stel sneltoets in voor {soundName}",
+    "hotkey": "Sneltoets",
+    "title": "Stel sneltoets in"
+  },
+  "noAudioBackend": {
+    "choose": "Selecteer er een hieronder",
+    "notDetected": "We konden geen ondersteunde audio backend detecteren voor jouw systeem.",
+    "title": "Geen audio backend gevonden"
+  },
+  "switchOnConnect": {
+    "explanation": {
+      "wikiPage": "onze speciale wiki pagina",
+      "line4": "Ga voor meer informatie (over bijvoorbeeld het permanent uitschakelen) naar {wikiPage}",
+      "line3": "Schakel dit alstublieft uit om Soundux te blijven gebruiken.",
+      "line2": "Dit veroorzaakt veel problemen!",
+      "line1": "De PulseAudio {moduleName} module is gedetecteerd."
+    },
+    "disable": "Schakel nu uit",
+    "title": "Switch on connect module gedetecteerd!"
+  },
+  "tray": {
+    "exit": "Afsluiten",
+    "hide": "Verberg venster",
+    "show": "Laat venster zien"
+  },
+  "settings": {
+    "pushToTalkKeys": "Push-to-talk toets",
+    "tabHotkeysOnly": "Sneltoetsen alleen voor huidig tabblad",
+    "stopHotkey": "Stop sneltoets",
+    "allowMultipleOutputs": "Sta meerdere uitvoer applicaties toe",
+    "audioBackend": "Audio backend",
+    "theme": {
+      "light": "Licht",
+      "dark": "Donker",
+      "system": "Systeem",
+      "title": "Thema"
+    },
+    "muteDuringPlayback": "Demp microfoon tijdens afspelen",
+    "useAsDefaultDevice": "Gebruik als standaard apparaat",
+    "minimizeToTray": "Minimaliseer naar systeemvak",
+    "deleteToTrash": "Verwijder naar prullenbak",
+    "allowOverlapping": "Sta geluid overlap toe",
+    "viewMode": {
+      "launchpadMode": "Geëmuleerde Launchpad",
+      "gridView": "Rooster weergave",
+      "listView": "Lijst weergave",
+      "title": "Weergave modus"
+    },
+    "title": "Instellingen"
+  },
+  "favorites": {
+    "favorite": "Favoriet",
+    "title": "Favorieten"
+  },
+  "empty": {
+    "noFavorites": "Je hebt momenteel geen favorieten. Voeg een paar geluiden toe om ze hier te laten zien",
+    "noSounds": "Geen bruikbare geluiden gevonden in map {path}. Ondersteunde bestandsformaten zijn mp3, wav, flac",
+    "nothingToShow": "Niks om te laten zien"
+  },
+  "deleteSound": {
+    "question": "Weet je zeker dat je het {soundName} geluid wilt verwijderen?",
+    "delete": "Verwijder"
+  },
+  "actions": {
+    "addTab": "Nieuw Tabblad",
+    "openFolder": "Open map",
+    "confirmation": "Bevestiging",
+    "shuffle": "Shuffle",
+    "off": "Uit",
+    "on": "Aan",
+    "no": "Nee",
+    "yes": "Ja",
+    "playlistMode": "Afspeellijst modus",
+    "appPassThrough": "Doorverbinden",
+    "play": "Afspelen",
+    "reloadSounds": "Ververs",
+    "search": "Zoeken",
+    "stop": "Stop",
+    "refresh": "Ververs"
+  },
+  "removeTab": {
+    "question": "Weet je zeker dat je het {tabName} tabblad wilt verwijderen?"
+  },
+  "outputDevice": "Uitvoer apparaat",
+  "outputApp": "Uitvoer applicatie",
+  "welcome": {
+    "windowsGuide2": "van onze website",
+    "windowsGuide1": "Volg de installatie stappen {seenOnWebsite}",
+    "windowsDetected": "We hebben gedetecteerd dat je Windows gebruikt.",
+    "linuxGuide2": "Je hoeft nergens je in- of uitvoer apparaten aan te passen.",
+    "linuxDetected": "We hebben gedetecteerd dat je Linux gebruikt.",
+    "linuxGuide1": "Selecteer rechtsboven een uitvoer applicatie om geluiden af te spelen.",
+    "noTabs": "Er zijn momenteel geen tabbladen. Voeg er een toe door aan de rechterkant op {addTab} te klikken",
+    "title": "Welkom bij {programName}"
+  }
+}
