@@ -64,9 +64,10 @@
       "dark": "Karanlık",
       "light": "Aydınlık"
     },
-    "audioBackend":"Ses arka ucu",
+    "audioBackend": "Ses arka ucu",
     "stopHotkey": "Kısayol Tuşunu Durdur",
-    "pushToTalkKeys": "Bas-konuş tuşları"
+    "pushToTalkKeys": "Bas-konuş tuşları",
+    "allowMultipleOutputs": "Birden çok çıkış uygulamasına izin ver"
   },
   "tray": {
     "show": "Pencereyi göster",
