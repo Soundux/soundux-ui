@@ -87,7 +87,7 @@
     },
     "options": {
       "moreOptions": "meer opties te laten zien",
-      "text": "{richtClick} om {moreOptions}"
+      "text": "{rightClick} om {moreOptions}"
     },
     "play": {
       "play": "af te spelen",
