@@ -84,6 +84,11 @@
       "wikiPage": "özel wiki sayfamız (İngilizce)"
     }
   },
+  "noAudioBackend": {
+    "title": "Ses arka ucu bulunamadı",
+    "notDetected": "Sisteminiz için desteklenen bir ses arka ucu tespit edemedik.",
+    "choose": "Lütfen aşağıdan birini seçin"
+  },
   "hotkeys": {
     "title": "Kısayol tuşu ayarla",
     "hotkey": "Kısayol tuşu",
