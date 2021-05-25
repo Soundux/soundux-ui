@@ -1,33 +1,33 @@
 {
-    "errors": {
-        "error": "Ошибка",
-        "6": "Звук не найден"
+  "errors": {
+    "error": "Ошибка",
+    "6": "Звук не найден"
+  },
+  "help": {
+    "viewSourceCode": "Посмотреть исходный код",
+    "visitOurWebsite": "Посетите наш сайт",
+    "search": {
+      "search": "поиск"
     },
-    "help": {
-        "viewSourceCode": "Посмотреть исходный код",
-        "visitOurWebsite": "Посетите наш сайт",
-        "search": {
-            "search": "поиск"
-        },
-        "title": "Помощь"
-    },
-    "switchOnConnect": {
-        "explanation": {
-            "line2": "Это вызывает серьезные проблемы!"
-        }
-    },
-    "settings": {
-        "darkTheme": "Темная тема",
-        "title": "Настройки"
-    },
-    "actions": {
-        "reloadSounds": "Перезагрузить",
-        "addTab": "Добавить вкладку",
-        "search": "Поиск",
-        "stop": "Остановить",
-        "refresh": "Обновить"
-    },
-    "welcome": {
-        "title": "Добро пожаловать в {programName}"
+    "title": "Помощь"
+  },
+  "switchOnConnect": {
+    "explanation": {
+      "line2": "Это вызывает серьезные проблемы!"
     }
+  },
+  "settings": {
+    "darkTheme": "Темная тема",
+    "title": "Настройки"
+  },
+  "actions": {
+    "reloadSounds": "Перезагрузить",
+    "addTab": "Добавить вкладку",
+    "search": "Поиск",
+    "stop": "Остановить",
+    "refresh": "Обновить"
+  },
+  "welcome": {
+    "title": "Добро пожаловать в {programName}"
+  }
 }
