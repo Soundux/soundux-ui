@@ -1,1 +1,192 @@
-{}
+{
+  "errors": {
+    "error": "Erreur",
+    "19": "Échec de la suppression du fichier",
+    "18": "Erreur inconnue de youtube-dl",
+    "17": "Échec de l'analyse du JSON de youtube-dl",
+    "16": "URL invalide",
+    "15": "youtube-dl est introuvable",
+    "14": "Échec de définition de la source par défaut",
+    "9": "Échec de la définition du raccourci",
+    "8": "L'onglet n'existe pas",
+    "7": "Le dossier n'existe pas",
+    "6": "Son introuvable",
+    "4": "Échec de la reprise",
+    "3": "Échec de la répétition",
+    "2": "Échec de la mise en pause",
+    "0": "Échec de la lecture",
+    "backendFunctionMissing": "Fonction de gestion manquante : {functionName}"
+  },
+  "systemInfo": {
+    "copyToClipboard": "Copier dans le presse-papiers",
+    "description": "Joindre ces informations lors de la création d'un rapport de bug",
+    "title": "Informations système"
+  },
+  "update": {
+    "ignore": "Ignorer",
+    "updateNow": "Mettre à jour maintenant",
+    "latestVersion": "Dernière version",
+    "yourVersion": "Votre version",
+    "title": "Une mise à jour est disponible !"
+  },
+  "downloader": {
+    "close": "Fermer",
+    "success": "Téléchargement réussi : {title}",
+    "startDownload": "Démarrer le téléchargement",
+    "cancelDownload": "Annuler le téléchargement",
+    "converting": "Conversion…",
+    "progress": "Progression",
+    "placeholder": "Entrez un lien",
+    "installNow": "Installer maintenant",
+    "notAvailable": "{youtube-dl} et/ou {ffmpeg} ne sont pas installés",
+    "title": "Téléchargements"
+  },
+  "sort": {
+    "alphabeticalDescending": "Ordre alphabétique inverse",
+    "alphabeticalAscending": "Ordre alphabétique",
+    "title": "Trier"
+  },
+  "search": {
+    "playSelected": "{shift} + {enter} pour lire le son actuellement sélectionné",
+    "jumpToSelected": "{enter} pour passer au son actuellement sélectionné",
+    "changeSelection": "{arrowKeys} pour modifier la sélection",
+    "noResultsFound": "Aucun résultat trouvé",
+    "typeToSearch": "Tapez pour rechercher"
+  },
+  "appPassThrough": {
+    "noOutputSelected": "Vous devez sélectionner une application de diffusion",
+    "noAppsFound": "Aucune application trouvée"
+  },
+  "volume": {
+    "sync": "Synchroniser le volume",
+    "remote": "Volume distant",
+    "local": "Volume local"
+  },
+  "help": {
+    "viewSourceCode": "Voir le code source",
+    "joinOurDiscord": "Rejoindre notre Discord",
+    "visitOurWebsite": "Visiter notre site Web",
+    "supportUs": "Nous soutenir",
+    "reloadSounds": {
+      "reload": "actualiser l'onglet courant",
+      "text": "Appuyez sur {ctrl} + {r} pour {reload}"
+    },
+    "appPassThrough": {
+      "text": "Appuyez sur {ctrl} + {g} pour {show}"
+    },
+    "options": {
+      "moreOptions": "afficher plus d'options",
+      "text": "{rightClick} pour {moreOptions}"
+    },
+    "play": {
+      "play": "lire",
+      "text": "{leftClick} pour {play}"
+    },
+    "search": {
+      "search": "rechercher",
+      "text": "Appuyez sur {ctrl} + {f} pour {search}"
+    },
+    "title": "Aide"
+  },
+  "input": {
+    "arrowKeys": "Flèches",
+    "rightClick": "Clic droit",
+    "leftClick": "Clic gauche",
+    "enter": "Entrée",
+    "shift": "Maj",
+    "ctrl": "CTRL"
+  },
+  "hotkeys": {
+    "setFor": "Définir le raccourci pour {soundName}",
+    "hotkey": "Raccourci",
+    "title": "Définir le raccourci"
+  },
+  "noAudioBackend": {
+    "choose": "Veuillez en sélectionner un ci-dessous",
+    "notDetected": "Nous n'avons détecté aucun gestionnaire de son pris en charge pour votre système.",
+    "title": "Aucun gestionnaire de son trouvé"
+  },
+  "settings": {
+    "audioBackend": "Gestionnaire de son",
+    "pushToTalkKeys": "Touches Appuyer-pour-parler",
+    "stopHotkey": "Arrêter les raccourcis",
+    "allowMultipleOutputs": "Autoriser plusieurs applications de diffusion",
+    "theme": {
+      "light": "Clair",
+      "dark": "Sombre",
+      "system": "Système",
+      "title": "Thème"
+    },
+    "muteDuringPlayback": "Rendre le micro muet pendant la lecture",
+    "useAsDefaultDevice": "Utiliser comme périphérique par défaut",
+    "minimizeToTray": "Réduire dans la barre d'état du système",
+    "deleteToTrash": "Supprimer dans la corbeille",
+    "allowOverlapping": "Autoriser le chevauchement des sons",
+    "viewMode": {
+      "launchpadMode": "Launchpad émulé",
+      "gridView": "Vue en grille",
+      "listView": "Vue en liste",
+      "title": "Affichage"
+    },
+    "tabHotkeysOnly": "Raccourcis claviers pour l'onglet courant uniquement",
+    "title": "Paramètres"
+  },
+  "switchOnConnect": {
+    "explanation": {
+      "wikiPage": "notre page dédiée sur le wiki",
+      "line4": "Pour plus d'informations (par ex. pour désactiver ceci de façon permanente) veuillez vous référer à {wikiPage}",
+      "line3": "Pour continuer à utiliser Soundux, veuillez le désactiver.",
+      "line1": "Le module PulseAudio {moduleName} a été détecté."
+    },
+    "disable": "Désactiver maintenant"
+  },
+  "tray": {
+    "exit": "Quitter",
+    "hide": "Masquer la fenêtre",
+    "show": "Afficher la fenêtre"
+  },
+  "favorites": {
+    "favorite": "Favori",
+    "title": "Favoris"
+  },
+  "empty": {
+    "noFavorites": "Vous n'avez aucun favori pour le moment. Marquez des sons comme favoris pour les retrouver ici",
+    "noSounds": "Aucun son compatible trouvé dans le dossier {path}. Les formats de fichier supportés sont mp3, wav, flac",
+    "nothingToShow": "Rien à afficher"
+  },
+  "deleteSound": {
+    "question": "Souhaitez-vous supprimer le son {soundName} ?",
+    "delete": "Supprimer"
+  },
+  "removeTab": {
+    "question": "Souhaitez-vous supprimer l'onglet {tabName} ?"
+  },
+  "actions": {
+    "openFolder": "Ouvrir le dossier",
+    "confirmation": "Confirmation",
+    "shuffle": "Aléatoire",
+    "off": "Désactivé",
+    "on": "Activé",
+    "no": "Non",
+    "yes": "Oui",
+    "playlistMode": "Mode playlist",
+    "play": "Lire",
+    "reloadSounds": "Recharger",
+    "addTab": "Ajouter un onglet",
+    "search": "Rechercher",
+    "stop": "Arrêter",
+    "refresh": "Actualiser"
+  },
+  "outputDevice": "Périphérique de sortie",
+  "outputApp": "Application de diffusion",
+  "welcome": {
+    "windowsGuide2": "comme indiqué sur notre site",
+    "windowsGuide1": "Assurez-vous de suivre les étapes d'installation {seenOnWebsite}",
+    "windowsDetected": "Nous avons détecté que vous êtes sur Windows.",
+    "linuxGuide2": "Vous n'avez pas besoin de changer votre périphérique d'entrée ou de sortie.",
+    "linuxGuide1": "Pour jouer des sons, il vous suffit de sélectionner l'application de diffusion en haut à droite.",
+    "linuxDetected": "Nous avons détecté que vous êtes sur Linux.",
+    "noTabs": "Il n'y a aucun onglet pour le moment. Ajoutez-en un en cliquant sur {addTab} sur la droite",
+    "title": "Bienvenue dans {programName}"
+  }
+}
