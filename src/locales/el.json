@@ -32,7 +32,7 @@
     "title": "Βοήθεια",
     "play": {
       "play": "αναπαραγωγή",
-      "text": "{doubleClick} για {play}"
+      "text": "{leftClick} για {play}"
     },
     "appPassThrough": {
       "text": "Πατήστε {ctrl} + {g} για {show}"
