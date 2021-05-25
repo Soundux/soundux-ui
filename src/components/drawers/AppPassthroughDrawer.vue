@@ -11,7 +11,9 @@
         </v-btn>
       </v-toolbar-items>
     </v-toolbar>
-    <template v-if="!$store.getters.selectedOutput && !$store.getters.settings.useAsDefaultDevice">
+    <template
+      v-if="$store.getters.selectedOutputs.length === 0 && !$store.getters.settings.useAsDefaultDevice"
+    >
       <v-row class="mx-5 mt-6" justify="center">
         <v-img src="@/assets/undraw_dropdown_menu_vv9j.svg" width="232" contain></v-img>
       </v-row>

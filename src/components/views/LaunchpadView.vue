@@ -1,5 +1,9 @@
 <template>
-  <div id="launchpad-view" class="overflow-y-auto pt-3 px-3" style="height: calc(100vh - 283px)">
+  <div
+    id="launchpad-view"
+    class="d-flex flex-column overflow-y-auto pt-3 px-3"
+    style="height: calc(100vh - 283px)"
+  >
     <div v-resize="updateColumns" class="launchpad-items">
       <div v-for="(sound, sIndex) in paginatedSounds" :key="sIndex">
         <SoundContextMenu :sound="sound">
@@ -24,7 +28,8 @@
         </SoundContextMenu>
       </div>
     </div>
-    <div class="text-center mt-3">
+    <div class="flex-grow-1"></div>
+    <div class="text-center my-3">
       <v-pagination v-model="page" :length="pagesCount" circle></v-pagination>
     </div>
   </div>

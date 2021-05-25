@@ -8,6 +8,7 @@
       <RemoveTabModal></RemoveTabModal>
       <DeleteSoundModal></DeleteSoundModal>
       <SwitchOnConnectModal v-if="$store.getters.isLinux"></SwitchOnConnectModal>
+      <NoAudioBackendModal v-if="$store.getters.isLinux"></NoAudioBackendModal>
       <v-container fluid>
         <v-row dense no-gutters class="flex-nowrap">
           <v-col cols="auto">
@@ -17,7 +18,7 @@
             <span class="text-h5 ml-3">Soundux</span>
           </v-col>
           <v-spacer></v-spacer>
-          <v-col cols="auto" style="min-width: 200px; max-width: 250px">
+          <v-col cols="auto" style="min-width: 200px; max-width: 950px">
             <OutputSelection></OutputSelection>
             <v-btn
               color="primary"
@@ -82,9 +83,11 @@ import SetHotkeyModal from '@/components/modals/SetHotkeyModal.vue';
 import SearchModal from '@/components/modals/SearchModal.vue';
 import RemoveTabModal from '@/components/modals/RemoveTabModal.vue';
 import DeleteSoundModal from '@/components/modals/DeleteSoundModal.vue';
+import NoAudioBackendModal from '@/components/modals/NoAudioBackendModal.vue';
 
 export default Vue.extend({
   components: {
+    NoAudioBackendModal,
     DeleteSoundModal,
     RemoveTabModal,
     SearchModal,

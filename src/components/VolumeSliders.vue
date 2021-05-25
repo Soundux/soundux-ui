@@ -52,7 +52,9 @@
           v-model="remoteVolume"
           dense
           hide-details
-          :disabled="!$store.getters.selectedOutput && !$store.getters.settings.useAsDefaultDevice"
+          :disabled="
+            $store.getters.selectedOutputs.length === 0 && !$store.getters.settings.useAsDefaultDevice
+          "
           :thumb-label="$vuetify.breakpoint.smAndUp"
           :class="{ 'no-animation': dragLocal }"
           @start="dragRemote = true"
@@ -78,7 +80,7 @@ export default Vue.extend({
   computed: {
     localVolume: {
       get(): number {
-        return this.$store.getters.settings.localVolume * 100;
+        return this.$store.getters.settings.localVolume;
       },
       set(volume: number) {
         this.$store.dispatch('setLocalVolume', volume);
@@ -87,7 +89,7 @@ export default Vue.extend({
     },
     remoteVolume: {
       get(): number {
-        return this.$store.getters.settings.remoteVolume * 100;
+        return this.$store.getters.settings.remoteVolume;
       },
       set(volume: number) {
         this.$store.dispatch('setRemoteVolume', volume);

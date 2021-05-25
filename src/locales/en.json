@@ -65,6 +65,7 @@
       "light": "Light"
     },
     "audioBackend": "Audio backend",
+    "allowMultipleOutputs": "Allow multiple output apps",
     "stopHotkey": "Stop hotkey",
     "pushToTalkKeys": "Push-to-talk keys"
   },
@@ -83,6 +84,11 @@
       "line4": "For more information (e.g. how to disable this permanently) please refer to {wikiPage}",
       "wikiPage": "our dedicated wiki page"
     }
+  },
+  "noAudioBackend": {
+    "title": "No audio backend found",
+    "notDetected": "We could not detect a supported audio backend for your system.",
+    "choose": "Please choose one below"
   },
   "hotkeys": {
     "title": "Set hotkey",

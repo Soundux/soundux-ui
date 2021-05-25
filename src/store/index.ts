@@ -35,7 +35,7 @@ export default new Vuex.Store({
     showFavorites: false,
     playlistMode: PlaylistMode.Off,
     outputs: [] as Output[],
-    selectedOutput: null as Output | null,
+    selectedOutputs: [] as Output[],
     playbackApps: [] as Output[],
     currentPlaying: [] as Playing[],
     switchOnConnectLoaded: false,
@@ -43,7 +43,7 @@ export default new Vuex.Store({
     updateData: null as UpdateData | null,
     isDraggingSeekbar: false,
     settings: {
-      output: '',
+      outputs: [],
       selectedTab: 0,
       allowOverlapping: true,
       deleteToTrash: true,
@@ -58,6 +58,7 @@ export default new Vuex.Store({
       minimizeToTray: false,
       localVolume: 0,
       remoteVolume: 0,
+      allowMultipleOutputs: false,
       useAsDefaultDevice: false,
       muteDuringPlayback: false,
     } as Settings,
@@ -87,7 +88,7 @@ export default new Vuex.Store({
     playlistMode: state => state.playlistMode,
     activeTabIndex: state => state.settings.selectedTab,
     outputs: state => state.outputs,
-    selectedOutput: state => state.selectedOutput,
+    selectedOutputs: state => state.selectedOutputs,
     playbackApps: state => state.playbackApps,
     currentPlaying: state => state.currentPlaying,
     currentPlayingSounds: state => {
@@ -156,9 +157,9 @@ export default new Vuex.Store({
     setActiveTabIndex: (state, index: number) => (state.settings.selectedTab = index),
     setOutputs: (state, outputs: Output[]) => (state.outputs = outputs),
     setPlaybackApps: (state, playbackApps: Output[]) => (state.playbackApps = playbackApps),
-    setSelectedOutput: (state, selectedOutput: Output | null) => {
-      state.selectedOutput = selectedOutput;
-      state.settings.output = selectedOutput ? selectedOutput.name : '';
+    setSelectedOutputs: (state, selectedOutputs: Output[]) => {
+      state.selectedOutputs = selectedOutputs;
+      state.settings.outputs = selectedOutputs.map(({ name }) => name);
     },
     updateSound: (
       _state,
@@ -193,13 +194,6 @@ export default new Vuex.Store({
     },
     addToCurrentlyPlaying: (state, playing: Playing) => state.currentPlaying.push(playing),
     clearCurrentlyPlaying: state => (state.currentPlaying = []),
-    removePassthroughFromCurrentlyPlaying: state => {
-      state.currentPlaying.forEach((playing: Playing) => {
-        if ('name' in playing) {
-          state.currentPlaying.splice(state.currentPlaying.indexOf(playing), 1);
-        }
-      });
-    },
     removeFromCurrentlyPlaying: (state, playing: Playing) => {
       // search by id because object could be different (f.e. when the data comes from the backend)
       const realSound = state.currentPlaying.find(x => {
@@ -237,11 +231,29 @@ export default new Vuex.Store({
     setRemoteVolume: (state, volume: number) => (state.settings.remoteVolume = volume),
     setTabHotkeysOnly: (state, value: boolean) => (state.settings.tabHotkeysOnly = value),
     setViewMode: (state, value: ViewMode) => (state.settings.viewMode = value),
-    setAudioBackend: (state, value: AudioBackend) => (state.settings.audioBackend = value),
+    setAudioBackend: (state, value: AudioBackend) => {
+      state.settings.audioBackend = value;
+      if (value == AudioBackend.PipeWire) {
+        state.settings.muteDuringPlayback = false;
+        state.settings.useAsDefaultDevice = false;
+      }
+    },
     setAllowOverlapping: (state, value: boolean) => (state.settings.allowOverlapping = value),
     setDeleteToTrash: (state, value: boolean) => (state.settings.deleteToTrash = value),
     setSyncVolumes: (state, value: boolean) => (state.settings.syncVolumes = value),
     setMinimizeToTray: (state, value: boolean) => (state.settings.minimizeToTray = value),
+    setAllowMultipleOutputs: (state, value: boolean) => {
+      state.settings.allowMultipleOutputs = value;
+      // if it was disabled and there is more than one output selected, select the first one
+      if (!value) {
+        if (state.selectedOutputs.length > 1) {
+          state.selectedOutputs = [state.selectedOutputs[0]];
+        }
+        if (state.settings.outputs.length > 1) {
+          state.settings.outputs = [state.settings.outputs[0]];
+        }
+      }
+    },
     setUseAsDefaultDevice: (state, value: boolean) => (state.settings.useAsDefaultDevice = value),
     setMuteDuringPlayback: (state, value: boolean) => (state.settings.muteDuringPlayback = value),
     setSortMode: (state, sortMode: SortMode) => {
@@ -297,38 +309,10 @@ export default new Vuex.Store({
     },
 
     /**
-     * Set the outputs array and select the output accordingly
-     */
-    async setOutputs({ state, commit, dispatch }, outputs: Output[]) {
-      commit('setOutputs', outputs);
-      // if use as default device is enabled there should be no output application
-      if (state.settings.useAsDefaultDevice) {
-        commit('setSelectedOutput', null);
-      } else {
-        const { selectedOutput } = state;
-        if (state.outputs.length > 0) {
-          if (selectedOutput == null) {
-            commit('setSelectedOutput', state.outputs[0]);
-          } else {
-            const current = state.outputs.find(({ name }) => name === selectedOutput.name);
-            if (current) {
-              commit('setSelectedOutput', current);
-            } else {
-              commit('setSelectedOutput', state.outputs[0]);
-            }
-          }
-        } else {
-          commit('setSelectedOutput', null);
-        }
-      }
-      await dispatch('saveSettings');
-    },
-
-    /**
      * Set and save the currently selected output
      */
-    async setSelectedOutput({ commit, dispatch }, selectedOutput: Output) {
-      commit('setSelectedOutput', selectedOutput);
+    async setSelectedOutputs({ commit, dispatch }, selectedOutputs: Output[]) {
+      commit('setSelectedOutputs', selectedOutputs);
       await dispatch('saveSettings');
     },
 
@@ -336,9 +320,11 @@ export default new Vuex.Store({
      * Add a tab via the backend
      */
     async addTab({ commit }) {
-      const tab = await window.addTab();
-      if (tab) {
-        commit('addTab', tab);
+      const tabs = await window.addTab();
+      if (tabs) {
+        for (const tab of tabs) {
+          commit('addTab', tab);
+        }
       }
     },
 
@@ -443,7 +429,6 @@ export default new Vuex.Store({
     async startPassthrough({ commit }, app: Output) {
       const success = await window.startPassthrough(app.name);
       if (success) {
-        commit('removePassthroughFromCurrentlyPlaying');
         commit('addToCurrentlyPlaying', app);
       }
     },
@@ -458,11 +443,44 @@ export default new Vuex.Store({
 
     /**
      * Refresh the outputs via the backend
+     * and select the outputs accordingly
      */
-    async getOutputs({ dispatch }) {
+    async getOutputs({ state, commit, dispatch }, settingsOutputs?: string[]) {
       const outputs = await window.getOutputs();
       if (outputs) {
-        dispatch('setOutputs', outputs);
+        commit('setOutputs', outputs);
+
+        // restore outputs when settingsOutputs are given (on startup)
+        if (settingsOutputs && settingsOutputs.length > 0) {
+          const validOutputs = state.outputs.filter(({ name }) => settingsOutputs.includes(name));
+          if (validOutputs && validOutputs.length > 0) {
+            commit('setSelectedOutputs', validOutputs);
+            return;
+          }
+        }
+
+        // if use as default device is enabled there should be no output application
+        if (state.settings.useAsDefaultDevice) {
+          commit('setSelectedOutputs', []);
+        } else {
+          const { selectedOutputs } = state;
+          if (outputs.length > 0) {
+            if (selectedOutputs.length === 0) {
+              commit('setSelectedOutputs', [outputs[0]]);
+            } else {
+              const selectedOutputNames = selectedOutputs.map(({ name }) => name);
+              const current = outputs.filter(({ name }) => selectedOutputNames.includes(name));
+              if (current.length > 0) {
+                commit('setSelectedOutputs', current);
+              } else {
+                commit('setSelectedOutputs', [outputs[0]]);
+              }
+            }
+          } else {
+            commit('setSelectedOutputs', []);
+          }
+        }
+        await dispatch('saveSettings');
       }
     },
 
@@ -482,7 +500,7 @@ export default new Vuex.Store({
     async setUseAsDefaultDevice({ commit, dispatch }, value: boolean) {
       commit('setUseAsDefaultDevice', value);
       if (value) {
-        commit('setSelectedOutput', null);
+        commit('setSelectedOutputs', []);
       } else {
         // refresh outputs on disable because the selected output was set to null
         await dispatch('getOutputs');
@@ -501,24 +519,57 @@ export default new Vuex.Store({
     /**
      * Save settings via the backend
      */
-    async saveSettings({ state }) {
-      await window.changeSettings(state.settings);
+    async saveSettings({ getters, commit }) {
+      const newSettings = await window.changeSettings(getters.settings);
+      if (newSettings) {
+        commit('setSettings', newSettings);
+      }
     },
 
     /**
      * Set and save the local volume
      */
-    async setLocalVolume({ commit, dispatch }, volume: number) {
-      commit('setLocalVolume', volume / 100);
-      await dispatch('saveSettings');
+    async setLocalVolume({ commit, getters }, volume: number) {
+      commit('setLocalVolume', volume);
+      await window.changeSettings(getters.settings);
     },
 
     /**
      * Set and save the remote volume
      */
-    async setRemoteVolume({ commit, dispatch }, volume: number) {
-      commit('setRemoteVolume', volume / 100);
-      await dispatch('saveSettings');
+    async setRemoteVolume({ commit, getters }, volume: number) {
+      commit('setRemoteVolume', volume);
+      await window.changeSettings(getters.settings);
+    },
+
+    /**
+     * Pause a playing sound via the backend
+     */
+    async pauseSound({ commit }, playingSound: PlayingSound) {
+      const pausedSound = await window.pauseSound(playingSound.id);
+      if (pausedSound) {
+        commit('updateSound', {
+          playing: playingSound,
+          ms: pausedSound.readInMs,
+          paused: pausedSound.paused,
+          repeat: pausedSound.repeat,
+        });
+      }
+    },
+
+    /**
+     * Resume a playing sound via the backend
+     */
+    async resumeSound({ commit }, playingSound: PlayingSound) {
+      const resumedSound = await window.resumeSound(playingSound.id);
+      if (resumedSound) {
+        commit('updateSound', {
+          playing: playingSound,
+          ms: resumedSound.readInMs,
+          paused: resumedSound.paused,
+          repeat: resumedSound.repeat,
+        });
+      }
     },
 
     /**
@@ -529,19 +580,10 @@ export default new Vuex.Store({
     },
 
     /**
-     * Get the information if the switch on connect module is loaded from the backend
-     */
-    async isSwitchOnConnectLoaded({ commit }) {
-      const result = (await window.isSwitchOnConnectLoaded()) || false;
-      commit('setSwitchOnConnectLoaded', result);
-    },
-
-    /**
      * Unload the switch on connect module via the backend
      */
-    async unloadSwitchOnConnect({ commit }) {
+    async unloadSwitchOnConnect() {
       await window.unloadSwitchOnConnect();
-      commit('setSwitchOnConnectLoaded', false);
     },
 
     /**

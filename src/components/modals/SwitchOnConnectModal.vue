@@ -33,9 +33,6 @@ import { openUrl } from '@/utils/backend';
 
 export default Vue.extend({
   name: 'SwitchOnConnectModal',
-  mounted() {
-    this.$store.dispatch('isSwitchOnConnectLoaded');
-  },
   methods: {
     openWikiPage(): void {
       openUrl('https://github.com/Soundux/Soundux/wiki/Problems-with-switch-on-connect-module');

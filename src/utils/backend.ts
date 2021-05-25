@@ -20,9 +20,12 @@ export async function initialize(): Promise<void> {
     return `${i18n.t(path)}`;
   };
 
-  // backend settings updates (e.g. via system tray)
-  window.updateSettings = settings => {
-    $store.commit('setSettings', settings);
+  // expose store to backend for
+  // - switch tab (e.g for hotkeys, CLI)
+  // - settings updates (e.g. via system tray)
+  // - when the backend stops playback of every sound
+  window.getStore = () => {
+    return $store;
   };
 
   // sound updates
@@ -78,11 +81,6 @@ export async function initialize(): Promise<void> {
     }
   };
 
-  // when the backend stops playback of every sound
-  window.onAllStopped = () => {
-    $store.commit('clearCurrentlyPlaying');
-  };
-
   // when a sound started playing via hotkey
   window.onSoundPlayed = playingSound => {
     if (playingSound) {
@@ -106,6 +104,7 @@ export async function initialize(): Promise<void> {
     // fetch favorites
     $store.dispatch('getFavorites'),
   ]);
-  // getOutputs has to be called after setSettings. otherwise the settings promise might resolve slower and overwrites the output value
-  await $store.dispatch('getOutputs');
+
+  // getOutputs relies on settings, we supply the outputs from the settings to restore them
+  await $store.dispatch('getOutputs', $store.state.settings.outputs);
 }

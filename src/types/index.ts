@@ -59,8 +59,9 @@ export enum PlaylistMode {
 }
 
 export enum AudioBackend {
-  PulseAudio,
+  None,
   PipeWire,
+  PulseAudio,
 }
 
 export enum SortMode {
@@ -83,7 +84,7 @@ export enum ViewMode {
 }
 
 export interface Settings {
-  output: string;
+  outputs: string[];
   selectedTab: number;
   allowOverlapping: boolean;
   deleteToTrash: boolean;
@@ -98,6 +99,7 @@ export interface Settings {
   minimizeToTray: boolean;
   localVolume: number;
   remoteVolume: number;
+  allowMultipleOutputs: boolean;
   useAsDefaultDevice: boolean;
   muteDuringPlayback: boolean;
 }

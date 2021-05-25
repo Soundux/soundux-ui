@@ -65,6 +65,7 @@
       "light": "Hell"
     },
     "audioBackend": "Audio-Backend",
+    "allowMultipleOutputs": "Erlaube mehrere Ausgabe-Anwendungen",
     "stopHotkey": "Stopp-Hotkey",
     "pushToTalkKeys": "Push-to-talk Tasten"
   },
@@ -83,6 +84,11 @@
       "line4": "Weitere Informationen (z.B. wie Sie es dauerhaft deaktivieren können) finden Sie auf {wikiPage}",
       "wikiPage": "unserer dafür vorgesehenen Wiki-Seite (Englisch)"
     }
+  },
+  "noAudioBackend": {
+    "title": "Kein Audio-Backend gefunden",
+    "notDetected": "Wir konnten kein unterstütztes Audio-Backend für Ihr System finden.",
+    "choose": "Bitte wählen Sie unten eines aus"
   },
   "hotkeys": {
     "title": "Hotkey setzen",
