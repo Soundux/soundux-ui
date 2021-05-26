@@ -120,7 +120,7 @@
   "switchOnConnect": {
     "explanation": {
       "wikiPage": "onze speciale wiki pagina",
-      "line4": "Ga voor meer informatie (over bijvoorbeeld het permanent uitschakelen) naar {wikiPage}",
+      "line4": "Ga voor meer informatie (over bijvoorbeeld het permanent uitschakelen) naar {wikiPage}.",
       "line3": "Schakel dit alstublieft uit om Soundux te blijven gebruiken.",
       "line2": "Dit veroorzaakt veel problemen!",
       "line1": "De PulseAudio {moduleName} module is gedetecteerd."
