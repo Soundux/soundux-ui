@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-tabs v-model="mutableActiveTabIndex" show-arrows>
+    <v-tabs v-model="mutableActiveTabIndex" show-arrows :hide-slider="$store.getters.showFavorites">
       <draggable
         v-model="mutableTabs"
         class="v-slide-group__wrapper"
