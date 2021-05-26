@@ -65,6 +65,12 @@ export default new Vuex.Store({
   },
   getters: {
     searchModal: state => state.searchModal,
+    // TODO: !settingsModal && !helpModal
+    noModalOpen: state =>
+      !state.appPassThroughDrawer &&
+      !state.systemInfoModal &&
+      !state.searchModal &&
+      !state.setHotkeyModal,
     setHotkeyModal: state => state.setHotkeyModal,
     setHotkeySound: state => state.setHotkeySound,
     systemInfoModal: state => state.systemInfoModal,

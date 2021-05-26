@@ -132,16 +132,18 @@ export default Vue.extend({
       this.$store.dispatch('moveTabs');
     },
     keyDownHandler(event: KeyboardEvent): void {
-      if (event.ctrlKey && !event.shiftKey && !event.altKey && event.code === 'KeyR') {
-        event.preventDefault();
-        this.$store.dispatch('refreshTab');
-      }
-      if (!event.ctrlKey && !event.shiftKey && !event.altKey && event.code === 'Space') {
-        event.preventDefault();
-        const currentPlayingSounds: PlayingSound[] = this.$store.getters.currentPlayingSounds;
-        if (currentPlayingSounds.length > 0) {
-          const sound = currentPlayingSounds[currentPlayingSounds.length - 1];
-          this.$store.dispatch(sound.paused ? 'resumeSound' : 'pauseSound', sound);
+      if (this.$store.getters.noModalOpen) {
+        if (event.ctrlKey && !event.shiftKey && !event.altKey && event.code === 'KeyR') {
+          event.preventDefault();
+          this.$store.dispatch('refreshTab');
+        }
+        if (!event.ctrlKey && !event.shiftKey && !event.altKey && event.code === 'Space') {
+          const currentPlayingSounds: PlayingSound[] = this.$store.getters.currentPlayingSounds;
+          if (currentPlayingSounds.length > 0) {
+            event.preventDefault();
+            const sound = currentPlayingSounds[currentPlayingSounds.length - 1];
+            this.$store.dispatch(sound.paused ? 'resumeSound' : 'pauseSound', sound);
+          }
         }
       }
     },
