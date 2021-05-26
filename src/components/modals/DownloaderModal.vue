@@ -56,7 +56,7 @@
                 :stream="progress < 100"
                 buffer-value="0"
               ></v-progress-linear>
-              <div v-if="progress === 100">{{ $t('downloader.converting') }}</div>
+              <div v-if="progress === 100">{{ $t('downloader.converting') }}…</div>
               <div v-else-if="eta">{{ $t('downloader.eta') }}: {{ eta }}</div>
             </v-card-text>
           </v-card>

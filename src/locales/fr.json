@@ -34,7 +34,7 @@
     "success": "Téléchargement réussi : {title}",
     "startDownload": "Démarrer le téléchargement",
     "cancelDownload": "Annuler le téléchargement",
-    "converting": "Conversion…",
+    "converting": "Conversion",
     "progress": "Progression",
     "placeholder": "Entrez un lien",
     "installNow": "Installer maintenant",

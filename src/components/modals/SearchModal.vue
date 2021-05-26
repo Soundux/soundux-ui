@@ -12,7 +12,7 @@
         <v-text-field
           v-model="searchInput"
           id="searchField"
-          :label="`${$t('actions.search')}...`"
+          :label="`${$t('actions.search')}…`"
           hide-details
           tabindex="-1"
           clearable
