@@ -106,7 +106,7 @@
   "help": {
     "title": "Yardım",
     "search": {
-      "text": "{search} için {ctrl} + {f} basın ",
+      "text": "{search} için {ctrl} + {f} basın",
       "search": "ara"
     },
     "play": {
@@ -118,11 +118,11 @@
       "moreOptions": "daha fazla seçenek göster"
     },
     "appPassThrough": {
-      "text": "{show} için {ctrl} + {g} basın ",
+      "text": "{show} için {ctrl} + {g} basın",
       "show": "uygulama geçişini göster"
     },
     "reloadSounds": {
-      "text": "{reload} için {ctrl} + {r} basın ",
+      "text": "{reload} için {ctrl} + {r} basın",
       "reload": "mevcut sekmeyi yeniden yükle"
     },
     "supportUs": "Bizi destekleyin",

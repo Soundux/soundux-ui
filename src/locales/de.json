@@ -81,7 +81,7 @@
       "line1": "Das PulseAudio {moduleName} Modul wurde gefunden.",
       "line2": "Dies verursacht schwerwiegende Probleme!",
       "line3": "Um Soundux weiter zu verwenden, deaktivieren Sie es bitte.",
-      "line4": "Weitere Informationen (z.B. wie Sie es dauerhaft deaktivieren können) finden Sie auf {wikiPage}",
+      "line4": "Weitere Informationen (z.B. wie Sie es dauerhaft deaktivieren können) finden Sie auf {wikiPage}.",
       "wikiPage": "unserer dafür vorgesehenen Wiki-Seite (Englisch)"
     }
   },

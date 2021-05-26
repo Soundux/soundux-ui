@@ -81,7 +81,7 @@
       "line1": "The PulseAudio {moduleName} module has been detected.",
       "line2": "This causes severe problems!",
       "line3": "To continue using Soundux, please disable it.",
-      "line4": "For more information (e.g. how to disable this permanently) please refer to {wikiPage}",
+      "line4": "For more information (e.g. how to disable this permanently) please refer to {wikiPage}.",
       "wikiPage": "our dedicated wiki page"
     }
   },
