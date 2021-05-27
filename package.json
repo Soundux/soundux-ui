@@ -16,7 +16,7 @@
   "dependencies": {
     "@mdi/font": "^5.9.55",
     "core-js": "^3.13.0",
-    "dayjs": "^1.10.4",
+    "dayjs": "^1.10.5",
     "fuse.js": "^6.4.6",
     "roboto-fontface": "*",
     "vue": "^2.6.12",
