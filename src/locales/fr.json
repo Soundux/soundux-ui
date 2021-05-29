@@ -13,9 +13,15 @@
     "6": "Son introuvable",
     "4": "Échec de la reprise",
     "3": "Échec de la répétition",
-    "2": "Échec de la mise en pause",
+    "2": "Échec de la pause",
     "0": "Échec de la lecture",
-    "backendFunctionMissing": "Fonction de gestion manquante : {functionName}"
+    "backendFunctionMissing": "Fonction de gestion manquante : {functionName}",
+    "12": "N’a pas réussi à réinitialiser la transmission",
+    "10": "Échec de démarrage de la transmition",
+    "5": "Impossible de faire passer par le sink",
+    "13": "Échec du retour à la source par défaut",
+    "11": "N'a pas réussi à revenir en arrière",
+    "1": "Recherche échoué"
   },
   "systemInfo": {
     "copyToClipboard": "Copier dans le presse-papiers",
@@ -39,12 +45,15 @@
     "placeholder": "Entrez un lien",
     "installNow": "Installer maintenant",
     "notAvailable": "{youtube-dl} et/ou {ffmpeg} ne sont pas installés",
-    "title": "Téléchargements"
+    "title": "Téléchargements",
+    "eta": "Temps d'arrivé estimé"
   },
   "sort": {
     "alphabeticalDescending": "Ordre alphabétique inverse",
     "alphabeticalAscending": "Ordre alphabétique",
-    "title": "Trier"
+    "title": "Trier",
+    "modifiedDescending": "Descendant modifié",
+    "modifiedAscending": "Ascendant modifié"
   },
   "search": {
     "playSelected": "{shift} + {enter} pour lire le son actuellement sélectionné",
@@ -55,7 +64,8 @@
   },
   "appPassThrough": {
     "noOutputSelected": "Vous devez sélectionner une application de diffusion",
-    "noAppsFound": "Aucune application trouvée"
+    "noAppsFound": "Aucune application trouvée",
+    "title": "L'app passe à travers"
   },
   "volume": {
     "sync": "Synchroniser le volume",
@@ -72,7 +82,8 @@
       "text": "Appuyez sur {ctrl} + {r} pour {reload}"
     },
     "appPassThrough": {
-      "text": "Appuyez sur {ctrl} + {g} pour {show}"
+      "text": "Appuyez sur {ctrl} + {g} pour {show}",
+      "show": "montrer la transmission"
     },
     "options": {
       "moreOptions": "afficher plus d'options",
@@ -136,9 +147,11 @@
       "wikiPage": "notre page dédiée sur le wiki",
       "line4": "Pour plus d'informations (par ex. pour désactiver ceci de façon permanente) veuillez vous référer à {wikiPage}.",
       "line3": "Pour continuer à utiliser Soundux, veuillez le désactiver.",
-      "line1": "Le module PulseAudio {moduleName} a été détecté."
+      "line1": "Le module PulseAudio {moduleName} a été détecté.",
+      "line2": "Ceci cause des gros problèmes !"
     },
-    "disable": "Désactiver maintenant"
+    "disable": "Désactiver maintenant",
+    "title": "Le module \"Switch on connect\" a été détecté !"
   },
   "tray": {
     "exit": "Quitter",
@@ -163,7 +176,7 @@
   },
   "actions": {
     "openFolder": "Ouvrir le dossier",
-    "confirmation": "Confirmation",
+    "confirmation": "Confirmations",
     "shuffle": "Aléatoire",
     "off": "Désactivé",
     "on": "Activé",
@@ -175,7 +188,8 @@
     "addTab": "Ajouter un onglet",
     "search": "Rechercher",
     "stop": "Arrêter",
-    "refresh": "Actualiser"
+    "refresh": "Actualiser",
+    "appPassThrough": "Passer à travers"
   },
   "outputDevice": "Périphérique de sortie",
   "outputApp": "Application de diffusion",
