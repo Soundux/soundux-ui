@@ -1,5 +1,5 @@
 <template>
-  <v-card style="height: calc(100vh - 235px)">
+  <v-card class="no-tabs">
     <v-card-title>{{ $t('welcome.title', { programName: 'Soundux' }) }}</v-card-title>
     <v-card-text>
       <i18n path="welcome.noTabs">
@@ -23,8 +23,6 @@
           </a>
         </i18n>
       </template>
-
-      <v-img src="@/assets/undraw_empty_xct9.svg" height="150" contain></v-img>
     </v-card-text>
   </v-card>
 </template>
@@ -42,3 +40,13 @@ export default Vue.extend({
   },
 });
 </script>
+
+<style scoped lang="scss">
+.no-tabs {
+  height: calc(100vh - 235px);
+  background-image: url('~@/assets/undraw_empty_xct9.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 25%;
+}
+</style>
