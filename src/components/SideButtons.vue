@@ -30,25 +30,30 @@
       <template v-slot:activator="{ on, attrs }">
         <v-btn
           :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
+          :disabled="!$store.getters.currentTab || $store.getters.showFavorites"
           class="mb-2"
           v-bind="attrs"
           v-on="on"
         >
-          <v-icon v-if="$store.getters.settings.sortMode === 0" left>mdi-sort-calendar-ascending</v-icon>
-          <v-icon v-else-if="$store.getters.settings.sortMode === 1" left>
-            mdi-sort-calendar-descending
-          </v-icon>
-          <v-icon v-else-if="$store.getters.settings.sortMode === 2" left>
-            mdi-sort-alphabetical-ascending
-          </v-icon>
-          <v-icon v-else-if="$store.getters.settings.sortMode === 3" left>
-            mdi-sort-alphabetical-descending
-          </v-icon>
+          <template v-if="$store.getters.currentTab">
+            <v-icon v-if="$store.getters.currentTab.sortMode === 0" left>
+              mdi-sort-calendar-ascending
+            </v-icon>
+            <v-icon v-else-if="$store.getters.currentTab.sortMode === 1" left>
+              mdi-sort-calendar-descending
+            </v-icon>
+            <v-icon v-else-if="$store.getters.currentTab.sortMode === 2" left>
+              mdi-sort-alphabetical-ascending
+            </v-icon>
+            <v-icon v-else-if="$store.getters.currentTab.sortMode === 3" left>
+              mdi-sort-alphabetical-descending
+            </v-icon>
+          </template>
           {{ $t('sort.title') }}
         </v-btn>
       </template>
-      <v-list>
-        <v-list-item-group :value="$store.getters.settings.sortMode">
+      <v-list v-if="$store.getters.currentTab">
+        <v-list-item-group :value="$store.getters.currentTab.sortMode">
           <v-list-item @click="$store.dispatch('setSortMode', 0)">
             <v-list-item-title>
               <v-icon left>mdi-sort-calendar-ascending</v-icon>

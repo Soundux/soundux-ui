@@ -15,7 +15,6 @@ import {
   UpdateData,
   ViewMode,
 } from '@/types';
-import { sortTab } from '@/utils';
 
 Vue.use(Vuex);
 
@@ -53,7 +52,6 @@ export default new Vuex.Store({
       viewMode: ViewMode.List,
       stopHotkey: [] as number[],
       pushToTalkKeys: [] as number[],
-      sortMode: SortMode.ModifiedDate_Descending,
       tabHotkeysOnly: false,
       minimizeToTray: false,
       localVolume: 0,
@@ -86,8 +84,7 @@ export default new Vuex.Store({
         .map(({ sounds }) => sounds)
         .reduce((acc, e) => acc.concat(e), [])
         .filter(({ id }) => state.favorites.includes(id));
-      const tab: Tab = { id: -1, name: 'Favorites', sounds };
-      sortTab(tab, state.settings.sortMode);
+      const tab: Tab = { id: -1, name: 'Favorites', sounds, sortMode: SortMode.ModifiedDate_Descending };
       return tab;
     },
     showFavorites: state => state.showFavorites,
@@ -147,18 +144,15 @@ export default new Vuex.Store({
       }
     },
     addTab: (state, tab: Tab) => {
-      sortTab(tab, state.settings.sortMode);
       state.tabs.push(tab);
     },
     setTabs: (state, tabs: Tab[]) => {
-      tabs.forEach(tab => sortTab(tab, state.settings.sortMode));
       state.tabs = tabs;
     },
     setShowFavorites: (state, newState: boolean) => (state.showFavorites = newState),
     setPlaylistMode: (state, playlistMode: PlaylistMode) => (state.playlistMode = playlistMode),
     setTabSounds: (state, { tab, sounds }: { tab: Tab; sounds: Sound[] }) => {
       tab.sounds = sounds;
-      sortTab(tab, state.settings.sortMode);
     },
     setActiveTabIndex: (state, index: number) => (state.settings.selectedTab = index),
     setOutputs: (state, outputs: Output[]) => (state.outputs = outputs),
@@ -263,10 +257,10 @@ export default new Vuex.Store({
     setUseAsDefaultDevice: (state, value: boolean) => (state.settings.useAsDefaultDevice = value),
     setMuteDuringPlayback: (state, value: boolean) => (state.settings.muteDuringPlayback = value),
     setSortMode: (state, sortMode: SortMode) => {
-      state.settings.sortMode = sortMode;
-      state.tabs.forEach((tab: Tab) => {
-        sortTab(tab, sortMode);
-      });
+      const currentTab = state.tabs[state.settings.selectedTab];
+      if (currentTab) {
+        currentTab.sortMode = sortMode;
+      }
     },
     setStopHotkey: (state, value: number[]) => (state.settings.stopHotkey = value),
     setPushToTalkKeys: (state, value: number[]) => (state.settings.pushToTalkKeys = value),
@@ -606,9 +600,12 @@ export default new Vuex.Store({
     /**
      * Set and save the selected sort mode
      */
-    async setSortMode({ commit, dispatch }, sortMode: SortMode) {
-      commit('setSortMode', sortMode);
-      await dispatch('saveSettings');
+    async setSortMode({ commit, getters }, sortMode: SortMode) {
+      const refreshedTab = await window.setSortMode(getters.activeTabIndex, sortMode);
+      if (refreshedTab) {
+        commit('setSortMode', sortMode);
+        commit('setTabSounds', { tab: getters.currentTab, sounds: refreshedTab.sounds });
+      }
     },
 
     /**

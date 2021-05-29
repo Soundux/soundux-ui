@@ -36,6 +36,7 @@ export interface Tab {
   id: number;
   name: string;
   sounds: Sound[];
+  sortMode: SortMode;
 }
 
 export interface UpdateData {
@@ -94,7 +95,6 @@ export interface Settings {
   viewMode: ViewMode;
   stopHotkey: number[];
   pushToTalkKeys: number[];
-  sortMode: SortMode;
   tabHotkeysOnly: boolean;
   minimizeToTray: boolean;
   localVolume: number;

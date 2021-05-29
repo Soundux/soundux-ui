@@ -10,7 +10,7 @@ import 'vue-toastification/dist/index.css';
 import dayjs from 'dayjs';
 import $store from '@/store';
 import duration from 'dayjs/plugin/duration';
-import { Output, PlayingSound, Settings, Tab, UpdateData, YoutubeDlInfo } from '@/types';
+import { Output, PlayingSound, Settings, SortMode, Tab, UpdateData, YoutubeDlInfo } from '@/types';
 import vueDebounce from 'vue-debounce';
 
 declare global {
@@ -28,6 +28,7 @@ declare global {
     isLinux: () => Promise<boolean | null>;
     openUrl: (url: string) => Promise<void>;
     moveTabs: (tabIds: number[]) => Promise<Tab[]>;
+    setSortMode: (tabId: number, sortMode: SortMode) => Promise<Tab | null>;
     getSettings: () => Promise<Settings>;
     getOutputs: () => Promise<Output[]>;
     changeSettings: (settings: Settings) => Promise<Settings>;
