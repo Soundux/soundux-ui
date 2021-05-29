@@ -41,7 +41,7 @@
     </div>
 
     <div v-else>
-      <v-tabs-items :value="$store.getters.activeTabIndex">
+      <v-tabs-items :value="mutableActiveTabIndex">
         <v-tab-item v-for="(tab, index) in $store.getters.tabs" :key="index">
           <NoSoundsCard v-if="tab.sounds.length === 0"></NoSoundsCard>
           <LaunchpadView v-else-if="$store.getters.settings.viewMode === 2" :tab="tab"></LaunchpadView>

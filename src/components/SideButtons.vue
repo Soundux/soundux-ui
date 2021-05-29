@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex flex-column flex-nowrap align-stretch fill-height">
+  <div class="d-flex flex-column flex-nowrap fill-height">
     <v-btn
       :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
       class="mb-2"
