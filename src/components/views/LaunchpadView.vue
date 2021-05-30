@@ -19,7 +19,14 @@
             >
               <div class="content">
                 <span class="text">{{ sound.name }}</span>
-                <span class="indicator">
+                <v-icon
+                  v-if="!$store.getters.showFavorites"
+                  class="favorite-indicator"
+                  :color="sound.isFavorite ? 'red' : ''"
+                  v-text="sound.isFavorite ? 'mdi-heart' : 'mdi-heart-outline'"
+                >
+                </v-icon>
+                <span class="key-indicator">
                   {{ keyboard[sIndex] }}
                 </span>
               </div>
@@ -195,7 +202,15 @@ export default Vue.extend({
         text-overflow: ellipsis;
       }
 
-      .indicator {
+      .favorite-indicator {
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 0.9rem;
+        margin: 0.15rem;
+      }
+
+      .key-indicator {
         position: absolute;
         top: 0;
         right: 0;

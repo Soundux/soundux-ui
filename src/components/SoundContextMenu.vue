@@ -18,7 +18,11 @@
         @click="$store.dispatch('toggleFavorite', sound)"
       >
         <v-list-item-title>
-          <v-icon left :color="sound.isFavorite ? 'red' : ''">mdi-heart</v-icon>
+          <v-icon
+            left
+            :color="sound.isFavorite ? 'red' : ''"
+            v-text="sound.isFavorite ? 'mdi-heart' : 'mdi-heart-outline'"
+          ></v-icon>
           {{ $t('favorites.favorite') }}
         </v-list-item-title>
       </v-list-item>
