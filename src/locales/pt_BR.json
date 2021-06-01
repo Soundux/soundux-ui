@@ -1,1 +1,71 @@
-{}
+{
+  "settings": {
+    "stopHotkey": "Hotkey de parar",
+    "allowMultipleOutputs": "Permitir saída de áudio para múltiplos apps",
+    "audioBackend": "Backend de audio",
+    "viewMode": {
+      "gridView": "Visão de grade",
+      "launchpadMode": "Emulação de Launchpad",
+      "listView": "Vista de lista",
+      "title": "Modo de visualização"
+    },
+    "theme": {
+      "light": "Claro",
+      "dark": "Escuro",
+      "system": "Sistema",
+      "title": "Tema"
+    },
+    "muteDuringPlayback": "Microfone mudo durante reprodução",
+    "useAsDefaultDevice": "Usar como dispositivo padrão",
+    "minimizeToTray": "Minimizar para bandeja do sistema",
+    "deleteToTrash": "Deletar para lixeira",
+    "allowOverlapping": "Permitir sobreposição de som",
+    "tabHotkeysOnly": "Hotkeys somente para a aba aberta",
+    "title": "Configurações"
+  },
+  "empty": {
+    "noFavorites": "Você atualmente não tem favoritos, Favorite alguns sons para os exibir aqui",
+    "noSounds": "Nenhum som compatível foi encontrado na pasta {path}. As extensões com suporte são mp3, wav, flac",
+    "nothingToShow": "Nada a mostrar"
+  },
+  "favorites": {
+    "favorite": "Favorite",
+    "title": "Favoritos"
+  },
+  "deleteSound": {
+    "delete": "Deletar",
+    "question": "Você gostaria de deletar o som {soundName}?"
+  },
+  "removeTab": {
+    "question": "Você gostaria de remover a aba {tabName}?"
+  },
+  "actions": {
+    "openFolder": "Abrir pasta",
+    "confirmation": "Confirmação",
+    "shuffle": "Embaralhar",
+    "off": "Desligado",
+    "on": "Ligado",
+    "no": "Não",
+    "yes": "Sim",
+    "playlistMode": "Modo Playlist",
+    "appPassThrough": "Passar Por",
+    "play": "Tocar",
+    "reloadSounds": "Recarregar",
+    "addTab": "Adicionar Aba",
+    "search": "Pesquisar",
+    "stop": "Parar",
+    "refresh": "Recarregar"
+  },
+  "outputApp": "Aplicativo de saída",
+  "outputDevice": "Dispositivo de saída",
+  "welcome": {
+    "windowsGuide2": "como visto em nossa website",
+    "windowsGuide1": "Lembre-se de seguir as etapas de instalação {seenOnWebsite}",
+    "windowsDetected": "Nós detectamos que você está no Windows.",
+    "linuxGuide2": "Você não precisa mudar o dispositivo de entrada ou saída em nenhum lugar.",
+    "linuxGuide1": "Para tocar sons, basta selecionar a aplicação de saída no canto superior direito.",
+    "linuxDetected": "Nós detectamos que você está no Linux.",
+    "noTabs": "Nenhuma aba está aberta. Abra uma clicando em {addTab} no lado direito",
+    "title": "Bem vindo ao {programName}"
+  }
+}
