@@ -46,7 +46,7 @@ export default Vue.extend({
   },
   computed: {
     readInMs: {
-      get() {
+      get(): number {
         return this.playingSound.readInMs;
       },
       set(ms: number) {

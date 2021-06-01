@@ -24,7 +24,7 @@ import { AudioBackend } from '@/types';
 export default Vue.extend({
   name: 'NoAudioBackendModal',
   computed: {
-    isNullAudioBackendLoaded() {
+    isNullAudioBackendLoaded(): boolean {
       return this.$store.getters.settings.audioBackend === 0;
     },
   },
