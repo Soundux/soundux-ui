@@ -26,7 +26,9 @@
     "off": "Aus",
     "shuffle": "Zufall",
     "confirmation": "Bestätigung",
-    "openFolder": "Ordner öffnen"
+    "openFolder": "Ordner öffnen",
+    "ignore": "Ignorieren",
+    "dismiss": "Verwerfen"
   },
   "removeTab": {
     "question": "Möchten Sie den Tab {tabName} entfernen?"
@@ -179,6 +181,16 @@
     "description": "Hängen Sie diese Informationen an, wenn Sie einen Bug melden",
     "copyToClipboard": "In die Zwischenablage kopieren"
   },
+  "windows": {
+    "detectedMisconfiguration": "Eine Fehlkonfiguration bei VB-Cable wurde erkannt",
+    "setUpNow": "Jetzt einrichten",
+    "badConfiguration": "Falsche Konfiguration erkannt",
+    "virtualAudioCableMisconfiguration": "Wir haben festgestellt, dass Ihr Virtual Audio Cable nicht richtig eingerichtet ist.",
+    "selectMic": "Bitte wählen Sie Ihr Mikrofon und fahren Sie fort",
+    "automaticSetup": "Automatisch einrichten",
+    "administrativePrivilegesNeeded": "Administrative Rechte benötigt!",
+    "restartAsAdmin": "Neustart als Admin"
+  },
   "errors": {
     "0": "Wiedergabe fehlgeschlagen",
     "1": "Spulen fehlgeschlagen",
@@ -200,6 +212,7 @@
     "17": "Fehler beim Verarbeiten der youtube-dl JSON",
     "18": "Unbekanntes youtube-dl Versagen",
     "19": "Fehler beim Löschen der Datei",
+    "20": "Konnte nicht stumm schalten",
     "error": "Fehler",
     "backendFunctionMissing": "Backend-Funktion fehlt: {functionName}"
   }

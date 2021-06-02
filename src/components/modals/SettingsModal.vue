@@ -94,10 +94,11 @@
               >
               </v-select>
               <v-checkbox
-                v-model="allowMultipleOutputs"
-                :label="$t('settings.allowMultipleOutputs')"
+                v-model="useAsDefaultDevice"
+                :disabled="$store.getters.settings.audioBackend === 1"
+                :label="$t('settings.useAsDefaultDevice')"
                 hide-details
-                prepend-icon="mdi-speaker-multiple"
+                prepend-icon="mdi-speaker"
                 class="ma-0"
               ></v-checkbox>
             </template>
@@ -123,18 +124,16 @@
               class="ma-0"
             ></v-checkbox>
             <v-checkbox
-              v-if="$store.getters.isLinux"
-              v-model="useAsDefaultDevice"
-              :disabled="$store.getters.settings.audioBackend === 1"
-              :label="$t('settings.useAsDefaultDevice')"
+              v-model="allowMultipleOutputs"
+              :disabled="!$store.getters.isLinux"
+              :label="$t('settings.allowMultipleOutputs')"
               hide-details
-              prepend-icon="mdi-speaker"
+              prepend-icon="mdi-speaker-multiple"
               class="ma-0"
             ></v-checkbox>
             <v-checkbox
-              v-if="$store.getters.isLinux"
               v-model="muteDuringPlayback"
-              :disabled="$store.getters.settings.audioBackend === 1"
+              :disabled="$store.getters.isLinux && $store.getters.settings.audioBackend === 1"
               :label="$t('settings.muteDuringPlayback')"
               hide-details
               prepend-icon="mdi-volume-mute"

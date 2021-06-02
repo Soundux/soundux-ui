@@ -84,6 +84,14 @@ export enum ViewMode {
   EmulatedLaunchpad,
 }
 
+/**
+ * Windows recording device
+ */
+export interface RecordingDevice {
+  name: string;
+  guid: string;
+}
+
 export interface Settings {
   outputs: string[];
   selectedTab: number;

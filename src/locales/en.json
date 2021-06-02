@@ -26,7 +26,9 @@
     "off": "Off",
     "shuffle": "Shuffle",
     "confirmation": "Confirmation",
-    "openFolder": "Open folder"
+    "openFolder": "Open folder",
+    "ignore": "Ignore",
+    "dismiss": "Dismiss"
   },
   "removeTab": {
     "question": "Would you like to remove the tab {tabName}?"
@@ -179,6 +181,16 @@
     "description": "Attach this information when creating a bug report",
     "copyToClipboard": "Copy to clipboard"
   },
+  "windows": {
+    "detectedMisconfiguration": "Detected a misconfiguration with VB-Cable",
+    "setUpNow": "Set-up now",
+    "badConfiguration": "Bad configuration detected",
+    "virtualAudioCableMisconfiguration": "We have detected that your Virtual Audio Cable is not properly set-up.",
+    "selectMic": "Please select your microphone and proceed",
+    "automaticSetup": "Automatically set-up",
+    "administrativePrivilegesNeeded": "Administrative privileges needed!",
+    "restartAsAdmin": "Restart as admin"
+  },
   "errors": {
     "0": "Failed to play",
     "1": "Failed to seek",
@@ -200,6 +212,7 @@
     "17": "Failed to parse youtube-dl JSON",
     "18": "Unknown youtube-dl failure",
     "19": "Failed to delete the file",
+    "20": "Failed to mute",
     "error": "Error",
     "backendFunctionMissing": "Backend function missing: {functionName}"
   }

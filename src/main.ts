@@ -10,7 +10,16 @@ import 'vue-toastification/dist/index.css';
 import dayjs from 'dayjs';
 import $store from '@/store';
 import duration from 'dayjs/plugin/duration';
-import { Output, PlayingSound, Settings, SortMode, Tab, UpdateData, YoutubeDlInfo } from '@/types';
+import {
+  Output,
+  PlayingSound,
+  RecordingDevice,
+  Settings,
+  SortMode,
+  Tab,
+  UpdateData,
+  YoutubeDlInfo,
+} from '@/types';
 import vueDebounce from 'vue-debounce';
 
 declare global {
@@ -25,7 +34,17 @@ declare global {
     getTranslation: ((path: string) => string) | undefined;
     getStore: (() => typeof $store) | undefined;
     // backend functions (here we can register both the arguments and the return types)
+
+    // linux specific
     isLinux: () => Promise<boolean | null>;
+    startPassthrough: (name: string) => Promise<boolean | null>;
+    stopPassthrough: (name: string) => Promise<void>;
+    // windows specific
+    isVBCableProperlySetup: () => Promise<boolean | null>;
+    getRecordingDevices: () => Promise<[RecordingDevice[], RecordingDevice] | null>;
+    setupVBCable: (selectedRecording: string | null) => Promise<boolean | null>;
+    restartAsAdmin: () => Promise<void>;
+    // others
     openUrl: (url: string) => Promise<void>;
     moveTabs: (tabIds: number[]) => Promise<Tab[]>;
     setSortMode: (tabId: number, sortMode: SortMode) => Promise<Tab | null>;
@@ -35,8 +54,6 @@ declare global {
     setHotkey: (id: number, hotkeys: number[]) => Promise<void>;
     unloadSwitchOnConnect: () => Promise<void>;
     stopSounds: () => Promise<void>;
-    startPassthrough: (name: string) => Promise<boolean | null>;
-    stopPassthrough: (name: string) => Promise<void>;
     playSound: (id: number) => Promise<PlayingSound | null>;
     pauseSound: (id: number) => Promise<PlayingSound | null>;
     resumeSound: (id: number) => Promise<PlayingSound | null>;

@@ -41,6 +41,10 @@ export default new Vuex.Store({
     isLinux: false,
     updateData: null as UpdateData | null,
     isDraggingSeekbar: false,
+    // windows stuff
+    isVBCableProperlySetup: true,
+    administrativeModal: false,
+    // ---
     settings: {
       outputs: [],
       selectedTab: 0,
@@ -68,6 +72,7 @@ export default new Vuex.Store({
       !state.appPassThroughDrawer &&
       !state.systemInfoModal &&
       !state.searchModal &&
+      !state.administrativeModal &&
       !state.setHotkeyModal,
     setHotkeyModal: state => state.setHotkeyModal,
     setHotkeySound: state => state.setHotkeySound,
@@ -107,6 +112,8 @@ export default new Vuex.Store({
     isLinux: state => state.isLinux,
     isDraggingSeekbar: state => state.isDraggingSeekbar,
     updateData: state => state.updateData,
+    isVBCableProperlySetup: state => state.isVBCableProperlySetup,
+    administrativeModal: state => state.administrativeModal,
   },
   mutations: {
     setSearchModal: (state, newState: boolean) => {
@@ -281,6 +288,8 @@ export default new Vuex.Store({
       }
     },
     setUpdateData: (state, value: UpdateData) => (state.updateData = value),
+    setIsVBCableProperlySetup: (state, value: boolean) => (state.isVBCableProperlySetup = value),
+    setAdministrativeModal: (state, value: boolean) => (state.administrativeModal = value),
     setSwitchOnConnectLoaded: (state, loaded: boolean) => (state.switchOnConnectLoaded = loaded),
     setHotkeys: (_state, { sound, hotkeys }: { sound: Sound; hotkeys: number[] }) =>
       (sound.hotkeys = hotkeys),
@@ -577,6 +586,14 @@ export default new Vuex.Store({
      */
     async getIsLinux({ commit }) {
       commit('setIsLinux', (await window.isLinux()) || false);
+    },
+
+    /**
+     * Get information about the VB-Cable configuration on Windows
+     */
+    async getVBCableState({ commit }) {
+      const vbCableState = await window.isVBCableProperlySetup();
+      commit('setIsVBCableProperlySetup', vbCableState);
     },
 
     /**

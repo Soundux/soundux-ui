@@ -9,6 +9,8 @@
       <DeleteSoundModal></DeleteSoundModal>
       <SwitchOnConnectModal v-if="$store.getters.isLinux"></SwitchOnConnectModal>
       <NoAudioBackendModal v-if="$store.getters.isLinux"></NoAudioBackendModal>
+      <WindowsSetupModal v-if="!$store.getters.isLinux"></WindowsSetupModal>
+      <WindowsAdministrativeModal v-if="!$store.getters.isLinux"></WindowsAdministrativeModal>
       <v-container fluid>
         <v-row dense no-gutters class="flex-nowrap">
           <v-col cols="auto">
@@ -84,9 +86,13 @@ import SearchModal from '@/components/modals/SearchModal.vue';
 import RemoveTabModal from '@/components/modals/RemoveTabModal.vue';
 import DeleteSoundModal from '@/components/modals/DeleteSoundModal.vue';
 import NoAudioBackendModal from '@/components/modals/NoAudioBackendModal.vue';
+import WindowsSetupModal from '@/components/modals/WindowsSetupModal.vue';
+import WindowsAdministrativeModal from '@/components/modals/WindowsAdministrativeModal.vue';
 
 export default Vue.extend({
   components: {
+    WindowsSetupModal,
+    WindowsAdministrativeModal,
     NoAudioBackendModal,
     DeleteSoundModal,
     RemoveTabModal,
