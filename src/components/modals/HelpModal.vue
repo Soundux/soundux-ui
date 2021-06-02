@@ -28,6 +28,10 @@
             <code slot="r">R</code>
             <b slot="reload">{{ $t('help.reloadSounds.reload') }}</b>
           </i18n>
+          <i18n path="help.togglePlayback.text" tag="li">
+            <code slot="space">{{ $t('input.space') }}</code>
+            <b slot="playPause">{{ $t('help.togglePlayback.playPause') }}</b>
+          </i18n>
           <i18n path="help.play.text" tag="li">
             <code slot="leftClick">{{ $t('input.leftClick') }}</code>
             <b slot="play">{{ $t('help.play.play') }}</b>

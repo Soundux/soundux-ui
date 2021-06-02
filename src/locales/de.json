@@ -103,7 +103,8 @@
     "enter": "Enter",
     "leftClick": "Linksklick",
     "rightClick": "Rechtsklick",
-    "arrowKeys": "Pfeiltasten"
+    "arrowKeys": "Pfeiltasten",
+    "space": "Leertaste"
   },
   "help": {
     "title": "Hilfe",
@@ -118,6 +119,10 @@
     "options": {
       "text": "{rightClick} um {moreOptions}",
       "moreOptions": "mehr Optionen anzuzeigen"
+    },
+    "togglePlayback": {
+      "text": "Drücke {space} um {playPause}",
+      "playPause": "die aktuell spielenden Sounds zu pausieren/fortzusetzen"
     },
     "appPassThrough": {
       "text": "Drücke {ctrl} + {g} um {show}",

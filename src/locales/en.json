@@ -103,7 +103,8 @@
     "enter": "Enter",
     "leftClick": "Left click",
     "rightClick": "Right click",
-    "arrowKeys": "Arrow keys"
+    "arrowKeys": "Arrow keys",
+    "space": "Space"
   },
   "help": {
     "title": "Help",
@@ -118,6 +119,10 @@
     "options": {
       "text": "{rightClick} to {moreOptions}",
       "moreOptions": "show more options"
+    },
+    "togglePlayback": {
+      "text": "Press {space} to {playPause}",
+      "playPause": "pause/resume the currently playing sounds"
     },
     "appPassThrough": {
       "text": "Press {ctrl} + {g} to {show}",
