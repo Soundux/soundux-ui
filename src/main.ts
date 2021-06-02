@@ -21,7 +21,7 @@ declare global {
     finishSound: ((playingSound: PlayingSound) => void) | undefined;
     onSoundPlayed: ((playingSound: PlayingSound) => void) | undefined;
     updateSound: ((playingSound: PlayingSound) => void) | undefined;
-    onError: ((error: string) => void) | undefined;
+    onError: ((error: number) => void) | undefined;
     getTranslation: ((path: string) => string) | undefined;
     getStore: (() => typeof $store) | undefined;
     // backend functions (here we can register both the arguments and the return types)

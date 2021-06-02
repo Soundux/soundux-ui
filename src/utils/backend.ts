@@ -11,7 +11,7 @@ export async function initialize(): Promise<void> {
   // register functions for the backend to call
 
   // error handling
-  window.onError = (error: string) => {
+  window.onError = (error: number) => {
     Vue.$toast.error(`${i18n.t('errors.error')}: ${i18n.t('errors.' + error)}`);
   };
 
