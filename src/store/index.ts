@@ -38,7 +38,7 @@ export default new Vuex.Store({
     playbackApps: [] as Output[],
     currentPlaying: [] as Playing[],
     switchOnConnectLoaded: false,
-    isLinux: false,
+    isLinux: null as boolean | null,
     updateData: null as UpdateData | null,
     isDraggingSeekbar: false,
     // windows stuff

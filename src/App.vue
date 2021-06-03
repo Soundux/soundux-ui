@@ -9,8 +9,12 @@
       <DeleteSoundModal></DeleteSoundModal>
       <SwitchOnConnectModal v-if="$store.getters.isLinux"></SwitchOnConnectModal>
       <NoAudioBackendModal v-if="$store.getters.isLinux"></NoAudioBackendModal>
-      <WindowsSetupModal v-if="!$store.getters.isLinux"></WindowsSetupModal>
-      <WindowsAdministrativeModal v-if="!$store.getters.isLinux"></WindowsAdministrativeModal>
+      <WindowsSetupModal
+        v-if="$store.getters.isLinux !== null && !$store.getters.isLinux"
+      ></WindowsSetupModal>
+      <WindowsAdministrativeModal
+        v-if="$store.getters.isLinux !== null && !$store.getters.isLinux"
+      ></WindowsAdministrativeModal>
       <v-container fluid>
         <v-row dense no-gutters class="flex-nowrap">
           <v-col cols="auto">
