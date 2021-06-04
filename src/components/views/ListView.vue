@@ -25,7 +25,10 @@
                     v-on="on"
                     @click.stop="$store.dispatch('toggleFavorite', sound)"
                   >
-                    <v-icon :color="sound.isFavorite ? 'red' : ''">mdi-heart</v-icon>
+                    <v-icon
+                      :color="sound.isFavorite ? 'red' : ''"
+                      v-text="sound.isFavorite ? 'mdi-heart' : 'mdi-heart-outline'"
+                    ></v-icon>
                   </v-btn>
                 </template>
                 <span>{{ $t('favorites.favorite') }}</span>
