@@ -218,10 +218,11 @@
     "14": "Standardgerät setzen fehlgeschlagen",
     "15": "youtube-dl nicht gefunden",
     "16": "Ungültige URL",
-    "17": "Fehler beim Verarbeiten der youtube-dl JSON",
+    "17": "Konnte youtube-dl JSON nicht verarbeiten",
     "18": "Unbekanntes youtube-dl Versagen",
-    "19": "Fehler beim Löschen der Datei",
+    "19": "Konnte Datei nicht löschen",
     "20": "Konnte nicht stumm schalten",
+    "21": "Konnte benutzerdefinierte Lautstärke nicht setzen",
     "error": "Fehler",
     "backendFunctionMissing": "Backend-Funktion fehlt: {functionName}"
   }

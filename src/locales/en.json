@@ -222,6 +222,7 @@
     "18": "Unknown youtube-dl failure",
     "19": "Failed to delete the file",
     "20": "Failed to mute",
+    "21": "Failed to set custom volume",
     "error": "Error",
     "backendFunctionMissing": "Backend function missing: {functionName}"
   }
