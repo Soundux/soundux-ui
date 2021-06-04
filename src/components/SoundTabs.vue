@@ -137,14 +137,27 @@ export default Vue.extend({
           event.preventDefault();
           await this.$store.dispatch('refreshTab');
         }
-        if (!event.ctrlKey && !event.shiftKey && !event.altKey && event.code === 'Space') {
-          const currentPlayingSounds: PlayingSound[] = this.$store.getters.currentPlayingSounds;
-          if (currentPlayingSounds.length > 0) {
-            event.preventDefault();
-            const paused = await window.toggleSoundPlayback();
-            if (paused !== null) {
-              this.$store.commit('updateSoundPlayback', { currentPlayingSounds, paused });
+        if (!event.ctrlKey && !event.shiftKey && !event.altKey) {
+          if (event.code === 'Space') {
+            const currentPlayingSounds: PlayingSound[] = this.$store.getters.currentPlayingSounds;
+            if (currentPlayingSounds.length > 0) {
+              event.preventDefault();
+              const paused = await window.toggleSoundPlayback();
+              if (paused !== null) {
+                this.$store.commit('updateSoundPlayback', { currentPlayingSounds, paused });
+              }
             }
+          } else if (event.code === 'ArrowUp' || event.code === 'ArrowDown') {
+            const { activeTabIndex } = this.$store.getters;
+            const lastTabIndex = this.$store.getters.tabs.length - 1;
+
+            let newTabIndex = 0;
+            if (event.code === 'ArrowUp') {
+              newTabIndex = activeTabIndex >= lastTabIndex ? 0 : activeTabIndex + 1;
+            } else {
+              newTabIndex = activeTabIndex <= 0 ? lastTabIndex : activeTabIndex - 1;
+            }
+            this.$store.commit('setActiveTabIndex', newTabIndex);
           }
         }
       }
