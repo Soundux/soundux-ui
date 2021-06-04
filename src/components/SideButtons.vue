@@ -49,6 +49,7 @@
               mdi-sort-alphabetical-descending
             </v-icon>
           </template>
+          <v-icon v-else left>mdi-sort-calendar-descending</v-icon>
           {{ $t('sort.title') }}
         </v-btn>
       </template>
