@@ -131,18 +131,20 @@ export default Vue.extend({
       }
       this.$store.dispatch('moveTabs');
     },
-    keyDownHandler(event: KeyboardEvent): void {
+    async keyDownHandler(event: KeyboardEvent): Promise<void> {
       if (this.$store.getters.noModalOpen) {
         if (event.ctrlKey && !event.shiftKey && !event.altKey && event.code === 'KeyR') {
           event.preventDefault();
-          this.$store.dispatch('refreshTab');
+          await this.$store.dispatch('refreshTab');
         }
         if (!event.ctrlKey && !event.shiftKey && !event.altKey && event.code === 'Space') {
           const currentPlayingSounds: PlayingSound[] = this.$store.getters.currentPlayingSounds;
           if (currentPlayingSounds.length > 0) {
             event.preventDefault();
-            const sound = currentPlayingSounds[currentPlayingSounds.length - 1];
-            this.$store.dispatch(sound.paused ? 'resumeSound' : 'pauseSound', sound);
+            const paused = await window.toggleSoundPlayback();
+            if (paused !== null) {
+              this.$store.commit('updateSoundPlayback', { currentPlayingSounds, paused });
+            }
           }
         }
       }

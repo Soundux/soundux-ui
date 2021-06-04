@@ -58,6 +58,7 @@ declare global {
     playSound: (id: number) => Promise<PlayingSound | null>;
     pauseSound: (id: number) => Promise<PlayingSound | null>;
     resumeSound: (id: number) => Promise<PlayingSound | null>;
+    toggleSoundPlayback: () => Promise<boolean | null>;
     seekSound: (id: number, newValue: number) => Promise<PlayingSound | null>;
     repeatSound: (id: number, state: boolean) => Promise<PlayingSound | null>;
     stopSound: (id: number) => Promise<boolean | null>;

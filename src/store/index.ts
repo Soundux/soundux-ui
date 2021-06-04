@@ -190,6 +190,12 @@ export default new Vuex.Store({
       state.selectedOutputs = selectedOutputs;
       state.settings.outputs = selectedOutputs.map(({ name }) => name);
     },
+    updateSoundPlayback: (
+      _state,
+      { currentPlayingSounds, paused }: { currentPlayingSounds: PlayingSound[]; paused: boolean }
+    ) => {
+      currentPlayingSounds.forEach(x => (x.paused = paused));
+    },
     updateSound: (
       _state,
       {
