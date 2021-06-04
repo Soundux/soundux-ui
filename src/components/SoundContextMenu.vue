@@ -10,7 +10,13 @@
       >
         <v-list-item-title>
           <v-icon left>mdi-keyboard</v-icon>
-          {{ $t('hotkeys.title') }}
+          {{ $t('hotkeys.title') }}…
+        </v-list-item-title>
+      </v-list-item>
+      <v-list-item @click="$store.commit('setSetVolumeSound', sound)">
+        <v-list-item-title>
+          <v-icon left>mdi-volume-source</v-icon>
+          Set custom volume…
         </v-list-item-title>
       </v-list-item>
       <v-list-item

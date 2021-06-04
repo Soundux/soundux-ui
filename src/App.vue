@@ -5,6 +5,7 @@
       <UpdateModal></UpdateModal>
       <SearchModal></SearchModal>
       <SetHotkeyModal></SetHotkeyModal>
+      <SetVolumeModal></SetVolumeModal>
       <RemoveTabModal></RemoveTabModal>
       <DeleteSoundModal></DeleteSoundModal>
       <SwitchOnConnectModal v-if="$store.getters.isLinux"></SwitchOnConnectModal>
@@ -89,6 +90,7 @@ import SetHotkeyModal from '@/components/modals/SetHotkeyModal.vue';
 import SearchModal from '@/components/modals/SearchModal.vue';
 import RemoveTabModal from '@/components/modals/RemoveTabModal.vue';
 import DeleteSoundModal from '@/components/modals/DeleteSoundModal.vue';
+import SetVolumeModal from '@/components/modals/SetVolumeModal.vue';
 import NoAudioBackendModal from '@/components/modals/NoAudioBackendModal.vue';
 import WindowsSetupModal from '@/components/modals/WindowsSetupModal.vue';
 import WindowsAdministrativeModal from '@/components/modals/WindowsAdministrativeModal.vue';
@@ -98,6 +100,7 @@ export default Vue.extend({
     WindowsSetupModal,
     WindowsAdministrativeModal,
     NoAudioBackendModal,
+    SetVolumeModal,
     DeleteSoundModal,
     RemoveTabModal,
     SearchModal,

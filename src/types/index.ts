@@ -7,6 +7,8 @@ export interface Sound {
   animationEvent?: (event: AnimationEvent) => void;
   hotkeySequence: string;
   isFavorite: boolean;
+  localVolume: number | null;
+  remoteVolume: number | null;
 }
 
 export interface Thumbnail {

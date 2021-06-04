@@ -16,6 +16,7 @@ import {
   RecordingDevice,
   Settings,
   SortMode,
+  Sound,
   Tab,
   UpdateData,
   YoutubeDlInfo,
@@ -61,6 +62,8 @@ declare global {
     repeatSound: (id: number, state: boolean) => Promise<PlayingSound | null>;
     stopSound: (id: number) => Promise<boolean | null>;
     deleteSound: (id: number) => Promise<boolean | null>;
+    setCustomLocalVolume: (id: number, localVolume: number | null) => Promise<Sound | null>;
+    setCustomRemoteVolume: (id: number, remoteVolume: number | null) => Promise<Sound | null>;
     refreshTab: (activeTabIndex: number) => Promise<Tab | null>;
     removeTab: (deleteIndex: number) => Promise<Tab[] | null>;
     addTab: () => Promise<Tab[] | null>;

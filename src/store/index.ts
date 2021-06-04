@@ -23,11 +23,13 @@ export default new Vuex.Store({
     searchModal: false,
     systemInfoModal: false,
     setHotkeyModal: false,
+    setVolumeModal: false,
     removeTabModal: false,
     tabToRemove: null as Tab | null,
     deleteSoundModal: false,
     soundToDelete: null as Sound | null,
     setHotkeySound: null as Sound | null,
+    setVolumeSound: null as Sound | null,
     appPassThroughDrawer: false,
     tabs: [] as Tab[],
     favorites: [] as number[],
@@ -71,11 +73,14 @@ export default new Vuex.Store({
     noModalOpen: state =>
       !state.appPassThroughDrawer &&
       !state.systemInfoModal &&
+      !state.setVolumeModal &&
       !state.searchModal &&
       !state.administrativeModal &&
       !state.setHotkeyModal,
     setHotkeyModal: state => state.setHotkeyModal,
     setHotkeySound: state => state.setHotkeySound,
+    setVolumeModal: state => state.setVolumeModal,
+    setVolumeSound: state => state.setVolumeSound,
     systemInfoModal: state => state.systemInfoModal,
     removeTabModal: state => state.removeTabModal,
     tabToRemove: state => state.tabToRemove,
@@ -131,6 +136,23 @@ export default new Vuex.Store({
       state.setHotkeySound = sound;
       // show modal when sound is present
       state.setHotkeyModal = !!sound;
+    },
+    setSetVolumeModal: (state, newState: boolean) => {
+      state.setVolumeModal = newState;
+      if (!newState) {
+        state.setVolumeSound = null;
+      }
+    },
+    setSetVolumeSound: (state, sound: Sound | null) => {
+      state.setVolumeSound = sound;
+      // show modal when sound is present
+      state.setVolumeModal = !!sound;
+    },
+    setSoundLocalVolume: (_state, { sound, volume }: { sound: Sound; volume: number }) => {
+      sound.localVolume = volume;
+    },
+    setSoundRemoteVolume: (_state, { sound, volume }: { sound: Sound; volume: number }) => {
+      sound.remoteVolume = volume;
     },
     setSystemInfoModal: (state, newState: boolean) => (state.systemInfoModal = newState),
     setRemoveTabModal: (state, newState: boolean) => (state.removeTabModal = newState),

@@ -67,6 +67,8 @@ describe('SoundControl.vue', () => {
       modifiedDate: 0,
       hotkeySequence: '',
       isFavorite: false,
+      localVolume: 0,
+      remoteVolume: 0,
     };
     const playingSound: PlayingSound = {
       id: 1,
