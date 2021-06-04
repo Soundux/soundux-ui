@@ -3,12 +3,12 @@
     <v-card v-if="sound">
       <v-card-title>
         <v-icon left>mdi-volume-source</v-icon>
-        <span class="text-h5">Set volume for {{ sound.name }}</span>
+        <span class="text-h5">{{ $t('customVolume.setFor', { soundName: sound.name }) }}</span>
       </v-card-title>
       <v-card-text>
         <v-row no-gutters align="center" class="flex-nowrap">
           <v-col cols="auto">
-            <v-checkbox v-model="enableLocalVolume" hide-details></v-checkbox>
+            <v-checkbox v-model="enableLocalVolume" hide-details class="ma-0"></v-checkbox>
           </v-col>
           <v-col cols="auto">
             <v-icon
@@ -39,7 +39,7 @@
 
         <v-row no-gutters align="center" class="flex-nowrap">
           <v-col cols="auto">
-            <v-checkbox v-model="enableRemoteVolume" hide-details></v-checkbox>
+            <v-checkbox v-model="enableRemoteVolume" hide-details class="ma-0"></v-checkbox>
           </v-col>
           <v-col cols="auto">
             <v-icon
@@ -78,6 +78,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import { mapGetters } from 'vuex';
+import { volumeIcon } from '@/utils';
 
 export default Vue.extend({
   name: 'SetVolumeModal',
@@ -139,20 +140,7 @@ export default Vue.extend({
     },
   },
   methods: {
-    // TODO: duplicate code from VolumeSliders.vue
-    volumeIcon(volume: number | null): string {
-      if (volume !== null) {
-        if (volume > 80) {
-          return 'mdi-volume-high';
-        } else if (volume > 30) {
-          return 'mdi-volume-medium';
-        } else if (volume > 0) {
-          return 'mdi-volume-low';
-        }
-        return 'mdi-volume-off';
-      }
-      return 'mdi-volume-variant-off';
-    },
+    volumeIcon,
   },
 });
 </script>

@@ -76,6 +76,10 @@
     "hide": "Hide window",
     "exit": "Exit"
   },
+  "customVolume": {
+    "context": "Set custom volume",
+    "setFor": "Set volume for {soundName}"
+  },
   "switchOnConnect": {
     "title": "Switch on connect module detected!",
     "disable": "Disable now",

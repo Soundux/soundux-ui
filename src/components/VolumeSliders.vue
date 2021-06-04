@@ -67,6 +67,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import { volumeIcon } from '@/utils';
 
 export default Vue.extend({
   name: 'VolumeSliders',
@@ -126,16 +127,7 @@ export default Vue.extend({
     },
   },
   methods: {
-    volumeIcon(volume: number): string {
-      if (volume > 80) {
-        return 'mdi-volume-high';
-      } else if (volume > 30) {
-        return 'mdi-volume-medium';
-      } else if (volume > 0) {
-        return 'mdi-volume-low';
-      }
-      return 'mdi-volume-off';
-    },
+    volumeIcon,
   },
 });
 </script>

@@ -16,7 +16,7 @@
       <v-list-item @click="$store.commit('setSetVolumeSound', sound)">
         <v-list-item-title>
           <v-icon left>mdi-volume-source</v-icon>
-          Set custom volume…
+          {{ $t('customVolume.context') }}…
         </v-list-item-title>
       </v-list-item>
       <v-list-item

@@ -76,6 +76,10 @@
     "hide": "Fenster verstecken",
     "exit": "Beenden"
   },
+  "customVolume": {
+    "context": "Benutzerdefinierte Lautstärke setzen",
+    "setFor": "Setze Lautstärke für {soundName}"
+  },
   "switchOnConnect": {
     "title": "Switch on connect Modul gefunden!",
     "disable": "Jetzt deaktivieren",
