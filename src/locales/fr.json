@@ -97,7 +97,11 @@
       "search": "rechercher",
       "text": "Appuyez sur {ctrl} + {f} pour {search}"
     },
-    "title": "Aide"
+    "title": "Aide",
+    "togglePlayback": {
+      "playPause": "mettre en pause/reprendre la lecture des sons",
+      "text": "Appuyez sur {space} pour {playPause}"
+    }
   },
   "input": {
     "arrowKeys": "Flèches",
@@ -105,7 +109,8 @@
     "leftClick": "Clic gauche",
     "enter": "Entrée",
     "shift": "Maj",
-    "ctrl": "CTRL"
+    "ctrl": "CTRL",
+    "space": "Espace"
   },
   "hotkeys": {
     "setFor": "Définir le raccourci pour {soundName}",
@@ -189,7 +194,8 @@
     "search": "Rechercher",
     "stop": "Arrêter",
     "refresh": "Actualiser",
-    "appPassThrough": "Passer à travers"
+    "appPassThrough": "Passer à travers",
+    "ignore": "Ignorer"
   },
   "outputDevice": "Périphérique de sortie",
   "outputApp": "Application de diffusion",
@@ -202,5 +208,9 @@
     "linuxDetected": "Nous avons détecté que vous êtes sur Linux.",
     "noTabs": "Il n'y a aucun onglet pour le moment. Ajoutez-en un en cliquant sur {addTab} sur la droite",
     "title": "Bienvenue dans {programName}"
+  },
+  "windows": {
+    "badConfiguration": "Mauvaise configuration détectée",
+    "detectedMisconfiguration": "Mauvaise configuration de VB-Cable détectée"
   }
 }
