@@ -1,1 +1,36 @@
-{}
+{
+  "empty": {
+    "noSounds": "Tidak menemukan suara-suara yang kompatibel pada folder {path}. Format berkas yang didukung adalah mp3, wav, flac",
+    "nothingToShow": "Tak ada yang perlu diperlihatkan"
+  },
+  "deleteSound": {
+    "question": "Apakah Anda ingin menghapus suara {soundName}?",
+    "delete": "Hapus"
+  },
+  "removeTab": {
+    "question": "Apakah Anda ingin menghapus tab {tabName}?"
+  },
+  "actions": {
+    "ignore": "Abaikan",
+    "openFolder": "Buka folder",
+    "confirmation": "Konfirmasi",
+    "shuffle": "Acak",
+    "off": "Mati",
+    "on": "Hidup",
+    "no": "Tidak",
+    "yes": "Ya",
+    "appPassThrough": "Lewati",
+    "play": "Putar",
+    "reloadSounds": "Muat ulang",
+    "search": "Cari",
+    "stop": "Berhenti",
+    "refresh": "Muat ulang"
+  },
+  "welcome": {
+    "windowsGuide2": "seperti yang terlihat pada situs web kami",
+    "windowsGuide1": "Harap ikuti langkah-langkah pemasangan {seenOnWebsite}",
+    "windowsDetected": "Kami mendeteksi bahwa Anda sedang menggunakan Windows.",
+    "linuxDetected": "Kami mendeteksi bahwa Anda sedang menggunakan Linux.",
+    "title": "Selamat datang di {programName}"
+  }
+}
