@@ -1,32 +1,173 @@
 {
   "errors": {
     "error": "Ошибка",
-    "6": "Звук не найден"
+    "6": "Звук не найден",
+    "19": "Не удалось удалить файл",
+    "18": "Неизвестная ошибка youtube-dl",
+    "16": "Неверный URL",
+    "15": "youtube-dl не найден",
+    "8": "Вкладка не существует",
+    "7": "Папка не существует"
   },
   "help": {
     "viewSourceCode": "Посмотреть исходный код",
     "visitOurWebsite": "Посетите наш сайт",
     "search": {
-      "search": "поиск"
+      "search": "поиск",
+      "text": "Нажмите {ctrl} + {f} для поиска"
     },
-    "title": "Помощь"
+    "title": "Помощь",
+    "joinOurDiscord": "Присоединяйтесь к нашему Discord",
+    "supportUs": "Поддержать нас",
+    "reloadSounds": {
+      "reload": "перезагрузить текущую вкладку",
+      "text": "Нажмите {ctrl} + {r} чтобы {reload}"
+    },
+    "appPassThrough": {
+      "text": "Нажмите {ctrl} + {g} чтобы {show}"
+    },
+    "togglePlayback": {
+      "playPause": "приостановить/продолжить воспроизведение звука",
+      "text": "Нажмите {space} чтобы {playPause}"
+    },
+    "options": {
+      "moreOptions": "показать больше опций",
+      "text": "{rightClick} для {moreOptions}"
+    },
+    "play": {
+      "text": "{leftClick} для {play}"
+    }
   },
   "switchOnConnect": {
     "explanation": {
-      "line2": "Это вызывает серьезные проблемы!"
+      "line2": "Это вызывает серьёзные проблемы!",
+      "wikiPage": "нашей wiki статье",
+      "line4": "Для получения дополнительной информации (напр. как выключить его перманентно) обратитесь к {wikiPage}.",
+      "line3": "Чтобы продолжить использовать Soundux, пожалуйста отключите его.",
+      "line1": "Обнаружен модуль PulseAudio {moduleName}."
     }
   },
   "settings": {
-    "title": "Настройки"
+    "title": "Настройки",
+    "allowMultipleOutputs": "Разрешить несколько приложений для вывода",
+    "audioBackend": "Аудио бэкэнд",
+    "theme": {
+      "light": "Светлая",
+      "dark": "Тёмная",
+      "system": "Система",
+      "title": "Тема"
+    },
+    "muteDuringPlayback": "Заглушать микрофон во время проигрывания",
+    "useAsDefaultDevice": "Использовать как устройство по умолчанию",
+    "minimizeToTray": "Свернуть в системный трей",
+    "deleteToTrash": "Удалить в корзину",
+    "allowOverlapping": "Разрешить наложение звуков",
+    "tabHotkeysOnly": "Горячие клавиши только для текущей вкладки"
   },
   "actions": {
     "reloadSounds": "Перезагрузить",
     "addTab": "Добавить вкладку",
     "search": "Поиск",
     "stop": "Остановить",
-    "refresh": "Обновить"
+    "refresh": "Обновить",
+    "dismiss": "Отклонить",
+    "ignore": "Игнорировать",
+    "openFolder": "Открыть папку",
+    "confirmation": "Подтверждение",
+    "shuffle": "Перемешать",
+    "off": "Выключить",
+    "on": "Включить",
+    "no": "Нет",
+    "yes": "Да"
   },
   "welcome": {
-    "title": "Добро пожаловать в {programName}"
-  }
+    "title": "Добро пожаловать в {programName}",
+    "windowsGuide2": "как показано на нашем сайте",
+    "windowsGuide1": "Обязательно следуйте инструкциям по установке {seenOnWebsite}",
+    "windowsDetected": "Мы обнаружили что вы используете Windows.",
+    "linuxGuide2": "Вы не должны менять устройство ввода или вывода где либо.",
+    "linuxGuide1": "Чтобы проиграть звук вы должны выбрать приложение в правом верхнем углу.",
+    "linuxDetected": "Мы обнаружили что вы используете Linux."
+  },
+  "windows": {
+    "restartAsAdmin": "Перезапустить от имени администратора",
+    "selectMic": "Пожалуйста, выберите свой микрофон и продолжите",
+    "virtualAudioCableMisconfiguration": "Мы обнаружили что ваш Virtual Audio Cable не настроен должным образом.",
+    "badConfiguration": "Обнаружена неправильная конфигурация",
+    "detectedMisconfiguration": "Обнаружена некорректная настройка VB-Cable"
+  },
+  "systemInfo": {
+    "copyToClipboard": "Копировать в буфер обмена",
+    "description": "Прикрепите эту информацию при создании сообщения об ошибке",
+    "title": "Информация о системе"
+  },
+  "update": {
+    "ignore": "Игнорировать",
+    "updateNow": "Обновить сейчас",
+    "latestVersion": "Последняя версия",
+    "yourVersion": "Ваша версия",
+    "title": "Доступно обновление!"
+  },
+  "downloader": {
+    "close": "Закрыть",
+    "success": "Успешно загружен: {title}",
+    "startDownload": "Начать загрузку",
+    "cancelDownload": "Отменить загрузку",
+    "eta": "расчётное время завершения",
+    "converting": "Конвертирование",
+    "progress": "Прогресс",
+    "placeholder": "Введите ссылку",
+    "installNow": "Установить сейчас",
+    "notAvailable": "{youtube-dl} и/или {ffmpeg} не установлены",
+    "title": "Загрузчик"
+  },
+  "sort": {
+    "alphabeticalDescending": "По алфавиту по убыванию",
+    "alphabeticalAscending": "По алфавиту по возрастанию",
+    "title": "Сортировать"
+  },
+  "search": {
+    "changeSelection": "{arrowKeys} для изменения выбора",
+    "noResultsFound": "Результаты не найдены",
+    "typeToSearch": "Введите для поиска"
+  },
+  "appPassThrough": {
+    "noAppsFound": "Приложения не найдены"
+  },
+  "volume": {
+    "sync": "Связать громкость",
+    "remote": "Удалённый уровень громкости",
+    "local": "Локальный уровень громкости"
+  },
+  "input": {
+    "space": "Пробел",
+    "arrowKeys": "Стрелки",
+    "rightClick": "ПКМ",
+    "leftClick": "ЛКМ"
+  },
+  "hotkeys": {
+    "setFor": "Установить горячую клавишу для {soundName}",
+    "hotkey": "Горячая клавиша"
+  },
+  "noAudioBackend": {
+    "notDetected": "Мы не смогли обнаружить поддерживаемый аудио бэкэнд в вашей системе.",
+    "title": "Аудио бэкэнд не найден"
+  },
+  "tray": {
+    "exit": "Выйти",
+    "hide": "Свернуть окно",
+    "show": "Показать окно"
+  },
+  "favorites": {
+    "title": "Избранные"
+  },
+  "empty": {
+    "noFavorites": "Сейчас у вас нет избранных звуков. Добавьте в избранные немного звуков, чтобы они отображались здесь",
+    "noSounds": "В папке не найдено поддерживаемых звуков {path}. Поддерживаемые форматы: mp3, wav, flac"
+  },
+  "deleteSound": {
+    "question": "Вы хотите удалить звук {soundName}?",
+    "delete": "Удалить"
+  },
+  "outputDevice": "Устройство вывода"
 }
