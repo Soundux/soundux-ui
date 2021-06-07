@@ -26,7 +26,9 @@
     "off": "Kapalı",
     "shuffle": "Karıştır",
     "confirmation": "Onayla",
-    "openFolder": "Klasör aç"
+    "openFolder": "Klasör aç",
+    "dismiss": "Reddet",
+    "ignore": "Yoksay"
   },
   "removeTab": {
     "question": "{tabName} sekmesini kaldırmak istiyor musunuz?"
@@ -96,12 +98,13 @@
     "setFor": "{soundName} için kısayol tuşu ayarlayın"
   },
   "input": {
-    "ctrl": "Ctrl",
+    "ctrl": "CTRL",
     "shift": "Shift",
     "enter": "Enter",
     "leftClick": "Sol tık",
     "rightClick": "Sağ tık",
-    "arrowKeys": "Ok tuşları"
+    "arrowKeys": "Ok tuşları",
+    "space": "Boşluk"
   },
   "help": {
     "title": "Yardım",
@@ -128,7 +131,11 @@
     "supportUs": "Bizi destekleyin",
     "visitOurWebsite": "İnternet sitemizi ziyaret edin",
     "joinOurDiscord": "Discord'umuza katılın",
-    "viewSourceCode": "Kaynak koda bakın"
+    "viewSourceCode": "Kaynak koda bakın",
+    "togglePlayback": {
+      "playPause": "çalmakta olan sesleri duraklat/devam ettir",
+      "text": "{playPause} için {space} tuşuna basın"
+    }
   },
   "volume": {
     "local": "Yerel Ses",
@@ -201,6 +208,22 @@
     "18": "Bilinmeyen youtube-dl hatası",
     "19": "Dosya silinemedi",
     "error": "Hata",
-    "backendFunctionMissing": "Arka uç işlevi eksik: {functionName}"
+    "backendFunctionMissing": "Arka uç işlevi eksik: {functionName}",
+    "21": "Özel ses düzeyi ayarlanamadı",
+    "20": "Sessize alınamadı"
+  },
+  "windows": {
+    "restartAsAdmin": "Yönetici olarak yeniden başlat",
+    "administrativePrivilegesNeeded": "Yönetici ayrıcalıkları gerekli!",
+    "automaticSetup": "Otomatik kurulum",
+    "selectMic": "Lütfen mikrofonunuzu seçin ve devam edin",
+    "virtualAudioCableMisconfiguration": "Sanal Ses Kablonuzun doğru şekilde kurulmadığını tespit ettik.",
+    "badConfiguration": "Kötü yapılandırma algılandı",
+    "setUpNow": "Şimdi kur",
+    "detectedMisconfiguration": "VB-Cable ile bir yanlış yapılandırma tespit edildi"
+  },
+  "customVolume": {
+    "setFor": "{soundName} için ses seviyesini ayarla",
+    "context": "Özel ses seviyesini ayarla"
   }
 }
