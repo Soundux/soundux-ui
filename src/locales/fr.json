@@ -21,7 +21,9 @@
     "5": "Impossible de faire passer par le sink",
     "13": "Échec du retour à la source par défaut",
     "11": "N'a pas réussi à revenir en arrière",
-    "1": "Recherche échoué"
+    "1": "Recherche échoué",
+    "21": "Échec de la personnalisation du volume",
+    "20": "Échec de la mise en sourdine"
   },
   "systemInfo": {
     "copyToClipboard": "Copier dans le presse-papiers",
@@ -181,13 +183,13 @@
   },
   "actions": {
     "openFolder": "Ouvrir le dossier",
-    "confirmation": "Confirmations",
+    "confirmation": "Confirmation",
     "shuffle": "Aléatoire",
     "off": "Désactivé",
     "on": "Activé",
     "no": "Non",
     "yes": "Oui",
-    "playlistMode": "Mode playlist",
+    "playlistMode": "Mode liste de lecture",
     "play": "Lire",
     "reloadSounds": "Recharger",
     "addTab": "Ajouter un onglet",
@@ -195,7 +197,8 @@
     "stop": "Arrêter",
     "refresh": "Actualiser",
     "appPassThrough": "Passer à travers",
-    "ignore": "Ignorer"
+    "ignore": "Ignorer",
+    "dismiss": "Rejeter"
   },
   "outputDevice": "Périphérique de sortie",
   "outputApp": "Application de diffusion",
@@ -211,6 +214,16 @@
   },
   "windows": {
     "badConfiguration": "Mauvaise configuration détectée",
-    "detectedMisconfiguration": "Mauvaise configuration de VB-Cable détectée"
+    "detectedMisconfiguration": "Mauvaise configuration de VB-Cable détectée",
+    "restartAsAdmin": "Redémarrer en tant qu'admin",
+    "administrativePrivilegesNeeded": "Privilèges administrateurs nécessaires !",
+    "automaticSetup": "Configuration automatique",
+    "selectMic": "Veuillez sélectionner votre microphone et continuer",
+    "virtualAudioCableMisconfiguration": "Nous avons détecté que votre câble audio virtuel n’est pas correctement configuré.",
+    "setUpNow": "Configurer maintenant"
+  },
+  "customVolume": {
+    "setFor": "Régler le volume de {soundName}",
+    "context": "Définir le volume personnalisé"
   }
 }
