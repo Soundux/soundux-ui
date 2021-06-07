@@ -16,7 +16,12 @@
     "3": "Klarte ikke å gjenta",
     "2": "Klarte ikke å pause",
     "1": "Klarte ikke å blafre",
-    "0": "Klarte ikke å spille"
+    "0": "Klarte ikke å spille",
+    "20": "Kunne ikke forstumme",
+    "19": "Klarte ikke å slette filen",
+    "18": "Ukjent youtybe-dl feil",
+    "21": "Klarte ikke å sette egendefinert lydstyrke",
+    "16": "Ugyldig nettadresse"
   },
   "search": {
     "typeToSearch": "Skriv for å søke",
@@ -50,7 +55,16 @@
     "reloadSounds": {
       "reload": "gjeninnlaste nåværende fane",
       "text": "Trykk {ctrl} + {r} for å {reload}"
-    }
+    },
+    "togglePlayback": {
+      "playPause": "pause/gjenoppta lyder til avspilling",
+      "text": "Klikk {space} for å {playPause}"
+    },
+    "options": {
+      "moreOptions": "vise flere valg",
+      "text": "{rightClick} for å {moreOptions}"
+    },
+    "supportUs": "Støtt oss"
   },
   "switchOnConnect": {
     "explanation": {
@@ -69,7 +83,21 @@
     "allowOverlapping": "Tillat lydoverlapping",
     "title": "Innstillinger",
     "stopHotkey": "Stopp-snarvei",
-    "tabHotkeysOnly": "Snarveier kun for nåværende fane"
+    "tabHotkeysOnly": "Snarveier kun for nåværende fane",
+    "minimizeToTray": "Minimer til systemkurv",
+    "audioBackend": "Lyd-bakende",
+    "theme": {
+      "light": "Lys",
+      "dark": "Mørk",
+      "system": "System",
+      "title": "Drakt"
+    },
+    "deleteToTrash": "Slett til papirkurv",
+    "viewMode": {
+      "gridView": "Rutenettsvisning",
+      "listView": "Listevisning",
+      "title": "Visningsmodus"
+    }
   },
   "actions": {
     "play": "Spill",
@@ -78,11 +106,25 @@
     "stop": "Stopp",
     "refresh": "Gjenoppfrisk",
     "reloadSounds": "Last inn igjen",
-    "appPassThrough": "Videresending"
+    "appPassThrough": "Videresending",
+    "no": "Nei",
+    "yes": "Ja",
+    "playlistMode": "Spillelistemodus",
+    "ignore": "Ignorer",
+    "openFolder": "Åpne mappe",
+    "confirmation": "Bekreftelse",
+    "off": "Av",
+    "on": "På"
   },
   "welcome": {
     "noTabs": "Legg til en fane ved å trykke {addTab} på høyresiden",
-    "title": "Velkommen til {programName}"
+    "title": "Velkommen til {programName}",
+    "windowsGuide2": "som vist på vår nettside",
+    "windowsGuide1": "Sørg for at du har fulgt oppsettsstegene på {seenOnWebsite}",
+    "windowsDetected": "Vi har oppdaget at du bruker Windows.",
+    "linuxGuide2": "Du trenger ikke å endre inngangs- eller utgangsenhet noe sted.",
+    "linuxGuide1": "For å spille lyder må du velge utgangsprogrammet øverst til høyre.",
+    "linuxDetected": "Vi har oppdaget at du bruker Linux."
   },
   "outputDevice": "Utgangsenhet",
   "outputApp": "Utdata-program",
@@ -90,7 +132,10 @@
     "ctrl": "Ctrl",
     "arrowKeys": "Piltaster",
     "enter": "Enter",
-    "shift": "Shift"
+    "shift": "Shift",
+    "space": "Mellomrom",
+    "rightClick": "Høyreklikk",
+    "leftClick": "Venstreklikk"
   },
   "hotkeys": {
     "title": "Sett snarvei",
@@ -99,6 +144,58 @@
   },
   "appPassThrough": {
     "noAppsFound": "Fant ingen programmer",
-    "title": "Program-videresending"
+    "title": "Program-videresending",
+    "noOutputSelected": "Du må ha valgt et utgangsprogram"
+  },
+  "noAudioBackend": {
+    "choose": "Velg ett nedenfor",
+    "title": "Fant ingen lydbakende"
+  },
+  "removeTab": {
+    "question": "Ønsker du å fjerne fanen {seenOnWebsite}?"
+  },
+  "windows": {
+    "badConfiguration": "Feilaktig oppsett oppdaget",
+    "setUpNow": "Sett opp nå"
+  },
+  "systemInfo": {
+    "copyToClipboard": "Kopier til utklippstavle",
+    "title": "Systeminfo"
+  },
+  "update": {
+    "updateNow": "Oppgrader nå",
+    "ignore": "Ignorer",
+    "latestVersion": "Siste versjon",
+    "yourVersion": "Din versjon"
+  },
+  "downloader": {
+    "close": "Lukk",
+    "startDownload": "Start nedlasting",
+    "cancelDownload": "Avbryt nedlasting",
+    "progress": "Framdrift",
+    "placeholder": "Skriv inn en lenke",
+    "installNow": "Installer nå …"
+  },
+  "sort": {
+    "title": "Sorter"
+  },
+  "customVolume": {
+    "setFor": "Sett lydstyrke for {soundName}",
+    "context": "Sett egendefinert lydstyrke"
+  },
+  "tray": {
+    "exit": "Avslutt",
+    "hide": "Skjul vindu",
+    "show": "Vis vindu"
+  },
+  "favorites": {
+    "title": "Favoritter"
+  },
+  "empty": {
+    "nothingToShow": "Ingenting å vise"
+  },
+  "deleteSound": {
+    "question": "Slett lyden {soundName}?",
+    "delete": "Slett"
   }
 }
