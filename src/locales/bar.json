@@ -1,1 +1,83 @@
-{}
+{
+  "customVolume": {
+    "setFor": "Lautstärkn fia {soundName} setzn",
+    "context": "Eigene Lautstärkn setzn"
+  },
+  "tray": {
+    "exit": "Ausse",
+    "hide": "Fensta foschdecka",
+    "show": "Fensta azoing"
+  },
+  "settings": {
+    "pushToTalkKeys": "Schbrech Knobf",
+    "stopHotkey": "Hoid-Hotkey",
+    "allowMultipleOutputs": "Erlaub mehrane Ausgab-Anwendunga",
+    "audioBackend": "Audio-backend",
+    "theme": {
+      "light": "Hell",
+      "dark": "Dunkl",
+      "system": "System",
+      "title": "Theme"
+    },
+    "muteDuringPlayback": "Mikrofon währendn Obschbain stumm schaidn",
+    "useAsDefaultDevice": "Ois Standardgerät hea nemma",
+    "minimizeToTray": "In Systemtray foschoim",
+    "deleteToTrash": "In Babiakorb foschoim",
+    "allowOverlapping": "Tonüberlappung zualossn",
+    "viewMode": {
+      "launchpadMode": "Emulierts Launchpad",
+      "gridView": "Rasda Ansichd",
+      "listView": "Lisdnansicht",
+      "title": "Ansichds Modus"
+    },
+    "tabHotkeysOnly": "Hotkeys nua fian aktuelln Tab",
+    "title": "Einstellungan"
+  },
+  "favorites": {
+    "favorite": "Des besde",
+    "title": "Favoridn"
+  },
+  "empty": {
+    "noFavorites": "Du hosd bis iaz na koane Favoriten. Favorisier hoid a boa Sounds, dassdas do anzoing lossn kannsd",
+    "noSounds": "Koane Sounds im Ordner {path} gfundn de zam bassnd. Unterstützte Dateiformate hand mp3, wav, flac",
+    "nothingToShow": "Nix gfundn"
+  },
+  "deleteSound": {
+    "question": "Mechsd den Sound {soundName} löschn?",
+    "delete": "Löschn"
+  },
+  "removeTab": {
+    "question": "Mechsd den Tab {tabName} wiagle entferna?"
+  },
+  "actions": {
+    "dismiss": "Voweafa",
+    "ignore": "Ignorian",
+    "openFolder": "Ordner afmocha",
+    "confirmation": "Bschtätigung",
+    "shuffle": "Duachanand",
+    "off": "Aus",
+    "on": "Ei",
+    "no": "Na",
+    "yes": "Freile",
+    "playlistMode": "Playlist-Modus",
+    "appPassThrough": "Duach glanga",
+    "play": "Obschbain",
+    "reloadSounds": "Nei lona",
+    "addTab": "Neia Tab",
+    "search": "Suacha",
+    "stop": "Afhean",
+    "refresh": "Nei lona"
+  },
+  "outputDevice": "Ausgab Gerät",
+  "outputApp": "Ausgab Anwendung",
+  "welcome": {
+    "windowsGuide1": "Schau af jedn Foi af de Installationsschritte, {seenOnWebsite}",
+    "windowsGuide2": "de wo af unsana Website agem hand",
+    "windowsDetected": "Mia hamma gmeagd, dassd Windows hea nimmsd.",
+    "linuxGuide2": "Es miasds enga Ein- oder Ausgabegerät nirgends ändern.",
+    "linuxGuide1": "Um Geräusche ob zum spain, muasd nur de Ausgabe-Anwendung om rechts auswain.",
+    "linuxDetected": "Mia hamma gmeagd, dassd Linux hea nimmsd.",
+    "noTabs": "Bis iaz hand koane Tabs do. Füg oan hinzu, indemsd {addTab} af da rechten Seidn druggsd",
+    "title": "Griasde du bisd iaz bei {programName}"
+  }
+}
