@@ -32,5 +32,36 @@
     "windowsDetected": "Kami mendeteksi bahwa Anda sedang menggunakan Windows.",
     "linuxDetected": "Kami mendeteksi bahwa Anda sedang menggunakan Linux.",
     "title": "Selamat datang di {programName}"
+  },
+  "switchOnConnect": {
+    "explanation": {
+      "line3": "Untuk terus menggunakan Soundux, harap nonaktifkan.",
+      "line2": "Ini menyebabkan masalah yang parah!"
+    },
+    "disable": "Nonaktifkan sekarang"
+  },
+  "tray": {
+    "exit": "Keluar",
+    "hide": "Sembunyikan jendela",
+    "show": "Perlihatkan jendela"
+  },
+  "settings": {
+    "theme": {
+      "light": "Cerah",
+      "dark": "Gelap",
+      "system": "Sistem",
+      "title": "Tema"
+    },
+    "muteDuringPlayback": "Bisukan mikrofon saat pemutaran",
+    "useAsDefaultDevice": "Gunakan sebagai perangkat utama",
+    "viewMode": {
+      "listView": "Tampilan daftar"
+    },
+    "title": "Pengaturan",
+    "deleteToTrash": "Hapus ke tempat sampah"
+  },
+  "favorites": {
+    "favorite": "Favorit",
+    "title": "Favorit"
   }
 }
