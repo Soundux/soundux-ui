@@ -31,7 +31,8 @@
     "windowsGuide1": "Harap ikuti langkah-langkah pemasangan {seenOnWebsite}",
     "windowsDetected": "Kami mendeteksi bahwa Anda sedang menggunakan Windows.",
     "linuxDetected": "Kami mendeteksi bahwa Anda sedang menggunakan Linux.",
-    "title": "Selamat datang di {programName}"
+    "title": "Selamat datang di {programName}",
+    "noTabs": "Tidak ada tab. Tambahkan satu dengan mengklik {addTab} di sisi kanan"
   },
   "switchOnConnect": {
     "explanation": {
@@ -63,5 +64,129 @@
   "favorites": {
     "favorite": "Favorit",
     "title": "Favorit"
+  },
+  "appPassThrough": {
+    "title": "Aplikasi pass through",
+    "noOutputSelected": "Anda harus memilih aplikasi keluaran",
+    "noAppsFound": "Tidak ada aplikasi yang ditemukan"
+  },
+  "help": {
+    "appPassThrough": {
+      "show": "tampilkan aplikasi pass through",
+      "text": "Tekan {ctrl} + {g} untuk {tampilkan}"
+    },
+    "togglePlayback": {
+      "playPause": "jeda/lanjutkan suara yang sedang diputar",
+      "text": "Tekan {spasi} ke {memutarMenjeda}"
+    },
+    "options": {
+      "moreOptions": "tampilkan lebih banyak opsi",
+      "text": "{Klik kanan} ke {Opsi lainnya}"
+    },
+    "play": {
+      "play": "putar",
+      "text": "{klik kiri} untuk {memutar}"
+    },
+    "search": {
+      "search": "cari",
+      "text": "Tekan {ctrl} + {f} untuk {menelusuri}"
+    },
+    "title": "Bantuan",
+    "viewSourceCode": "Lihat kode sumber",
+    "joinOurDiscord": "Bergabung dengan Discord kami",
+    "visitOurWebsite": "Kunjungi situs kami",
+    "supportUs": "Dukung kami",
+    "reloadSounds": {
+      "reload": "muat ulang tab saat ini",
+      "text": "Tekan {ctrl} + {r} untuk {memuat}"
+    }
+  },
+  "input": {
+    "space": "Spasi",
+    "arrowKeys": "Tombol panah",
+    "rightClick": "Klik kanan",
+    "leftClick": "Klik kiri",
+    "enter": "Enter",
+    "shift": "Shift",
+    "ctrl": "CTRL"
+  },
+  "sort": {
+    "modifiedDescending": "Menurun",
+    "alphabeticalDescending": "Turun menurut abjad",
+    "alphabeticalAscending": "Naik menurut abjad",
+    "title": "Urutkan"
+  },
+  "errors": {
+    "15": "youtube-dl tidak ditemukan",
+    "14": "Gagal menyetel sumber default",
+    "13": "Gagal mengembalikan sumber default",
+    "12": "Gagal memundurkan passthrough",
+    "11": "Gagal mundur",
+    "10": "Gagal memulai passthrough",
+    "9": "Gagal menyetel hotkey",
+    "8": "Tab tidak ada",
+    "7": "Folder tidak ada",
+    "6": "Suara tidak ditemukan",
+    "5": "Gagal memindahkan ke sink",
+    "4": "Gagal melanjutkan",
+    "3": "Gagal mengulangi",
+    "2": "Gagal menjeda",
+    "1": "Gagal mencari",
+    "0": "Gagal memutar",
+    "backendFunctionMissing": "Fungsi backend tidak ada: {functionName}",
+    "error": "Galat",
+    "21": "Gagal menyetel volume kustom",
+    "20": "Gagal membisukan",
+    "19": "Gagal menghapus berkas",
+    "18": "Kegagalan youtube-dl yang tidak diketahui",
+    "17": "Gagal mengurai youtube-dl JSON",
+    "16": "URL tidak valid"
+  },
+  "windows": {
+    "restartAsAdmin": "Mulai ulang sebagai admin",
+    "administrativePrivilegesNeeded": "Izin administratif diperlukan!",
+    "automaticSetup": "Menyetel secara otomatis",
+    "selectMic": "Silakan pilih mikrofon Anda dan lanjutkan",
+    "virtualAudioCableMisconfiguration": "Kami telah mendeteksi bahwa Kabel Audio Virtual Anda tidak diatur dengan benar.",
+    "badConfiguration": "Konfigurasi buruk terdeteksi",
+    "setUpNow": "Siapkan sekarang",
+    "detectedMisconfiguration": "Ada kesalahan konfigurasi dengan VB-Cable"
+  },
+  "systemInfo": {
+    "copyToClipboard": "Salin ke papanklip",
+    "description": "Lampirkan informasi ini saat membuat laporan bug",
+    "title": "Informasi sistem"
+  },
+  "update": {
+    "ignore": "Abaikan",
+    "updateNow": "Perbarui sekarang",
+    "latestVersion": "Versi terbaru",
+    "yourVersion": "Versi anda",
+    "title": "Pembaruan tersedia!"
+  },
+  "downloader": {
+    "close": "Tutup",
+    "success": "Berhasil diunduh: {title}",
+    "startDownload": "Mulai unduh",
+    "cancelDownload": "Batal Unduh",
+    "eta": "ETA",
+    "converting": "Mengkonversi",
+    "progress": "Kemajuan",
+    "placeholder": "Masukkan tautan",
+    "installNow": "Pasang sekarang",
+    "notAvailable": "{youtube-dl} dan/atau {ffmpeg} tidak terinstal",
+    "title": "Pengunduh"
+  },
+  "search": {
+    "playSelected": "{shift} + {enter} untuk memutar suara yang sedang dipilih",
+    "jumpToSelected": "{enter} untuk ke suara yang dipilih saat ini",
+    "changeSelection": "{arrowKeys} untuk mengubah pilihan",
+    "noResultsFound": "Tidak menemukan apapun",
+    "typeToSearch": "Ketik untuk mencari"
+  },
+  "volume": {
+    "sync": "Sinkronkan volume",
+    "remote": "Volume jarak jauh",
+    "local": "Volume lokal"
   }
 }
