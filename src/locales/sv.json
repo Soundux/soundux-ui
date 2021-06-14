@@ -1,1 +1,53 @@
-{}
+{
+  "settings": {
+    "tabHotkeysOnly": "Genvägar endast för nuvarande flik",
+    "title": "Inställningar"
+  },
+  "favorites": {
+    "favorite": "Favorit",
+    "title": "Favoriter"
+  },
+  "empty": {
+    "noFavorites": "Du har inga favoriter. Favorisera några ljud för att se dem här",
+    "noSounds": "Inga kompatibla ljud hittades i mappen {path}. Filformaten som stöds är mp3, wav, flac",
+    "nothingToShow": "Inget att visa"
+  },
+  "deleteSound": {
+    "question": "Vill du ta bort ljudet {soundName}?",
+    "delete": "Ta bort"
+  },
+  "removeTab": {
+    "question": "Vill du ta bort fliken {tabName}?"
+  },
+  "actions": {
+    "dismiss": "Avfärda",
+    "ignore": "Ignorera",
+    "openFolder": "Öppen mapp",
+    "confirmation": "Bekräftelse",
+    "shuffle": "Blanda",
+    "off": "Av",
+    "on": "På",
+    "no": "Nej",
+    "yes": "Ja",
+    "playlistMode": "Spellistsläge",
+    "appPassThrough": "Passera genom",
+    "play": "Spela",
+    "refresh": "Uppdatera",
+    "reloadSounds": "Ladda om",
+    "addTab": "Lägg till Flik",
+    "search": "Sök",
+    "stop": "Stoppa"
+  },
+  "welcome": {
+    "noTabs": "Det finns inga flikar. Lägg till en genom att klicka på {addTab} på höger sida",
+    "windowsGuide2": "som finns på våran sida",
+    "windowsGuide1": "Se till att följa installationsstegen {seenOnWebsite}",
+    "windowsDetected": "Vi har noterat att du använder Windows.",
+    "linuxGuide2": "Du behöver inte ändra din inmatnings eller utmatningsenhet någonstans.",
+    "linuxGuide1": "För att spela ljud behöver du bara välja ett utmatningsprogram uppe till höger.",
+    "linuxDetected": "Vi har noterat att du använder Linux.",
+    "title": "Välkommen till {programName}"
+  },
+  "outputDevice": "Utmatningsenhet",
+  "outputApp": "Utmatningsapplikation"
+}
