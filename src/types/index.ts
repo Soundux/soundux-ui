@@ -1,9 +1,20 @@
+export enum KeyType {
+  Keyboard,
+  Mouse,
+  Midi,
+}
+
+export interface Key {
+  key: number;
+  type: KeyType;
+}
+
 export interface Sound {
   id: number;
   name: string;
   modifiedDate: number;
   path: string;
-  hotkeys: number[];
+  hotkeys: Key[];
   animationEvent?: (event: AnimationEvent) => void;
   hotkeySequence: string;
   isFavorite: boolean;
@@ -103,8 +114,10 @@ export interface Settings {
   theme: Theme;
   audioBackend: AudioBackend;
   viewMode: ViewMode;
-  stopHotkey: number[];
-  pushToTalkKeys: number[];
+  stopHotkey: Key[];
+  pushToTalkKeys: Key[];
+  localVolumeKnob: Key | null;
+  remoteVolumeKnob: Key | null;
   tabHotkeysOnly: boolean;
   minimizeToTray: boolean;
   localVolume: number;

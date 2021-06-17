@@ -69,7 +69,9 @@
     "audioBackend": "Audio-Backend",
     "allowMultipleOutputs": "Erlaube mehrere Ausgabe-Anwendungen",
     "stopHotkey": "Stopp-Hotkey",
-    "pushToTalkKeys": "Push-to-talk Tasten"
+    "pushToTalkKeys": "Push-to-talk Tasten",
+    "localVolumeKnob": "Lokaler Lautstärkeregler",
+    "remoteVolumeKnob": "Ausgabe Lautstärkeregler"
   },
   "tray": {
     "show": "Fenster anzeigen",

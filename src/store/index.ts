@@ -3,6 +3,7 @@ import Vuex from 'vuex';
 import Vuetify from '@/plugins/vuetify';
 import {
   AudioBackend,
+  Key,
   Output,
   Playing,
   PlayingSound,
@@ -56,8 +57,10 @@ export default new Vuex.Store({
       theme: Theme.System,
       audioBackend: AudioBackend.PulseAudio,
       viewMode: ViewMode.List,
-      stopHotkey: [] as number[],
-      pushToTalkKeys: [] as number[],
+      stopHotkey: [] as Key[],
+      pushToTalkKeys: [] as Key[],
+      localVolumeKnob: null,
+      remoteVolumeKnob: null,
       tabHotkeysOnly: false,
       minimizeToTray: false,
       localVolume: 0,
@@ -262,8 +265,12 @@ export default new Vuex.Store({
           break;
       }
     },
-    setLocalVolume: (state, volume: number) => (state.settings.localVolume = volume),
-    setRemoteVolume: (state, volume: number) => (state.settings.remoteVolume = volume),
+    setLocalVolume: (state, volume: number) => {
+      state.settings.localVolume = volume;
+    },
+    setRemoteVolume: (state, volume: number) => {
+      state.settings.remoteVolume = volume;
+    },
     setTabHotkeysOnly: (state, value: boolean) => (state.settings.tabHotkeysOnly = value),
     setViewMode: (state, value: ViewMode) => (state.settings.viewMode = value),
     setAudioBackend: (state, value: AudioBackend) => {
@@ -297,8 +304,10 @@ export default new Vuex.Store({
         currentTab.sortMode = sortMode;
       }
     },
-    setStopHotkey: (state, value: number[]) => (state.settings.stopHotkey = value),
-    setPushToTalkKeys: (state, value: number[]) => (state.settings.pushToTalkKeys = value),
+    setStopHotkey: (state, value: Key[]) => (state.settings.stopHotkey = value),
+    setPushToTalkKeys: (state, value: Key[]) => (state.settings.pushToTalkKeys = value),
+    setLocalVolumeKnob: (state, value: Key | null) => (state.settings.localVolumeKnob = value),
+    setRemoteVolumeKnob: (state, value: Key | null) => (state.settings.remoteVolumeKnob = value),
     setIsLinux: (state, value: boolean) => (state.isLinux = value),
     setIsDraggingSeekbar: (state, value: boolean) => (state.isDraggingSeekbar = value),
     setTheme: (state, value: Theme) => {
@@ -319,7 +328,7 @@ export default new Vuex.Store({
     setIsVBCableProperlySetup: (state, value: boolean) => (state.isVBCableProperlySetup = value),
     setAdministrativeModal: (state, value: boolean) => (state.administrativeModal = value),
     setSwitchOnConnectLoaded: (state, loaded: boolean) => (state.switchOnConnectLoaded = loaded),
-    setHotkeys: (_state, { sound, hotkeys }: { sound: Sound; hotkeys: number[] }) =>
+    setHotkeys: (_state, { sound, hotkeys }: { sound: Sound; hotkeys: Key[] }) =>
       (sound.hotkeys = hotkeys),
     setHotkeySequence: (_state, { sound, hotkeySequence }: { sound: Sound; hotkeySequence: string }) =>
       (sound.hotkeySequence = hotkeySequence),
@@ -548,7 +557,7 @@ export default new Vuex.Store({
     /**
      * Set the hotkeys for a sound via the backend
      */
-    async setHotkeys({ commit }, data: { sound: Sound; hotkeys: number[] }) {
+    async setHotkeys({ commit }, data: { sound: Sound; hotkeys: Key[] }) {
       commit('setHotkeys', data);
       await window.setHotkey(data.sound.id, data.sound.hotkeys);
     },

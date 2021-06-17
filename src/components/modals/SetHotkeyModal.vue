@@ -29,6 +29,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import { mapGetters } from 'vuex';
+import { Key } from '@/types';
 
 export default Vue.extend({
   name: 'SetHotkeyModal',
@@ -56,7 +57,7 @@ export default Vue.extend({
           hotkeySequence: (await window.getHotkeySequence(this.sound.hotkeys)) || '',
         });
 
-        window.hotkeyReceived = (hotkey: string, hotkeyData: number[]) => {
+        window.hotkeyReceived = (hotkey: string, hotkeyData: Key[]) => {
           this.$store.commit('setHotkeySequence', { sound: this.sound, hotkeySequence: hotkey });
           this.$store.dispatch('setHotkeys', { sound: this.sound, hotkeys: hotkeyData });
         };
