@@ -133,7 +133,6 @@
             ></v-checkbox>
             <v-checkbox
               v-model="muteDuringPlayback"
-              :disabled="$store.getters.isLinux && $store.getters.settings.audioBackend === 1"
               :label="$t('settings.muteDuringPlayback')"
               hide-details
               prepend-icon="mdi-volume-mute"
