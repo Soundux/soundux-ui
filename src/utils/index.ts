@@ -2,10 +2,10 @@ import { Output } from '@/types';
 
 export function getPrettyName(output: Output): string {
   const { name, application } = output;
-  if (!application) {
-    return name;
+  if (!name) {
+    return application;
   }
-  return name.toLowerCase() === application.toLowerCase() ? application : `${name} (${application})`;
+  return name.toLowerCase() === application.toLowerCase() ? name : `${application} (${name})`;
 }
 
 export function volumeIcon(volume: number | null): string {

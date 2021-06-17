@@ -191,7 +191,7 @@ export default new Vuex.Store({
     setPlaybackApps: (state, playbackApps: Output[]) => (state.playbackApps = playbackApps),
     setSelectedOutputs: (state, selectedOutputs: Output[]) => {
       state.selectedOutputs = selectedOutputs;
-      state.settings.outputs = selectedOutputs.map(({ name }) => name);
+      state.settings.outputs = selectedOutputs.map(({ application }) => application);
     },
     updateSoundPlayback: (
       _state,
@@ -237,8 +237,8 @@ export default new Vuex.Store({
       const realSound = state.currentPlaying.find(x => {
         if ('lengthInMs' in x && 'lengthInMs' in playing) {
           return x.id === playing.id;
-        } else if ('name' in x && 'name' in playing) {
-          return x.name === playing.name;
+        } else if ('application' in x && 'application' in playing) {
+          return x.application === playing.application;
         }
         return false;
       });
@@ -473,7 +473,7 @@ export default new Vuex.Store({
      * Start an application passthrough via the backend
      */
     async startPassthrough({ commit }, app: Output) {
-      const success = await window.startPassthrough(app.name);
+      const success = await window.startPassthrough(app.application);
       if (success) {
         commit('addToCurrentlyPlaying', app);
       }
@@ -514,7 +514,7 @@ export default new Vuex.Store({
             if (selectedOutputs.length === 0) {
               commit('setSelectedOutputs', [outputs[0]]);
             } else {
-              const selectedOutputNames = selectedOutputs.map(({ name }) => name);
+              const selectedOutputNames = selectedOutputs.map(({ application }) => application);
               const current = outputs.filter(({ name }) => selectedOutputNames.includes(name));
               if (current.length > 0) {
                 commit('setSelectedOutputs', current);

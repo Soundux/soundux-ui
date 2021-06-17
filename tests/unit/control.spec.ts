@@ -33,8 +33,8 @@ describe('PassthroughControl.vue', () => {
 
   it('renders name when passed', () => {
     const output: Output = {
-      name: 'DiscordCanary',
-      application: 'WEBRTC VoiceEngine',
+      application: 'DiscordCanary',
+      name: 'WEBRTC VoiceEngine',
     };
 
     const wrapper = mount(PassthroughControl, {

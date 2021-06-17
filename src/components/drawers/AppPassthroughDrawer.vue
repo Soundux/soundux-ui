@@ -30,7 +30,7 @@
         <v-list-item-icon v-if="playbackApp.appIcon" class="mr-1">
           <img
             :src="`data:image/png;base64,${playbackApp.appIcon}`"
-            :alt="`${playbackApp.application} icon`"
+            :alt="`${playbackApp.name} icon`"
             width="32"
             style="object-fit: scale-down"
           />

@@ -22,12 +22,12 @@
             <v-img
               v-if="item.appIcon"
               :src="`data:image/png;base64,${item.appIcon}`"
-              :alt="`${item.application} icon`"
+              :alt="`${item.name} icon`"
               width="15"
               class="mr-1"
             />
             <span class="text-truncate">
-              {{ item.name }}
+              {{ item.application }}
             </span>
           </v-chip>
         </template>
@@ -35,13 +35,13 @@
           <v-col v-if="item.appIcon" cols="auto">
             <v-img
               :src="`data:image/png;base64,${item.appIcon}`"
-              :alt="`${item.application} icon`"
+              :alt="`${item.name} icon`"
               width="25"
               class="mr-1"
             />
           </v-col>
           <v-col class="text-truncate">
-            {{ item.name }}
+            {{ item.application }}
           </v-col>
         </template>
       </v-row>
@@ -58,7 +58,7 @@
         <v-col v-if="item.appIcon" cols="auto">
           <v-img
             :src="`data:image/png;base64,${item.appIcon}`"
-            :alt="`${item.application} icon`"
+            :alt="`${item.name} icon`"
             width="25"
             class="mr-1"
           />
