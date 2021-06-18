@@ -32,7 +32,8 @@
     },
     "tabHotkeysOnly": "Hotkeys nua fian aktuelln Tab",
     "title": "Einstellungan",
-    "localVolumeKnob": "Lokaler Lautstärknregla"
+    "localVolumeKnob": "Lokaler Lautstärknregla",
+    "remoteVolumeKnob": "Ausgab Lautstärknregla"
   },
   "favorites": {
     "favorite": "Des besde",
