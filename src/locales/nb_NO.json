@@ -45,7 +45,7 @@
     },
     "title": "Hjelp",
     "play": {
-      "text": "{doubleClick} for å {play}",
+      "text": "{leftClick} for å {play}",
       "play": "spille"
     },
     "appPassThrough": {
@@ -137,7 +137,7 @@
   "outputDevice": "Utgangsenhet",
   "outputApp": "Utdata-program",
   "input": {
-    "ctrl": "Ctrl",
+    "ctrl": "CTRL",
     "arrowKeys": "Piltaster",
     "enter": "Enter",
     "shift": "Shift",
@@ -167,7 +167,7 @@
     "badConfiguration": "Feilaktig oppsett oppdaget",
     "setUpNow": "Sett opp nå",
     "restartAsAdmin": "Start på ny som admin",
-    "administrativePrivilegesNeeded": "Administratortilgang kreves.",
+    "administrativePrivilegesNeeded": "Administratortilgang kreves!",
     "automaticSetup": "Automatisk oppsett",
     "selectMic": "Velg mikrofonen din og fortsett",
     "virtualAudioCableMisconfiguration": "Din virtuelle lydkabel er ikke satt opp riktig.",
@@ -183,7 +183,7 @@
     "ignore": "Ignorer",
     "latestVersion": "Siste versjon",
     "yourVersion": "Din versjon",
-    "title": "En oppdatering er tilgjengelig."
+    "title": "En oppdatering er tilgjengelig!"
   },
   "downloader": {
     "close": "Lukk",
