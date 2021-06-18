@@ -21,7 +21,9 @@
     "19": "Klarte ikke å slette filen",
     "18": "Ukjent youtybe-dl feil",
     "21": "Klarte ikke å sette egendefinert lydstyrke",
-    "16": "Ugyldig nettadresse"
+    "16": "Ugyldig nettadresse",
+    "17": "Klarte ikke å tolke JSON fra youtube-dl",
+    "15": "Fant ikke youtube-dl"
   },
   "search": {
     "typeToSearch": "Skriv for å søke",
@@ -96,8 +98,12 @@
     "viewMode": {
       "gridView": "Rutenettsvisning",
       "listView": "Listevisning",
-      "title": "Visningsmodus"
-    }
+      "title": "Visningsmodus",
+      "launchpadMode": "Emulert Launchpad"
+    },
+    "remoteVolumeKnob": "Lydstyrkejusteringshjul annensteds hen",
+    "localVolumeKnob": "Lokalt lydstyrkejusteringshjul",
+    "pushToTalkKeys": "Trykk-for-å-snakke -taster"
   },
   "actions": {
     "play": "Spill",
@@ -114,7 +120,9 @@
     "openFolder": "Åpne mappe",
     "confirmation": "Bekreftelse",
     "off": "Av",
-    "on": "På"
+    "on": "På",
+    "dismiss": "Avslå",
+    "shuffle": "Tilfeldig sortering"
   },
   "welcome": {
     "noTabs": "Legg til en fane ved å trykke {addTab} på høyresiden",
@@ -149,24 +157,33 @@
   },
   "noAudioBackend": {
     "choose": "Velg ett nedenfor",
-    "title": "Fant ingen lydbakende"
+    "title": "Fant ingen lydbakende",
+    "notDetected": "Fant ingen støttet lyd-bakende for ditt system."
   },
   "removeTab": {
     "question": "Ønsker du å fjerne fanen {seenOnWebsite}?"
   },
   "windows": {
     "badConfiguration": "Feilaktig oppsett oppdaget",
-    "setUpNow": "Sett opp nå"
+    "setUpNow": "Sett opp nå",
+    "restartAsAdmin": "Start på ny som admin",
+    "administrativePrivilegesNeeded": "Administratortilgang kreves.",
+    "automaticSetup": "Automatisk oppsett",
+    "selectMic": "Velg mikrofonen din og fortsett",
+    "virtualAudioCableMisconfiguration": "Din virtuelle lydkabel er ikke satt opp riktig.",
+    "detectedMisconfiguration": "Oppdaget feiloppsett med VB-kabel"
   },
   "systemInfo": {
     "copyToClipboard": "Kopier til utklippstavle",
-    "title": "Systeminfo"
+    "title": "Systeminfo",
+    "description": "Legg ved følgende info når du lager en feilrapport"
   },
   "update": {
     "updateNow": "Oppgrader nå",
     "ignore": "Ignorer",
     "latestVersion": "Siste versjon",
-    "yourVersion": "Din versjon"
+    "yourVersion": "Din versjon",
+    "title": "En oppdatering er tilgjengelig."
   },
   "downloader": {
     "close": "Lukk",
@@ -174,10 +191,19 @@
     "cancelDownload": "Avbryt nedlasting",
     "progress": "Framdrift",
     "placeholder": "Skriv inn en lenke",
-    "installNow": "Installer nå …"
+    "installNow": "Installer nå …",
+    "success": "Lastet ned : {title}",
+    "eta": "Forventet",
+    "converting": "Konvertering",
+    "notAvailable": "{youtube-dl} og/eller {ffmpeg} er ikke installert",
+    "title": "Nedlaster"
   },
   "sort": {
-    "title": "Sorter"
+    "title": "Sorter",
+    "alphabeticalDescending": "Alfabetisk Å-A",
+    "alphabeticalAscending": "Alfabetisk rekkefølge",
+    "modifiedDescending": "I synkende rekkefølge",
+    "modifiedAscending": "I stigende rekkefølge"
   },
   "customVolume": {
     "setFor": "Sett lydstyrke for {soundName}",
@@ -189,10 +215,13 @@
     "show": "Vis vindu"
   },
   "favorites": {
-    "title": "Favoritter"
+    "title": "Favoritter",
+    "favorite": "Favorittmerk"
   },
   "empty": {
-    "nothingToShow": "Ingenting å vise"
+    "nothingToShow": "Ingenting å vise",
+    "noFavorites": "Du har ingen favoritter. Merk noen lyder som favoritter for å vise dem her.",
+    "noSounds": "Fant ingen kompatible lyder i mappen {path}. Filformatene MP3, WAV og FLAC støttes."
   },
   "deleteSound": {
     "question": "Slett lyden {soundName}?",
