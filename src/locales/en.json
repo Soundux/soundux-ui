@@ -39,7 +39,7 @@
   },
   "empty": {
     "nothingToShow": "Nothing to show",
-    "noSounds": "No compatible sounds found in the folder {path}. Supported file formats are mp3, wav, flac",
+    "noSounds": "No compatible sounds found in the folder {path}. MP3, WAV and FLAC format is supported.",
     "noFavorites": "You currently have no favorites. Favor some sounds to display them here"
   },
   "favorites": {
@@ -177,7 +177,7 @@
     "eta": "ETA",
     "cancelDownload": "Cancel Download",
     "startDownload": "Start download",
-    "success": "Successfully downloaded: {title}",
+    "success": "Downloaded: {title}",
     "close": "Close"
   },
   "update": {
@@ -189,7 +189,7 @@
   },
   "systemInfo": {
     "title": "System information",
-    "description": "Attach this information when creating a bug report",
+    "description": "Attach this info when creating a bug-report",
     "copyToClipboard": "Copy to clipboard"
   },
   "windows": {
