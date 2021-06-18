@@ -147,7 +147,9 @@
       "title": "Affichage"
     },
     "tabHotkeysOnly": "Raccourcis claviers pour l'onglet courant uniquement",
-    "title": "Paramètres"
+    "title": "Paramètres",
+    "remoteVolumeKnob": "Bouton de volume distant",
+    "localVolumeKnob": "Bouton de volume local"
   },
   "switchOnConnect": {
     "explanation": {
