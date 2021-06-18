@@ -177,7 +177,7 @@
     "eta": "ETA",
     "cancelDownload": "Cancel Download",
     "startDownload": "Start download",
-    "success": "Downloaded: {title}",
+    "success": "Successfully downloaded: {title}",
     "close": "Close"
   },
   "update": {
