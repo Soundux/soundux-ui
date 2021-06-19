@@ -69,7 +69,9 @@
     "audioBackend": "Ses arka ucu",
     "stopHotkey": "Kısayol Tuşunu Durdur",
     "pushToTalkKeys": "Bas-konuş tuşları",
-    "allowMultipleOutputs": "Birden çok çıkış uygulamasına izin ver"
+    "allowMultipleOutputs": "Birden çok çıkış uygulamasına izin ver",
+    "remoteVolumeKnob": "Uzaktan ses düğmesi",
+    "localVolumeKnob": "Yerel ses düğmesi"
   },
   "tray": {
     "show": "Pencereyi göster",
