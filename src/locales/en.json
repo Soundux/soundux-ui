@@ -71,7 +71,8 @@
     "stopHotkey": "Stop hotkey",
     "pushToTalkKeys": "Push-to-talk keys",
     "localVolumeKnob": "Local volume knob",
-    "remoteVolumeKnob": "Remote volume knob"
+    "remoteVolumeKnob": "Remote volume knob",
+    "language": "Language override"
   },
   "tray": {
     "show": "Show window",

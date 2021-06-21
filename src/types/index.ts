@@ -113,6 +113,7 @@ export interface Settings {
   syncVolumes: boolean;
   theme: Theme;
   audioBackend: AudioBackend;
+  language: string | null;
   viewMode: ViewMode;
   stopHotkey: Key[];
   pushToTalkKeys: Key[];

@@ -18,6 +18,7 @@
     "core-js": "^3.14.0",
     "dayjs": "^1.10.5",
     "fuse.js": "^6.4.6",
+    "iso-639-1": "^2.1.9",
     "roboto-fontface": "*",
     "vue": "^2.6.14",
     "vue-debounce": "^2.6.0",

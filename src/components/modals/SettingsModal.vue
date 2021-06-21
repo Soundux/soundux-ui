@@ -197,6 +197,18 @@
               @focus="focusKnob"
               @blur="blurKnob"
             ></v-text-field>
+            <v-select
+              :items="languages"
+              v-model="language"
+              item-text="name"
+              item-value="locale"
+              :label="$t('settings.language')"
+              hide-details
+              prepend-icon="mdi-translate"
+              clearable
+              class="ma-0"
+            >
+            </v-select>
           </div>
         </v-row>
       </v-card-text>
@@ -215,11 +227,19 @@
 <script lang="ts">
 import Vue from 'vue';
 import { AudioBackend, Key, Theme, ViewMode } from '@/types';
+import VueI18n from 'vue-i18n';
+import { getNativeName } from '@/utils';
 
 interface Option {
   id: number;
   name: string;
   icon?: string;
+}
+
+interface Locale {
+  id: number;
+  name: string;
+  locale: string;
 }
 
 export default Vue.extend({
@@ -254,6 +274,17 @@ export default Vue.extend({
         { id: 2, name: 'PulseAudio' },
       ];
     },
+    languages(): Locale[] {
+      const availableLocales: VueI18n.Locale[] = this.$i18n.availableLocales;
+      return availableLocales.map((locale, id) => {
+        const name = getNativeName(locale);
+        return {
+          id,
+          name,
+          locale,
+        };
+      });
+    },
     tabHotkeysOnly: {
       get(): boolean {
         return this.$store.getters.settings.tabHotkeysOnly;
@@ -278,6 +309,15 @@ export default Vue.extend({
       },
       set(state: AudioBackend) {
         this.$store.commit('setAudioBackend', state);
+        this.$store.dispatch('saveSettings');
+      },
+    },
+    language: {
+      get(): string | null {
+        return this.$store.getters.settings.language;
+      },
+      set(state: string | null) {
+        this.$store.commit('setLanguage', state);
         this.$store.dispatch('saveSettings');
       },
     },

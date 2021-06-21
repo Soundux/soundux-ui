@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import Vuetify from '@/plugins/vuetify';
+import i18n from '@/plugins/i18n';
 import {
   AudioBackend,
   Key,
@@ -56,6 +57,7 @@ export default new Vuex.Store({
       syncVolumes: false,
       theme: Theme.System,
       audioBackend: AudioBackend.PulseAudio,
+      language: null,
       viewMode: ViewMode.List,
       stopHotkey: [] as Key[],
       pushToTalkKeys: [] as Key[],
@@ -264,6 +266,7 @@ export default new Vuex.Store({
           Vuetify.framework.theme.dark = false;
           break;
       }
+      i18n.locale = value.language || navigator.language;
     },
     setLocalVolume: (state, volume: number) => {
       state.settings.localVolume = volume;
@@ -279,6 +282,10 @@ export default new Vuex.Store({
         state.settings.muteDuringPlayback = false;
         state.settings.useAsDefaultDevice = false;
       }
+    },
+    setLanguage: (state, value: string | null) => {
+      state.settings.language = value;
+      i18n.locale = value || navigator.language;
     },
     setAllowOverlapping: (state, value: boolean) => (state.settings.allowOverlapping = value),
     setDeleteToTrash: (state, value: boolean) => (state.settings.deleteToTrash = value),

@@ -71,7 +71,8 @@
     "stopHotkey": "Stopp-Hotkey",
     "pushToTalkKeys": "Push-to-talk Tasten",
     "localVolumeKnob": "Lokaler Lautstärkeregler",
-    "remoteVolumeKnob": "Ausgabe Lautstärkeregler"
+    "remoteVolumeKnob": "Ausgabe Lautstärkeregler",
+    "language": "Sprache überschreiben"
   },
   "tray": {
     "show": "Fenster anzeigen",
