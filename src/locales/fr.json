@@ -149,7 +149,8 @@
     "tabHotkeysOnly": "Raccourcis claviers pour l'onglet courant uniquement",
     "title": "Paramètres",
     "remoteVolumeKnob": "Bouton de volume distant",
-    "localVolumeKnob": "Bouton de volume local"
+    "localVolumeKnob": "Bouton de volume local",
+    "language": "Écraser la langue"
   },
   "switchOnConnect": {
     "explanation": {
