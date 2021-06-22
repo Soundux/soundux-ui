@@ -1,7 +1,8 @@
 {
   "empty": {
     "noSounds": "Tidak menemukan suara-suara yang kompatibel pada folder {path}. Format berkas yang didukung adalah mp3, wav, flac",
-    "nothingToShow": "Tak ada yang perlu diperlihatkan"
+    "nothingToShow": "Tak ada yang perlu diperlihatkan",
+    "noFavorites": "Saat ini Anda tidak memiliki favorit. Pilih beberapa suara untuk ditampilkan di sini"
   },
   "deleteSound": {
     "question": "Apakah Anda ingin menghapus suara {soundName}?",
@@ -24,7 +25,10 @@
     "reloadSounds": "Muat ulang",
     "search": "Cari",
     "stop": "Berhenti",
-    "refresh": "Muat ulang"
+    "refresh": "Muat ulang",
+    "dismiss": "Abaikan",
+    "playlistMode": "Mode daftar putar",
+    "addTab": "Tambah Tab"
   },
   "welcome": {
     "windowsGuide2": "seperti yang terlihat pada situs web kami",
@@ -32,14 +36,20 @@
     "windowsDetected": "Kami mendeteksi bahwa Anda sedang menggunakan Windows.",
     "linuxDetected": "Kami mendeteksi bahwa Anda sedang menggunakan Linux.",
     "title": "Selamat datang di {programName}",
-    "noTabs": "Tidak ada tab. Tambahkan satu dengan mengklik {addTab} di sisi kanan"
+    "noTabs": "Tidak ada tab. Tambahkan satu dengan mengklik {addTab} di sisi kanan",
+    "linuxGuide2": "Anda tidak perlu mengubah perangkat input atau output di mana saja.",
+    "linuxGuide1": "Untuk memutar suara Anda hanya perlu memilih aplikasi keluaran di kanan atas."
   },
   "switchOnConnect": {
     "explanation": {
       "line3": "Untuk terus menggunakan Soundux, harap nonaktifkan.",
-      "line2": "Ini menyebabkan masalah yang parah!"
+      "line2": "Ini menyebabkan masalah yang parah!",
+      "wikiPage": "halaman wiki khusus kami",
+      "line4": "Untuk informasi lebih lanjut (misalnya cara menonaktifkan ini secara permanen) silakan merujuk ke {wikiPage}.",
+      "line1": "Modul PulseAudio {moduleName} telah terdeteksi."
     },
-    "disable": "Nonaktifkan sekarang"
+    "disable": "Nonaktifkan sekarang",
+    "title": "Modul switch on connect terdeteksi!"
   },
   "tray": {
     "exit": "Keluar",
@@ -56,10 +66,23 @@
     "muteDuringPlayback": "Bisukan mikrofon saat pemutaran",
     "useAsDefaultDevice": "Gunakan sebagai perangkat utama",
     "viewMode": {
-      "listView": "Tampilan daftar"
+      "listView": "Tampilan daftar",
+      "launchpadMode": "Emulasi Launchpad",
+      "gridView": "Tampilan grid",
+      "title": "Mode tampilan"
     },
     "title": "Pengaturan",
-    "deleteToTrash": "Hapus ke tempat sampah"
+    "deleteToTrash": "Hapus ke tempat sampah",
+    "localVolumeKnob": "Tombol volume lokal",
+    "pushToTalkKeys": "Tombol push-to-talk",
+    "stopHotkey": "Hentikan tombol pintas",
+    "allowMultipleOutputs": "Izinkan beberapa aplikasi keluaran",
+    "audioBackend": "Backend audio",
+    "minimizeToTray": "Minimalkan ke baki sistem",
+    "allowOverlapping": "Izinkan suara tumpang tindih",
+    "tabHotkeysOnly": "Tombol pintas hanya untuk tab saat ini",
+    "language": "Ganti bahasa",
+    "remoteVolumeKnob": "Tombol volume jarak jauh"
   },
   "favorites": {
     "favorite": "Favorit",
@@ -114,7 +137,8 @@
     "modifiedDescending": "Menurun",
     "alphabeticalDescending": "Turun menurut abjad",
     "alphabeticalAscending": "Naik menurut abjad",
-    "title": "Urutkan"
+    "title": "Urutkan",
+    "modifiedAscending": "Naik modifikasi"
   },
   "errors": {
     "15": "youtube-dl tidak ditemukan",
@@ -188,5 +212,21 @@
     "sync": "Sinkronkan volume",
     "remote": "Volume jarak jauh",
     "local": "Volume lokal"
+  },
+  "outputDevice": "Perangkat keluaran",
+  "outputApp": "Aplikasi keluaran",
+  "hotkeys": {
+    "title": "Setel tombol pintas",
+    "setFor": "Setel tombol pintas untuk {soundName}",
+    "hotkey": "Tombol pintas"
+  },
+  "noAudioBackend": {
+    "choose": "Pilih salah satu",
+    "notDetected": "Kami tidak dapat mendeteksi backend audio yang didukung untuk sistem Anda.",
+    "title": "Tak ada backend audio yang ditemukan"
+  },
+  "customVolume": {
+    "setFor": "Setel volume untuk {soundName}",
+    "context": "Setel volume khusus"
   }
 }
