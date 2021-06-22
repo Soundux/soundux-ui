@@ -31,7 +31,7 @@
   "devDependencies": {
     "@types/vuedraggable": "^2.24.0",
     "@typescript-eslint/eslint-plugin": "^4.27.0",
-    "@typescript-eslint/parser": "^4.27.0",
+    "@typescript-eslint/parser": "^4.28.0",
     "@vue/cli-plugin-babel": "~4.5.13",
     "@vue/cli-plugin-eslint": "~4.5.13",
     "@vue/cli-plugin-typescript": "~4.5.13",
