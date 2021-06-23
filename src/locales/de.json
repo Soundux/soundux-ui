@@ -129,7 +129,7 @@
     },
     "togglePlayback": {
       "text": "Drücke {space} um {playPause}",
-      "playPause": "die aktuell spielenden Sounds zu pausieren/fortzusetzen"
+      "playPause": "die aktuell spielenden Töne zu pausieren/fortzusetzen"
     },
     "appPassThrough": {
       "text": "Drücke {ctrl} + {g} um {show}",
@@ -150,16 +150,16 @@
     "sync": "Lautstärken synchronisieren"
   },
   "appPassThrough": {
-    "title": "App durchreichen",
-    "noAppsFound": "Keine Apps gefunden",
-    "noOutputSelected": "Sie müssen eine Ausgabe-Anwendung gewählt haben"
+    "title": "Anwendung durchreichen",
+    "noAppsFound": "Keine Anwendungen gefunden",
+    "noOutputSelected": "Sie müssen eine Ausgabeanwendung gewählt haben"
   },
   "search": {
-    "typeToSearch": "Tippe zum suchen",
+    "typeToSearch": "Tippe zum Suchen",
     "noResultsFound": "Keine Ergebnisse gefunden",
-    "changeSelection": "{arrowKeys} um Auswahl zu ändern",
-    "jumpToSelected": "{enter} um zum ausgewählten Sound zu springen",
-    "playSelected": "{shift} + {enter} um den ausgewählten Sound abzuspielen"
+    "changeSelection": "{arrowKeys}, um Auswahl zu ändern",
+    "jumpToSelected": "{enter}, um zum ausgewählten Ton zu springen",
+    "playSelected": "{shift} + {enter}, um den ausgewählten Ton abzuspielen"
   },
   "sort": {
     "title": "Sortieren",
@@ -182,7 +182,7 @@
     "close": "Schließen"
   },
   "update": {
-    "title": "Ein Update ist verfügbar!",
+    "title": "Eine Aktualisierung ist verfügbar!",
     "yourVersion": "Ihre Version",
     "latestVersion": "Neueste Version",
     "updateNow": "Jetzt aktualisieren",
@@ -190,7 +190,7 @@
   },
   "systemInfo": {
     "title": "System-Informationen",
-    "description": "Hängen Sie diese Informationen an, wenn Sie einen Bug melden",
+    "description": "Hängen Sie diese Informationen an, wenn Sie einen Fehler melden",
     "copyToClipboard": "In die Zwischenablage kopieren"
   },
   "windows": {
