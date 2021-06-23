@@ -27,7 +27,7 @@
   },
   "systemInfo": {
     "copyToClipboard": "Copier dans le presse-papiers",
-    "description": "Joindre ces informations lors de la création d'un rapport de bug",
+    "description": "Joindre ces informations lors de la création d'un rapport d'erreur",
     "title": "Informations système"
   },
   "update": {
