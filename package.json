@@ -21,7 +21,7 @@
     "iso-639-1": "^2.1.9",
     "roboto-fontface": "*",
     "vue": "^2.6.14",
-    "vue-debounce": "^2.6.0",
+    "vue-debounce": "^3.0.0",
     "vue-i18n": "^8.24.5",
     "vue-toastification": "^1.7.11",
     "vuedraggable": "^2.24.3",
