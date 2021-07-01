@@ -1,6 +1,6 @@
 {
   "settings": {
-    "stopHotkey": "Hotkey de parar",
+    "stopHotkey": "Atalho de parar",
     "allowMultipleOutputs": "Permitir saída de áudio para múltiplos apps",
     "audioBackend": "Backend de audio",
     "viewMode": {
@@ -21,7 +21,11 @@
     "deleteToTrash": "Deletar para lixeira",
     "allowOverlapping": "Permitir sobreposição de som",
     "tabHotkeysOnly": "Hotkeys somente para a aba aberta",
-    "title": "Configurações"
+    "title": "Configurações",
+    "language": "Sobrepor língua",
+    "remoteVolumeKnob": "Botão de ajuste do volume remoto",
+    "localVolumeKnob": "Botão de ajuste do volume local",
+    "pushToTalkKeys": "Atalho de aperte-para-falar"
   },
   "empty": {
     "noFavorites": "Você atualmente não tem favoritos, Favorite alguns sons para os exibir aqui",
@@ -29,7 +33,7 @@
     "nothingToShow": "Nada a mostrar"
   },
   "favorites": {
-    "favorite": "Favorite",
+    "favorite": "Favorito",
     "title": "Favoritos"
   },
   "deleteSound": {
@@ -54,7 +58,9 @@
     "addTab": "Adicionar Aba",
     "search": "Pesquisar",
     "stop": "Parar",
-    "refresh": "Recarregar"
+    "refresh": "Recarregar",
+    "dismiss": "Dispensar",
+    "ignore": "Ignorar"
   },
   "outputApp": "Aplicativo de saída",
   "outputDevice": "Dispositivo de saída",
@@ -67,5 +73,160 @@
     "linuxDetected": "Nós detectamos que você está no Linux.",
     "noTabs": "Nenhuma aba está aberta. Abra uma clicando em {addTab} no lado direito",
     "title": "Bem vindo ao {programName}"
+  },
+  "errors": {
+    "backendFunctionMissing": "Função do backend faltando: {functionName}",
+    "error": "Erro",
+    "21": "Falha ao definir volume customizado",
+    "20": "Falha ao silenciar",
+    "19": "Falha ao remover arquivo",
+    "18": "Falha desconhecida no youtube-dl",
+    "17": "Falha ao analisar JSON do youtube-dl",
+    "16": "URL invalido",
+    "15": "youtube-dl não encontrado",
+    "14": "Falha ao definir fonte padrão",
+    "13": "Falha ao reverter fonte padrão",
+    "12": "Falha ao mover para trás o passthrough",
+    "11": "Falha ao voltar",
+    "10": "Falha ao começar passthrough",
+    "9": "Falha ao definir atalho",
+    "8": "Aba não existe",
+    "7": "Pasta não existe",
+    "6": "Som não encontrado",
+    "5": "Falha ao mover sink",
+    "4": "Falha ao resumir",
+    "3": "Falha ao repetir",
+    "2": "Falha ao pausar",
+    "1": "Falha ao procurar",
+    "0": "Falha ao tocar"
+  },
+  "windows": {
+    "restartAsAdmin": "Reiniciar como administrador",
+    "administrativePrivilegesNeeded": "Privilégios de administrador são necessários!",
+    "automaticSetup": "Configuração automática",
+    "selectMic": "Por favor, Selecione seu microfone e prossiga",
+    "virtualAudioCableMisconfiguration": "Nós detectamos que seu Virtual Audio Cable não está configurado corretamente.",
+    "badConfiguration": "Configuração ruim detectada",
+    "setUpNow": "Configurar agora",
+    "detectedMisconfiguration": "Detectado um erro de configuração com o cabo VB-Cable"
+  },
+  "systemInfo": {
+    "copyToClipboard": "Copiar para a área de transferência",
+    "description": "Anexe esta informação ao criar um relatório de erro",
+    "title": "Informações do sistema"
+  },
+  "update": {
+    "ignore": "Ignorar",
+    "updateNow": "Atualizar agora",
+    "latestVersion": "Ultima versão",
+    "yourVersion": "Sua versão",
+    "title": "Uma atualização está disponível!"
+  },
+  "downloader": {
+    "close": "Fechar",
+    "success": "Baixado com sucesso: {title}",
+    "startDownload": "Começar Download",
+    "cancelDownload": "Cancelar Download",
+    "eta": "ETA",
+    "converting": "Convertendo",
+    "progress": "Progresso",
+    "placeholder": "Insira um link",
+    "installNow": "Instalar agora",
+    "notAvailable": "{youtube-dl} e/ou {ffmpeg} não está instalado",
+    "title": "Baixador"
+  },
+  "sort": {
+    "alphabeticalDescending": "Alfabético descendendo",
+    "alphabeticalAscending": "Alfabético ascendendo",
+    "modifiedDescending": "Modificado descendendo",
+    "modifiedAscending": "Modificado ascendendo",
+    "title": "Classificar"
+  },
+  "search": {
+    "playSelected": "{shift} + {enter} para tocar o som selecionado",
+    "jumpToSelected": "{enter} para pular ao som selecionado",
+    "changeSelection": "Use as {arrowKeys} para mudar a seleção",
+    "noResultsFound": "Nenhum resultado encontrado",
+    "typeToSearch": "Digite para pesquisar"
+  },
+  "input": {
+    "arrowKeys": "setas do teclado",
+    "rightClick": "Botão direito do mouse",
+    "leftClick": "Botão esquerdo do mouse",
+    "space": "Espaço",
+    "enter": "Enter",
+    "shift": "Shift",
+    "ctrl": "CTRL"
+  },
+  "appPassThrough": {
+    "noOutputSelected": "Você deve selecionar um aplicativo de saída",
+    "noAppsFound": "Nenhum aplicativo encontrado",
+    "title": "Pass through de aplicativo"
+  },
+  "volume": {
+    "sync": "Sincronizar volumes",
+    "remote": "Volume remoto",
+    "local": "Volume local"
+  },
+  "help": {
+    "viewSourceCode": "Ver o código fonte",
+    "joinOurDiscord": "Junte-se ao nosso Discord",
+    "visitOurWebsite": "Visite o nosso site",
+    "supportUs": "Apoie-nos",
+    "reloadSounds": {
+      "reload": "recarregar a aba atual",
+      "text": "Pressione {ctrl} + {r} para {reload}"
+    },
+    "appPassThrough": {
+      "show": "mostrar aplicativo de pass through",
+      "text": "Pressione {ctrl} + {g} para {show}"
+    },
+    "togglePlayback": {
+      "playPause": "pausar/resumir os sons que estão tocando",
+      "text": "Pressione {space} para {playPause}"
+    },
+    "options": {
+      "moreOptions": "mostrar mais opções",
+      "text": "{rightClick} para {moreOptions}"
+    },
+    "play": {
+      "play": "tocar",
+      "text": "{leftClick} para {play}"
+    },
+    "search": {
+      "search": "pesquisar",
+      "text": "Pressione {ctrl} + {f} para {search}"
+    },
+    "title": "Ajuda"
+  },
+  "hotkeys": {
+    "setFor": "Defina um atalho para {soundName}",
+    "hotkey": "Atalho",
+    "title": "Defina um atalho"
+  },
+  "noAudioBackend": {
+    "choose": "Por favor, escolha uma opção",
+    "notDetected": "Nós não conseguimos detectar um backend de áudio suportado no seu sistema.",
+    "title": "Nenhum backend de áudio detectado"
+  },
+  "switchOnConnect": {
+    "explanation": {
+      "wikiPage": "nossa página da wiki dedicada",
+      "line4": "Para mais informação (e.g. como desativar permanentemente isto) se dirija à página {wikiPage}.",
+      "line3": "Por favor, desative-o caso queira continuar usando Soundux.",
+      "line2": "Isto causa problemas severos!",
+      "line1": "O módulo de Pulseaudio {moduleName} foi detectado."
+    },
+    "title": "Módulo de Switch on connect detectado!",
+    "disable": "Desabilitar agora"
+  },
+  "customVolume": {
+    "setFor": "Definir volume para {soundName}",
+    "context": "Definir volume customizado"
+  },
+  "tray": {
+    "exit": "Fechar",
+    "hide": "Esconder janela",
+    "show": "Mostrar janela"
   }
 }
