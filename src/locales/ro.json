@@ -1,1 +1,37 @@
-{}
+{
+  "settings": {
+    "audioBackend": "Audio backend",
+    "theme": {
+      "light": "Luminat",
+      "dark": "întunecat",
+      "system": "Sistem"
+    },
+    "viewMode": {
+      "listView": "Vizualizare listă",
+      "title": "Modul de vizualizare",
+      "launchpadMode": "Launchpad emulat"
+    },
+    "title": "Setări",
+    "useAsDefaultDevice": "Folositi ca microfon default",
+    "pushToTalkKeys": "Butoane Push-To-Talk",
+    "language": "Limba forțată",
+    "remoteVolumeKnob": "Volum la distanta",
+    "localVolumeKnob": "Volum local",
+    "stopHotkey": "Opriți sunetul"
+  },
+  "customVolume": {
+    "setFor": "Setați volumul pentru {soundName}",
+    "context": "Setați volumul personalizat"
+  },
+  "tray": {
+    "exit": "Ieșire",
+    "hide": "Ascunde fereastra",
+    "show": "Arată fereastra"
+  },
+  "systemInfo": {
+    "title": "Informatii despre sistem"
+  },
+  "welcome": {
+    "title": "bun venit la {programName}"
+  }
+}
