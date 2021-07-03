@@ -1,7 +1,30 @@
 {
   "settings": {
     "tabHotkeysOnly": "Genvägar endast för nuvarande flik",
-    "title": "Inställningar"
+    "title": "Inställningar",
+    "language": "Språköverskridning",
+    "remoteVolumeKnob": "Fjärrvolymknapp",
+    "localVolumeKnob": "Lokal volymknapp",
+    "pushToTalkKeys": "Tryck-för-tal tangenter",
+    "stopHotkey": "Stopp genväg",
+    "allowMultipleOutputs": "Tillåt flera utmatningsapplikationer",
+    "audioBackend": "Ljud backend",
+    "theme": {
+      "light": "Ljus",
+      "dark": "Mörk",
+      "system": "System",
+      "title": "Tema"
+    },
+    "muteDuringPlayback": "Stäng av mikrofonen under uppspelning",
+    "useAsDefaultDevice": "Använd som standardenhet",
+    "minimizeToTray": "Minimera till systemfältet",
+    "deleteToTrash": "Ta bort till papperskorgen",
+    "allowOverlapping": "Tillåt ljudöverlappning",
+    "viewMode": {
+      "gridView": "Rutnätsvy",
+      "listView": "Listvy",
+      "title": "Visningsläge"
+    }
   },
   "favorites": {
     "favorite": "Favorit",
@@ -49,5 +72,42 @@
     "title": "Välkommen till {programName}"
   },
   "outputDevice": "Utmatningsenhet",
-  "outputApp": "Utmatningsapplikation"
+  "outputApp": "Utmatningsapplikation",
+  "tray": {
+    "exit": "Avsluta",
+    "hide": "Dölj fönster",
+    "show": "Visa fönster"
+  },
+  "help": {
+    "joinOurDiscord": "Gå med i vår Discord",
+    "visitOurWebsite": "Besök vår hemsida",
+    "supportUs": "Stöd oss",
+    "reloadSounds": {
+      "reload": "ladda om aktuell flik",
+      "text": "Tryck på {ctrl} + {r} för att {reload}"
+    },
+    "appPassThrough": {
+      "text": "Tryck på {ctrl} + {g} för att {show}"
+    },
+    "togglePlayback": {
+      "text": "Tryck på {space} för att {playPause}"
+    },
+    "options": {
+      "moreOptions": "visa fler alternativ",
+      "text": "{rightClick} för att {moreOptions}"
+    },
+    "play": {
+      "play": "spela"
+    },
+    "viewSourceCode": "Se våran källkod"
+  },
+  "volume": {
+    "remote": "Fjärrvolym",
+    "local": "Lokal volym",
+    "sync": "Synka volymer"
+  },
+  "appPassThrough": {
+    "noOutputSelected": "Du måste välja en utmatningsapplikation",
+    "noAppsFound": "Inga appar hittade"
+  }
 }
