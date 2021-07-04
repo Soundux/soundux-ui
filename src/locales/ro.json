@@ -1,23 +1,31 @@
 {
   "settings": {
-    "audioBackend": "Audio backend",
+    "audioBackend": "Platformă audio",
     "theme": {
       "light": "Luminat",
-      "dark": "întunecat",
-      "system": "Sistem"
+      "dark": "Întunecat",
+      "system": "Sistem",
+      "title": "Temă"
     },
     "viewMode": {
       "listView": "Vizualizare listă",
       "title": "Modul de vizualizare",
-      "launchpadMode": "Launchpad emulat"
+      "launchpadMode": "Launchpad emulat",
+      "gridView": "Vizualizare în grilă"
     },
     "title": "Setări",
-    "useAsDefaultDevice": "Folositi ca microfon default",
-    "pushToTalkKeys": "Butoane Push-To-Talk",
+    "useAsDefaultDevice": "Folosiți ca microfonul implicit",
+    "pushToTalkKeys": "Butoane apasă-ca-să-vorbești",
     "language": "Limba forțată",
-    "remoteVolumeKnob": "Volum la distanta",
+    "remoteVolumeKnob": "Volum în aplicație",
     "localVolumeKnob": "Volum local",
-    "stopHotkey": "Opriți sunetul"
+    "stopHotkey": "Tastă de oprit sunetul",
+    "allowMultipleOutputs": "Lasă mai multe aplicații de ieșire",
+    "muteDuringPlayback": "Puneți microfonul pe mut când este pusă muzică",
+    "minimizeToTray": "Micește la margine",
+    "deleteToTrash": "Țîpă la coșul de gunoi",
+    "allowOverlapping": "Permite sunete unele peste altele",
+    "tabHotkeysOnly": "Scurtături doar pentru fereastra asta,"
   },
   "customVolume": {
     "setFor": "Setați volumul pentru {soundName}",
@@ -29,9 +37,196 @@
     "show": "Arată fereastra"
   },
   "systemInfo": {
-    "title": "Informatii despre sistem"
+    "title": "Informatii despre sistem",
+    "copyToClipboard": "Copiază",
+    "description": "Spune informația asta cand scrii un bug report"
   },
   "welcome": {
-    "title": "bun venit la {programName}"
-  }
+    "title": "Bun venit la {programName}",
+    "windowsGuide2": "ca pe site",
+    "windowsGuide1": "Fă-te sigur(ă) că folosești instrucțiunile {seenOnWebsite}",
+    "windowsDetected": "Am detectat că folosești Windows.",
+    "linuxGuide2": "Nu trebuie să schimbi dispozitivul de intrare sau ieșire.",
+    "linuxGuide1": "Ca să pornești sunete, trebuie doar să alegi aplicația unde vrei să sune.",
+    "linuxDetected": "Am detectat că folosești Linux.",
+    "noTabs": "Deocamdată nu sunt ferestre, adaugă una dând click pe {addTab} de pe partea dreaptă"
+  },
+  "errors": {
+    "backendFunctionMissing": "Funcția platformei lipsește: {functionName}",
+    "error": "Eroare",
+    "21": "Nu s-a putut seta volumul personalizat",
+    "20": "Nu s-a putut pune pe mut",
+    "19": "Nu s-a putut șterge fișierul",
+    "18": "Eroare youtube-dl necunoscută",
+    "17": "Nu s-a putut încărca youtube-dl JSON",
+    "16": "URL nevalid",
+    "15": "youtube-dl nu a fost găsit",
+    "14": "Nu s-a putut seta sursa implicită",
+    "13": "Nu s-a putut pune înapoi sursa implicită",
+    "12": "Nu s-a putut muta înapoi trecerea prin aplicații",
+    "11": "Nu s-a putut muta înapoi",
+    "10": "Nu s-a putut porni trecerea prin aplicație",
+    "9": "Nu s-a putut seta scurtătura",
+    "8": "Fereastra nu există",
+    "7": "Dosarul nu există",
+    "6": "Sunetul nu a fost găsit",
+    "5": "Nu s-a putut muta la platformă",
+    "4": "Nu s-a putut reporni",
+    "3": "Nu s-a putut repeta",
+    "2": "Nu s-a putut pune pe pauză",
+    "1": "Nu s-a putut căuta",
+    "0": "Nu s-a putut reda"
+  },
+  "windows": {
+    "restartAsAdmin": "Restartează ca admin",
+    "administrativePrivilegesNeeded": "Privilegii de admininstrator nevoite!",
+    "automaticSetup": "Configurat automat",
+    "selectMic": "Alege-ți microfonul si continuă",
+    "virtualAudioCableMisconfiguration": "Am detectat că cablul tău virtual audio nu este configurat bine.",
+    "badConfiguration": "Configurare greșita detectată",
+    "setUpNow": "Configurează acum",
+    "detectedMisconfiguration": "Am detectat o greșeală la configurația VB-Cable"
+  },
+  "update": {
+    "ignore": "Ignoră",
+    "updateNow": "Actualizează",
+    "latestVersion": "Ultima versiune",
+    "yourVersion": "Versiunea ta",
+    "title": "O actualizare este valabilă!"
+  },
+  "downloader": {
+    "close": "Închide",
+    "success": "{title} a fost descărcat",
+    "startDownload": "Pornește descărcarea",
+    "cancelDownload": "Anuleaza descărcarea",
+    "eta": "ETA",
+    "converting": "Convertez",
+    "progress": "Progress",
+    "placeholder": "Bagă un link",
+    "installNow": "Instalează",
+    "notAvailable": "{youtube-dl} sau/și {ffmpeg} nu sunt instalate",
+    "title": "Descărcător"
+  },
+  "sort": {
+    "alphabeticalDescending": "În mod descrescător alfabetic",
+    "alphabeticalAscending": "În mod crescător alfabetic",
+    "modifiedDescending": "În mod descrescător",
+    "modifiedAscending": "În mod crescător",
+    "title": "Sortează"
+  },
+  "search": {
+    "playSelected": "{shift} + {enter} ca să pornești sunetul selectat",
+    "jumpToSelected": "{enter} ca să sari la sunetul ales",
+    "changeSelection": "{arrowKeys} ca să schimbi selecția",
+    "noResultsFound": "Nici un rezultat",
+    "typeToSearch": "Scrie ca să cauți"
+  },
+  "appPassThrough": {
+    "noOutputSelected": "Trebuie să ai o aplicație de ieșire",
+    "noAppsFound": "Nici o aplicație găsită",
+    "title": "Intrare prin aplicații"
+  },
+  "volume": {
+    "sync": "Sincronizeaza volumurile",
+    "remote": "Volum la aplicație",
+    "local": "Volum local"
+  },
+  "help": {
+    "viewSourceCode": "Vezi codul sursă",
+    "joinOurDiscord": "Intră în Discordul nostru",
+    "visitOurWebsite": "Intră pe site-ul nostru",
+    "supportUs": "Milogește-ne",
+    "reloadSounds": {
+      "reload": "reîncarcă fereastra asta",
+      "text": "apasă {ctrl} + {r} să {reload}"
+    },
+    "appPassThrough": {
+      "show": "arată prin ce aplicații se trece",
+      "text": "apasă {ctrl} + {g} să {show}"
+    },
+    "togglePlayback": {
+      "playPause": "pune pe pauza/repornește sunetele care-s cântate",
+      "text": "apasă {space} să {playPause}"
+    },
+    "options": {
+      "moreOptions": "arată mai multe opțiuni",
+      "text": "{rightClick} să {moreOptions}"
+    },
+    "play": {
+      "play": "bagă",
+      "text": "{leftClick} să {play}"
+    },
+    "search": {
+      "search": "caută",
+      "text": "Apasă {ctrl} + {f} ca să {search}"
+    },
+    "title": "Ajutor"
+  },
+  "input": {
+    "space": "Space",
+    "arrowKeys": "Săgețile",
+    "rightClick": "Click dreapta",
+    "leftClick": "Click stânga",
+    "enter": "Enter",
+    "shift": "Shift",
+    "ctrl": "CTRL"
+  },
+  "hotkeys": {
+    "setFor": "Bagă scurtătură pentru {soundName}",
+    "hotkey": "Scurtătură",
+    "title": "Bagă scurtătură"
+  },
+  "noAudioBackend": {
+    "choose": "Alege una de jos",
+    "notDetected": "N-am detectat o platforma audio compatibilă pentru sistemu tău.",
+    "title": "Nicio platformă audio găsită"
+  },
+  "switchOnConnect": {
+    "explanation": {
+      "wikiPage": "pagina noastră de wiki",
+      "line4": "Pentru mai multe informații (ex. cum să scoți asta) Bagă-te pe {wikiPage}.",
+      "line3": "Ca să mai folosești Soundux, dezactivează-l.",
+      "line2": "Aceasta bagă probleme!",
+      "line1": "Modulul PulseAudio {moduleName} a fost depistat."
+    },
+    "disable": "Dezactivează acum",
+    "title": "Manevră la modulul de conectare detectat!"
+  },
+  "favorites": {
+    "title": "Preferate",
+    "favorite": "Preferate"
+  },
+  "empty": {
+    "noFavorites": "Deocamdată nu ai preferate. Adaugă niște sunete ca să le vezi aici",
+    "noSounds": "Nici un sunet compatibil găsit în dosarul {path}. Formatele compatibile sunt mp3, wav, flac",
+    "nothingToShow": "Nimic de arătat"
+  },
+  "deleteSound": {
+    "question": "Ai dori să ștergi sunetul {soundName}?",
+    "delete": "Șterge"
+  },
+  "removeTab": {
+    "question": "Ai dori să ștergi fereastra {tabName}?"
+  },
+  "actions": {
+    "dismiss": "Lasă baltă",
+    "ignore": "Ignoră",
+    "openFolder": "Deschide Dosar",
+    "confirmation": "Confirmare",
+    "shuffle": "Amestecă",
+    "off": "Oprit",
+    "on": "Pornit",
+    "no": "Nu",
+    "yes": "Da",
+    "playlistMode": "Modul listă de redare",
+    "appPassThrough": "Trece prin",
+    "play": "Pornește",
+    "reloadSounds": "Reîncarcă",
+    "addTab": "Adaugă o fereastră",
+    "search": "Caută",
+    "stop": "Oprește",
+    "refresh": "Reîncarcă"
+  },
+  "outputDevice": "Dispozitiv de ieșire",
+  "outputApp": "Aplicație de ieșire"
 }
