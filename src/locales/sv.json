@@ -23,7 +23,8 @@
     "viewMode": {
       "gridView": "Rutnätsvy",
       "listView": "Listvy",
-      "title": "Visningsläge"
+      "title": "Visningsläge",
+      "launchpadMode": "Emulerad Launchpad"
     }
   },
   "favorites": {
@@ -87,19 +88,27 @@
       "text": "Tryck på {ctrl} + {r} för att {reload}"
     },
     "appPassThrough": {
-      "text": "Tryck på {ctrl} + {g} för att {show}"
+      "text": "Tryck på {ctrl} + {g} för att {show}",
+      "show": "visa applikation pass through"
     },
     "togglePlayback": {
-      "text": "Tryck på {space} för att {playPause}"
+      "text": "Tryck på {space} för att {playPause}",
+      "playPause": "pausa/återuppta de ljud som spelas upp för närvarande"
     },
     "options": {
       "moreOptions": "visa fler alternativ",
       "text": "{rightClick} för att {moreOptions}"
     },
     "play": {
-      "play": "spela"
+      "play": "spela",
+      "text": "{leftClick} för att {play}"
     },
-    "viewSourceCode": "Se våran källkod"
+    "viewSourceCode": "Se våran källkod",
+    "search": {
+      "search": "sök",
+      "text": "Tryck på {ctrl} + {f} för att {search}"
+    },
+    "title": "Hjälp"
   },
   "volume": {
     "remote": "Fjärrvolym",
@@ -108,6 +117,116 @@
   },
   "appPassThrough": {
     "noOutputSelected": "Du måste välja en utmatningsapplikation",
-    "noAppsFound": "Inga appar hittade"
+    "noAppsFound": "Inga appar hittade",
+    "title": "Applikation pass through"
+  },
+  "switchOnConnect": {
+    "title": "\"Byt vid anslutning\" modul upptäckt!",
+    "explanation": {
+      "wikiPage": "vår dedikerade wiki-sida",
+      "line4": "För mer information (t.ex. om hur du inaktiverar detta permanent) hänvisa till {wikiPage}.",
+      "line3": "För att fortsätta använda Soundux, vänligen inaktivera det.",
+      "line2": "Detta orsakar allvarliga problem!",
+      "line1": "PulseAudio-modulen {moduleName} har upptäckts."
+    },
+    "disable": "Inaktivera nu"
+  },
+  "errors": {
+    "backendFunctionMissing": "Backend-funktion saknas: {functionName}",
+    "error": "Fel",
+    "21": "Misslyckades med att ställa in anpassad volym",
+    "20": "Gick inte att stänga av ljudet",
+    "19": "Det gick inte att ta bort filen",
+    "18": "Okänt fel i youtube-dl",
+    "17": "Det gick inte att tolka youtube-dl JSON",
+    "16": "Ogiltig URL",
+    "15": "youtube-dl hittades inte",
+    "14": "Misslyckades med att ställa in standardkällan",
+    "13": "Misslyckades med att återställa standardkällan",
+    "12": "Misslyckades med att flytta tillbaka passthrough",
+    "11": "Misslyckades med att flytta tillbaka",
+    "10": "Misslyckades med att starta passthrough",
+    "9": "Misslyckades att sätta genväg",
+    "8": "Fliken finns inte",
+    "7": "Mappen finns inte",
+    "6": "Ljudet hittades inte",
+    "5": "Det gick inte att flytta till sink",
+    "4": "Det gick inte att återuppta",
+    "3": "Det gick inte att upprepa",
+    "2": "Det gick inte att pausa",
+    "1": "Det gick inte att söka",
+    "0": "Det gick inte att spela"
+  },
+  "windows": {
+    "restartAsAdmin": "Starta om som administratör",
+    "administrativePrivilegesNeeded": "Administrativa rättigheter behövs!",
+    "automaticSetup": "Automatisk konfigurering",
+    "selectMic": "Välj din mikrofon och fortsätt",
+    "virtualAudioCableMisconfiguration": "Vi har upptäckt att din virtuella ljudkabel inte är korrekt inställd.",
+    "badConfiguration": "Felaktig konfiguration upptäckt",
+    "setUpNow": "Konfigurera nu",
+    "detectedMisconfiguration": "Upptäckte en felkonfiguration med VB-Cable"
+  },
+  "systemInfo": {
+    "copyToClipboard": "Kopiera till urklipp",
+    "description": "Bifoga denna information när du skapar en buggrapport",
+    "title": "Systeminformation"
+  },
+  "update": {
+    "ignore": "Ignorera",
+    "updateNow": "Uppdatera nu",
+    "latestVersion": "Senaste versionen",
+    "yourVersion": "Din version",
+    "title": "En uppdatering är tillgänglig!"
+  },
+  "downloader": {
+    "close": "Stäng",
+    "success": "Har hämtats: {title}",
+    "startDownload": "Starta nedladdning",
+    "cancelDownload": "Avbryt nedladdning",
+    "eta": "ETA",
+    "converting": "Konverterar",
+    "progress": "Framsteg",
+    "placeholder": "Ange en länk",
+    "installNow": "Installera nu",
+    "notAvailable": "{youtube-dl} och/eller {ffmpeg} är inte installerade",
+    "title": "Nedladdare"
+  },
+  "sort": {
+    "alphabeticalDescending": "Alfabetiskt fallande",
+    "alphabeticalAscending": "Alfabetiskt stigande",
+    "modifiedDescending": "Modifierad fallande",
+    "modifiedAscending": "Modifierad stigande",
+    "title": "Sortera"
+  },
+  "search": {
+    "playSelected": "{shift} + {enter} för att spela upp det markerade ljudet",
+    "jumpToSelected": "{enter} för att hoppa till det aktuella ljudet",
+    "changeSelection": "{arrowKeys} för att ändra urval",
+    "noResultsFound": "Inga träffar",
+    "typeToSearch": "Skriv för att söka"
+  },
+  "input": {
+    "space": "Blanksteg",
+    "arrowKeys": "Piltangenter",
+    "rightClick": "Högerklick",
+    "leftClick": "Vänsterklick",
+    "enter": "Retur",
+    "shift": "Skift",
+    "ctrl": "CTRL"
+  },
+  "hotkeys": {
+    "setFor": "Sätt genväg för {soundName}",
+    "hotkey": "Genväg",
+    "title": "Sätt genväg"
+  },
+  "noAudioBackend": {
+    "choose": "Välj en nedan",
+    "notDetected": "Vi kunde inte upptäcka en ljudbackend som stöds för ditt system.",
+    "title": "Inget ljudbackend hittades"
+  },
+  "customVolume": {
+    "setFor": "Sätt volym för {soundName}",
+    "context": "Sätt anpassad volym"
   }
 }
