@@ -16,8 +16,9 @@ Frontend for [Soundux](https://github.com/Soundux/Soundux)
 
 ![Screenshot]( https://raw.githubusercontent.com/Soundux/screenshots/screenshots/playing-dark.png)
 
-## Issues
-Please report issues in our main repository. [Create an issue](https://github.com/Soundux/Soundux/issues/new/choose)
+## Issues & Contributing
+Please report issues in our main repository.
+> See our contribution guidelines, which you can find [here](https://github.com/Soundux/Soundux/blob/master/CONTRIBUTING.md)
 
 ## Project setup
 ```
