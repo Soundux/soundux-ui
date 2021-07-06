@@ -3,6 +3,7 @@
     <template #activator="{ on, attrs }">
       <v-btn
         :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
+        :disabled="!$store.getters.currentTab || $store.getters.showFavorites"
         class="mb-2"
         v-bind="attrs"
         v-on="on"
