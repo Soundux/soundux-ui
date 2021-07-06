@@ -117,17 +117,6 @@
     "notDetected": "We konden geen ondersteunde audio backend detecteren voor jouw systeem.",
     "title": "Geen audio backend gevonden"
   },
-  "switchOnConnect": {
-    "explanation": {
-      "wikiPage": "onze speciale wiki pagina",
-      "line4": "Ga voor meer informatie (over bijvoorbeeld het permanent uitschakelen) naar {wikiPage}.",
-      "line3": "Schakel dit alstublieft uit om Soundux te blijven gebruiken.",
-      "line2": "Dit veroorzaakt veel problemen!",
-      "line1": "De PulseAudio {moduleName} module is gedetecteerd."
-    },
-    "disable": "Schakel nu uit",
-    "title": "Switch on connect module gedetecteerd!"
-  },
   "tray": {
     "exit": "Afsluiten",
     "hide": "Verberg venster",

@@ -79,17 +79,6 @@
     "hide": "Pencereyi gizle",
     "exit": "Çık"
   },
-  "switchOnConnect": {
-    "title": "Açma bağlantı modülü algılandı!",
-    "disable": "Şimdi devre dışı bırak",
-    "explanation": {
-      "line1": "PulseAudio {moduleName} modülü bulundu.",
-      "line2": "Bu ciddi sorunlara neden olur!",
-      "line3": "Soundux'u kullanmaya devam etmek için lütfen devre dışı bırakın.",
-      "line4": "Daha fazla bilgi (ör. Kalıcı olarak nasıl devre dışı bırakılacağı) {wikiPage} adresinde bulunabilir.",
-      "wikiPage": "özel wiki sayfamız (İngilizce)"
-    }
-  },
   "noAudioBackend": {
     "title": "Ses arka ucu bulunamadı",
     "notDetected": "Sisteminiz için desteklenen bir ses arka ucu tespit edemedik.",

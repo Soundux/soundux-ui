@@ -152,17 +152,6 @@
     "localVolumeKnob": "Bouton de volume local",
     "language": "Écraser la langue"
   },
-  "switchOnConnect": {
-    "explanation": {
-      "wikiPage": "notre page dédiée sur le wiki",
-      "line4": "Pour plus d'informations (par ex. pour désactiver ceci de façon permanente) veuillez vous référer à {wikiPage}.",
-      "line3": "Pour continuer à utiliser Soundux, veuillez le désactiver.",
-      "line1": "Le module PulseAudio {moduleName} a été détecté.",
-      "line2": "Ceci cause des gros problèmes !"
-    },
-    "disable": "Désactiver maintenant",
-    "title": "Le module \"Switch on connect\" a été détecté !"
-  },
   "tray": {
     "exit": "Quitter",
     "hide": "Masquer la fenêtre",

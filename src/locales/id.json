@@ -40,17 +40,6 @@
     "linuxGuide2": "Anda tidak perlu mengubah perangkat input atau output di mana saja.",
     "linuxGuide1": "Untuk memutar suara Anda hanya perlu memilih aplikasi keluaran di kanan atas."
   },
-  "switchOnConnect": {
-    "explanation": {
-      "line3": "Untuk terus menggunakan Soundux, harap nonaktifkan.",
-      "line2": "Ini menyebabkan masalah yang parah!",
-      "wikiPage": "halaman wiki khusus kami",
-      "line4": "Untuk informasi lebih lanjut (misalnya cara menonaktifkan ini secara permanen) silakan merujuk ke {wikiPage}.",
-      "line1": "Modul PulseAudio {moduleName} telah terdeteksi."
-    },
-    "disable": "Nonaktifkan sekarang",
-    "title": "Modul switch on connect terdeteksi!"
-  },
   "tray": {
     "exit": "Keluar",
     "hide": "Sembunyikan jendela",

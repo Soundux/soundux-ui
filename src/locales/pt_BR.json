@@ -209,17 +209,6 @@
     "notDetected": "Nós não conseguimos detectar um backend de áudio suportado no seu sistema.",
     "title": "Nenhum backend de áudio detectado"
   },
-  "switchOnConnect": {
-    "explanation": {
-      "wikiPage": "nossa página da wiki dedicada",
-      "line4": "Para mais informação (e.g. como desativar permanentemente isto) se dirija à página {wikiPage}.",
-      "line3": "Por favor, desative-o caso queira continuar usando Soundux.",
-      "line2": "Isto causa problemas severos!",
-      "line1": "O módulo de Pulseaudio {moduleName} foi detectado."
-    },
-    "title": "Módulo de Switch on connect detectado!",
-    "disable": "Desabilitar agora"
-  },
   "customVolume": {
     "setFor": "Definir volume para {soundName}",
     "context": "Definir volume customizado"

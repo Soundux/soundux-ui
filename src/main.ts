@@ -54,7 +54,6 @@ declare global {
     getOutputs: () => Promise<Output[]>;
     changeSettings: (settings: Settings) => Promise<Settings>;
     setHotkey: (id: number, hotkeys: Key[]) => Promise<void>;
-    unloadSwitchOnConnect: () => Promise<void>;
     stopSounds: () => Promise<void>;
     playSound: (id: number) => Promise<PlayingSound | null>;
     pauseSound: (id: number) => Promise<PlayingSound | null>;

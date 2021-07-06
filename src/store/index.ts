@@ -41,7 +41,6 @@ export default new Vuex.Store({
     selectedOutputs: [] as Output[],
     playbackApps: [] as Output[],
     currentPlaying: [] as Playing[],
-    switchOnConnectLoaded: false,
     isLinux: null as boolean | null,
     updateData: null as UpdateData | null,
     isDraggingSeekbar: false,
@@ -115,7 +114,6 @@ export default new Vuex.Store({
       });
     },
     settings: state => state.settings,
-    switchOnConnectLoaded: state => state.switchOnConnectLoaded,
     allSounds: state => {
       return state.tabs.map(({ sounds }) => sounds).reduce((acc, e) => acc.concat(e), []);
     },
@@ -334,7 +332,6 @@ export default new Vuex.Store({
     setUpdateData: (state, value: UpdateData) => (state.updateData = value),
     setIsVBCableProperlySetup: (state, value: boolean) => (state.isVBCableProperlySetup = value),
     setAdministrativeModal: (state, value: boolean) => (state.administrativeModal = value),
-    setSwitchOnConnectLoaded: (state, loaded: boolean) => (state.switchOnConnectLoaded = loaded),
     setHotkeys: (_state, { sound, hotkeys }: { sound: Sound; hotkeys: Key[] }) =>
       (sound.hotkeys = hotkeys),
     setHotkeySequence: (_state, { sound, hotkeySequence }: { sound: Sound; hotkeySequence: string }) =>
@@ -638,13 +635,6 @@ export default new Vuex.Store({
     async getVBCableState({ commit }) {
       const vbCableState = await window.isVBCableProperlySetup();
       commit('setIsVBCableProperlySetup', vbCableState);
-    },
-
-    /**
-     * Unload the switch on connect module via the backend
-     */
-    async unloadSwitchOnConnect() {
-      await window.unloadSwitchOnConnect();
     },
 
     /**

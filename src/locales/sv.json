@@ -120,17 +120,6 @@
     "noAppsFound": "Inga appar hittade",
     "title": "Applikation pass through"
   },
-  "switchOnConnect": {
-    "title": "\"Byt vid anslutning\" modul upptäckt!",
-    "explanation": {
-      "wikiPage": "vår dedikerade wiki-sida",
-      "line4": "För mer information (t.ex. om hur du inaktiverar detta permanent) hänvisa till {wikiPage}.",
-      "line3": "För att fortsätta använda Soundux, vänligen inaktivera det.",
-      "line2": "Detta orsakar allvarliga problem!",
-      "line1": "PulseAudio-modulen {moduleName} har upptäckts."
-    },
-    "disable": "Inaktivera nu"
-  },
   "errors": {
     "backendFunctionMissing": "Backend-funktion saknas: {functionName}",
     "error": "Fel",

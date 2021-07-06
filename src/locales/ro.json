@@ -181,17 +181,6 @@
     "notDetected": "N-am detectat o platforma audio compatibilă pentru sistemu tău.",
     "title": "Nicio platformă audio găsită"
   },
-  "switchOnConnect": {
-    "explanation": {
-      "wikiPage": "pagina noastră de wiki",
-      "line4": "Pentru mai multe informații (ex. cum să scoți asta) Bagă-te pe {wikiPage}.",
-      "line3": "Ca să mai folosești Soundux, dezactivează-l.",
-      "line2": "Aceasta bagă probleme!",
-      "line1": "Modulul PulseAudio {moduleName} a fost depistat."
-    },
-    "disable": "Dezactivează acum",
-    "title": "Manevră la modulul de conectare detectat!"
-  },
   "favorites": {
     "title": "Preferate",
     "favorite": "Preferate"

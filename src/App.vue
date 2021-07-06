@@ -8,7 +8,6 @@
       <SetVolumeModal></SetVolumeModal>
       <RemoveTabModal></RemoveTabModal>
       <DeleteSoundModal></DeleteSoundModal>
-      <SwitchOnConnectModal v-if="$store.getters.isLinux"></SwitchOnConnectModal>
       <NoAudioBackendModal v-if="$store.getters.isLinux"></NoAudioBackendModal>
       <WindowsSetupModal
         v-if="$store.getters.isLinux !== null && !$store.getters.isLinux"
@@ -78,7 +77,6 @@
 import Vue from 'vue';
 import { initialize } from '@/utils/backend';
 import AppPassthroughDrawer from '@/components/drawers/AppPassthroughDrawer.vue';
-import SwitchOnConnectModal from '@/components/modals/SwitchOnConnectModal.vue';
 import PlayingSoundsDrawer from '@/components/drawers/PlayingSoundsDrawer.vue';
 import OutputSelection from '@/components/OutputSelection.vue';
 import SoundTabs from '@/components/SoundTabs.vue';
@@ -112,7 +110,6 @@ export default Vue.extend({
     UpdateModal,
     OutputSelection,
     PlayingSoundsDrawer,
-    SwitchOnConnectModal,
     AppPassthroughDrawer,
   },
   mounted() {
