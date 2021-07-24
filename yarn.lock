@@ -10436,10 +10436,10 @@ vue-cli-plugin-vuetify@~2.4.1:
     semver "^7.1.2"
     shelljs "^0.8.3"
 
-vue-debounce@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/vue-debounce/-/vue-debounce-3.0.0.tgz#5f2c90e073943144f9788aed827ed3cb5f6dc71d"
-  integrity sha512-VxdPMm5FwMCKM37WIEuFbaPnA6ibqDiPcaAOER+yf+Ftmhc0Andv4O/frL3HDf3YvEKcPMQHblkW80r0eWyO7w==
+vue-debounce@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/vue-debounce/-/vue-debounce-3.0.1.tgz#5975e37efdb5d9a15ffa7d206a85b4aa97f09f51"
+  integrity sha512-UzE4KDcopDihw0I5TmdK7syyuhu5+iuRD+AXhrRL7Y5C5o2EOZYwDhUNOAP4Z050hPmIj5U8vhMcYzePCTMAJw==
 
 vue-eslint-parser@^7.0.0, vue-eslint-parser@^7.9.0:
   version "7.9.0"
@@ -10605,8 +10605,10 @@ watchpack@^1.7.4:
   resolved "https://registry.npm.taobao.org/watchpack/download/watchpack-1.7.5.tgz?cache=0&sync_timestamp=1612715916777&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fwatchpack%2Fdownload%2Fwatchpack-1.7.5.tgz#1267e6c55e0b9b5be44c2023aed5437a2c26c453"
   integrity sha1-EmfmxV4Lm1vkTCAjrtVDeiwmxFM=
   dependencies:
+    chokidar "^3.4.1"
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
+    watchpack-chokidar2 "^2.0.1"
   optionalDependencies:
     chokidar "^3.4.1"
     watchpack-chokidar2 "^2.0.1"
