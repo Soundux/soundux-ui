@@ -79,10 +79,10 @@ import { getPrettyName } from '@/utils';
 export default Vue.extend({
   name: 'OutputSelection',
   computed: {
-    // this is dependant on the state of multiple because v-select expects different things,
-    // however selectedOutputs is always an array
-    // multiple -> Output[]
-    // !multiple -> Output | null
+    // this is dependent whether multiple outputs are allowed or not because v-select expects different things,
+    // however, in the store selectedOutputs is always an array
+    // allowMultipleOutputs -> Output[]
+    // !allowMultipleOutputs -> Output | null
     selectedOutputs: {
       get(): (Output | null) | Output[] {
         const { selectedOutputs } = this.$store.getters;
