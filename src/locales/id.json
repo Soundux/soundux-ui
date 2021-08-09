@@ -123,11 +123,11 @@
     "ctrl": "CTRL"
   },
   "sort": {
-    "modifiedDescending": "Menurun",
+    "modifiedDescending": "Menurun yang dimodifikasi",
     "alphabeticalDescending": "Turun menurut abjad",
     "alphabeticalAscending": "Naik menurut abjad",
     "title": "Urutkan",
-    "modifiedAscending": "Naik modifikasi"
+    "modifiedAscending": "Naik yang dimodifikasi"
   },
   "errors": {
     "15": "youtube-dl tidak ditemukan",
