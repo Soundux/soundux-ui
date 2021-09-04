@@ -1,6 +1,6 @@
 {
   "welcome": {
-    "title": "{programName}`a Hoşgeldiniz",
+    "title": "{programName}'a Hoş Geldiniz",
     "noTabs": "Şu anda sekme yok. Sağ taraftaki {addTab} öğesini tıklayarak bir tane ekleyin",
     "linuxDetected": "Linux'ta olduğunuzu tespit ettik.",
     "linuxGuide1": "Sesleri çalmak için sağ üstteki çıktı uygulamasını seçmeniz yeterlidir.",
@@ -38,7 +38,7 @@
     "question": "{soundName} sesini silmek istiyor musunuz?"
   },
   "empty": {
-    "nothingToShow": "Hiçbirşey Bulunamadı",
+    "nothingToShow": "Hiçbir şey bulunamadı",
     "noSounds": "{path} klasöründe uyumlu ses bulunamadı. Desteklenen dosya formatları mp3, wav, flac'tır",
     "noFavorites": "Şu anda hiç favoriniz yok. Burada görüntülemek için birkaç sesi favorilere ekleyin"
   },
@@ -61,13 +61,13 @@
     "useAsDefaultDevice": "Standart cihaz olarak kullanın",
     "muteDuringPlayback": "Oynatma sırasında mikrofonun sesini kapatın",
     "theme": {
-      "title": "Dizayn",
+      "title": "Tema",
       "system": "Sistem",
       "dark": "Karanlık",
       "light": "Aydınlık"
     },
     "audioBackend": "Ses arka ucu",
-    "stopHotkey": "Kısayol Tuşunu Durdur",
+    "stopHotkey": "Durdurma kısayol tuşu",
     "pushToTalkKeys": "Bas-konuş tuşları",
     "allowMultipleOutputs": "Birden çok çıkış uygulamasına izin ver",
     "remoteVolumeKnob": "Uzaktan ses düğmesi",
@@ -130,7 +130,7 @@
     }
   },
   "volume": {
-    "local": "Yerel Ses",
+    "local": "Yerel ses",
     "remote": "Uzak ses",
     "sync": "Ses düzeylerini eşitle"
   },
@@ -160,16 +160,16 @@
     "placeholder": "Bir bağlantı girin",
     "progress": "İlerleme",
     "converting": "Dönüştürülüyor",
-    "eta": "ETA",
+    "eta": "Kalan süre",
     "cancelDownload": "İndirmeyi iptal et",
     "startDownload": "İndirmeyi başlat",
     "success": "İndirme tamamlandı: {title}",
     "close": "Kapat"
   },
   "update": {
-    "title": "Bir güncelleme mevcut!",
+    "title": "Bir güncelleme var!",
     "yourVersion": "Kullanılan sürüm",
-    "latestVersion": "Yeni sürüm",
+    "latestVersion": "En son sürüm",
     "updateNow": "Şimdi güncelle",
     "ignore": "Yoksay"
   },
@@ -179,7 +179,7 @@
     "copyToClipboard": "Panoya kopyala"
   },
   "errors": {
-    "0": "Oynatma başarısız oldu",
+    "0": "Oynatılamadı",
     "1": "Aranamadı",
     "2": "Duraklatılamadı",
     "3": "Tekrarlanamadı",
@@ -195,7 +195,7 @@
     "13": "Varsayılan kaynak geri döndürülemedi",
     "14": "Varsayılan kaynak ayarlanamadı",
     "15": "youtube-dl bulunamadı",
-    "16": "Yanlış URL",
+    "16": "Geçersiz URL",
     "17": "Youtube-dl JSON dosyası işlenirken hata oluştu",
     "18": "Bilinmeyen youtube-dl hatası",
     "19": "Dosya silinemedi",
