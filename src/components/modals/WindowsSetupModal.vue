@@ -35,7 +35,7 @@
     <v-snackbar v-model="snackbar" :timeout="-1">
       {{ $t('windows.detectedMisconfiguration') }}
 
-      <template v-slot:action="{ attrs }">
+      <template #action="{ attrs }">
         <v-btn
           color="primary"
           text

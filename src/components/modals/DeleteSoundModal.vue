@@ -9,7 +9,7 @@
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn color="red" @click="$store.dispatch('deleteSound', sound)" dark>
+        <v-btn color="red" dark @click="$store.dispatch('deleteSound', sound)">
           <v-icon left>mdi-delete-alert</v-icon>
           {{ $t('actions.yes') }}
         </v-btn>

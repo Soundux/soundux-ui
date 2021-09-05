@@ -1,7 +1,7 @@
 <template>
   <v-menu v-model="showMenu" absolute :position-x="x" :position-y="y" offset-y>
     <template #activator="{ on, attrs }">
-      <slot v-bind="attrs" v-on="on" v-bind:context="show">Default slot content</slot>
+      <slot v-bind="attrs" :context="show" v-on="on">Default slot content</slot>
     </template>
     <v-list>
       <v-list-item @click="openFolder">

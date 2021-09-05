@@ -20,8 +20,8 @@
         <v-row justify="center">
           <div class="settings-grid my-5 mx-3">
             <v-select
-              :items="themes"
               v-model="theme"
+              :items="themes"
               item-text="name"
               item-value="id"
               :label="$t('settings.theme.title')"
@@ -51,10 +51,10 @@
               </template>
             </v-select>
             <v-select
+              v-model="viewMode"
               :items="viewModes"
               item-text="name"
               item-value="id"
-              v-model="viewMode"
               :label="$t('settings.viewMode.title')"
               hide-details
               prepend-icon="mdi-eye"
@@ -83,8 +83,8 @@
             </v-select>
             <template v-if="$store.getters.isLinux">
               <v-select
-                :items="audioBackends"
                 v-model="audioBackend"
+                :items="audioBackends"
                 item-text="name"
                 item-value="id"
                 :label="$t('settings.audioBackend')"
@@ -146,8 +146,8 @@
               class="ma-0"
             ></v-checkbox>
             <v-text-field
-              v-model="stopHotkey"
               id="stopHotkeyField"
+              v-model="stopHotkey"
               :label="$t('settings.stopHotkey')"
               prepend-icon="mdi-keyboard"
               readonly
@@ -159,8 +159,8 @@
               @blur="blur"
             ></v-text-field>
             <v-text-field
-              v-model="pushToTalkKeys"
               id="pushToTalkKeysField"
+              v-model="pushToTalkKeys"
               :label="$t('settings.pushToTalkKeys')"
               prepend-icon="mdi-keyboard-variant"
               readonly
@@ -172,8 +172,8 @@
               @blur="blur"
             ></v-text-field>
             <v-text-field
-              v-model="localVolumeKnob"
               id="localVolumeKnobField"
+              v-model="localVolumeKnob"
               :label="$t('settings.localVolumeKnob')"
               prepend-icon="mdi-alpha-k-circle-outline"
               readonly
@@ -185,8 +185,8 @@
               @blur="blurKnob"
             ></v-text-field>
             <v-text-field
-              v-model="remoteVolumeKnob"
               id="remoteVolumeKnobField"
+              v-model="remoteVolumeKnob"
               :label="$t('settings.remoteVolumeKnob')"
               prepend-icon="mdi-alpha-k-circle-outline"
               readonly
@@ -198,8 +198,8 @@
               @blur="blurKnob"
             ></v-text-field>
             <v-select
-              :items="languages"
               v-model="language"
+              :items="languages"
               item-text="name"
               item-value="locale"
               :label="$t('settings.language')"

@@ -67,17 +67,6 @@ import TabContextMenu from '@/components/TabContextMenu.vue';
 
 export default Vue.extend({
   name: 'SoundTabs',
-  data() {
-    return {
-      beforeDragActive: null as Tab | null,
-    };
-  },
-  mounted() {
-    document.addEventListener('keydown', this.keyDownHandler);
-  },
-  beforeDestroy() {
-    document.removeEventListener('keydown', this.keyDownHandler);
-  },
   components: {
     TabContextMenu,
     NoFavoritesCard,
@@ -86,6 +75,11 @@ export default Vue.extend({
     ListView,
     GridView,
     draggable,
+  },
+  data() {
+    return {
+      beforeDragActive: null as Tab | null,
+    };
   },
   computed: {
     mutableTabs: {
@@ -115,6 +109,12 @@ export default Vue.extend({
         this.$store.dispatch('setShowFavorites', newValue);
       },
     },
+  },
+  mounted() {
+    document.addEventListener('keydown', this.keyDownHandler);
+  },
+  beforeDestroy() {
+    document.removeEventListener('keydown', this.keyDownHandler);
   },
   methods: {
     startDrag(): void {

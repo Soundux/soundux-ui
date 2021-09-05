@@ -27,7 +27,7 @@
       {{ $t('actions.search') }}
     </v-btn>
     <v-menu offset-y close-on-content-click>
-      <template v-slot:activator="{ on, attrs }">
+      <template #activator="{ on, attrs }">
         <v-btn
           :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
           :disabled="!$store.getters.currentTab || $store.getters.showFavorites"
@@ -98,7 +98,7 @@
     </v-btn>
     <v-spacer></v-spacer>
     <v-menu offset-y close-on-content-click>
-      <template v-slot:activator="{ on, attrs }">
+      <template #activator="{ on, attrs }">
         <v-btn
           :color="
             $store.getters.playlistMode

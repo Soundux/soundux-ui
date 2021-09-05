@@ -10,8 +10,8 @@
     <v-card flat height="500">
       <v-card-title>
         <v-text-field
-          v-model="searchInput"
           id="searchField"
+          v-model="searchInput"
           :label="`${$t('actions.search')}…`"
           hide-details
           tabindex="-1"
@@ -22,11 +22,11 @@
       </v-card-title>
       <v-card-text id="cardBody">
         <v-list v-if="searchInput && searchResults.length > 0" nav dense class="fill-height">
-          <v-list-item-group :value="selectedResultIndex" id="searchResults">
+          <v-list-item-group id="searchResults" :value="selectedResultIndex">
             <v-list-item
               v-for="(result, index) in searchResults"
-              tabindex="-1"
               :key="result.id"
+              tabindex="-1"
               :value="index"
               @click="jumpToSound(result)"
             >
@@ -106,6 +106,22 @@ export default Vue.extend({
       return result.map(({ item }) => item).slice(0, Math.min(result.length, 20));
     },
   },
+  watch: {
+    searchModal() {
+      if (this.searchModal) {
+        requestAnimationFrame(() => {
+          const searchField = document.getElementById('searchField') as HTMLInputElement;
+          searchField.focus();
+          if (this.searchInput) {
+            searchField.select();
+          }
+        });
+      }
+    },
+    selectedResultIndex() {
+      this.scrollSelectedIntoView();
+    },
+  },
   mounted() {
     document.addEventListener('keydown', this.keyDownHandler);
     this.fuse = new Fuse<Sound>(this.$store.getters.allSounds, {
@@ -129,22 +145,6 @@ export default Vue.extend({
     if (this.unsubscribe) {
       this.unsubscribe();
     }
-  },
-  watch: {
-    searchModal() {
-      if (this.searchModal) {
-        requestAnimationFrame(() => {
-          const searchField = document.getElementById('searchField') as HTMLInputElement;
-          searchField.focus();
-          if (this.searchInput) {
-            searchField.select();
-          }
-        });
-      }
-    },
-    selectedResultIndex() {
-      this.scrollSelectedIntoView();
-    },
   },
   methods: {
     keyDownHandler(event: KeyboardEvent): void {

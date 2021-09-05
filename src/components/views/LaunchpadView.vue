@@ -62,12 +62,6 @@ export default Vue.extend({
       columns: 1,
     };
   },
-  mounted() {
-    document.addEventListener('keydown', this.keyDownHandler);
-  },
-  beforeDestroy() {
-    document.removeEventListener('keydown', this.keyDownHandler);
-  },
   computed: {
     pagesCount(): number {
       return Math.ceil(this.tab.sounds.length / this.perPage);
@@ -87,6 +81,12 @@ export default Vue.extend({
     tab() {
       this.updateColumns();
     },
+  },
+  mounted() {
+    document.addEventListener('keydown', this.keyDownHandler);
+  },
+  beforeDestroy() {
+    document.removeEventListener('keydown', this.keyDownHandler);
   },
   methods: {
     updateColumns(): void {

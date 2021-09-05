@@ -7,7 +7,7 @@
       (!$store.getters.isLinux && $store.getters.currentPlaying.length > 0)
     "
     item-text="name"
-    :items="this.$store.getters.outputs"
+    :items="$store.getters.outputs"
     :label="$t(`${$store.getters.isLinux ? 'outputApp' : 'outputDevice'}`)"
     hide-details
     clearable
@@ -51,8 +51,8 @@
         <v-col v-if="$store.getters.settings.allowMultipleOutputs" cols="auto">
           <v-simple-checkbox
             :value="selectedOutputs.includes(item)"
-            v-on="on"
             v-bind="attrs"
+            v-on="on"
           ></v-simple-checkbox>
         </v-col>
         <v-col v-if="item.appIcon" cols="auto">

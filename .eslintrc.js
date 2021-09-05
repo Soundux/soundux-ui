@@ -4,21 +4,19 @@ module.exports = {
     node: true,
   },
   extends: [
-    'plugin:vue/essential',
+    'plugin:vue/recommended',
+    'plugin:vuetify/base',
     'eslint:recommended',
     '@vue/typescript/recommended',
     '@vue/prettier',
     '@vue/prettier/@typescript-eslint',
   ],
-  plugins: ['vuetify'],
   parserOptions: {
     ecmaVersion: 2020,
   },
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'vuetify/no-deprecated-classes': 'error',
-    'vuetify/no-deprecated-components': 'error',
   },
   overrides: [
     {

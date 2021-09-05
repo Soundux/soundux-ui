@@ -20,15 +20,15 @@
       <template v-if="isYoutubeDLAvailable">
         <v-card-text>
           <v-text-field
-            v-model="inputText"
             v-if="!loading"
+            v-model="inputText"
+            v-debounce:300="updateInfoCard"
             :label="$t('downloader.placeholder')"
             hide-details
             filled
             autofocus
             prepend-inner-icon="mdi-link"
             :loading="fetchingInfo"
-            v-debounce:300="updateInfoCard"
           ></v-text-field>
 
           <v-card v-if="info" outlined class="mt-3">

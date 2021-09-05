@@ -27,10 +27,10 @@
     <v-tooltip top>
       <template #activator="{ on, attrs }">
         <v-icon
-          v-text="syncVolumes ? 'mdi-link' : 'mdi-link-off'"
           v-bind="attrs"
           v-on="on"
           @click="syncVolumes = !syncVolumes"
+          v-text="syncVolumes ? 'mdi-link' : 'mdi-link-off'"
         ></v-icon>
       </template>
       <span>{{ $t('volume.sync') }}</span>
