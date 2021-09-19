@@ -80,7 +80,8 @@
     "on": "Включить",
     "no": "Нет",
     "yes": "Да",
-    "playlistMode": "Режим плейлиста"
+    "playlistMode": "Режим плейлиста",
+    "play": "Играть"
   },
   "welcome": {
     "title": "Добро пожаловать в {programName}",
@@ -185,5 +186,6 @@
   },
   "removeTab": {
     "question": "Вы хотите удалить вкладку {tabName}?"
-  }
+  },
+  "outputApp": "Выходное приложение"
 }
