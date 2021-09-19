@@ -16,9 +16,9 @@
     "2": "Échec de la pause",
     "0": "Échec de la lecture",
     "backendFunctionMissing": "Fonction de gestion manquante : {functionName}",
-    "12": "N’a pas réussi à réinitialiser la transmission",
-    "10": "Échec de démarrage de la transmition",
-    "5": "Impossible de faire passer par le sink",
+    "12": "N’a pas réussi à réinitialiser le passthrough",
+    "10": "Échec de démarrage du passthrough",
+    "5": "Impossible de faire passer par le bloc récepteur audio",
     "13": "Échec du retour à la source par défaut",
     "11": "N'a pas réussi à revenir en arrière",
     "1": "Recherche échoué",
@@ -48,7 +48,7 @@
     "installNow": "Installer maintenant",
     "notAvailable": "{youtube-dl} et/ou {ffmpeg} ne sont pas installés",
     "title": "Téléchargements",
-    "eta": "Temps d'arrivé estimé"
+    "eta": "Temps estimée"
   },
   "sort": {
     "alphabeticalDescending": "Ordre alphabétique inverse",
@@ -67,7 +67,7 @@
   "appPassThrough": {
     "noOutputSelected": "Vous devez sélectionner une application de diffusion",
     "noAppsFound": "Aucune application trouvée",
-    "title": "L'app passe à travers"
+    "title": "App pass through"
   },
   "volume": {
     "sync": "Synchroniser le volume",
@@ -127,7 +127,7 @@
   "settings": {
     "audioBackend": "Gestionnaire de son",
     "pushToTalkKeys": "Touches Appuyer-pour-parler",
-    "stopHotkey": "Arrêter les raccourcis",
+    "stopHotkey": "Raccourcis d'arrêt",
     "allowMultipleOutputs": "Autoriser plusieurs applications de diffusion",
     "theme": {
       "light": "Clair",
@@ -146,7 +146,7 @@
       "listView": "Vue en liste",
       "title": "Affichage"
     },
-    "tabHotkeysOnly": "Raccourcis claviers pour l'onglet courant uniquement",
+    "tabHotkeysOnly": "Raccourcis claviers pour l'onglet séléctionné uniquement",
     "title": "Paramètres",
     "remoteVolumeKnob": "Bouton de volume distant",
     "localVolumeKnob": "Bouton de volume local",
@@ -177,8 +177,8 @@
     "openFolder": "Ouvrir le dossier",
     "confirmation": "Confirmation",
     "shuffle": "Aléatoire",
-    "off": "Désactivé",
-    "on": "Activé",
+    "off": "Arrêt",
+    "on": "Marche",
     "no": "Non",
     "yes": "Oui",
     "playlistMode": "Mode liste de lecture",
@@ -188,7 +188,7 @@
     "search": "Rechercher",
     "stop": "Arrêter",
     "refresh": "Actualiser",
-    "appPassThrough": "Passer à travers",
+    "appPassThrough": "Pass Through",
     "ignore": "Ignorer",
     "dismiss": "Rejeter"
   },
@@ -207,11 +207,11 @@
   "windows": {
     "badConfiguration": "Mauvaise configuration détectée",
     "detectedMisconfiguration": "Mauvaise configuration de VB-Cable détectée",
-    "restartAsAdmin": "Redémarrer en tant qu'admin",
-    "administrativePrivilegesNeeded": "Privilèges administrateurs nécessaires !",
+    "restartAsAdmin": "Redémarrer en tant qu'administrateur",
+    "administrativePrivilegesNeeded": "Privilèges d'administrateurs requis !",
     "automaticSetup": "Configuration automatique",
     "selectMic": "Veuillez sélectionner votre microphone et continuer",
-    "virtualAudioCableMisconfiguration": "Nous avons détecté que votre câble audio virtuel n’est pas correctement configuré.",
+    "virtualAudioCableMisconfiguration": "Nous avons détecté que votre Virtual Audio Cable n’est pas correctement configuré.",
     "setUpNow": "Configurer maintenant"
   },
   "customVolume": {
