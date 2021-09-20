@@ -1,1 +1,52 @@
-{}
+{
+  "settings": {
+    "title": "Impostazioni"
+  },
+  "favorites": {
+    "favorite": "Aggiungi ai preferiti",
+    "title": "Preferiti"
+  },
+  "empty": {
+    "noFavorites": "Non hai preferiti al momento. Segna dei suoni come preferiti per mostrarli qui",
+    "noSounds": "Non è stato trovato nessun suono compatibile nella cartella {path}. I formati di file supportati sono mp3, wav, flac",
+    "nothingToShow": "Nulla da mostrare"
+  },
+  "deleteSound": {
+    "question": "Vuoi eliminare il suono {soundName}?",
+    "delete": "Elimina"
+  },
+  "removeTab": {
+    "question": "Vuoi rimuovere la scheda {tabName}?"
+  },
+  "actions": {
+    "dismiss": "Chiudi",
+    "ignore": "Ignora",
+    "openFolder": "Apri cartella",
+    "confirmation": "Conferma",
+    "shuffle": "Casuale",
+    "off": "Off",
+    "on": "On",
+    "no": "No",
+    "yes": "Sì",
+    "playlistMode": "Modalità playlist",
+    "appPassThrough": "Pass-through",
+    "play": "Riproduci",
+    "reloadSounds": "Ricarica",
+    "addTab": "Aggiungi scheda",
+    "search": "Cerca",
+    "stop": "Interrompi",
+    "refresh": "Aggiorna"
+  },
+  "outputDevice": "Dispositivo di uscita",
+  "outputApp": "Applicazione di uscita",
+  "welcome": {
+    "windowsGuide2": "come indicato sul nostro sito web",
+    "windowsGuide1": "Assicurati di seguire i passaggi per l'installazione, {seenOnWebsite}",
+    "windowsDetected": "Abbiamo rilevato che sei su Windows.",
+    "linuxGuide2": "Non è necessario cambiare il dispositivo di ingresso o uscita.",
+    "linuxGuide1": "Per riprodurre suoni, seleziona l'applicazione di uscita in alto a destra.",
+    "linuxDetected": "Abbiamo rilevato che sei su Linux.",
+    "noTabs": "Non ci sono schede al momento. Aggiungine una cliccando su {addTab} a destra",
+    "title": "Benvenuto in {programName}"
+  }
+}
