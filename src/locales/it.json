@@ -1,6 +1,26 @@
 {
   "settings": {
-    "title": "Impostazioni"
+    "title": "Impostazioni",
+    "allowMultipleOutputs": "Consenti più app di output",
+    "audioBackend": "Backend audio",
+    "theme": {
+      "light": "Chiaro",
+      "dark": "Scuro",
+      "system": "Sistema",
+      "title": "Tema"
+    },
+    "muteDuringPlayback": "Disattiva microfono durante la riproduzione",
+    "useAsDefaultDevice": "Usare come dispositivo predefinito",
+    "minimizeToTray": "Ridurre a icona nella barra delle applicazioni",
+    "deleteToTrash": "Elimina nel cestino",
+    "allowOverlapping": "Permettere la sovrapposizione del suono",
+    "viewMode": {
+      "launchpadMode": "Launchpad emulato",
+      "gridView": "Vista a griglia",
+      "listView": "Vista elenco",
+      "title": "Modalità di visualizzazione"
+    },
+    "tabHotkeysOnly": "Tasti di scelta rapida solo per la scheda corrente"
   },
   "favorites": {
     "favorite": "Aggiungi ai preferiti",
