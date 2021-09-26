@@ -1,1 +1,58 @@
-{}
+{
+  "update": {
+    "updateNow": "Ĝisdatigi nun",
+    "latestVersion": "Plej nova versio",
+    "yourVersion": "Via versio",
+    "ignore": "Ignori"
+  },
+  "downloader": {
+    "installNow": "Instali nun",
+    "close": "Fermi"
+  },
+  "sort": {
+    "title": "Ordigi"
+  },
+  "help": {
+    "viewSourceCode": "Vidi la fontokodon",
+    "joinOurDiscord": "Aliĝi al nia Discord",
+    "visitOurWebsite": "Viziti nian retpaĝon",
+    "title": "Helpo"
+  },
+  "input": {
+    "arrowKeys": "Sagoklavoj",
+    "rightClick": "Dekstra alklako",
+    "leftClick": "Maldekstra alklako",
+    "space": "Spaceto",
+    "shift": "Maj",
+    "ctrl": "Stir"
+  },
+  "settings": {
+    "viewMode": {
+      "gridView": "Krada vido",
+      "listView": "Lista vido",
+      "title": "Vidreĝimo"
+    },
+    "theme": {
+      "light": "Hela",
+      "dark": "Malhela",
+      "system": "Sistema",
+      "title": "Etoso"
+    },
+    "title": "Agordoj"
+  },
+  "actions": {
+    "confirmation": "Konfirmo",
+    "openFolder": "Malfermi dosierujon",
+    "ignore": "Ignori",
+    "no": "Ne",
+    "yes": "Jes",
+    "appPassThrough": "Trapasi",
+    "play": "Ludi",
+    "reloadSounds": "Reŝargi",
+    "addTab": "Enmeti langeton",
+    "search": "Serĉi"
+  },
+  "welcome": {
+    "title": "Bonvenon al {programeName}"
+  }
+}
