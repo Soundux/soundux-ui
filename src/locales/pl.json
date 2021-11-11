@@ -26,7 +26,7 @@
   "welcome": {
     "linuxGuide2": "Nie musisz zmieniać w żadnej aplikacji urządzenia wejścia lub wyjścia.",
     "linuxDetected": "Zauważyliśmy, że korzystasz z systemu operacyjnego Linux.",
-    "noTabs": "Brak zakładek. Utwórz ją, klikając {addTab} po prawej stronie",
+    "noTabs": "Brak zakładek. Utwórz nową, klikając {addTab} po prawej stronie",
     "windowsGuide2": "znajdującymi się na naszej stronie",
     "windowsGuide1": "Podążaj za instrukcjami instalacji, {seenOnWebsite}",
     "title": "Witaj w {programName}",
@@ -53,7 +53,7 @@
       "light": "Jasny"
     },
     "title": "Ustawienia",
-    "tabHotkeysOnly": "Skróty klawiszowe tylko dla wybranej etykiety",
+    "tabHotkeysOnly": "Skróty klawiszowe tylko dla wybranej zakładki",
     "viewMode": {
       "title": "Tryb widoku",
       "listView": "Widok listy",
@@ -61,13 +61,13 @@
       "launchpadMode": "Emulowany Launchpad"
     },
     "allowOverlapping": "Zezwól na nakładanie się dźwięków",
-    "deleteToTrash": "Przenieś do kosza",
+    "deleteToTrash": "Usuwając, przenoś pliki do kosza",
     "audioBackend": "Backend audio",
     "allowMultipleOutputs": "Zezwól na wybranie wielu aplikacji wyjścia",
     "stopHotkey": "Skrót klawiszowy: Stop",
     "remoteVolumeKnob": "Pokrętło głośności wyjściowej",
     "language": "Wymuś język",
-    "pushToTalkKeys": "Przyciski Push-To-Talk",
+    "pushToTalkKeys": "Skrót klawiszowy: Push-To-Talk",
     "localVolumeKnob": "Pokrętło głośności lokalnej"
   },
   "customVolume": {
@@ -131,7 +131,7 @@
     "title": "Pomoc",
     "search": {
       "text": "Wciśnij {ctrl} + {f} aby {search}",
-      "search": "wyszukać"
+      "search": "otworzyć menu wyszukiwania"
     },
     "play": {
       "text": "Wciśnij {leftClick} aby {play}",
@@ -139,11 +139,11 @@
     },
     "togglePlayback": {
       "text": "Wciśnij {space} aby {playPause}",
-      "playPause": "pauzuj/odtwórz obecnie odtwarzane dźwięki"
+      "playPause": "zapauzować/wznowić odtwarzanie dźwięków"
     },
     "appPassThrough": {
       "text": "Wciśnij {ctrl} + {g} aby {show}",
-      "show": "pokazać menu przekazu do aplikacji"
+      "show": "pokazać menu przekazu  aplikacji"
     },
     "reloadSounds": {
       "text": "Wciśnij {ctrl} + {r} aby {reload}",
@@ -154,7 +154,7 @@
     "joinOurDiscord": "Dołącz do naszego serwera Discord",
     "viewSourceCode": "Wyświetl kod źródłowy",
     "options": {
-      "moreOptions": "pokaż więcej opcji",
+      "moreOptions": "pokazać więcej opcji",
       "text": "Wciśnij {rightClick} aby {moreOptions}"
     }
   },
