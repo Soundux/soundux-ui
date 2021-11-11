@@ -11,7 +11,7 @@
     "confirmation": "Potwierdzenie",
     "ignore": "Zignoruj",
     "dismiss": "Odrzuć",
-    "appPassThrough": "Przekaz",
+    "appPassThrough": "Przekaz do aplikacji",
     "on": "Włączony",
     "stop": "Zatrzymaj",
     "addTab": "Dodaj zakładkę",
@@ -143,7 +143,7 @@
     },
     "appPassThrough": {
       "text": "Wciśnij {ctrl} + {g} aby {show}",
-      "show": "pokazać menu przekazu  aplikacji"
+      "show": "pokazać menu przekazu do aplikacji"
     },
     "reloadSounds": {
       "text": "Wciśnij {ctrl} + {r} aby {reload}",
@@ -212,9 +212,9 @@
     "4": "Nie udało się wznowić odtwarzania dźwięku",
     "5": "Nie udało się przenieść dźwięku do wyjścia",
     "7": "Folder nie istnieje",
-    "10": "Nie udało się zacząć przekazu",
+    "10": "Nie udało się zacząć przekazu do aplikacji",
     "11": "Nie udało się cofnąć",
-    "12": "Nie udało się cofnąć przekazu",
+    "12": "Nie udało się cofnąć przekazu do aplikacji",
     "17": "Nie udało się zinterpretować pliku JSON youtube-dl",
     "backendFunctionMissing": "Brak funkcji backendu: {functionName}"
   }
