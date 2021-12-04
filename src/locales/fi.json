@@ -1,1 +1,73 @@
-{}
+{
+  "welcome": {
+    "title": "Tervetuloa {programName}iin",
+    "noTabs": "Tässä ei ole tällä hetkellä välilehtiä. Lisää välilehti painamalla {addTab} oikeasta laidasta",
+    "linuxDetected": "Olemme havainneet, että käytät Linuxia.",
+    "linuxGuide2": "Sinun ei tarvitse vaihtaa äänen sisääntulo- tai ulostulolaitettasi mistään.",
+    "windowsGuide1": "Seuraa asennusohjeita {seenOnWebsite}",
+    "windowsGuide2": "kuten verkkosivuillamme lukee",
+    "windowsDetected": "Olemme havainneet, että käytät Windowsia.",
+    "linuxGuide1": "Soittaaksesi ääniä sinun tulee valita ulostulo-ohjelma oikeasta yläkulmasta."
+  },
+  "outputApp": "Ulostulo-ohjelma",
+  "outputDevice": "Ulostulolaite",
+  "actions": {
+    "refresh": "Päivitä",
+    "play": "Toista",
+    "appPassThrough": "Läpivienti",
+    "playlistMode": "Soittolistatila",
+    "yes": "Kyllä",
+    "on": "Päällä",
+    "off": "Pois",
+    "ignore": "Jätä huomiotta",
+    "dismiss": "Hylkää",
+    "addTab": "Lisää välilehti",
+    "reloadSounds": "Lataa uudelleen",
+    "no": "Ei",
+    "confirmation": "Vahvistus",
+    "stop": "Lopeta",
+    "search": "Etsi",
+    "shuffle": "Sekoita",
+    "openFolder": "Avaa hakemisto"
+  },
+  "removeTab": {
+    "question": "Haluatko poistaa välilehden {tabName}?"
+  },
+  "deleteSound": {
+    "delete": "Poista",
+    "question": "Haluatko poistaa tallenteen {soundName}?"
+  },
+  "empty": {
+    "noSounds": "Ei yhteensopivia tallenteita löydetty polusta {path}. Tuettuja tiedostotyyppejä ovat mp3, wav, flac",
+    "noFavorites": "Sinulla ei tällä hetkellä ole suosikkeja. Lisää tallenteita suosikiksi näyttääksesi ne tässä",
+    "nothingToShow": "Ei näytettävää"
+  },
+  "favorites": {
+    "title": "Suosikit",
+    "favorite": "Suosikki"
+  },
+  "settings": {
+    "tabHotkeysOnly": "Pikanäppäimet vain nykyiselle välilehdelle",
+    "viewMode": {
+      "listView": "Listanäkymä",
+      "launchpadMode": "Emuloitu Launchpad",
+      "title": "Näkymä",
+      "gridView": "Ruudukkonäkymä"
+    },
+    "allowOverlapping": "Salli äänien lomitus",
+    "minimizeToTray": "Piilota ilmaisinalueelle",
+    "muteDuringPlayback": "Mykistä mikrofoni toiston ajaksi",
+    "theme": {
+      "system": "Järjestelmän oletus",
+      "dark": "Tumma",
+      "title": "Teema",
+      "light": "Vaalea"
+    },
+    "audioBackend": "Äänipalvelin",
+    "allowMultipleOutputs": "Salli useampi ulostulo-ohjelma",
+    "stopHotkey": "Pysäytyspikanäppäin",
+    "title": "Asetukset",
+    "deleteToTrash": "Poista roskakoriin",
+    "useAsDefaultDevice": "Käytä oletuslaitteena"
+  }
+}
