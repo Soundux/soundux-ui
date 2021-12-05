@@ -1,5 +1,103 @@
 {
   "welcome": {
-    "title": "Bienvenido a {programName}"
+    "title": "Bienvenido a {programName}",
+    "noTabs": "No hay ninguna pestaña. Añade pestañas pulsando en {addTab} a la derecha",
+    "linuxDetected": "Parece que usas Linux...",
+    "linuxGuide1": "Para reproducir sonidos selecciona el programa que deseas usar en la esquina superior derecha.",
+    "linuxGuide2": "No hace falta que cambies tu dispositivo de salida en ningun sitio.",
+    "windowsDetected": "Hemos detectado que estás usando Windows.",
+    "windowsGuide1": "Presta atención a las instrucciones de instalación {seenOnWebsite}",
+    "windowsGuide2": "tambien visto en nuestra página web"
+  },
+  "actions": {
+    "stop": "Detener",
+    "addTab": "Añadir pestaña nueva",
+    "reloadSounds": "Recargar",
+    "refresh": "Actualizar",
+    "appPassThrough": "Pasar por",
+    "playlistMode": "Modo Playlist",
+    "yes": "Sí",
+    "off": "Apagado",
+    "shuffle": "Aleatorio",
+    "confirmation": "Confirmar",
+    "openFolder": "Abrir Carpeta",
+    "ignore": "Ignorar",
+    "dismiss": "Omitir",
+    "search": "Buscar",
+    "play": "Reproducir",
+    "no": "No",
+    "on": "Encendido"
+  },
+  "outputApp": "Aplicación de salida",
+  "outputDevice": "Dispositivo de salida",
+  "removeTab": {
+    "question": "Estás seguro que quieres cerrar la pestaña {tabName}?"
+  },
+  "deleteSound": {
+    "delete": "Borrar",
+    "question": "Estás seguro que quieres eliminar el sonido {soundName}?"
+  },
+  "empty": {
+    "noFavorites": "No tienes ningún sonido favorito. Añade algunos para mostrarlos aquí :)",
+    "noSounds": "No se han encontrado sonidos compatibles en la carpeta {path}. Los formatos admitidos son mp3, wav o flac",
+    "nothingToShow": "No hay nada a mostrar"
+  },
+  "favorites": {
+    "title": "Favoritos",
+    "favorite": "Favorito"
+  },
+  "settings": {
+    "title": "Ajustes",
+    "tabHotkeysOnly": "Atajos sólo para la pestaña actual",
+    "viewMode": {
+      "title": "Modo de vista",
+      "listView": "Vista en Lista",
+      "gridView": "Vista en cuadrícula",
+      "launchpadMode": "Launchpad emulado"
+    },
+    "allowOverlapping": "Permitir superposición de sonido",
+    "deleteToTrash": "Mover a la papelera",
+    "minimizeToTray": "Minimizar a la bandeja del sistema",
+    "muteDuringPlayback": "Silenciar micrófono durante la reproducción",
+    "theme": {
+      "title": "Tema",
+      "system": "Sistema",
+      "dark": "Oscuro",
+      "light": "Claro (Para quien se quiera quedar ciego)"
+    },
+    "audioBackend": "Sonido secundario",
+    "allowMultipleOutputs": "Permitir varias aplicaciones de salida",
+    "pushToTalkKeys": "Teclas \"pulsar-para-hablar\"",
+    "localVolumeKnob": "Rueda local de volumen",
+    "remoteVolumeKnob": "Rueda de volumen remota",
+    "language": "Anular idioma",
+    "stopHotkey": "Detener atajo",
+    "useAsDefaultDevice": "Usar como dispositivo predeterminado"
+  },
+  "tray": {
+    "show": "Mostrar ventana",
+    "hide": "Ocultar ventana",
+    "exit": "Salir"
+  },
+  "customVolume": {
+    "context": "Establecer volumen personalizado",
+    "setFor": "Establecer volumen para {soundName}"
+  },
+  "noAudioBackend": {
+    "choose": "Por favor escoge uno debajo",
+    "title": "No se ha encontrado ningún sonido secundario",
+    "notDetected": "No detectamos ningún backend de audio para tu sistema."
+  },
+  "hotkeys": {
+    "title": "Definir atajo",
+    "hotkey": "Atajo",
+    "setFor": "Definir atajo para {soundName}"
+  },
+  "input": {
+    "ctrl": "ctrl",
+    "shift": "Shift",
+    "leftClick": "Clic izquierdo",
+    "rightClick": "Clic Derecho",
+    "enter": "Enter"
   }
 }
