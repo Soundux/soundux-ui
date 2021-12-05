@@ -68,6 +68,56 @@
     "stopHotkey": "Pysäytyspikanäppäin",
     "title": "Asetukset",
     "deleteToTrash": "Poista roskakoriin",
-    "useAsDefaultDevice": "Käytä oletuslaitteena"
+    "useAsDefaultDevice": "Käytä oletuslaitteena",
+    "pushToTalkKeys": "Puhepikanäppäimet",
+    "localVolumeKnob": "Paikallinen äänenvoimakkuudensäätö",
+    "remoteVolumeKnob": "Ulostulon äänenvoimakkuudensäätö",
+    "language": "Kielen ohitus"
+  },
+  "tray": {
+    "show": "Näytä ikkuna",
+    "hide": "Piilota ikkuna",
+    "exit": "Poistu"
+  },
+  "customVolume": {
+    "context": "Aseta oma äänenvoimakkuus",
+    "setFor": "Aseta äänen {soundName} voimakkuus"
+  },
+  "noAudioBackend": {
+    "title": "Äänipalvelinta ei lödetty",
+    "notDetected": "Emme löytäneet tuettua äänipalvelinta järjestelmästäsi.",
+    "choose": "Ole hyvä ja valitse alhaalta"
+  },
+  "hotkeys": {
+    "hotkey": "Pikanäppäin",
+    "title": "Aseta pikanäppäin",
+    "setFor": "Aseta pikanäppäin äänelle {soundName}"
+  },
+  "input": {
+    "shift": "Vaihto",
+    "enter": "Rivinvaihto",
+    "leftClick": "Hiiren vasen painike",
+    "rightClick": "Hiiren oikea painike",
+    "arrowKeys": "Nuolinäppäimet",
+    "space": "Välilyönti",
+    "ctrl": "CTRL"
+  },
+  "help": {
+    "title": "Apua",
+    "search": {
+      "text": "Paina {ctrl} + {f} aktivoidaksesi hakutoiminnon",
+      "search": "etsi"
+    },
+    "play": {
+      "text": "{leftClick} toistaaksesi",
+      "play": "toista"
+    },
+    "options": {
+      "moreOptions": "näytä lisää asetuksia",
+      "text": "{rightClick} näyttääksesi lisää asetuksia"
+    },
+    "togglePlayback": {
+      "text": ""
+    }
   }
 }
