@@ -20,7 +20,12 @@
       "listView": "Vista elenco",
       "title": "Modalità di visualizzazione"
     },
-    "tabHotkeysOnly": "Tasti di scelta rapida solo per la scheda corrente"
+    "tabHotkeysOnly": "Tasti di scelta rapida solo per la scheda corrente",
+    "localVolumeKnob": "Manopola del volume locale",
+    "remoteVolumeKnob": "Manopola del volume a distanza",
+    "language": "Annullamento della lingua",
+    "pushToTalkKeys": "Tasti push-to-talk",
+    "stopHotkey": "Interrompi il tasto di scelta rapida"
   },
   "favorites": {
     "favorite": "Aggiungi ai preferiti",
@@ -44,7 +49,7 @@
     "openFolder": "Apri cartella",
     "confirmation": "Conferma",
     "shuffle": "Casuale",
-    "off": "Off",
+    "off": "Spento",
     "on": "On",
     "no": "No",
     "yes": "Sì",
@@ -68,5 +73,149 @@
     "linuxDetected": "Abbiamo rilevato che sei su Linux.",
     "noTabs": "Non ci sono schede al momento. Aggiungine una cliccando su {addTab} a destra",
     "title": "Benvenuto in {programName}"
+  },
+  "errors": {
+    "8": "La scheda non esiste",
+    "9": "Impossibile impostare il tasto di scelta rapida",
+    "16": "URL non valido",
+    "19": "Impossibile eliminare il file",
+    "backendFunctionMissing": "Manca la funzione di back-end: {functionName}",
+    "4": "Impossibile riprendere",
+    "5": "Impossibile spostarsi per bloccare l'audio",
+    "6": "Suono non trovato",
+    "10": "Impossibile avviare il passaggio",
+    "11": "Impossibile tornare indietro",
+    "15": "youtube-dl non trovato",
+    "17": "Impossibile analizzare youtube-dl JSON",
+    "18": "Errore youtube-dl sconosciuto",
+    "21": "Impossibile impostare il volume personalizzato",
+    "error": "Errore",
+    "12": "Impossibile tornare indietro di passaggio",
+    "3": "Impossibile ripetere",
+    "7": "La cartella non esiste",
+    "14": "Impossibile impostare l'origine predefinita",
+    "0": "Impossibile avviare",
+    "1": "Impossibile cercare",
+    "13": "Impossibile ripristinare l'origine predefinita",
+    "20": "Impossibile disattivare l'audio",
+    "2": "Impossibile mettere in pausa"
+  },
+  "input": {
+    "shift": "Shift",
+    "ctrl": "CTRL",
+    "enter": "Invio",
+    "leftClick": "Tasto sinistro",
+    "rightClick": "Tasto destro",
+    "arrowKeys": "Tasti freccia",
+    "space": "Spazio"
+  },
+  "tray": {
+    "show": "Mostra la finestra",
+    "hide": "Nascondi la finestra",
+    "exit": "Uscita"
+  },
+  "customVolume": {
+    "setFor": "Imposta il volume per {nomeSuono}",
+    "context": "Imposta volume personalizzato"
+  },
+  "noAudioBackend": {
+    "title": "Nessun backend audio trovato",
+    "notDetected": "Non è stato possibile rilevare un back-end audio supportato per il sistema.",
+    "choose": "Per favore, ne scelga uno qui sotto"
+  },
+  "hotkeys": {
+    "setFor": "Imposta il tasto di scelta rapida per {nomeSuono}",
+    "title": "Imposta tasto di scelta rapida",
+    "hotkey": "Tasto di scelta rapida"
+  },
+  "help": {
+    "title": "Aiuto",
+    "search": {
+      "text": "Premi {ctrl} + {f} per {cercare}",
+      "search": "cerca"
+    },
+    "play": {
+      "text": "{leftClick} per {play}",
+      "play": "avvia"
+    },
+    "options": {
+      "text": "{rightClick} per {moreOptions}",
+      "moreOptions": "mostra più opzioni"
+    },
+    "togglePlayback": {
+      "text": "Premere {space} per {playPause}",
+      "playPause": "mettere in pausa/riprendere i suoni attualmente in riproduzione"
+    },
+    "appPassThrough": {
+      "show": "mostra il passaggio dell'app",
+      "text": "Premere {ctrl} + {g} per {show}"
+    },
+    "reloadSounds": {
+      "reload": "ricaricare la scheda corrente",
+      "text": "Premere {ctrl} + {r} per {reload}"
+    },
+    "supportUs": "Sostienici",
+    "joinOurDiscord": "Unisciti al nostro Discord",
+    "visitOurWebsite": "Visita il nostro sito",
+    "viewSourceCode": "Visualizza il codice sorgente"
+  },
+  "appPassThrough": {
+    "noAppsFound": "Nessuna app trovata",
+    "noOutputSelected": "Devi aver selezionato un'applicazione di uscita",
+    "title": "Passaggio dell'app"
+  },
+  "search": {
+    "changeSelection": "{arrowKeys} per modificare la selezione",
+    "jumpToSelected": "{enter} per passare al suono attualmente selezionato",
+    "noResultsFound": "Nessun risultato trovato",
+    "playSelected": "{shift} + {enter} per riprodurre il suono attualmente selezionato",
+    "typeToSearch": "Digita per cercare"
+  },
+  "sort": {
+    "title": "Ordina",
+    "modifiedAscending": "Ascendente modificato",
+    "modifiedDescending": "Discendente modificato",
+    "alphabeticalDescending": "Alfabetico decrescente",
+    "alphabeticalAscending": "Alfabetico crescente"
+  },
+  "downloader": {
+    "installNow": "Installa ora",
+    "placeholder": "Inserisci un link",
+    "progress": "Progresso",
+    "converting": "Conversione",
+    "eta": "ETA",
+    "cancelDownload": "Annulla download",
+    "close": "Chiudi",
+    "startDownload": "Avvia il download",
+    "title": "Downloader",
+    "notAvailable": "{youtube-dl} e/o {ffmpeg} non sono installati",
+    "success": "Scaricato con successo: {title}"
+  },
+  "update": {
+    "title": "È disponibile un aggiornamento!",
+    "yourVersion": "La tua versione",
+    "latestVersion": "Ultima versione",
+    "ignore": "Ignora",
+    "updateNow": "Aggiorna ora"
+  },
+  "windows": {
+    "automaticSetup": "Configurazione automatica",
+    "detectedMisconfiguration": "Rilevato un errore di configurazione con VB-Cable",
+    "restartAsAdmin": "Riavvia come amministratore",
+    "setUpNow": "Configura ora",
+    "badConfiguration": "Rilevata configurazione errata",
+    "virtualAudioCableMisconfiguration": "Abbiamo rilevato che il tuo cavo audio virtuale non è impostato correttamente.",
+    "selectMic": "Seleziona il microfono e procedi",
+    "administrativePrivilegesNeeded": "Privilegi amministrativi necessari!"
+  },
+  "volume": {
+    "sync": "Sincronizza i volumi",
+    "local": "Volume locale",
+    "remote": "Volume remoto"
+  },
+  "systemInfo": {
+    "copyToClipboard": "Copia negli appunti",
+    "description": "Allega queste informazioni quando crei un rapporto di bug",
+    "title": "Informazioni di sistema"
   }
 }
