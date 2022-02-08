@@ -153,7 +153,7 @@
       "text": "{rightClick} să {moreOptions}"
     },
     "play": {
-      "play": "bagă",
+      "play": "redă",
       "text": "{leftClick} să {play}"
     },
     "search": {
@@ -174,7 +174,7 @@
   "hotkeys": {
     "setFor": "Bagă scurtătură pentru {soundName}",
     "hotkey": "Scurtătură",
-    "title": "Bagă scurtătură"
+    "title": "Adaugă scurtătură"
   },
   "noAudioBackend": {
     "choose": "Alege una de jos",
