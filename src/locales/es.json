@@ -19,7 +19,7 @@
     "yes": "Sí",
     "off": "Apagado",
     "shuffle": "Aleatorio",
-    "confirmation": "Confirmar",
+    "confirmation": "Confirmación",
     "openFolder": "Abrir Carpeta",
     "ignore": "Ignorar",
     "dismiss": "Omitir",
@@ -70,7 +70,7 @@
     "pushToTalkKeys": "Teclas \"pulsar-para-hablar\"",
     "localVolumeKnob": "Rueda local de volumen",
     "remoteVolumeKnob": "Rueda de volumen remota",
-    "language": "Anular idioma",
+    "language": "Anulación de idioma",
     "stopHotkey": "Detener atajo",
     "useAsDefaultDevice": "Usar como dispositivo predeterminado"
   },
