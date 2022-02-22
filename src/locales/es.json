@@ -98,6 +98,105 @@
     "shift": "Shift",
     "leftClick": "Clic izquierdo",
     "rightClick": "Clic Derecho",
-    "enter": "Enter"
+    "enter": "Enter",
+    "arrowKeys": "Teclas de dirección",
+    "space": "Barra espaciadora"
+  },
+  "windows": {
+    "automaticSetup": "Configurar automáticamente",
+    "detectedMisconfiguration": "Se detectó una configuración errónea con VB-Cable",
+    "setUpNow": "Configurar ahora",
+    "badConfiguration": "Mala configuración detectada",
+    "virtualAudioCableMisconfiguration": "Detectamos que tu Virtual Audio Cable no está correctamente configurado.",
+    "selectMic": "Por favor conecta tu micrófono y procede",
+    "administrativePrivilegesNeeded": "¡Se necesitan privilegios administrativos!",
+    "restartAsAdmin": "Reiniciar como administrador"
+  },
+  "errors": {
+    "9": "Fallo al establecer la tecla de acceso rápido",
+    "3": "Fallo al repetir",
+    "0": "Fallo al reproducir",
+    "1": "Fallo al adelantar",
+    "2": "Fallo al pausar",
+    "4": "Fallo al resumir",
+    "6": "Sonido no encontrado",
+    "7": "La carpeta no existe",
+    "8": "La pestaña no existe",
+    "11": "Fallo al mover hacia atrás",
+    "13": "Fallo al revertir fuente por defecto"
+  },
+  "help": {
+    "visitOurWebsite": "Visita nuestra página web",
+    "title": "Ayuda",
+    "search": {
+      "search": "buscar",
+      "text": "Presiona {ctrl} + {f} para {search}"
+    },
+    "play": {
+      "text": "{leftClick} para {play}",
+      "play": "reproducir"
+    },
+    "options": {
+      "text": "{rightClick} para {moreOptions}",
+      "moreOptions": "mostrar más opciones"
+    },
+    "togglePlayback": {
+      "text": "Presiona {space} para {playPause}",
+      "playPause": "pausa/reanuda los sonidos que se están reproduciendo actualmente"
+    },
+    "appPassThrough": {
+      "text": "Presiona {ctrl} + {g} para {mostrar}"
+    },
+    "reloadSounds": {
+      "text": "Presiona {ctrl} + {r} para {reload}",
+      "reload": "recargar la pestaña actual"
+    },
+    "supportUs": "Soportanos",
+    "joinOurDiscord": "Únete a nuestro Discord",
+    "viewSourceCode": "Mira el código fuente"
+  },
+  "downloader": {
+    "title": "Descargador",
+    "placeholder": "Ingresa un link",
+    "converting": "Convirtiendo",
+    "notAvailable": "{youtube-dl} y/o {ffmpeg} no están instalados",
+    "installNow": "Instalar ahora",
+    "progress": "Progreso",
+    "eta": "Tiempo estimado",
+    "cancelDownload": "Cancelar Descarga",
+    "startDownload": "Comenzar descarga",
+    "success": "Se descargó exítosamente: {title}",
+    "close": "Cerrar"
+  },
+  "update": {
+    "yourVersion": "Tu versión",
+    "title": "¡Una actualización está disponible!",
+    "latestVersion": "Última versión",
+    "updateNow": "Actualizar ahora",
+    "ignore": "Ignorar"
+  },
+  "volume": {
+    "local": "Volumen local",
+    "remote": "Volumen remoto",
+    "sync": "Sincronizar volúmenes"
+  },
+  "appPassThrough": {
+    "noAppsFound": "No se encontraron aplicaciones",
+    "noOutputSelected": "Tienes que tener seleccionada una aplicación de salida"
+  },
+  "search": {
+    "typeToSearch": "Escribe para buscar",
+    "noResultsFound": "No se encontraron resultados",
+    "changeSelection": "{arrowKeys} para cambiar la selección",
+    "jumpToSelected": "{enter} para saltar al sonido seleccionado",
+    "playSelected": "{shift} + {enter} para reproducir el sonido seleccionado"
+  },
+  "sort": {
+    "title": "Ordenar"
+  },
+  "systemInfo": {
+    "title": "Información del sistema",
+    "description": "Adjunta esta información cuando crees un reporte de bug",
+    "copyToClipboard": "Copiar al portapapeles"
   }
 }
