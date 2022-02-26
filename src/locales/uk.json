@@ -49,11 +49,21 @@
     "7": "Папка не існує",
     "17": "Не вдалося розібрати youtube-dl JSON",
     "18": "Невідома помилка youtube-dl",
-    "20": "Не вдалося вимкнути звук"
+    "20": "Не вдалося вимкнути звук",
+    "backendFunctionMissing": "Відсутня функція сервера: {functionName}",
+    "5": "Не вдалося переміститися до виходу",
+    "10": "Не вдалося перенаправлення",
+    "12": "Не вдалося повернути перенаправлення"
   },
   "windows": {
     "administrativePrivilegesNeeded": "Необхідні привілеї адміністратора!",
-    "restartAsAdmin": "Перезавантажити як адміністратор"
+    "restartAsAdmin": "Перезавантажити як адміністратор",
+    "detectedMisconfiguration": "Виявлено неправильну конфігурацію з VB-Cable",
+    "setUpNow": "Налаштувати зараз",
+    "badConfiguration": "Виявлено неправильну конфігурацію",
+    "virtualAudioCableMisconfiguration": "Ми виявили, що ваш Virtual Audio Cable не налаштований належним чином.",
+    "selectMic": "Виберіть свій мікрофон і продовжуйте",
+    "automaticSetup": "Автоматичне налаштування"
   },
   "outputDevice": "Пристрій виводу",
   "favorites": {
@@ -65,13 +75,147 @@
     "question": "Ви б хотіли видалити звук {soundName}?"
   },
   "empty": {
-    "noFavorites": "Наразі у Вас немає улюблених звуків. Додайте звуки до улюблених, щоб вони відобразилися тут"
+    "noFavorites": "Наразі у Вас немає улюблених звуків. Додайте звуки до улюблених, щоб вони відобразилися тут",
+    "nothingToShow": "Нічого показати",
+    "noSounds": "У папці {path} не знайдено сумісних звуків. Підтримувані формати файлів: mp3, wav, flac"
   },
   "settings": {
     "deleteToTrash": "Видалити до сміття",
-    "title": "Налаштування"
+    "title": "Налаштування",
+    "theme": {
+      "title": "Тема",
+      "system": "Система",
+      "dark": "Темна",
+      "light": "Світла"
+    },
+    "audioBackend": "Сервер звуку",
+    "pushToTalkKeys": "Клавіша «Натисни і говори»",
+    "allowMultipleOutputs": "Дозволити кілька вихідних додатків",
+    "stopHotkey": "Зупинити гарячу клавішу",
+    "tabHotkeysOnly": "Гарячі клавіші лише для поточної вкладки",
+    "viewMode": {
+      "title": "Режим перегляду",
+      "listView": "Вид список",
+      "gridView": "Вид сітки",
+      "launchpadMode": "Емульований Launchpad"
+    },
+    "allowOverlapping": "Дозволити перекриття звуку",
+    "minimizeToTray": "Згорнути в системний трей",
+    "useAsDefaultDevice": "Використовувати як пристрій за замовчуванням",
+    "muteDuringPlayback": "Вимкнути мікрофон під час відтворення",
+    "localVolumeKnob": "Ручка локальної гучності",
+    "remoteVolumeKnob": "Ручка віддаленої гучності",
+    "language": "Перевизначення мови"
   },
   "removeTab": {
     "question": "Ви б хотіли видалити вкладку {tabName}?"
+  },
+  "input": {
+    "space": "Пробіл",
+    "arrowKeys": "Клавіші зі стрілками",
+    "ctrl": "CTRL",
+    "shift": "Shift",
+    "enter": "Enter",
+    "leftClick": "ЛКМ",
+    "rightClick": "ПКМ"
+  },
+  "search": {
+    "typeToSearch": "Введіть для пошуку",
+    "noResultsFound": "Нічого не знайдено",
+    "changeSelection": "{arrowKeys}, щоб змінити вибір",
+    "jumpToSelected": "{enter}, щоб перейти до вибраного звуку",
+    "playSelected": "{shift} + {enter} для відтворення вибраного звуку"
+  },
+  "help": {
+    "options": {
+      "text": "{rightClick}, щоб {moreOptions}",
+      "moreOptions": "показати більше параметрів"
+    },
+    "reloadSounds": {
+      "reload": "перезавантажити поточну вкладку",
+      "text": "Натисніть кнопку {ctrl} + {r} для {reload}"
+    },
+    "visitOurWebsite": "Відвідайте наш веб-сайт",
+    "title": "Допомога",
+    "search": {
+      "text": "Натисніть {ctrl} + {f}, щоб {search}",
+      "search": "шукати"
+    },
+    "play": {
+      "text": "{leftClick}, щоб {play}",
+      "play": "грати"
+    },
+    "togglePlayback": {
+      "text": "Натисніть {space}, щоб {playPause}",
+      "playPause": "призупинити/відновити відтворення поточних звуків"
+    },
+    "appPassThrough": {
+      "text": "Натисніть {ctrl} + {g}, щоб {show}",
+      "show": "показати програми для перенаправлення"
+    },
+    "supportUs": "Підтримайте нас",
+    "joinOurDiscord": "Приєднуйтесь до нашого Discord",
+    "viewSourceCode": "Перегляд програмний код"
+  },
+  "hotkeys": {
+    "setFor": "Встановити гарячу клавішу для {soundName}",
+    "title": "Встановити гарячу клавішу",
+    "hotkey": "Гаряча клавіша"
+  },
+  "update": {
+    "latestVersion": "Остання версія",
+    "title": "Доступно оновлення!",
+    "ignore": "Ігнорувати",
+    "yourVersion": "Ваша версія",
+    "updateNow": "Оновити зараз"
+  },
+  "systemInfo": {
+    "title": "Інформація про систему",
+    "description": "Прикріпіть цю інформацію під час створення звіту про помилку",
+    "copyToClipboard": "Копіювати в буфер обміну"
+  },
+  "downloader": {
+    "placeholder": "Введіть посилання",
+    "title": "Завантажувач",
+    "notAvailable": "{youtube-dl} та/або {ffmpeg} не встановлено",
+    "installNow": "Встановити зараз",
+    "progress": "Прогрес",
+    "converting": "Перетворення",
+    "eta": "розрахунковий час завершення",
+    "cancelDownload": "Скасувати завантаження",
+    "startDownload": "Почати завантаження",
+    "success": "Успішно завантажено: {title}",
+    "close": "Закрити"
+  },
+  "tray": {
+    "show": "Показати вікно",
+    "hide": "Приховати вікно",
+    "exit": "Вийти"
+  },
+  "customVolume": {
+    "context": "Встановити власну гучність",
+    "setFor": "Установити гучність для {soundName}"
+  },
+  "noAudioBackend": {
+    "title": "Сервер звуку не знайдено",
+    "notDetected": "Не вдалося виявити підтримуваний аудіо-сервер для вашої системи.",
+    "choose": "Будь ласка, виберіть одну з наведених нижче"
+  },
+  "volume": {
+    "local": "Локальна гучність",
+    "remote": "Віддалена гучність",
+    "sync": "Синхронізація гучності"
+  },
+  "appPassThrough": {
+    "title": "Перенаправлення додатків",
+    "noAppsFound": "Не знайдено програм",
+    "noOutputSelected": "Потрібно вибрати вихідну програму"
+  },
+  "sort": {
+    "title": "Сортувати",
+    "modifiedAscending": "За зростанням",
+    "modifiedDescending": "За спаданням",
+    "alphabeticalAscending": "За алфавітним зростанням",
+    "alphabeticalDescending": "За алфавітним спаданням"
   }
 }
