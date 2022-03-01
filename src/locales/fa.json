@@ -1,1 +1,221 @@
-{}
+{
+  "errors": {
+    "4": "اشکال در ادامه دادن",
+    "15": "youtube-dl پیدا نشد",
+    "10": "اشکال در شروع عبور صدا",
+    "0": "اشکال در پخش",
+    "1": "اشکال در جستجو",
+    "2": "اشکال در مکث کردن",
+    "3": "اشکال در تکرار",
+    "6": "صدا پیدا نشد",
+    "7": "پوشه وجود ندارد",
+    "8": "زبانه وجود ندارد",
+    "9": "اشکال در تنظیم کلید فوری",
+    "11": "حرکت به عقب ناموفق بود",
+    "5": "انتقال به سینک ناموفق بود",
+    "13": "بازگرداندن به منبع پیش فرض ناموفق بود",
+    "14": "تنظیم منبع پیش فرض ناموفق بود",
+    "16": "لینک نامعتبر",
+    "17": "تجزیه JSON youtube-dl ناموفق بود",
+    "12": "اشکال در برگشت عبور صدا",
+    "18": "اشکال نامشخص youtube-dl",
+    "19": "حذف فایل ناموفق بود",
+    "20": "بی صدا کردن میکروفن ناموفق بود",
+    "21": "تنظیم سفارشی صدا ناموفق بود",
+    "error": "خطا",
+    "backendFunctionMissing": "تابع پشتیبان پیدا نشد: {functionName}"
+  },
+  "welcome": {
+    "linuxDetected": "ما تشخیص دادیم که شما از لینوکس استفاده می کنید.",
+    "linuxGuide1": "برای پخش کردن صدا کافیه یک برنامه خروجی از بالا سمت راست انتخاب کنی.",
+    "windowsDetected": "ما تشخیص دادیم که شما از ویندوز استفاده می کنید.",
+    "windowsGuide1": "مطمئن شوید که راهنمای قدم به قدم نصب را دنبال می کنید {seenOnWebsite}",
+    "noTabs": "در حال حاضر هیچ زبانه ای وجود ندارد. با کلیک کردن بر روی {addTab} یدونه اضافه کن",
+    "title": "به {programName} خوش آمدید",
+    "linuxGuide2": "شما نیازی به تغییر دستگاه ورودی و خروجی خود ندارید.",
+    "windowsGuide2": "همانطور که در وب سایت ما دیده می شود"
+  },
+  "outputApp": "برنامه خروجی",
+  "outputDevice": "دستگاه خروجی",
+  "actions": {
+    "stop": "توقف",
+    "search": "جستجو",
+    "addTab": "افزودن زبانه",
+    "reloadSounds": "بارگیری مجدد",
+    "play": "پخش کردن",
+    "playlistMode": "حالت لیست پخش",
+    "yes": "آره",
+    "no": "نه",
+    "off": "خاموش",
+    "on": "روشن",
+    "shuffle": "مخلوط کردن",
+    "confirmation": "تائیدیه",
+    "openFolder": "بازکردن پوشه",
+    "ignore": "چشم پوشی",
+    "dismiss": "رد کردن",
+    "appPassThrough": "عبور دهید",
+    "refresh": "تازه کردن"
+  },
+  "removeTab": {
+    "question": "آیا می خواهید زبانه {tabName} را حذف کنید؟"
+  },
+  "deleteSound": {
+    "delete": "حذف",
+    "question": "آیا می خواهید صدا {soundName} را حذف کنید؟"
+  },
+  "empty": {
+    "nothingToShow": "چیزی برای نمایش وجود ندارد",
+    "noFavorites": "شما هیچ صدای مورد علاقه ای ندارید. صدا ها به مورد علاقه ها اضافه کنید تا در اینجا نمایش داده شوند",
+    "noSounds": "هیچ صدای سازگار در {path} پیدا نشد. فایل های پشتیبانی شده mp3, wav, flac"
+  },
+  "favorites": {
+    "title": "مورد علاقه ها",
+    "favorite": "موردعلاقه"
+  },
+  "settings": {
+    "title": "تنظیمات",
+    "tabHotkeysOnly": "کلیدهای فوری فقط برای زبانه فعلی",
+    "viewMode": {
+      "title": "حالت نمایش",
+      "gridView": "نمای شبکه ای",
+      "launchpadMode": "لانچ پد شبیه سازی شده",
+      "listView": "نمای فهرستی"
+    },
+    "allowOverlapping": "اجازه تداخل صدا",
+    "deleteToTrash": "حذف کردن به سطل زباله",
+    "useAsDefaultDevice": "استفاده به عنوان دستگاه پیش فرض",
+    "muteDuringPlayback": "بی صدا کردن میکروفن هنگام پخش",
+    "theme": {
+      "title": "تم",
+      "system": "سیستم",
+      "dark": "تاریک",
+      "light": "روشن"
+    },
+    "allowMultipleOutputs": "اجازه انتخاب چندین برنامه خروجی",
+    "audioBackend": "پشتیبان صوتی",
+    "pushToTalkKeys": "کلید های فشار به صحبت",
+    "language": "زبان مهمتر",
+    "remoteVolumeKnob": "دکمه تنظیم صدا از راه دور",
+    "stopHotkey": "کلید فوری توقف",
+    "minimizeToTray": "کوچک کردن به سینی سیستم",
+    "localVolumeKnob": "دکمه تنظیم صدا محلی"
+  },
+  "tray": {
+    "show": "نمایش پنجره",
+    "hide": "مخفی کردن پنجره",
+    "exit": "خروج"
+  },
+  "noAudioBackend": {
+    "choose": "لطفا یکی از زیر را انتخاب کنید",
+    "title": "هیچ پشتیبان صوتی پیدا نشد",
+    "notDetected": "ما نتوانستیم پشتیبان صوتی پشتیبانی شده برای سیستم شما را شناسایی کنیم."
+  },
+  "hotkeys": {
+    "title": "تنظیم کلید فوری",
+    "hotkey": "کلید فوری",
+    "setFor": "تنظیم کلید فوری برای {soundName}"
+  },
+  "input": {
+    "ctrl": "CTRL",
+    "leftClick": "کلیک چپ",
+    "rightClick": "کلیک راست",
+    "space": "Space",
+    "arrowKeys": "کلیدهای جهت دار",
+    "shift": "Shift",
+    "enter": "Enter"
+  },
+  "customVolume": {
+    "context": "تنظیم صدا سفارشی",
+    "setFor": "تنظیم صدا برای {soundName}"
+  },
+  "help": {
+    "title": "راهنما",
+    "search": {
+      "search": "جست و جو",
+      "text": "برای {search} کردن {ctrl} + {f} را فشار دهید"
+    },
+    "play": {
+      "play": "پخش",
+      "text": "{leftClick} برای {play} کردن"
+    },
+    "options": {
+      "text": "{rightClick} برای {moreOptions}",
+      "moreOptions": "نمایش گزینه های بیشتر"
+    },
+    "appPassThrough": {
+      "text": "برای {show} کردن {ctrl} + {g} را فشار دهید",
+      "show": "نمایش عبور صدا برنامه"
+    },
+    "reloadSounds": {
+      "reload": "بارگذاری مجدد زبانه فعلی",
+      "text": "برای {reload} کردن {ctrl} + {r} را فشار دهید"
+    },
+    "supportUs": "از ما حمایت کنید",
+    "joinOurDiscord": "عضو سرور دیسکورد ما شوید",
+    "viewSourceCode": "مشاهده سورس کد",
+    "togglePlayback": {
+      "text": "{space} را برای {playPause} فشار دهید",
+      "playPause": "مکث/ازسرگیری صداهای در حال پخش"
+    },
+    "visitOurWebsite": "مشاهده وبسایت ما"
+  },
+  "volume": {
+    "remote": "تنظیم صدا از راه دور",
+    "local": "تنظیم صدا محلی",
+    "sync": "همگام سازی صدا ها"
+  },
+  "appPassThrough": {
+    "noOutputSelected": "شما باید یک برنامه خروجی انتخاب کنید",
+    "title": "عبور صدای برنامه",
+    "noAppsFound": "هیچ برنامه ای پیدا نشد"
+  },
+  "search": {
+    "noResultsFound": "هیچ نتیجه ای پیدا نشد",
+    "jumpToSelected": "{enter} برای پرش به صدای انتخاب شده فعلی",
+    "typeToSearch": "برای جستجو بنویسید",
+    "changeSelection": "{arrowKeys} برای تغییر انتخاب",
+    "playSelected": "{shift} + {enter} برای پخش صدای انتخاب شده فعلی"
+  },
+  "sort": {
+    "title": "طبقه بندی",
+    "modifiedAscending": "اصلاح شده صعودی",
+    "modifiedDescending": "اصلاح شده نزولی",
+    "alphabeticalAscending": "حروف الفبا صعودی",
+    "alphabeticalDescending": "حروف الفبا نزولی"
+  },
+  "downloader": {
+    "title": "دانلود کننده",
+    "notAvailable": "{youtube-dl} و/یا {ffmpeg} نصب نشده اند",
+    "installNow": "اکنون نصب کن",
+    "placeholder": "یک لینک وارد کنید",
+    "progress": "پیشرفت",
+    "eta": "زمان تقریبی اتمام",
+    "cancelDownload": "لغو دانلود",
+    "startDownload": "شروع دانلود",
+    "success": "{title} با موفقیت دانلود شد",
+    "close": "بستن",
+    "converting": "در حال تبدیل"
+  },
+  "update": {
+    "yourVersion": "نسخه شما",
+    "latestVersion": "آخرین نسخه",
+    "updateNow": "اکنون بروز رسانی کنید",
+    "ignore": "چشم پوشی",
+    "title": "به روز رسانی در دسترس است!"
+  },
+  "systemInfo": {
+    "title": "مشخصات سیستم",
+    "copyToClipboard": "کپی به کلیپبورد",
+    "description": "هنگام ایجاد گزارش اشکال، این اطلاعات را پیوست کنید"
+  },
+  "windows": {
+    "detectedMisconfiguration": "یک پیکربندی نادرست با VB-Cable شناسایی شد",
+    "setUpNow": "اکنون تنظیم کنید",
+    "badConfiguration": "پیکربندی بد شناسایی شد",
+    "selectMic": "لطفا میکروفن خود را انتخاب کرده و ادامه دهید",
+    "automaticSetup": "تنظیم خودکار",
+    "administrativePrivilegesNeeded": "دسترسی ادمین مورد نیاز است!",
+    "restartAsAdmin": "شروع مجدد به عنوان ادمین",
+    "virtualAudioCableMisconfiguration": "ما تشخیص دادیم که کابل صوتی مجازی شما به درستی تنظیم نشده است."
+  }
+}
