@@ -1,1 +1,58 @@
-{}
+{
+  "settings": {
+    "deleteToTrash": "حذف إلى المهملات",
+    "theme": {
+      "system": "النضام",
+      "light": "فاتح",
+      "title": "السمة",
+      "dark": "داكن"
+    },
+    "tabHotkeysOnly": "مفاتيح الأختصار فقط للعلامة الحالية",
+    "viewMode": {
+      "listView": "عرض القائمة",
+      "gridView": "عرض شبكي",
+      "title": "وضع المشاهدة"
+    },
+    "title": "الاعدادات",
+    "allowOverlapping": "السماح بتداخل الصوت"
+  },
+  "welcome": {
+    "linuxDetected": "اكتشفنا أنك تستخدم لينكس.",
+    "linuxGuide2": "لست بحاجة إلى تغير جهاز الأدخال او الإخراج في أي مكان.",
+    "windowsDetected": "اكتشفنا أنك تستخدم ويندوز.",
+    "windowsGuide2": "كما يضهر على موقعنا",
+    "linuxGuide1": "لتشغيل الأصوات تحتاج إلى أختيار برنامج الأخراج في الجزء العلوي الأيمن."
+  },
+  "outputDevice": "جهاز الإخراج",
+  "actions": {
+    "refresh": "تحديث",
+    "stop": "إيقاف",
+    "search": "بحث",
+    "reloadSounds": "إعادة تحميل",
+    "play": "تشغيل",
+    "appPassThrough": "تمرير من خلال",
+    "playlistMode": "وضع قائمة التشغيل",
+    "yes": "نعم",
+    "no": "لا",
+    "off": "إيقاف",
+    "on": "تشغيل",
+    "shuffle": "خلط",
+    "confirmation": "تأكيد",
+    "dismiss": "رفض",
+    "addTab": "إضافة علامة",
+    "openFolder": "أفتح المجلد",
+    "ignore": "تجاهل"
+  },
+  "deleteSound": {
+    "delete": "حذف"
+  },
+  "empty": {
+    "nothingToShow": "لايوجد شيء لإضهاره",
+    "noFavorites": "ليس لديك حاليا أي مفضلات. أضف بعض الأصوات لعرضها هنا"
+  },
+  "favorites": {
+    "title": "مفضلات",
+    "favorite": "فضل"
+  },
+  "outputApp": "برنامج الأخراج"
+}
