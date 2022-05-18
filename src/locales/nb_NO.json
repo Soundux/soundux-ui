@@ -161,7 +161,7 @@
     "administrativePrivilegesNeeded": "Administratortilgang kreves!",
     "automaticSetup": "Automatisk oppsett",
     "selectMic": "Velg mikrofonen din og fortsett",
-    "virtualAudioCableMisconfiguration": "Din virtuelle lydkabel er ikke satt opp riktig.",
+    "virtualAudioCableMisconfiguration": "Vi har oppdaget at din Virtuelle Lydkabel ikke er riktig satt opp.",
     "detectedMisconfiguration": "Oppdaget feiloppsett med VB-kabel"
   },
   "systemInfo": {
@@ -170,7 +170,7 @@
     "description": "Legg ved følgende info når du lager en feilrapport"
   },
   "update": {
-    "updateNow": "Oppgrader nå",
+    "updateNow": "Oppdater nå",
     "ignore": "Ignorer",
     "latestVersion": "Siste versjon",
     "yourVersion": "Din versjon",
@@ -183,8 +183,8 @@
     "progress": "Framdrift",
     "placeholder": "Skriv inn en lenke",
     "installNow": "Installer nå …",
-    "success": "Lastet ned : {title}",
-    "eta": "Forventet",
+    "success": "Vellykket nedlasting: {title}",
+    "eta": "Forventet ferdig",
     "converting": "Konvertering",
     "notAvailable": "{youtube-dl} og/eller {ffmpeg} er ikke installert",
     "title": "Nedlaster"
