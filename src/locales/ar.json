@@ -7,21 +7,28 @@
       "title": "السمة",
       "dark": "داكن"
     },
-    "tabHotkeysOnly": "مفاتيح الأختصار فقط للعلامة الحالية",
+    "tabHotkeysOnly": "مفاتيح الأختصار للعلامة الحالية فقط",
     "viewMode": {
-      "listView": "عرض القائمة",
+      "listView": "عرض منتضم",
       "gridView": "عرض شبكي",
-      "title": "وضع المشاهدة"
+      "title": "وضع المشاهدة",
+      "launchpadMode": "المنصة التي تتم محاكاتها"
     },
     "title": "الاعدادات",
-    "allowOverlapping": "السماح بتداخل الصوت"
+    "allowOverlapping": "السماح بتداخل الصوت",
+    "minimizeToTray": "تصغير إلى مهام النضام",
+    "useAsDefaultDevice": "استخدم كجهاز افتراضي",
+    "muteDuringPlayback": "كتم الميكروفون اثناء التشغيل"
   },
   "welcome": {
     "linuxDetected": "اكتشفنا أنك تستخدم لينكس.",
     "linuxGuide2": "لست بحاجة إلى تغير جهاز الأدخال او الإخراج في أي مكان.",
     "windowsDetected": "اكتشفنا أنك تستخدم ويندوز.",
-    "windowsGuide2": "كما يضهر على موقعنا",
-    "linuxGuide1": "لتشغيل الأصوات تحتاج إلى أختيار برنامج الأخراج في الجزء العلوي الأيمن."
+    "windowsGuide2": "الموجودة على موقعنا",
+    "linuxGuide1": "لتشغيل الأصوات تحتاج إلى أختيار برنامج الأخراج في الجزء العلوي الأيمن.",
+    "title": "أهلا بك في {programName}",
+    "noTabs": "حاليا لايوجد اي صفحات اضف واحدة بالضغط على {addTab} في الجزء الأيمن",
+    "windowsGuide1": "تأكد من أتباع تعليمات التثبيت {seenOnWebsite}"
   },
   "outputDevice": "جهاز الإخراج",
   "actions": {
@@ -40,19 +47,24 @@
     "confirmation": "تأكيد",
     "dismiss": "رفض",
     "addTab": "إضافة علامة",
-    "openFolder": "أفتح المجلد",
+    "openFolder": "إفتح المجلد",
     "ignore": "تجاهل"
   },
   "deleteSound": {
-    "delete": "حذف"
+    "delete": "حذف",
+    "question": "هل ترغب بحذف الصوت {soundName}؟"
   },
   "empty": {
     "nothingToShow": "لايوجد شيء لإضهاره",
-    "noFavorites": "ليس لديك حاليا أي مفضلات. أضف بعض الأصوات لعرضها هنا"
+    "noFavorites": "ليس لديك حاليا أي مفضلات. فضل بعض الأصوات لعرضها هنا",
+    "noSounds": "لم يتم العثور على أصوات متوافقة في المجلد {path}. الصيغ المدعومة mp3,wav,flac"
   },
   "favorites": {
     "title": "مفضلات",
     "favorite": "فضل"
   },
-  "outputApp": "برنامج الأخراج"
+  "outputApp": "برنامج الأخراج",
+  "removeTab": {
+    "question": "هل ترغب بحذف العلامة {tabName}؟"
+  }
 }
