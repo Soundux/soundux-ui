@@ -18,7 +18,14 @@
     "allowOverlapping": "السماح بتداخل الصوت",
     "minimizeToTray": "تصغير إلى مهام النضام",
     "useAsDefaultDevice": "استخدم كجهاز افتراضي",
-    "muteDuringPlayback": "كتم الميكروفون اثناء التشغيل"
+    "muteDuringPlayback": "كتم الميكروفون اثناء التشغيل",
+    "language": "تجاوز اللغة",
+    "audioBackend": "الخلفية الصوتية",
+    "allowMultipleOutputs": "السماح بتطبيقات إخراج متعددة",
+    "stopHotkey": "إيقاف مفتاح الاختصار",
+    "pushToTalkKeys": "مفاتيح الضغط للتحدث",
+    "localVolumeKnob": "مقبض الصوت المحلي",
+    "remoteVolumeKnob": "مقبض مستوى الصوت عن بعد"
   },
   "welcome": {
     "linuxDetected": "اكتشفنا أنك تستخدم لينكس.",
@@ -66,5 +73,148 @@
   "outputApp": "برنامج الأخراج",
   "removeTab": {
     "question": "هل ترغب بحذف العلامة {tabName}؟"
+  },
+  "noAudioBackend": {
+    "notDetected": "لم نتمكن من اكتشاف خلفية صوتية مدعومة لنظامك.",
+    "choose": "الرجاء اختيار واحد أدناه",
+    "title": "لم يتم العثور على الخلفية الصوتية"
+  },
+  "hotkeys": {
+    "title": "تعيين مفتاح الاختصار",
+    "hotkey": "مفتاح التشغيل السريع",
+    "setFor": "تعيين مفتاح الاختصار ل {soundName}"
+  },
+  "help": {
+    "supportUs": "ادعمنا",
+    "joinOurDiscord": "انضم إلى Discord الخاص بنا",
+    "visitOurWebsite": "زيارة موقعنا على الانترنت",
+    "title": "مساعدة",
+    "search": {
+      "text": "اضغط على {ctrl} + {f} إلى {search}",
+      "search": "بحث"
+    },
+    "play": {
+      "text": "{leftClick} من أجل {play}",
+      "play": "لعب"
+    },
+    "options": {
+      "text": "{rightClick} إلى {moreOptions}",
+      "moreOptions": "عرض المزيد من الخيارات"
+    },
+    "togglePlayback": {
+      "text": "اضغط على {space} إلى {playPause}",
+      "playPause": "إيقاف / استئناف الأصوات التي يتم تشغيلها حاليا"
+    },
+    "appPassThrough": {
+      "text": "اضغط على {ctrl} + {g} إلى {show}",
+      "show": "إظهار تمرير التطبيق من خلال"
+    },
+    "reloadSounds": {
+      "text": "اضغط على {ctrl} + {r} إلى {reload}",
+      "reload": "إعادة تحميل علامة التبويب الحالية"
+    },
+    "viewSourceCode": "عرض شفرة المصدر"
+  },
+  "update": {
+    "updateNow": "التحديث الآن",
+    "ignore": "تجاهل",
+    "latestVersion": "أحدث إصدار",
+    "title": "تحديث متاح!",
+    "yourVersion": "نسختك"
+  },
+  "errors": {
+    "3": "فشل في التكرار",
+    "6": "لم يتم العثور على الصوت",
+    "9": "فشل في تعيين مفتاح الاختصار",
+    "21": "فشل في تعيين وحدة صوت مخصصة",
+    "11": "فشل في العودة",
+    "2": "فشل في الإيقاف المؤقت",
+    "4": "فشل في الاستئناف",
+    "5": "فشل في الانتقال إلى الحوض",
+    "7": "المجلد غير موجود",
+    "8": "علامة التبويب غير موجودة",
+    "10": "فشل في البدء من خلال",
+    "0": "فشل في اللعب",
+    "1": "فشل في السعي",
+    "12": "فشل في العودة إلى المرور",
+    "13": "فشل في إرجاع المصدر الافتراضي",
+    "14": "فشل تعيين المصدر الافتراضي",
+    "15": "youtube-dl غير موجود",
+    "16": "عنوان URL غير صالح",
+    "17": "فشل تحليل youtube-dl JSON",
+    "18": "فشل غير معروف youtube-dl",
+    "19": "فشل حذف الملف",
+    "20": "فشل في كتم الصوت",
+    "error": "خطأ"
+  },
+  "appPassThrough": {
+    "title": "تمرير التطبيق من خلال",
+    "noAppsFound": "لم يتم العثور على تطبيقات",
+    "noOutputSelected": "يجب أن تكون قد حددت تطبيق إخراج"
+  },
+  "search": {
+    "jumpToSelected": "{enter} للانتقال إلى الصوت المحدد حاليا",
+    "playSelected": "{shift} + {enter} لتشغيل الصوت المحدد حاليا",
+    "typeToSearch": "نوع البحث",
+    "noResultsFound": "لم يتم العثور على نتائج",
+    "changeSelection": "{arrowKeys} لتغيير التحديد"
+  },
+  "sort": {
+    "modifiedAscending": "تعديل تصاعدي",
+    "alphabeticalDescending": "الترتيب الأبجدي تنازليا",
+    "title": "صنف",
+    "modifiedDescending": "تعديل تنازلي",
+    "alphabeticalAscending": "تصاعدي أبجدي"
+  },
+  "downloader": {
+    "installNow": "تثبيت الآن",
+    "cancelDownload": "إلغاء التنزيل",
+    "notAvailable": "لم يتم تثبيت {youtube-dl} و / أو {ffmpeg}",
+    "title": "تنزيل",
+    "placeholder": "أدخل رابطا",
+    "progress": "التقدم",
+    "converting": "التحويل",
+    "eta": "ETA",
+    "startDownload": "بدء التنزيل",
+    "success": "تم التنزيل بنجاح: {title}",
+    "close": "غلق"
+  },
+  "systemInfo": {
+    "title": "معلومات النظام",
+    "description": "إرفاق هذه المعلومات عند إنشاء تقرير عن الأخطاء",
+    "copyToClipboard": "نسخ إلى الحافظة"
+  },
+  "windows": {
+    "virtualAudioCableMisconfiguration": "لقد اكتشفنا أن كابل الصوت الظاهري الخاص بك لم يتم إعداده بشكل صحيح.",
+    "badConfiguration": "تم الكشف عن تكوين غير صالح",
+    "selectMic": "يرجى تحديد الميكروفون الخاص بك والمتابعة",
+    "detectedMisconfiguration": "تم اكتشاف خطأ في التكوين باستخدام VB-Cable",
+    "setUpNow": "الإعداد الآن",
+    "automaticSetup": "الإعداد التلقائي",
+    "administrativePrivilegesNeeded": "الامتيازات الإدارية اللازمة!",
+    "restartAsAdmin": "إعادة التشغيل كمسؤول"
+  },
+  "input": {
+    "ctrl": "CTRL",
+    "shift": "Shift",
+    "enter": "دخول",
+    "leftClick": "الزر الأيسر",
+    "rightClick": "انقر على اليمين",
+    "arrowKeys": "مفاتيح الأسهم",
+    "space": "الفضاء"
+  },
+  "tray": {
+    "show": "نافذة العرض",
+    "hide": "إخفاء النافذة",
+    "exit": "إخرج"
+  },
+  "customVolume": {
+    "context": "تعيين حجم مخصص",
+    "setFor": "تعيين مستوى الصوت ل {soundName}"
+  },
+  "volume": {
+    "local": "الحجم المحلي",
+    "remote": "مستوى الصوت عن بعد",
+    "sync": "مزامنة وحدات التخزين"
   }
 }
