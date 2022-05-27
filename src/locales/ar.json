@@ -24,7 +24,6 @@
     "allowMultipleOutputs": "السماح بتطبيقات إخراج متعددة",
     "stopHotkey": "إيقاف مفتاح الاختصار",
     "pushToTalkKeys": "مفاتيح الضغط للتحدث",
-    "localVolumeKnob": "مقبض الصوت المحلي",
     "remoteVolumeKnob": "مقبض مستوى الصوت عن بعد"
   },
   "welcome": {
