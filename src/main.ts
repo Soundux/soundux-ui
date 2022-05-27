@@ -11,7 +11,6 @@ import dayjs from 'dayjs';
 import $store from '@/store';
 import duration from 'dayjs/plugin/duration';
 import {
-  Key,
   Output,
   PlayingSound,
   RecordingDevice,
@@ -28,7 +27,7 @@ declare global {
   interface Window {
     // frontend callback functions
     downloadProgressed: ((progress: number, eta: string) => void) | undefined;
-    hotkeyReceived: ((hotkey: string, hotkeyData: Key[]) => void) | undefined;
+    hotkeyReceived: ((hotkey: string, hotkeyData: number[]) => void) | undefined;
     finishSound: ((playingSound: PlayingSound) => void) | undefined;
     onSoundPlayed: ((playingSound: PlayingSound) => void) | undefined;
     updateSound: ((playingSound: PlayingSound) => void) | undefined;
@@ -53,7 +52,7 @@ declare global {
     getSettings: () => Promise<Settings>;
     getOutputs: () => Promise<Output[]>;
     changeSettings: (settings: Settings) => Promise<Settings>;
-    setHotkey: (id: number, hotkeys: Key[]) => Promise<void>;
+    setHotkey: (id: number, hotkeys: number[]) => Promise<void>;
     stopSounds: () => Promise<void>;
     playSound: (id: number) => Promise<PlayingSound | null>;
     pauseSound: (id: number) => Promise<PlayingSound | null>;
@@ -69,10 +68,8 @@ declare global {
     removeTab: (deleteIndex: number) => Promise<Tab[] | null>;
     addTab: () => Promise<Tab[] | null>;
     getPlayback: () => Promise<Output[] | null>;
-    getHotkeySequence: (hotkeys: Key[]) => Promise<string | null>;
-    getKeyName: (key: Key) => Promise<string | null>;
+    getHotkeySequence: (hotkeys: number[]) => Promise<string | null>;
     requestHotkey: (state: boolean) => Promise<void>;
-    requestKnob: (state: boolean) => Promise<void>;
     getSystemInfo: () => Promise<string | null>;
     getTabs: () => Promise<Tab[] | null>;
     getFavorites: () => Promise<number[] | null>;

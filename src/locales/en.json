@@ -70,8 +70,6 @@
     "allowMultipleOutputs": "Allow multiple output apps",
     "stopHotkey": "Stop hotkey",
     "pushToTalkKeys": "Push-to-talk keys",
-    "localVolumeKnob": "Local volume knob",
-    "remoteVolumeKnob": "Remote volume knob",
     "language": "Language override"
   },
   "tray": {

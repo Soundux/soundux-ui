@@ -65,10 +65,8 @@
     "audioBackend": "Backend audio",
     "allowMultipleOutputs": "Zezwól na wybranie wielu aplikacji wyjścia",
     "stopHotkey": "Skrót klawiszowy: Stop",
-    "remoteVolumeKnob": "Pokrętło głośności wyjściowej",
     "language": "Wymuś język",
-    "pushToTalkKeys": "Skrót klawiszowy: Push-To-Talk",
-    "localVolumeKnob": "Pokrętło głośności lokalnej"
+    "pushToTalkKeys": "Skrót klawiszowy: Push-To-Talk"
   },
   "customVolume": {
     "context": "Ustaw niestandardową głośność",

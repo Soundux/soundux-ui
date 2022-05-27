@@ -70,8 +70,6 @@
     "stopHotkey": "Durdurma kısayol tuşu",
     "pushToTalkKeys": "Bas-konuş tuşları",
     "allowMultipleOutputs": "Birden çok çıkış uygulamasına izin ver",
-    "remoteVolumeKnob": "Uzaktan ses düğmesi",
-    "localVolumeKnob": "Yerel ses düğmesi",
     "language": "Dili geçersiz kılma"
   },
   "tray": {

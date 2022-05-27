@@ -95,10 +95,8 @@
     "audioBackend": "پشتیبان صوتی",
     "pushToTalkKeys": "کلید های فشار به صحبت",
     "language": "زبان مهمتر",
-    "remoteVolumeKnob": "دکمه تنظیم صدا از راه دور",
     "stopHotkey": "کلید فوری توقف",
-    "minimizeToTray": "کوچک کردن به سینی سیستم",
-    "localVolumeKnob": "دکمه تنظیم صدا محلی"
+    "minimizeToTray": "کوچک کردن به سینی سیستم"
   },
   "tray": {
     "show": "نمایش پنجره",

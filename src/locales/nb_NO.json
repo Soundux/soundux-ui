@@ -90,8 +90,6 @@
       "title": "Visningsmodus",
       "launchpadMode": "Emulert Launchpad"
     },
-    "remoteVolumeKnob": "Lydstyrkejusteringshjul annensteds hen",
-    "localVolumeKnob": "Lokalt lydstyrkejusteringshjul",
     "pushToTalkKeys": "Trykk-for-å-snakke -taster",
     "language": "Språkoverstyring",
     "allowMultipleOutputs": "Tillat flere utgangsprogrammer"

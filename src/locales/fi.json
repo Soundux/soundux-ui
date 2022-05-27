@@ -70,8 +70,6 @@
     "deleteToTrash": "Poista roskakoriin",
     "useAsDefaultDevice": "Käytä oletuslaitteena",
     "pushToTalkKeys": "Puhepikanäppäimet",
-    "localVolumeKnob": "Paikallinen äänenvoimakkuudensäätö",
-    "remoteVolumeKnob": "Ulostulon äänenvoimakkuudensäätö",
     "language": "Kielen ohitus"
   },
   "tray": {

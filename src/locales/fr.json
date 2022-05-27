@@ -148,8 +148,6 @@
     },
     "tabHotkeysOnly": "Raccourcis claviers pour l'onglet séléctionné uniquement",
     "title": "Paramètres",
-    "remoteVolumeKnob": "Bouton de volume distant",
-    "localVolumeKnob": "Bouton de volume local",
     "language": "Écraser la langue"
   },
   "tray": {

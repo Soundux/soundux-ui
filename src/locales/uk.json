@@ -103,8 +103,6 @@
     "minimizeToTray": "Згорнути в системний трей",
     "useAsDefaultDevice": "Використовувати як пристрій за замовчуванням",
     "muteDuringPlayback": "Вимкнути мікрофон під час відтворення",
-    "localVolumeKnob": "Ручка локальної гучності",
-    "remoteVolumeKnob": "Ручка віддаленої гучності",
     "language": "Перевизначення мови"
   },
   "removeTab": {

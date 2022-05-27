@@ -68,8 +68,6 @@
     "audioBackend": "Backend de audio",
     "allowMultipleOutputs": "Permitir varias aplicaciones de salida",
     "pushToTalkKeys": "Teclas \"pulsar-para-hablar\"",
-    "localVolumeKnob": "Rueda del volumen local",
-    "remoteVolumeKnob": "Rueda del volumen remoto",
     "language": "Anulación de idioma",
     "stopHotkey": "Detener atajo",
     "useAsDefaultDevice": "Usar como dispositivo predeterminado"

@@ -171,32 +171,6 @@
               @focus="focus"
               @blur="blur"
             ></v-text-field>
-            <v-text-field
-              id="localVolumeKnobField"
-              v-model="localVolumeKnob"
-              :label="$t('settings.localVolumeKnob')"
-              prepend-icon="mdi-alpha-k-circle-outline"
-              readonly
-              append-icon="mdi-close"
-              hide-details
-              class="ma-0"
-              @click:append="clearLocalVolumeKnob"
-              @focus="focusKnob"
-              @blur="blurKnob"
-            ></v-text-field>
-            <v-text-field
-              id="remoteVolumeKnobField"
-              v-model="remoteVolumeKnob"
-              :label="$t('settings.remoteVolumeKnob')"
-              prepend-icon="mdi-alpha-k-circle-outline"
-              readonly
-              append-icon="mdi-close"
-              hide-details
-              class="ma-0"
-              @click:append="clearRemoteVolumeKnob"
-              @focus="focusKnob"
-              @blur="blurKnob"
-            ></v-text-field>
             <v-select
               v-model="language"
               :items="languages"
@@ -226,7 +200,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { AudioBackend, Key, Theme, ViewMode } from '@/types';
+import { AudioBackend, Theme, ViewMode } from '@/types';
 import VueI18n from 'vue-i18n';
 import { getNativeName } from '@/utils';
 
@@ -249,8 +223,6 @@ export default Vue.extend({
       settingsModal: false,
       stopHotkey: '',
       pushToTalkKeys: '',
-      localVolumeKnob: '',
-      remoteVolumeKnob: '',
     };
   },
   computed: {
@@ -391,11 +363,9 @@ export default Vue.extend({
     // close: the use of this is overloaded with SetHotkeyModal which is why we unregister it
     settingsModal(state: boolean) {
       if (state) {
-        window.hotkeyReceived = (hotkey: string, hotkeyData: Key[]) => {
+        window.hotkeyReceived = (hotkey: string, hotkeyData: number[]) => {
           const stopHotkeyField = document.getElementById('stopHotkeyField') as HTMLElement;
           const pushToTalkKeysField = document.getElementById('pushToTalkKeysField') as HTMLElement;
-          const localVolumeKnobField = document.getElementById('localVolumeKnobField') as HTMLElement;
-          const remoteVolumeKnobField = document.getElementById('remoteVolumeKnobField') as HTMLElement;
 
           const { activeElement } = document;
           if (activeElement === stopHotkeyField) {
@@ -404,14 +374,6 @@ export default Vue.extend({
           } else if (activeElement === pushToTalkKeysField) {
             this.pushToTalkKeys = hotkey;
             this.$store.commit('setPushToTalkKeys', hotkeyData);
-          } else if (activeElement === localVolumeKnobField) {
-            this.localVolumeKnob = hotkey;
-            this.$store.commit('setLocalVolumeKnob', hotkeyData[0]);
-            localVolumeKnobField.blur();
-          } else if (activeElement === remoteVolumeKnobField) {
-            this.remoteVolumeKnob = hotkey;
-            this.$store.commit('setRemoteVolumeKnob', hotkeyData[0]);
-            remoteVolumeKnobField.blur();
           }
           this.$store.dispatch('saveSettings');
         };
@@ -427,10 +389,6 @@ export default Vue.extend({
       this.stopHotkey = (await window.getHotkeySequence(this.$store.getters.settings.stopHotkey)) || '';
       this.pushToTalkKeys =
         (await window.getHotkeySequence(this.$store.getters.settings.pushToTalkKeys)) || '';
-      this.localVolumeKnob =
-        (await window.getKeyName(this.$store.getters.settings.localVolumeKnob)) || '';
-      this.remoteVolumeKnob =
-        (await window.getKeyName(this.$store.getters.settings.remoteVolumeKnob)) || '';
     },
     clearStopHotkey() {
       this.stopHotkey = '';
@@ -442,27 +400,11 @@ export default Vue.extend({
       this.$store.commit('setPushToTalkKeys', []);
       this.$store.dispatch('saveSettings');
     },
-    clearLocalVolumeKnob() {
-      this.localVolumeKnob = '';
-      this.$store.commit('setLocalVolumeKnob', null);
-      this.$store.dispatch('saveSettings');
-    },
-    clearRemoteVolumeKnob() {
-      this.remoteVolumeKnob = '';
-      this.$store.commit('setRemoteVolumeKnob', null);
-      this.$store.dispatch('saveSettings');
-    },
     async focus(): Promise<void> {
       await window.requestHotkey(true);
     },
     async blur(): Promise<void> {
       await window.requestHotkey(false);
-    },
-    async focusKnob(): Promise<void> {
-      await window.requestKnob(true);
-    },
-    async blurKnob(): Promise<void> {
-      await window.requestKnob(false);
     },
   },
 });

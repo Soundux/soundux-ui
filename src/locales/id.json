@@ -62,7 +62,6 @@
     },
     "title": "Pengaturan",
     "deleteToTrash": "Hapus ke tempat sampah",
-    "localVolumeKnob": "Tombol volume lokal",
     "pushToTalkKeys": "Tombol push-to-talk",
     "stopHotkey": "Hentikan tombol pintas",
     "allowMultipleOutputs": "Izinkan beberapa aplikasi keluaran",
@@ -70,8 +69,7 @@
     "minimizeToTray": "Minimalkan ke baki sistem",
     "allowOverlapping": "Izinkan suara tumpang tindih",
     "tabHotkeysOnly": "Tombol pintas hanya untuk tab saat ini",
-    "language": "Ganti bahasa",
-    "remoteVolumeKnob": "Tombol volume jarak jauh"
+    "language": "Ganti bahasa"
   },
   "favorites": {
     "favorite": "Favorit",
