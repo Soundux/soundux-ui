@@ -23,8 +23,7 @@
     "audioBackend": "الخلفية الصوتية",
     "allowMultipleOutputs": "السماح بتطبيقات إخراج متعددة",
     "stopHotkey": "إيقاف مفتاح الاختصار",
-    "pushToTalkKeys": "مفاتيح الضغط للتحدث",
-    "remoteVolumeKnob": "مقبض مستوى الصوت عن بعد"
+    "pushToTalkKeys": "مفاتيح الضغط للتحدث"
   },
   "welcome": {
     "linuxDetected": "اكتشفنا أنك تستخدم لينكس.",
