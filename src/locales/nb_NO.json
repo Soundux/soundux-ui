@@ -180,19 +180,19 @@
     "cancelDownload": "Avbryt nedlasting",
     "progress": "Framdrift",
     "placeholder": "Skriv inn en lenke",
-    "installNow": "Installer nå …",
+    "installNow": "Installer nå",
     "success": "Vellykket nedlasting: {title}",
     "eta": "Forventet ferdig",
-    "converting": "Konvertering",
+    "converting": "Konverterer",
     "notAvailable": "{youtube-dl} og/eller {ffmpeg} er ikke installert",
     "title": "Nedlaster"
   },
   "sort": {
     "title": "Sorter",
-    "alphabeticalDescending": "Alfabetisk Å-A",
+    "alphabeticalDescending": "Alfabetisk (Å-A)",
     "alphabeticalAscending": "Alfabetisk rekkefølge",
-    "modifiedDescending": "I synkende rekkefølge",
-    "modifiedAscending": "I stigende rekkefølge"
+    "modifiedDescending": "Synkende rekkefølge",
+    "modifiedAscending": "Stigende rekkefølge"
   },
   "customVolume": {
     "setFor": "Sett lydstyrke for {soundName}",
@@ -209,8 +209,8 @@
   },
   "empty": {
     "nothingToShow": "Ingenting å vise",
-    "noFavorites": "Du har ingen favoritter. Merk noen lyder som favoritter for å vise dem her.",
-    "noSounds": "Fant ingen kompatible lyder i mappen {path}. Filformatene MP3, WAV og FLAC støttes."
+    "noFavorites": "Du har ingen favoritter. Merk noen lyder som favoritter for å vise dem her",
+    "noSounds": "Fant ingen kompatible lyder i mappen {path}. Støttede filformater er MP3, WAV og FLAC"
   },
   "deleteSound": {
     "question": "Slett lyden {soundName}?",
