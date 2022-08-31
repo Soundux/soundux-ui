@@ -1,1 +1,58 @@
-{}
+{
+  "settings": {
+    "theme": {
+      "light": "淺色",
+      "dark": "深色",
+      "system": "系統"
+    },
+    "viewMode": {
+      "title": "查看模式",
+      "listView": "列表顯示"
+    },
+    "title": "設定"
+  },
+  "favorites": {
+    "favorite": "最喜歡",
+    "title": "收藏"
+  },
+  "actions": {
+    "off": "關",
+    "stop": "停止",
+    "search": "搜尋",
+    "addTab": "新增資料夾",
+    "playlistMode": "播放清單",
+    "yes": "對",
+    "no": "錯",
+    "shuffle": "隨機播放",
+    "confirmation": "確認",
+    "openFolder": "打開資料夾",
+    "ignore": "忽略",
+    "reloadSounds": "重新整理",
+    "play": "播放",
+    "on": "開"
+  },
+  "welcome": {
+    "title": "歡迎來到 {programName}",
+    "noTabs": "當前沒有東西。點擊右側 {addTab}",
+    "windowsDetected": "檢測到您使用的是Windows系統。",
+    "linuxDetected": "檢測到您使用的是Linux系統。"
+  },
+  "deleteSound": {
+    "delete": "刪除"
+  },
+  "empty": {
+    "nothingToShow": "沒有可顯示",
+    "noSounds": "在 {path}資料夾未找到兼容的音檔。支援的格式為mp3, wav, flac",
+    "noFavorites": "您目前沒有收藏。喜歡的檔案會在此處顯示"
+  },
+  "removeTab": {
+    "question": "是否刪除 {tabName}?"
+  },
+  "input": {
+    "ctrl": "CTRL",
+    "shift": "Shift"
+  },
+  "tray": {
+    "exit": "離開"
+  }
+}
