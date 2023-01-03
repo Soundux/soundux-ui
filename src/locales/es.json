@@ -121,7 +121,20 @@
     "7": "La carpeta no existe",
     "8": "La pestaña no existe",
     "11": "Fallo al mover hacia atrás",
-    "13": "Fallo al revertir fuente por defecto"
+    "13": "Fallo al revertir fuente por defecto",
+    "10": "No se pudo iniciar la transferencia",
+    "14": "Error al establecer la fuente predeterminada",
+    "backendFunctionMissing": "Falta la función de plataforma: {functionName}",
+    "5": "No se pudo mover a la papelera",
+    "12": "No se pudo aplazar la transferencia",
+    "15": "youtube-dl no encontrado",
+    "16": "URL invalida",
+    "17": "No se pudo procesar youtube-dl JSON",
+    "18": "Error desconocido de youtube-dl",
+    "19": "Error al eliminar el archivo",
+    "20": "Error al silenciar",
+    "21": "Error al establecer un volumen personalizado",
+    "error": "Error"
   },
   "help": {
     "visitOurWebsite": "Visita nuestra página web",
@@ -194,7 +207,9 @@
   "sort": {
     "title": "Ordenar",
     "modifiedAscending": "Orden ascendente modificado",
-    "modifiedDescending": "Orden descendente modificado"
+    "modifiedDescending": "Orden descendente modificado",
+    "alphabeticalAscending": "Orden alfabetico ascendente",
+    "alphabeticalDescending": "Orden alfabetico descendente"
   },
   "systemInfo": {
     "title": "Información del sistema",
