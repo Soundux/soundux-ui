@@ -22,7 +22,7 @@
     "confirmation": "Confirmación",
     "openFolder": "Abrir Carpeta",
     "ignore": "Ignorar",
-    "dismiss": "Omitir",
+    "dismiss": "Descartar",
     "search": "Buscar",
     "play": "Reproducir",
     "no": "No",
@@ -82,7 +82,7 @@
     "setFor": "Establecer volumen para {soundName}"
   },
   "noAudioBackend": {
-    "choose": "Por favor escoge uno debajo",
+    "choose": "Por favor, elija uno a continuación",
     "title": "No se ha encontrado ningún sonido secundario",
     "notDetected": "No logramos detectar un backend de audio compatible en tu sistema."
   },
@@ -143,7 +143,8 @@
       "playPause": "pausa/reanuda los sonidos que se están reproduciendo actualmente"
     },
     "appPassThrough": {
-      "text": "Presiona {ctrl} + {g} para {mostrar}"
+      "text": "Presiona {ctrl} + {g} para {mostrar}",
+      "show": "configuración de transferencia"
     },
     "reloadSounds": {
       "text": "Presiona {ctrl} + {r} para {reload}",
@@ -180,7 +181,8 @@
   },
   "appPassThrough": {
     "noAppsFound": "No se encontraron aplicaciones",
-    "noOutputSelected": "Tienes que tener seleccionada una aplicación de salida"
+    "noOutputSelected": "Tienes que tener seleccionada una aplicación de salida",
+    "title": "Paso de la aplicación"
   },
   "search": {
     "typeToSearch": "Escribe para buscar",
@@ -190,7 +192,9 @@
     "playSelected": "{shift} + {enter} para reproducir el sonido seleccionado"
   },
   "sort": {
-    "title": "Ordenar"
+    "title": "Ordenar",
+    "modifiedAscending": "Orden ascendente modificado",
+    "modifiedDescending": "Orden descendente modificado"
   },
   "systemInfo": {
     "title": "Información del sistema",
