@@ -1,1 +1,219 @@
-{}
+{
+  "welcome": {
+    "title": "Bem vindo ao {programName}",
+    "linuxDetected": "Detetamos que está no Linux.",
+    "noTabs": "Nenhuma guia está aberta. Abra uma clicando em {addTab} no lado direito",
+    "linuxGuide1": "Para tocar sons, basta selecionar a aplicação de saída no canto superior direito.",
+    "linuxGuide2": "Não precisa mudar o aparelho de entrada ou saída em nenhum lugar.",
+    "windowsDetected": "Detetamos que está no Windows.",
+    "windowsGuide1": "Lembre-se de seguir as etapas de instalação {seenOnWebsite}",
+    "windowsGuide2": "como visto em nossa website"
+  },
+  "tray": {
+    "exit": "Fechar",
+    "show": "Mostrar janela",
+    "hide": "Esconder janela"
+  },
+  "hotkeys": {
+    "hotkey": "Atalho",
+    "title": "Defina um atalho",
+    "setFor": "Defina um atalho para {soundName}"
+  },
+  "downloader": {
+    "eta": "ETA",
+    "cancelDownload": "Cancelar Download",
+    "startDownload": "Começar Download",
+    "close": "Fechar",
+    "title": "Descarregador",
+    "notAvailable": "{youtube-dl} e/ou {ffmpeg} não está instalado",
+    "installNow": "Instalar agora",
+    "placeholder": "Insira uma ligação",
+    "progress": "Progresso",
+    "converting": "Convertendo",
+    "success": "Descarregado com sucesso: {title}"
+  },
+  "errors": {
+    "4": "Falha ao resumir",
+    "0": "Falha ao tocar",
+    "1": "Falha ao procurar",
+    "2": "Falha ao pausar",
+    "3": "Falha ao repetir",
+    "5": "Falha ao mover sink",
+    "6": "Som não encontrado",
+    "7": "Pasta não existe",
+    "8": "Guia não existe",
+    "9": "Falha ao definir atalho",
+    "10": "Falha ao começar passthrough",
+    "11": "Falha ao voltar",
+    "12": "Falha ao mover para trás o passthrough",
+    "13": "Falha ao reverter a fonte padrão",
+    "14": "Falha ao definir a fonte padrão",
+    "15": "youtube-dl não encontrado",
+    "16": "URL invalido",
+    "17": "Falha ao analisar JSON do youtube-dl",
+    "18": "Falha desconhecida no youtube-dl",
+    "19": "Falha ao remover ficheiro",
+    "20": "Falha ao silenciar",
+    "21": "Falha ao definir volume customizado",
+    "error": "Erro",
+    "backendFunctionMissing": "Função do backend faltando: {functionName}"
+  },
+  "outputApp": "Aplicação de saída",
+  "outputDevice": "Aparelho de saída",
+  "actions": {
+    "refresh": "Recarregar",
+    "stop": "Parar",
+    "search": "Pesquisar",
+    "addTab": "Adicionar Guia",
+    "reloadSounds": "Recarregar",
+    "play": "Tocar",
+    "appPassThrough": "Passar Por",
+    "playlistMode": "Modo Playlist",
+    "yes": "Sim",
+    "no": "Não",
+    "on": "Ligado",
+    "off": "Desligado",
+    "shuffle": "Embaralhar",
+    "confirmation": "Confirmação",
+    "openFolder": "Abrir pasta",
+    "ignore": "Ignorar",
+    "dismiss": "Dispensar"
+  },
+  "removeTab": {
+    "question": "Gostaria de remover a guia {tabName}?"
+  },
+  "deleteSound": {
+    "delete": "Apagar",
+    "question": "Gostaria de apagar o som {soundName}?"
+  },
+  "empty": {
+    "nothingToShow": "Nada a mostrar",
+    "noSounds": "Nenhum som compatível foi encontrado na pasta {path}. As extensões com suporte são mp3, wav, flac",
+    "noFavorites": "Atualmente não tem favoritos, Favorite alguns sons para os exibir aqui"
+  },
+  "settings": {
+    "viewMode": {
+      "launchpadMode": "Emulação de Launchpad",
+      "title": "Modo de visualização",
+      "listView": "Vista de lista",
+      "gridView": "Visão de grade"
+    },
+    "title": "Configurações",
+    "tabHotkeysOnly": "Hotkeys somente para a guia aberta",
+    "allowOverlapping": "Permitir sobreposição de som",
+    "deleteToTrash": "Deletar para lixo",
+    "minimizeToTray": "Minimizar para bandeja do sistema",
+    "useAsDefaultDevice": "Usar como aparelho padrão",
+    "muteDuringPlayback": "Microfone mudo durante reprodução",
+    "theme": {
+      "title": "Tema",
+      "system": "Sistema",
+      "dark": "Escuro",
+      "light": "Claro"
+    },
+    "audioBackend": "Backend de audio",
+    "allowMultipleOutputs": "Permitir saída de áudio para múltiplos apps",
+    "stopHotkey": "Atalho de parar",
+    "pushToTalkKeys": "Atalho de aperte-para-falar",
+    "language": "Sobrepor língua"
+  },
+  "favorites": {
+    "title": "Favoritos",
+    "favorite": "Favorito"
+  },
+  "customVolume": {
+    "context": "Definir volume customizado",
+    "setFor": "Definir volume para {soundName}"
+  },
+  "noAudioBackend": {
+    "title": "Nenhum backend de áudio detectado",
+    "notDetected": "Não conseguimos detetar um backend de áudio suportado no seu sistema.",
+    "choose": "Por favor, escolha uma opção"
+  },
+  "input": {
+    "shift": "Shift",
+    "ctrl": "CTRL",
+    "enter": "Enter",
+    "leftClick": "Botão esquerdo do mouse",
+    "rightClick": "Botão direito do mouse",
+    "arrowKeys": "setas do teclado",
+    "space": "Espaço"
+  },
+  "help": {
+    "title": "Ajuda",
+    "search": {
+      "text": "Pressione {ctrl} + {f} para {search}",
+      "search": "pesquisar"
+    },
+    "play": {
+      "text": "{leftClick} para {play}",
+      "play": "tocar"
+    },
+    "options": {
+      "text": "{rightClick} para {moreOptions}",
+      "moreOptions": "mostrar mais opções"
+    },
+    "togglePlayback": {
+      "text": "Pressione {space} para {playPause}",
+      "playPause": "pausar/resumir os sons que estão tocando"
+    },
+    "appPassThrough": {
+      "text": "Pressione {ctrl} + {g} para {show}",
+      "show": "mostrar app de pass through"
+    },
+    "reloadSounds": {
+      "text": "Pressione {ctrl} + {r} para {reload}",
+      "reload": "recarregar a guia atual"
+    },
+    "supportUs": "Apoie-nos",
+    "visitOurWebsite": "Visite o nosso site",
+    "joinOurDiscord": "Junte-se ao nosso Discord",
+    "viewSourceCode": "Ver o código fonte"
+  },
+  "volume": {
+    "local": "Volume local",
+    "remote": "Volume remoto",
+    "sync": "Sincronizar volumes"
+  },
+  "appPassThrough": {
+    "title": "Pass through de app",
+    "noAppsFound": "Nenhum app encontrado",
+    "noOutputSelected": "Deve selecionar uma aplicação de saída"
+  },
+  "search": {
+    "typeToSearch": "Digite para pesquisar",
+    "noResultsFound": "Nenhum resultado encontrado",
+    "changeSelection": "Use as {arrowKeys} para mudar a seleção",
+    "jumpToSelected": "{enter} para pular ao som selecionado",
+    "playSelected": "{shift} + {enter} para tocar o som selecionado"
+  },
+  "sort": {
+    "title": "Classificar",
+    "modifiedAscending": "Modificado ascendendo",
+    "modifiedDescending": "Modificado descendendo",
+    "alphabeticalAscending": "Alfabético ascendendo",
+    "alphabeticalDescending": "Alfabético descendendo"
+  },
+  "update": {
+    "title": "Uma atualização está disponível!",
+    "yourVersion": "A sua versão",
+    "latestVersion": "Ultima versão",
+    "updateNow": "Atualizar agora",
+    "ignore": "Ignorar"
+  },
+  "systemInfo": {
+    "title": "Informações do sistema",
+    "description": "Anexe esta informação ao criar um relatório de erro",
+    "copyToClipboard": "Copiar para a área de transferência"
+  },
+  "windows": {
+    "detectedMisconfiguration": "Detectado um erro de configuração com o cabo VB-Cable",
+    "setUpNow": "Configurar agora",
+    "badConfiguration": "Configuração ruim detectada",
+    "virtualAudioCableMisconfiguration": "Detetamos que o seu Virtual Audio Cable não está configurado corretamente.",
+    "selectMic": "Por favor, Selecione o seu microfone e prossiga",
+    "automaticSetup": "Configuração automática",
+    "administrativePrivilegesNeeded": "Privilégios de administrador são necessários!",
+    "restartAsAdmin": "Reiniciar como administrador"
+  }
+}
