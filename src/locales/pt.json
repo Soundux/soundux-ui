@@ -21,8 +21,8 @@
   },
   "downloader": {
     "eta": "ETA",
-    "cancelDownload": "Cancelar Download",
-    "startDownload": "Começar Download",
+    "cancelDownload": "Cancelar descarga",
+    "startDownload": "Começar descarga",
     "close": "Fechar",
     "title": "Descarregador",
     "notAvailable": "{youtube-dl} e/ou {ffmpeg} não está instalado",
