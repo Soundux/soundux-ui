@@ -21,7 +21,9 @@
     "3": "Herhalen mislukt",
     "2": "Pauzeren mislukt",
     "1": "Zoeken mislukt",
-    "0": "Afspelen mislukt"
+    "0": "Afspelen mislukt",
+    "20": "Dempen mislukt",
+    "21": "Aangepast volume instellen mislukt"
   },
   "systemInfo": {
     "copyToClipboard": "Kopieer naar klembord",
@@ -97,7 +99,11 @@
       "search": "zoeken",
       "text": "Druk op {ctrl} + {f} om te {search}"
     },
-    "title": "Help"
+    "title": "Help",
+    "togglePlayback": {
+      "text": "Druk op {space} voor {playPause}",
+      "playPause": "pauseer/hervat de huidig afgespeelde geluiden"
+    }
   },
   "input": {
     "arrowKeys": "Pijltjestoetsen",
@@ -105,7 +111,8 @@
     "leftClick": "Linker muisknop",
     "enter": "Enter",
     "shift": "Shift",
-    "ctrl": "CTRL"
+    "ctrl": "CTRL",
+    "space": "Spatiebalk"
   },
   "hotkeys": {
     "setFor": "Stel sneltoets in voor {soundName}",
@@ -145,7 +152,8 @@
       "listView": "Lijst weergave",
       "title": "Weergave modus"
     },
-    "title": "Instellingen"
+    "title": "Instellingen",
+    "language": "Taal veranderen"
   },
   "favorites": {
     "favorite": "Favoriet",
@@ -175,7 +183,9 @@
     "reloadSounds": "Ververs",
     "search": "Zoeken",
     "stop": "Stop",
-    "refresh": "Ververs"
+    "refresh": "Ververs",
+    "ignore": "Negeren",
+    "dismiss": "Afwijzen"
   },
   "removeTab": {
     "question": "Weet je zeker dat je het {tabName} tabblad wilt verwijderen?"
@@ -191,5 +201,15 @@
     "linuxGuide1": "Selecteer rechtsboven een uitvoer applicatie om geluiden af te spelen.",
     "noTabs": "Er zijn momenteel geen tabbladen. Voeg er een toe door aan de rechterkant op {addTab} te klikken",
     "title": "Welkom bij {programName}"
+  },
+  "customVolume": {
+    "context": "Stel aangepast volume in",
+    "setFor": "Stel volume in voor {soundName}"
+  },
+  "windows": {
+    "badConfiguration": "Onjuiste configuratie gedetecteerd",
+    "selectMic": "Selecteer alstublieft uw microfoon en ga verder",
+    "administrativePrivilegesNeeded": "Administrator rechten vereist!",
+    "restartAsAdmin": "Herstart als administrator"
   }
 }
