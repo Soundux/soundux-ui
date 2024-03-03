@@ -83,8 +83,8 @@
     "pushToTalkKeys": "Режим рации (Горячая клавиша)"
   },
   "actions": {
-    "reloadSounds": "Обновить",
-    "addTab": "Добавить папку",
+    "reloadSounds": "Перезапустить",
+    "addTab": "Добавить вкладку",
     "search": "Поиск",
     "stop": "Остановить",
     "refresh": "Обновить",
@@ -98,7 +98,7 @@
     "no": "Нет",
     "yes": "Да",
     "playlistMode": "Режим плейлиста",
-    "play": "Проиграть",
+    "play": "Играть",
     "appPassThrough": "Перенаправление"
   },
   "welcome": {
