@@ -56,7 +56,7 @@
     "addTab": "Adicionar Aba",
     "search": "Pesquisar",
     "stop": "Parar",
-    "refresh": "Recarregar",
+    "refresh": "Atualizar",
     "dismiss": "Dispensar",
     "ignore": "Ignorar"
   },
@@ -212,7 +212,7 @@
     "context": "Definir volume customizado"
   },
   "tray": {
-    "exit": "Fechar",
+    "exit": "Sair",
     "hide": "Esconder janela",
     "show": "Mostrar janela"
   }
