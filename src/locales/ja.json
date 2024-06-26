@@ -1,1 +1,52 @@
-{}
+{
+  "welcome": {
+    "title": "{programName}へようこそ",
+    "noTabs": "タブがありません。右側の{addTab}をクリックして追加してください",
+    "linuxDetected": "Linuxを使用していることを検知しました。",
+    "linuxGuide1": "サウンドを再生するには、右上の出力アプリケーションを選択するだけです。",
+    "linuxGuide2": "入出力デバイスを選択する必要はありません。",
+    "windowsGuide1": "必ず{seenOnWebsite}のインストール手順に従ってください",
+    "windowsDetected": "Windowsを使用していることを検知しました。",
+    "windowsGuide2": "ウェブサイト"
+  },
+  "actions": {
+    "yes": "はい",
+    "no": "いいえ",
+    "on": "オン",
+    "off": "オフ",
+    "shuffle": "シャッフル",
+    "confirmation": "確認",
+    "openFolder": "フォルダを開く",
+    "ignore": "無視",
+    "dismiss": "却下",
+    "refresh": "更新",
+    "stop": "停止",
+    "search": "検索",
+    "addTab": "タブを追加",
+    "reloadSounds": "再読み込み",
+    "playlistMode": "プレイリストモード",
+    "play": "再生",
+    "appPassThrough": "パススルー"
+  },
+  "removeTab": {
+    "question": "{tabName}を削除しますか?"
+  },
+  "deleteSound": {
+    "delete": "削除",
+    "question": "{soundName}を削除しますか?"
+  },
+  "empty": {
+    "nothingToShow": "表示するものがない",
+    "noSounds": "対応している音声ファイルが{path}に見つかりませんでした。対応している音声ファイルの拡張子はmp3とwavとflacです",
+    "noFavorites": "現在お気に入り登録された音声はありません。何かをお気に入り登録してください"
+  },
+  "favorites": {
+    "title": "お気に入り",
+    "favorite": "お気に入り"
+  },
+  "settings": {
+    "title": "設定"
+  },
+  "outputApp": "出力するアプリ",
+  "outputDevice": "出力するデバイス"
+}
