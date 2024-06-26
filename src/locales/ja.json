@@ -45,8 +45,118 @@
     "favorite": "お気に入り"
   },
   "settings": {
-    "title": "設定"
+    "title": "設定",
+    "tabHotkeysOnly": "現在のタブのみのホットキー",
+    "viewMode": {
+      "title": "ビューモード",
+      "listView": "リスト表示",
+      "gridView": "グリッド表示",
+      "launchpadMode": "仮想ランチパッド"
+    },
+    "allowOverlapping": "音を重ねるのを許可する",
+    "deleteToTrash": "ゴミ箱へ削除",
+    "minimizeToTray": "システムトレイへ最小化",
+    "useAsDefaultDevice": "デフォルトデバイスとして使う",
+    "muteDuringPlayback": "サウンドを再生中はマイクをミュートする",
+    "theme": {
+      "title": "テーマ",
+      "system": "システム",
+      "dark": "ダーク",
+      "light": "ライト"
+    },
+    "audioBackend": "オーディオバックエンド",
+    "allowMultipleOutputs": "複数の出力アプリを許可する",
+    "stopHotkey": "停止ホットキー",
+    "pushToTalkKeys": "プッシュトゥートークキー",
+    "language": "言語の上書き"
   },
   "outputApp": "出力するアプリ",
-  "outputDevice": "出力するデバイス"
+  "outputDevice": "出力するデバイス",
+  "help": {
+    "reloadSounds": {
+      "text": "{ctrl}と{r}を押して再読み込み",
+      "reload": "現在のタブを再読み込みする"
+    },
+    "supportUs": "私達をサポートする",
+    "title": "ヘルプ",
+    "search": {
+      "text": "{ctrl}と{f}を押して{search}",
+      "search": "検索"
+    },
+    "play": {
+      "text": "{leftClick}で{play}",
+      "play": "再生"
+    },
+    "options": {
+      "text": "{rightClick}で{moreOptions}",
+      "moreOptions": "更にオプションを表示"
+    },
+    "togglePlayback": {
+      "text": "{space}を押して{playPause}",
+      "playPause": "再生中のサウンドを一時停止/再開する"
+    },
+    "appPassThrough": {
+      "text": "{ctrl}と{g}を押して{show}",
+      "show": "アプリのパススルーを表示"
+    },
+    "visitOurWebsite": "私達のウェブサイトを見る",
+    "joinOurDiscord": "私達のDiscordに参加",
+    "viewSourceCode": "ソースコードを見る"
+  },
+  "appPassThrough": {
+    "title": "アプリパススルー",
+    "noAppsFound": "アプリが見つかりませんでした",
+    "noOutputSelected": "出力するアプリケーションを選択する必要があります"
+  },
+  "search": {
+    "jumpToSelected": "{enter}で現在選択されているサウンドに移動",
+    "typeToSearch": "入力して検索",
+    "noResultsFound": "検索結果がありませんでした",
+    "changeSelection": "{arrowKeys}で選択を変更",
+    "playSelected": "{shift}と{enter}で選択されているサウンドを再生"
+  },
+  "sort": {
+    "modifiedAscending": "追加日時(昇順)",
+    "alphabeticalAscending": "アルファベット順(昇順)",
+    "title": "並び方",
+    "modifiedDescending": "追加日時(降順)",
+    "alphabeticalDescending": "アルファベット順(降順)"
+  },
+  "tray": {
+    "show": "ウィンドウを表示する",
+    "hide": "ウィンドウを非表示",
+    "exit": "終了"
+  },
+  "customVolume": {
+    "context": "カスタム音量を設定",
+    "setFor": "{soundName}の音量を設定"
+  },
+  "noAudioBackend": {
+    "title": "オーディオバックエンドが見つかりません",
+    "notDetected": "お使いのシステムでサポートされているオーディオバックエンドが検出されませんでした。",
+    "choose": "以下から選んでください"
+  },
+  "hotkeys": {
+    "title": "ホットキーを設定",
+    "hotkey": "ホットキー",
+    "setFor": "{soundName}にホットキーを設定"
+  },
+  "input": {
+    "ctrl": "CTRL",
+    "shift": "Shift",
+    "enter": "Enter",
+    "leftClick": "左クリック",
+    "rightClick": "右クリック",
+    "arrowKeys": "矢印キー",
+    "space": "スペース"
+  },
+  "volume": {
+    "local": "ローカル音量",
+    "remote": "リモート音量",
+    "sync": "音量を同期する"
+  },
+  "downloader": {
+    "title": "ダウンローダー",
+    "notAvailable": "{youtube-dl}と(もしくは){ffmpeg}がインストールされていません"
+  }
 }
