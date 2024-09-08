@@ -1,1 +1,73 @@
-{}
+{
+  "welcome": {
+    "noTabs": "目前这里没有标签页。点击右边的 {addTab} 来添加一个",
+    "title": "欢迎来到 {programName}",
+    "linuxDetected": "我们检测到你在使用 Linux。",
+    "linuxGuide1": "要播放声音你只需要选择右上角的输出应用程序。",
+    "linuxGuide2": "你无需在任何地方更改输入或输出设备。",
+    "windowsDetected": "我们检测到你在使用 Windows。",
+    "windowsGuide1": "请确保遵循安装步骤 {seenOnWebsite}",
+    "windowsGuide2": "如我们网站上所示"
+  },
+  "outputApp": "输出应用程序",
+  "outputDevice": "输出设备",
+  "actions": {
+    "refresh": "刷新",
+    "stop": "停止",
+    "search": "搜索",
+    "addTab": "添加标签页",
+    "reloadSounds": "重新加载",
+    "play": "播放",
+    "playlistMode": "播放列表模式",
+    "yes": "是",
+    "no": "否",
+    "on": "开",
+    "off": "关",
+    "shuffle": "乱序播放",
+    "confirmation": "确认",
+    "openFolder": "打开文件夹",
+    "ignore": "忽略",
+    "dismiss": "不理会"
+  },
+  "removeTab": {
+    "question": "你要移除标签页 {tabName} 吗？"
+  },
+  "deleteSound": {
+    "delete": "删除",
+    "question": "你要删除声音 {soundName} 吗？"
+  },
+  "empty": {
+    "nothingToShow": "没有东西可以展示",
+    "noSounds": "在文件夹 {path} 中找不到兼容的声音。支持的文件格式是 mp3、wav、flac",
+    "noFavorites": "目前你没有收藏，点击爱心把声音收藏到这里"
+  },
+  "favorites": {
+    "title": "收藏",
+    "favorite": "收藏"
+  },
+  "settings": {
+    "title": "设置",
+    "viewMode": {
+      "title": "视图模式",
+      "listView": "列表视图",
+      "gridView": "方格视图",
+      "launchpadMode": "模拟 Launchpad"
+    },
+    "allowOverlapping": "允许声音重叠",
+    "deleteToTrash": "删除到回收站",
+    "minimizeToTray": "最小化到系统托盘",
+    "useAsDefaultDevice": "用作默认设备",
+    "muteDuringPlayback": "播放时静音麦克风",
+    "theme": {
+      "title": "主题",
+      "system": "系统",
+      "dark": "暗",
+      "light": "亮"
+    },
+    "audioBackend": "音频后端",
+    "allowMultipleOutputs": "允许多个输出应用",
+    "stopHotkey": "停止热键",
+    "pushToTalkKeys": "按键通话键",
+    "tabHotkeysOnly": "热键仅用于当前标签页"
+  }
+}
