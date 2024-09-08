@@ -27,7 +27,8 @@
     "confirmation": "确认",
     "openFolder": "打开文件夹",
     "ignore": "忽略",
-    "dismiss": "不理会"
+    "dismiss": "不理会",
+    "appPassThrough": "透传"
   },
   "removeTab": {
     "question": "你要移除标签页 {tabName} 吗？"
@@ -68,6 +69,149 @@
     "allowMultipleOutputs": "允许多个输出应用",
     "stopHotkey": "停止热键",
     "pushToTalkKeys": "按键通话键",
-    "tabHotkeysOnly": "热键仅用于当前标签页"
+    "tabHotkeysOnly": "热键仅用于当前标签页",
+    "language": "语言覆盖"
+  },
+  "tray": {
+    "show": "显示窗口",
+    "hide": "隐藏窗口",
+    "exit": "退出"
+  },
+  "noAudioBackend": {
+    "title": "未找到音频后端",
+    "notDetected": "我们无法在你的系统找到一个支持的音频后端。",
+    "choose": "在下面选择一个"
+  },
+  "customVolume": {
+    "context": "设置自定义音量",
+    "setFor": "为 {soundName} 设置音量"
+  },
+  "hotkeys": {
+    "title": "设置热键",
+    "hotkey": "热键",
+    "setFor": "为 {soundName} 设置热键"
+  },
+  "input": {
+    "ctrl": "CTRL",
+    "shift": "Shift",
+    "enter": "Enter",
+    "leftClick": "左点击",
+    "rightClick": "右点击",
+    "arrowKeys": "箭头键",
+    "space": "空格"
+  },
+  "help": {
+    "title": "帮助",
+    "search": {
+      "text": "按 {ctrl} + {f} 以 {search}",
+      "search": "搜索"
+    },
+    "play": {
+      "text": "{leftClick} 以 {play}",
+      "play": "播放"
+    },
+    "options": {
+      "text": "{rightClick} 以 {moreOptions}",
+      "moreOptions": "显示更多选项"
+    },
+    "togglePlayback": {
+      "text": "按 {space} 以 {playPause}",
+      "playPause": "暂停/继续当前播放的声音"
+    },
+    "appPassThrough": {
+      "text": "按 {ctrl} + {g} 以 {show}",
+      "show": "显示应用透传"
+    },
+    "reloadSounds": {
+      "text": "按 {ctrl} + {r} 以 {reload}",
+      "reload": "重新加载当前标签页"
+    },
+    "supportUs": "支持我们",
+    "visitOurWebsite": "访问我们的网站",
+    "joinOurDiscord": "加入我们的 Discord",
+    "viewSourceCode": "查看源码"
+  },
+  "volume": {
+    "local": "本地音量",
+    "remote": "远程音量",
+    "sync": "同步音量"
+  },
+  "appPassThrough": {
+    "title": "应用透传 (pass through)",
+    "noAppsFound": "未找到应用",
+    "noOutputSelected": "你必须选择一个输出应用程序"
+  },
+  "search": {
+    "typeToSearch": "输入以搜索",
+    "noResultsFound": "未找到结果",
+    "changeSelection": "{arrowKeys} 以更改选择",
+    "jumpToSelected": "{enter} 以跳转到当前选择的声音",
+    "playSelected": "{shift} + {enter} 以播放当前选择的声音"
+  },
+  "sort": {
+    "title": "排序",
+    "modifiedAscending": "修改升序",
+    "modifiedDescending": "修改降序",
+    "alphabeticalAscending": "字母升序",
+    "alphabeticalDescending": "字母降序"
+  },
+  "downloader": {
+    "success": "成功地下载了: {title}",
+    "close": "关闭",
+    "notAvailable": "{youtube-dl} 和/或 {ffmpeg} 未安装",
+    "title": "下载器",
+    "installNow": "现在安装",
+    "startDownload": "开始下载",
+    "placeholder": "输入一个连接",
+    "progress": "进度",
+    "cancelDownload": "取消下载",
+    "converting": "正在转换",
+    "eta": "预计到达时间"
+  },
+  "update": {
+    "title": "一个更新可用！",
+    "yourVersion": "你的版本",
+    "latestVersion": "最新版本",
+    "updateNow": "现在更新",
+    "ignore": "忽略"
+  },
+  "systemInfo": {
+    "title": "系统信息",
+    "description": "创建错误报告时附上这个信息",
+    "copyToClipboard": "复制到剪切板"
+  },
+  "windows": {
+    "detectedMisconfiguration": "检测到一个 VB-Cable 配置错误",
+    "setUpNow": "现在设置",
+    "badConfiguration": "检测到坏的配置",
+    "virtualAudioCableMisconfiguration": "我们检测到你未正确设置 Virtual Audio Cable。",
+    "selectMic": "请选择你的麦克风并继续",
+    "automaticSetup": "自动设置",
+    "administrativePrivilegesNeeded": "需要管理员权限！",
+    "restartAsAdmin": "以管理员身份重新运行"
+  },
+  "errors": {
+    "1": "快进失败",
+    "2": "暂停失败",
+    "3": "重复失败",
+    "0": "播放失败",
+    "4": "继续失败",
+    "5": "移动到 sink （输出设备）失败",
+    "6": "未找到声音",
+    "7": "文件夹不存在",
+    "8": "标签页不存在",
+    "9": "设置热键失败",
+    "10": "启动透传失败",
+    "13": "恢复为默认源（输入设备）失败",
+    "14": "设置默认源（输入设备）失败",
+    "15": "未找到 youtube-dl",
+    "16": "无效的 URL",
+    "17": "分析 youtube-dl JSON 失败",
+    "18": "未知的 youtube-dl 失败",
+    "19": "删除文件失败",
+    "20": "静音失败",
+    "21": "设置自定义音量失败",
+    "error": "错误",
+    "backendFunctionMissing": "后端功能缺失: {functionName}"
   }
 }
