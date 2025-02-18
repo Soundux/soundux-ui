@@ -12,7 +12,7 @@
   "outputApp": "Ulostulo-ohjelma",
   "outputDevice": "Ulostulolaite",
   "actions": {
-    "refresh": "Päivitä",
+    "refresh": "Virkistä",
     "play": "Toista",
     "appPassThrough": "Läpivienti",
     "playlistMode": "Soittolistatila",
