@@ -27,7 +27,7 @@
   },
   "actions": {
     "addTab": "Προσθήκη καρτέλας",
-    "reloadSounds": "Ανανέωση",
+    "reloadSounds": "Επαναφόρτωση",
     "play": "Αναπαραγωγή",
     "stop": "Διακοπή",
     "search": "Αναζήτηση",
@@ -160,7 +160,7 @@
     "rightClick": "Δεξί κλικ",
     "leftClick": "Αριστερό κλικ",
     "enter": "Enter",
-    "space": "Space"
+    "space": "Κενό"
   },
   "update": {
     "title": "Μία ενημέρωση είναι διαθέσιμη!",
