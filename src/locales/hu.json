@@ -1,5 +1,218 @@
 {
   "welcome": {
-    "title": "Üdvözöljük a {programName}ban"
+    "title": "Üdvözöljük a {programName}ban",
+    "noTabs": "Jelenleg nincs egyetlen megnyitott oldal sem. Hozzon létre egyet a(z) {addTab} megnyomásával(jobb oldalon)",
+    "linuxDetected": "Észrevettük, hogy Linuxon vagy.",
+    "linuxGuide1": "A hangok lejátszásához ki kell választanod a kimenő alkalmazást a jobb felső sarokban.",
+    "linuxGuide2": "Nem kell változtatnod a ki- és bemenő eszközeidet.",
+    "windowsDetected": "Észrevettük, hogy Windowson vagy.",
+    "windowsGuide1": "Kövesd a telepítés lépéseit {seenOnWebsite}",
+    "windowsGuide2": "ahogy a weboldalon található"
+  },
+  "outputApp": "Kimenő alkalmazás",
+  "outputDevice": "Kimenő eszköz",
+  "actions": {
+    "refresh": "Frissítés",
+    "stop": "Stop",
+    "search": "Keresés",
+    "addTab": "Új ablak",
+    "reloadSounds": "Újratöltés",
+    "play": "Lejátszás",
+    "appPassThrough": "Átadás",
+    "playlistMode": "Lejátszási lista mód",
+    "yes": "Igen",
+    "no": "Nem",
+    "on": "Be",
+    "off": "Ki",
+    "shuffle": "Keverés",
+    "confirmation": "Megerősítés",
+    "openFolder": "Mappa megnyitása",
+    "ignore": "Ignorálás"
+  },
+  "removeTab": {
+    "question": "Biztosan szeretnéd törölni a(z) {tabName} ablakot?"
+  },
+  "deleteSound": {
+    "delete": "Törlés",
+    "question": "Biztosan szeretnéd törölni a(z) {soundName} hangot?"
+  },
+  "empty": {
+    "nothingToShow": "Nincs itt semmi",
+    "noSounds": "Nincsenek kompatibilis hangok a {path} útvonalon. Támogatott fájlformátumok: mp3, waw, flac",
+    "noFavorites": "Jelenleg nincs egyetlen kedvenced sem. Jelölj be egy-kettő hangot kedvencnek, hogy itt megjelenhessenek"
+  },
+  "favorites": {
+    "title": "Kedvencek",
+    "favorite": "Kedvenc"
+  },
+  "settings": {
+    "title": "Beállítások",
+    "tabHotkeysOnly": "Gyorsgombok csak erre az ablakra",
+    "viewMode": {
+      "title": "Megjelenítési mód",
+      "listView": "Listás",
+      "gridView": "Kockás",
+      "launchpadMode": "Emulált indító"
+    },
+    "allowOverlapping": "Hangátfedés engedélyezése",
+    "deleteToTrash": "Kukába helyezés",
+    "minimizeToTray": "Asztalra rakás",
+    "useAsDefaultDevice": "Használat alapértelmezett eszközként",
+    "muteDuringPlayback": "Mikrofon lenémítása a lejátszás közben",
+    "theme": {
+      "title": "Téma",
+      "system": "Rendszer",
+      "dark": "Sötét mód",
+      "light": "Világos mód"
+    },
+    "audioBackend": "Audió backend",
+    "allowMultipleOutputs": "Több kimenő alkalmazás engedélyezése",
+    "stopHotkey": "Állj gyorsgomb",
+    "pushToTalkKeys": "Push-to-talk gombok",
+    "language": "Nyelv felülírása"
+  },
+  "tray": {
+    "show": "Ablak mutatása",
+    "hide": "Ablak elrejtése",
+    "exit": "Kilépés"
+  },
+  "customVolume": {
+    "context": "Egyedi hangerő beállítása",
+    "setFor": "Hangerő beállítása a(z) {soundName} hanghoz"
+  },
+  "noAudioBackend": {
+    "title": "Audió backend nem található",
+    "notDetected": "Az audió backend keresés során nem találtunk semmit a rendszereden, amit lehetne használni.",
+    "choose": "Kérem válasszon az alábbiak közül"
+  },
+  "hotkeys": {
+    "title": "Gyorsgomb beállítása",
+    "hotkey": "Gyorsgomb",
+    "setFor": "Gyorsgomb beállítása a(z) {soundName} hanghoz"
+  },
+  "input": {
+    "ctrl": "CTRL",
+    "shift": "Shift",
+    "enter": "Enter",
+    "leftClick": "Bal egérgomb",
+    "rightClick": "Jobb egérgomb",
+    "arrowKeys": "Nyilak",
+    "space": "Szóköz"
+  },
+  "help": {
+    "title": "Segítség",
+    "search": {
+      "text": "Nyomja meg a {ctrl} + {f} billentyűket a kereséshez",
+      "search": "keresés"
+    },
+    "play": {
+      "text": "Nyomja meg a {leftClick}ot a {play}hoz",
+      "play": "lejátszás"
+    },
+    "options": {
+      "text": "{rightClick} a {moreOptions}hoz",
+      "moreOptions": "tulajdonságok"
+    },
+    "togglePlayback": {
+      "text": "Nyomja meg a {space}t a szüneteltetéshez",
+      "playPause": "szüneteltetés/lejátszás"
+    },
+    "appPassThrough": {
+      "text": "Nyomja meg a {ctrl} + {g} billentyűket az {show}hoz",
+      "show": "alkalmazás továbbítás mutatása"
+    },
+    "reloadSounds": {
+      "text": "Nyomja meg a {ctrl} + {r} billentyűket az {reload}hez",
+      "reload": "újratöltés"
+    },
+    "supportUs": "Támogasson minket",
+    "visitOurWebsite": "Látogassa meg weboldalunkat",
+    "joinOurDiscord": "Csatlakozzon Discord szerverünkre",
+    "viewSourceCode": "Forráskód megtekintése"
+  },
+  "volume": {
+    "local": "Helyi hang",
+    "remote": "Külső hang",
+    "sync": "Hangerők szinkronizálása"
+  },
+  "appPassThrough": {
+    "title": "alkalmazás továbbítás",
+    "noAppsFound": "Nem található alkalmazás",
+    "noOutputSelected": "Válasszon ki minimum egy kimenő alkalmazást"
+  },
+  "search": {
+    "typeToSearch": "Írjon a kereséshez",
+    "noResultsFound": "Nincs találat",
+    "changeSelection": "{arrowKeys}al tud váltani a kiválasztottak között",
+    "jumpToSelected": "Nyomja meg az {enter}t a kiválasztott hanghoz ugráshoz",
+    "playSelected": "Nyomja meg a {shift} + {enter}t a kiválaszott hang lejátszásához"
+  },
+  "sort": {
+    "title": "Rendezés",
+    "modifiedAscending": "Növekvő",
+    "modifiedDescending": "Csökkenő",
+    "alphabeticalAscending": "A-tól Z-ig",
+    "alphabeticalDescending": "Z-től A-ig"
+  },
+  "downloader": {
+    "title": "Letöltő",
+    "notAvailable": "{youtube-dl} és/vagy {ffmpeg} nincs telepítve",
+    "installNow": "Telepítés most",
+    "placeholder": "Írja be a linket",
+    "progress": "Folyamat",
+    "converting": "Konvertálás",
+    "eta": "Előráthatólag ennyi idő:",
+    "cancelDownload": "Letöltés megszakítása",
+    "startDownload": "Letöltés",
+    "success": "{title} sikeresen letöltve",
+    "close": "Bezárás"
+  },
+  "update": {
+    "title": "Elérhető egy frissítés!",
+    "yourVersion": "Az ön verziója:",
+    "latestVersion": "A legújabb verzió:",
+    "updateNow": "Frissítés most",
+    "ignore": "Később"
+  },
+  "systemInfo": {
+    "title": "Rendszerinformáció",
+    "description": "Kérjük csatolja ezt a fájlt amikor hibajelentést végez",
+    "copyToClipboard": "Vágólapra másolás"
+  },
+  "windows": {
+    "detectedMisconfiguration": "Hibás konfiguráció a VB kábellel",
+    "setUpNow": "Beállítás most",
+    "badConfiguration": "Hibás konfiguráció érzékelve!",
+    "virtualAudioCableMisconfiguration": "Észrevettük, hogy a virtuális hangkábel nincs helyesen beállítva.",
+    "selectMic": "Kérjük válassza ki a mikrofonját a kezdéshez",
+    "automaticSetup": "Automatikus beállítás",
+    "administrativePrivilegesNeeded": "A feladat elvégzéséhez rendszergazdai jogosultság szükséges!",
+    "restartAsAdmin": "Újraindítás rendszergazdaként"
+  },
+  "errors": {
+    "0": "Hiba a lejátszáskor",
+    "1": "Hiba a keresés közben",
+    "2": "Hiba a szüneteltetéskor",
+    "3": "Hiba a újrajátszáskor",
+    "4": "Hiba a folyatáskor",
+    "5": "Hiba a kukába helyezéskor",
+    "6": "Hiba: A hang nem található",
+    "7": "Hiba: A mappa nem található",
+    "8": "Hiba: Az ablak nem létezik",
+    "9": "Hiba: Nem sikerült a gyorsgomb beállítása",
+    "10": "Hiba: Nem sikerült a továbbítás",
+    "11": "Hiba: Nem sikerült visszamenni",
+    "12": "Hiba: Nem sikerült visszaállítani a továbbítást",
+    "13": "Hiba: Nem sikerült a visszaállítás az eredeti forrásra",
+    "14": "Hiba: Nem sikerült az alapértelmezett forrásnak jelölés",
+    "15": "Hiba: Youtube-dl nem található",
+    "16": "Hibás URL",
+    "17": "Hiba: Nem sikerült elemezni a youtube-dl JSON fájlt",
+    "18": "Hiba: Ismeretlen youtube-dl hiba",
+    "19": "A fájl törlése sikertelen",
+    "20": "A némítás sikertelen",
+    "21": "Az egyedi hang beálíltása sikertelen",
+    "error": "Hiba",
+    "backendFunctionMissing": "Az alábbi háttéralkalmazás hiányzik: {functionName}"
   }
 }
