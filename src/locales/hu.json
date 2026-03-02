@@ -27,7 +27,8 @@
     "shuffle": "Keverés",
     "confirmation": "Megerősítés",
     "openFolder": "Mappa megnyitása",
-    "ignore": "Ignorálás"
+    "ignore": "Ignorálás",
+    "dismiss": "Elutasítás"
   },
   "removeTab": {
     "question": "Biztosan szeretnéd törölni a(z) {tabName} ablakot?"
