@@ -24,7 +24,7 @@
     "hotkey": "Skrót klawiszowy"
   },
   "welcome": {
-    "linuxGuide2": "Nie musisz zmieniać w żadnej aplikacji urządzenia wejścia lub wyjścia.",
+    "linuxGuide2": "Nie musisz nigdzie zmieniać swojego urządzenia wejścia lub wyjścia.",
     "linuxDetected": "Zauważyliśmy, że korzystasz z systemu operacyjnego Linux.",
     "noTabs": "Brak zakładek. Utwórz nową, klikając {addTab} po prawej stronie",
     "windowsGuide2": "znajdującymi się na naszej stronie",
@@ -40,7 +40,7 @@
   "empty": {
     "noSounds": "Brak kompatybilnych plików dźwiękowych w folderze {path}. Wspierane formaty plików to mp3, wav, flac",
     "nothingToShow": "Nie ma nic do pokazania",
-    "noFavorites": "Nie masz swoich ulubionych dźwięków. Wybierz kilka z nich, które chciałbyś tu umieścić"
+    "noFavorites": "Nie masz swoich ulubionych dźwięków. Polub kilka dźwięków żeby je tu wyświetlić"
   },
   "settings": {
     "minimizeToTray": "Zminimalizuj do paska systemowego",
@@ -53,7 +53,7 @@
       "light": "Jasny"
     },
     "title": "Ustawienia",
-    "tabHotkeysOnly": "Skróty klawiszowe tylko dla wybranej zakładki",
+    "tabHotkeysOnly": "Skróty klawiszowe dla aktualnej zakładki",
     "viewMode": {
       "title": "Tryb widoku",
       "listView": "Widok listy",
@@ -63,7 +63,7 @@
     "allowOverlapping": "Zezwól na nakładanie się dźwięków",
     "deleteToTrash": "Usuwając, przenoś pliki do kosza",
     "audioBackend": "Backend audio",
-    "allowMultipleOutputs": "Zezwól na wybranie wielu aplikacji wyjścia",
+    "allowMultipleOutputs": "Zezwól na wiele aplikacji wyjścia",
     "stopHotkey": "Skrót klawiszowy: Stop",
     "language": "Wymuś język",
     "pushToTalkKeys": "Skrót klawiszowy: Push-To-Talk"
@@ -78,7 +78,7 @@
     "exit": "Wyjdź"
   },
   "removeTab": {
-    "question": "Czy chcesz usunąć etykietę {tabName}?"
+    "question": "Czy chcesz usunąć zakładkę {tabName}?"
   },
   "outputApp": "Aplikacja wyjścia",
   "outputDevice": "Urządzenie wyjścia",
